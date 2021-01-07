@@ -8,7 +8,7 @@ const bodyParser = require("body-parser");
 require("dotenv").config();
 
 //-------------------------------- middleware------------------------------//
-app.use(express.static(path.resolve("./client/build")));
+app.use(express.static(path.resolve("./client/public")));
 //middleware for email alert
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 
 // path home
 app.get("*", (req, res) => {
-   res.sendFile(path.join(__dirname, '/client/build/index.html'));
+  res.sendFile(path.resolve("./client/public"));
 });
 
 //--------------------email sending functionality---------------------//
