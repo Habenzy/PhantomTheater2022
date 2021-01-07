@@ -1,28 +1,37 @@
 {
-   "name": "last_project",
-   "version": "1.0.0",
-   "description": "",
-   "main": "index.js",
-   "scripts": {
-      "start": "node server.js",
-      "test": "echo \"Error: no test specified\" && exit 1"
-   },
-   "keywords": [],
-   "author": "",
-   "license": "ISC",
-   "dependencies": {
-      "body-parser": "^1.19.0",
-      "bootstrap": "^4.5.3",
-      "dotenv": "^8.2.0",
-      "express": "^4.17.1",
-      "firebase": "^8.2.1",
-      "nodemailer": "^6.4.17",
-      "react-bootstrap": "^1.4.0",
-      "react-dom": "^17.0.1",
-      "react-phone-number-input": "^3.1.9",
-      "react-router": "^5.2.0"
-   },
-   "engines": {
-      "node": "12.15.0"
-   }
+  "name": "last_project",
+  "version": "1.0.0",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.5.3",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "firebase": "^8.2.1",
+    "nodemailer": "^6.4.17",
+    "react-bootstrap": "^1.4.0",
+    "react-dom": "^17.0.1",
+    "react-phone-number-input": "^3.1.9",
+    "react-router": "^5.2.0"
+  },
+  "engines": {
+    "node": "12.15.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phantomtheater/PhantomTheater2021.git"
+  },
+  "bugs": {
+    "url": "https://github.com/phantomtheater/PhantomTheater2021/issues"
+  },
+  "homepage": "https://github.com/phantomtheater/PhantomTheater2021#readme"
 }
