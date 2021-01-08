@@ -3,13 +3,12 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const port = process.env.PORT || 5000;
-const staticDir = process.env.DEV ? "./client/public" : "./client/build";
 const nodemailer = require("nodemailer");
 const bodyParser = require("body-parser");
 require("dotenv").config();
 
 //-------------------------------- middleware------------------------------//
-app.use(express.static(staticDir));
+app.use(express.static(path.resolve("./client/public")));
 //middleware for email alert
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
