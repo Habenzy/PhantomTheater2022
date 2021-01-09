@@ -6,7 +6,7 @@ import 'firebase/storage'
 
 //---------configure firebase--------
 const app =  firebase.initializeApp({
-   apiKey: 'AIzaSyBi_A_sbAYFbzySxXCEWpHmwcA8U8GH8Ao',
+   apiKey: 'process.env.FIREBASE_KEY',
    authDomain: 'phantom-database-ee13a.firebaseapp.com',
    databaseURL: 'https://phantom-database-ee13a.firebaseio.com',
    projectId: 'phantom-database-ee13a',
