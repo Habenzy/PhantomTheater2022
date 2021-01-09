@@ -26,7 +26,3 @@ firestore.settings({ timestampsInSnapshots: true });
 
 //------export the component---------
 export default app;
-
-
-
-
