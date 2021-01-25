@@ -3,6 +3,7 @@ import { firestore } from '../firebase/firebase'
 import { storage } from '../firebase/firebase';
 import { useHistory } from 'react-router-dom'
 import SingleProposal from './SingleProposal'
+import DeleteConfirm from './DeleteConfirm'
 
 // repetitive code that gets all ids and documents in a collection for .map
 const collectAllIdsAndDocs = doc => {
@@ -12,6 +13,9 @@ const collectAllIdsAndDocs = doc => {
 export default function AllProposals() {
 
    let [allProposals, setAllProposals] = useState(null)
+   const [modal, setModal] = useState("false")
+   const [showTitle, setShowTitle] = useState("")
+   const [showId, setShowId] = useState("")
    const history = useHistory()
 
    async function seeAllProposals() {
@@ -29,12 +33,25 @@ export default function AllProposals() {
    seeAllProposals()
 
 //delete function
-   async function handleDelete(id) {
-      console.log('delete function fired')
-      const allProposalIn = allProposals
-      await firestore.doc(`shows/${id}`).delete()
-      const newProposalIn = allProposalIn.filter(show => show.id !== id)
-      setAllProposals(newProposalIn)
+   async function handleDelete(id, title) {
+      console.log('delete function fired', id, title)
+      setModal("true")
+      setShowTitle(title)
+      setShowId(id)
+      console.log('delete function complete', id, title)
+   }
+
+   async function deleteProposal() {
+      console.log("Delete show Fired", showId)
+      const allShowsIn = allProposals
+      await firestore.doc(`shows/${showId}`).delete()
+      const newShowsIn = allShowsIn.filter(show => show.id !== showId)
+      setAllProposals(newShowsIn)
+      setModal('false')
+   }
+
+   async function handleClose() {
+      setModal('false')
    }
 
 //edit function
@@ -61,6 +78,17 @@ export default function AllProposals() {
             ></SingleProposal>
          }) : 'Loading'
          }
+         <div id='modal' style={{ visibility: modal === 'true' ? 'visible' : 'hidden' }} >
+            {/* <br />
+            <button id='closeButton' onClick={handleClose}>Close Window</button>
+            <br /> */}
+            <DeleteConfirm
+               closeModal={handleClose}
+               showTitle={showTitle}
+               confirmDelete={deleteProposal}
+
+            />
+         </div>
       </div>
    )
 }

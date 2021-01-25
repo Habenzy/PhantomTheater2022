@@ -8,7 +8,8 @@ import AddShow from "./AddShow";
 import "../formcss/dashBoard.css";
 
 function Dashboard() {
-  const [toggle, setToggle] = useState("shows");
+   const [toggle, setToggle] = useState("shows");
+  
 
   function editShow() {
     setToggle("shows");
@@ -20,7 +21,9 @@ function Dashboard() {
 
   function addShow() {
     setToggle("add");
-  }
+   }
+   
+   
 
   return (
     <div className="dash_board">
@@ -49,7 +52,11 @@ function Dashboard() {
             <AllProposals />
           )}
         </div>
-      </div>
+        </div>
+        
+       
+
+
     </div>
   );
 }
