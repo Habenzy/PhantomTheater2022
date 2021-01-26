@@ -42,7 +42,7 @@ export default function AllProposals() {
    }
 
    async function deleteProposal() {
-      console.log("Delete show Fired", showId)
+      console.log("Delete proposal Fired", showId)
       const allShowsIn = allProposals
       await firestore.doc(`shows/${showId}`).delete()
       const newShowsIn = allShowsIn.filter(show => show.id !== showId)
@@ -69,9 +69,9 @@ export default function AllProposals() {
                deleteThisShow={handleDelete}
                editThisShow={handleEdit}
                id={proposal.id}
-               // title={proposal.title}
+               title={`Title : ${proposal.title}`}
                artist= {`Artist: ${proposal.artist}`} 
-               // contactName={proposal.contactName}
+               contactName={proposal.contactName}
                phone={`Phone: ${proposal.phone}`}
                email={`Email:  ${proposal.email}`}
                description={proposal.description}
@@ -79,9 +79,7 @@ export default function AllProposals() {
          }) : 'Loading'
          }
          <div id='modal' style={{ visibility: modal === 'true' ? 'visible' : 'hidden' }} >
-            {/* <br />
-            <button id='closeButton' onClick={handleClose}>Close Window</button>
-            <br /> */}
+           
             <DeleteConfirm
                closeModal={handleClose}
                showTitle={showTitle}

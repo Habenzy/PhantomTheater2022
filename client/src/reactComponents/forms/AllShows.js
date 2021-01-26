@@ -85,9 +85,7 @@ function AllShows() {
          }
 
          <div id='modal' style={{ visibility: modal === 'true' ? 'visible' : 'hidden' }} >
-            {/* <br />
-            <button id='closeButton' onClick={handleClose}>Close Window</button>
-            <br /> */}
+           
             <DeleteConfirm
                closeModal={handleClose}
                showTitle={showTitle}

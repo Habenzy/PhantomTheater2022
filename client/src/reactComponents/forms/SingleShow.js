@@ -75,17 +75,15 @@ export default function SingleShow(props) {
                id="btnDelete"
                className="show_button"
                onClick={() => props.deleteThisShow(props.id, props.title)}
-            >
-               -Delete-
-        </button>
+            >-Delete-
+            </button>
 
             <button
                id="btnEdit"
                className="show_button"
                onClick={() => props.editThisShow(props.id)}
-            >
-               - Edit -
-        </button>
+            >- Edit -
+            </button>
          </div>
          {/* <button id='btnAddDates' className="show_button" onClick={() => props.addDatesThisShow(props.id) }> add Dates</button> */}
          <div className="line"></div>

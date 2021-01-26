@@ -1,38 +1,40 @@
 .single_show {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+   text-align: center;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   background-color: #1d2433;
+   color: white;
 }
 
 .single_show .blurb {
-  margin: 0px 100px;
+   margin: 0px 100px;
 }
 
 .show_button {
-  border: none;
-  background-color: #ffae57;
-  color: #1d2433;
-  width: 75px;
-  height: 35px;
+   border: none;
+   background-color: #ffae57;
+   color: #1d2433;
+   width: 75px;
+   height: 35px;
 }
 
 .show_button:hover {
-  transition: transform 0.3s ease-out;
-  transform: scale(1.1);
+   transition: transform 0.3s ease-out;
+   transform: scale(1.1);
 }
 
 .single_show h4 {
-  color: rgb(195, 247, 9);
+   color: rgb(195, 247, 9);
 }
 
 .single_show .line {
-  border: solid 1px;
-  border-color: #ffae57;
-  border-left: none;
-  border-right: none;
-  width: 60vw;
-  height: 5px;
-  margin-top: 15px;
-  margin-bottom: 30px;
+   border: solid 1px;
+   border-color: #ffae57;
+   border-left: none;
+   border-right: none;
+   width: 60vw;
+   height: 5px;
+   margin-top: 15px;
+   margin-bottom: 30px;
 }
