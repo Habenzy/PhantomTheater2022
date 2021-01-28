@@ -1,12 +1,61 @@
 //-----------------------------Imports---------------------------------------------------------------
-import React from "react";
+import React, { useState } from "react";
 import Image from "../images/barn3.jpeg";
 import Image2 from "../images/SarahRose.jpg";
 import "./Home.css";
+import { firestore } from '../firebase/firebase';
+import { storage } from '../firebase/firebase';
+
+
+// repetitive code that gets all ids and documents in a collection for .map
+const collectAllIdsAndDocs = doc => {
+   return { id: doc.id, ...doc.data() }
+}
+
 
 
 //------ Homepage component function with currently playing as central image and next show -----------
 function Home() {
+
+   let [allShows, setAllShows] = useState(null)
+
+
+
+
+   // print list of all shows
+   async function seeAllShows() {
+      // get all data from shows collection
+      const showsRef = firestore.collection('shows')
+      const showSnapshot = await showsRef.where('status', '==', 'Booked').get()
+
+      // create array of all shows
+      const allShowsArray = showSnapshot.docs.map(collectAllIdsAndDocs)
+      if (!allShows) {
+
+         setAllShows(allShowsArray)
+      }
+   }
+
+
+   async function loadHomePage() {
+      // get system date
+      let date = new Date()
+      console.log(date)
+
+      seeAllShows()
+      console.log('allShowsArray = ', allShows)
+
+
+
+
+
+
+
+
+   }
+
+   loadHomePage()
+
 
    return (
       <div className="homeContainer">
