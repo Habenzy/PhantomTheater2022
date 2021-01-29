@@ -1,6 +1,7 @@
 //-----------------------------Imports---------------------------------------------------------------
 import React, { useState } from "react";
 import Image from "../images/barn3.jpeg";
+import ImageH from "../images/barn3crop.jpg"
 import Image2 from "../images/SarahRose.jpg";
 import "./Home.css";
 import { firestore } from '../firebase/firebase';
@@ -45,16 +46,19 @@ function Home() {
       seeAllShows()
       console.log('allShowsArray = ', allShows)
 
-
-
-
-
-
-
-
+      allShows.forEach(show => {
+         console.log(show.id, show.dates[0])
+      })
    }
 
+
+
+
+
    loadHomePage()
+ 
+   
+
 
 
    return (
