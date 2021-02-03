@@ -19,20 +19,19 @@ const collectAllIdsAndDocs = doc => {
 function Home() {
 
    let [allShows, setAllShows] = useState(null)
-
-
-
+   let [currentShow1, setCurrentShow1] = useState(null)
+   let [currentShow2, setCurrentShow2] = useState(null)
 
    // print list of all shows
-   async function seeAllShows() {
+   async function seeAllShows(dateIn) {
       // get all data from shows collection
       const showsRef = firestore.collection('shows')
       const showSnapshot = await showsRef.where('status', '==', 'Booked').get()
 
-      // create array of all shows
+      // create array of all Booked shows
       const allShowsArray = showSnapshot.docs.map(collectAllIdsAndDocs)
-      if (!allShows) {
 
+      if (!allShows) {
          setAllShows(allShowsArray)
       }
    }
@@ -40,26 +39,25 @@ function Home() {
 
    async function loadHomePage() {
       // get system date
-      let date = new Date()
+      let date = "2020-07-01T00:00"
       console.log(date)
 
-      seeAllShows()
-      console.log('allShowsArray = ', allShows)
+      await seeAllShows(date)
 
-      allShows.forEach(show => {
-         console.log(show.id, show.dates[0])
-      })
+
+      let currentShows = await allShows.filter(show => show.dates[0] >= date)
+      currentShows.sort(function (a, b) {
+         return new Date(a.dates[0]) - new Date(b.dates[0]);
+      }); 
+      
+      setCurrentShow1(currentShows[0])
+      setCurrentShow2(currentShows[1])
+    
+      console.log('current 1 =', currentShow1.title)
+      console.log('current 2 =', currentShow2.title)
    }
 
-
-
-
-
    loadHomePage()
- 
-   
-
-
 
    return (
       <div className="homeContainer">
