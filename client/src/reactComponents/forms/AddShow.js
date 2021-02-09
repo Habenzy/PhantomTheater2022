@@ -126,6 +126,7 @@ function AdminForm() {
          largeRef.getDownloadURL().then((url) => {
             console.log(url);
             setImageLg(url);
+            
          });
       });
    };
