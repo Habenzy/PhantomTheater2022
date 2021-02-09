@@ -33,34 +33,40 @@
    width: 100%;
    height: auto;
    object-fit: cover;
-   }
+}
 
-.currentPlayText h3 {
+.currentPlayText {
    color: white;
    text-align: left;
    text-shadow: 2px 2px 1px black;
 }
 
-.currentPlayText p {
+/* .currentPlayText p {
    font-size: 20pt;
-}
+} */
 
 /*------------------------ next playing image and text styling------------------------ */
 
 .whatNext {
    display: flex;
    flex-direction: column;
+   
+   width: 20vw;
+   height: auto;
    position: absolute;
-   text-align: right;
+ 
 }
 
-.whatNext img {
-   width: 70%;
-   height: auto;
+.whatNextImg {
+  
+   width: 20vw
 }
+
+
 
 .whatNextText {
    color: white;
+   text-align: right;
 }
 
 /* ------------------------ Positioning footer------------------------------------------ */
