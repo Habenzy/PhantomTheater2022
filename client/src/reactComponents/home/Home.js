@@ -68,21 +68,17 @@ function Home() {
    seeAllShows()
    function changeDate(date) {
       //------- changing the military time string to normal tim
-
       let newTime;
       ///sepparating the string at the T.
       let dateFix = date.split("T");
-
-
-      // console.log(dateFix);
+     
       let startDate = dateFix[0];
       let year = startDate.split("-")[0];
       let month = startDate.split("-")[1];
       let day = startDate.split("-")[2];
 
       let endDate = month + "/" + day + "/" + year;
-      // console.log(endDate);
-
+    
       /// targetting second item of the dateFix array (which is the time)
       let time = dateFix[1];
       // hours is the first index item of the time array which was split at the :
@@ -97,9 +93,7 @@ function Home() {
          // otherwise the time will just print the number if it is lower than 12
          newTime = hours + ":" + minutes;
       }
-
       let finalDate = endDate + " " + newTime;
-
       return finalDate;
    }
 
@@ -143,8 +137,7 @@ function Home() {
                {splashShowNum >= 6 ? <br /> : console.log()}
                {splashShowNum >= 6 ? changeDate(splashDates[5]) : console.log()}
 
-               {/* <p>{`${splashDates}`}</p> */}
-               {/* <p>07/25/2020</p> */}
+              
             </div>
          </div>
 
@@ -165,7 +158,7 @@ function Home() {
                {nextShowNum >= 5 ? changeDate(nextDates[4]) : console.log()}
                {nextShowNum >= 6 ? <br /> : console.log()}
                {nextShowNum >= 6 ? changeDate(nextDates[5]) : console.log()}
-               {/* <p>{`${nextDates[0]}`}</p> */}
+              
             </div>
          </div>
       </div>
