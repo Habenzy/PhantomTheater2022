@@ -11,8 +11,8 @@ function Footer() {
   return (
     <div className="footer">
       <div className="social_images">
-        <a href="https://www.facebook.com/Phantom-Theater-1730271753886842/?ref=page_internal"><img className='social' src={Facebook} /></a>
-        <a href="https://www.instagram.com/phantomtheater/"><img className='social' id="insta" src={Instagram} /></a>
+        <a href="https://www.facebook.com/Phantom-Theater-1730271753886842/?ref=page_internal"><img className='social' src={Facebook} alt=''/></a>
+        <a href="https://www.instagram.com/phantomtheater/"><img className='social' id="insta" src={Instagram} alt=''/></a>
       </div>
         {/* <div className="footerLinks"><Link to='/ProposalForm'>Submit a Show Proposal</Link></div> */}
         <div className="footerLinks"><Link to='/'>Submit a Show Proposal</Link></div>
