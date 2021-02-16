@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Form, Button, Card, Container } from "react-bootstrap";
 import app, { firestore } from "../firebase/firebase";
-import NumberFormat from 'react-number-format'
+import NumberFormat from "react-number-format";
 import "../formcss/artistForm.css";
 
 function ArtistForm() {
@@ -13,17 +13,16 @@ function ArtistForm() {
   let [bio, setBio] = useState("");
   let [showName, setShowName] = useState("");
   let [showDesc, setShowDesc] = useState("");
-
-  let [imageFile, setImageFile] = useState("");
-  let [image1, setimageOne] = useState("");
-
-  let [imageTwoFile, setImageTwoFile] = useState("");
-  let [image2, setImageTwo] = useState("");
-
-  let [imageThreeFile, setImageThreeFile] = useState("");
-  let [image3, setImageThree] = useState("");
-
   let [videoLink, setVideoLink] = useState("");
+  //image variables
+  let [imageLg, setImageLg] = useState("");
+  let [image1, setImage1] = useState("");
+  let [image2, setImage2] = useState("");
+  let [image3, setImage3] = useState("");
+  let [imageLgFile, setimageLgFile] = useState("");
+  let [image1File, setImage1File] = useState("");
+  let [image2File, setImage2File] = useState("");
+  let [image3File, setImage3File] = useState("");
 
   // create artist object from state
   let artist = {
@@ -34,6 +33,7 @@ function ArtistForm() {
     showName: showName,
     showDesc: showDesc,
     bio: bio,
+    imageLg: imageLg,
     image1: image1,
     image2: image2,
     image3: image3,
@@ -52,79 +52,97 @@ function ArtistForm() {
     event.target.bioInput.value = "";
     event.target.showNameInput.value = "";
     event.target.showDescInput.value = "";
-    // event.target.imageOne.value = "";
-    // event.target.imageTwo.value = "";
-    // event.target.imageThree.value = "";
+    event.target.imageOne.value = "";
+    event.target.imageTwo.value = "";
+    event.target.imageThree.value = "";
     event.target.vidInput.value = "";
   }
 
   //-----------------------------------image uploading/handling-------------------------//
-
-  //because of the code above, the url is not being set in the img fields in DB but we do have access to them
-  //the files are being submitted but we still need to get the URLs to be entered
-
-  //-----------main img--------//
-
-  const handleImgMain = (event) => {
+  //imageLg or splash image
+  const handleChange = (event) => {
     if (event.target.files[0]) {
-      setImageFile(event.target.files[0]);
-    }
+      setimageLgFile(event.target.files[0]);
+    } handleUpload(event)
   };
 
-  const handleUploadMain = (evt) => {
+  const handleUpload = (evt) => {
     evt.preventDefault();
 
     let storageRef = app.storage().ref();
-    let mainRef = storageRef.child(`/images/${imageFile.name}`);
+    let largeRef = storageRef.child(`/testingForBen/${imageLgFile.name}`);
 
-    mainRef.put(imageFile).then((snapshot) => {
-      mainRef.getDownloadURL().then((url) => {
-        setimageOne(url);
+    largeRef.put(imageLgFile).then((snapshot) => {
+      largeRef.getDownloadURL().then((url) => {
+        setImageLg(url);
+        console.log(url);
       });
     });
   };
 
-  //--------------second img---------------//
-
-  const handleImgTwo = (event) => {
+  //image1
+  const handleChange1 = (event) => {
     if (event.target.files[0]) {
-      setImageTwoFile(event.target.files[0]);
-    }
+      setImage1File(event.target.files[0]);
+    } handleUpload1(event) 
   };
 
-  const handleUploadTwo = (evt) => {
+  const handleUpload1 = (evt) => {
     evt.preventDefault();
 
     let storageRef = app.storage().ref();
-    let imgTwoRef = storageRef.child(`/images/${imageTwoFile.name}`);
+    let imgOneRef = storageRef.child(`/testingForBen/${image1File.name}`);
 
-    imgTwoRef.put(imageTwoFile).then((snapshot) => {
+    imgOneRef.put(image1File).then((snapshot) => {
+      imgOneRef.getDownloadURL().then((url) => {
+        setImage1(url);
+        console.log(url);
+      });
+    });
+  };
+
+  //image2
+  const handleChange2 = (event) => {
+    if (event.target.files[0]) {
+      setImage2File(event.target.files[0]);
+    } handleUpload2(event)
+  };
+
+  const handleUpload2 = (evt) => {
+    evt.preventDefault();
+
+    let storageRef = app.storage().ref();
+    let imgTwoRef = storageRef.child(`/testingForBen/${image2File.name}`);
+
+    imgTwoRef.put(image2File).then((snapshot) => {
       imgTwoRef.getDownloadURL().then((url) => {
-        setImageTwo(url);
+        setImage2(url);
+        console.log(url);
       });
     });
   };
 
-  //-----------third img-----------//
-
-  const handleImgThree = (event) => {
+  //image3
+  const handleChange3 = (event) => {
     if (event.target.files[0]) {
-      setImageThreeFile(event.target.files[0]);
-    }
+      setImage3File(event.target.files[0]);
+    } handleUpload3(event)
   };
 
-  const handleUploadThree = (evt) => {
+  const handleUpload3 = (evt) => {
     evt.preventDefault();
 
     let storageRef = app.storage().ref();
-    let imgThreeRef = storageRef.child(`/images/${imageThreeFile.name}`);
+    let imgThreeRef = storageRef.child(`/testingForBen/${image3File.name}`);
 
-    imgThreeRef.put(imageThreeFile).then((snapshot) => {
+    imgThreeRef.put(image3File).then((snapshot) => {
       imgThreeRef.getDownloadURL().then((url) => {
-        setImageThree(url);
+        setImage3(url);
+        console.log(url);
       });
     });
   };
+  //--------------------------------------------------------------------------------------//
 
   return (
     /* Artist Form container */
@@ -140,15 +158,7 @@ function ArtistForm() {
               <h2 className="text-center mb-2">Artist Information Form</h2>
               <br />
               {/* Start of the form */}
-              <Form
-                id="ArtistForm"
-                onSubmit={(evt) => {
-                  enterNewArtist(evt);
-                  handleUploadMain(evt);
-                  handleUploadTwo(evt);
-                  handleUploadThree(evt);
-                }}
-              >
+              <Form id="ArtistForm" onSubmit={enterNewArtist}>
                 {/* Artist name container */}
                 <Form.Group id="artName">
                   <Form.Label>Artist Name:</Form.Label>
@@ -233,36 +243,49 @@ function ArtistForm() {
                   />
                 </Form.Group>
                 {/*End of bio container */}
-                {/* Main image container */}
                 <Form.Group>
-                  <Form.Label>Image One:</Form.Label>
+                  <Form.Label>Image (large) / Splash Image:</Form.Label>
                   <Form.Control
                     className="img_submit"
                     type="file"
-                    onChange={handleImgMain}
+                    name="imageLgIn"
+                    onChange={handleChange}
                   />
+                  {/* <progress value="0" max="100" id="upload"></progress> */}
                 </Form.Group>
-                {/* End of MAIN image container */}
-                {/* Image two container */}
+                {/* Image 1 Container */}
                 <Form.Group>
-                  <Form.Label>Image Two:</Form.Label>
+                  <Form.Label>Image 1:</Form.Label>
                   <Form.Control
-                    className="img_submit"
                     type="file"
-                    onChange={handleImgTwo}
+                    name="image1Input"
+                    className="img_submit"
+                    onChange={handleChange1}
                   />
                 </Form.Group>
-                {/* End of image two container  */}
-                {/* Image three Container */}
+                {/* End of Image 1 Container */}
+                {/* Image 2 Container */}
                 <Form.Group>
-                  <Form.Label>Image Three:</Form.Label>
+                  <Form.Label>Image 2:</Form.Label>
                   <Form.Control
-                    className="img_submit"
                     type="file"
-                    onChange={handleImgThree}
+                    name="image2Input"
+                    className="img_submit"
+                    onChange={handleChange2}
                   />
                 </Form.Group>
-                {/* End of Image three container */}
+                {/* End Of image 2 container */}
+                {/* Image 3 Container */}
+                <Form.Group>
+                  <Form.Label>Image 3:</Form.Label>
+                  <Form.Control
+                    type="file"
+                    name="image3Input"
+                    className="img_submit"
+                    onChange={handleChange3}
+                  />
+                </Form.Group>
+                {/* End of Image 3 container */}
                 {/* Video link COntainer */}
                 <Form.Group id="vidLink">
                   <Form.Label>Video Link:</Form.Label>
