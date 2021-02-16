@@ -91,10 +91,18 @@ export default function EditShow() {
       showInData.image2 ? setImage2(showInData.image2) : setImage2("");
       showInData.image3 ? setImage3(showInData.image3) : setImage3("");
 
-      showInData.imageLgFile ? setImageLgFile(showInData.imageLgFile) : setImageLgFile("");
-      showInData.image1File ? setImage1File(showInData.image1File) : setImage1File("");
-      showInData.image2File ? setImage2File(showInData.image2File) : setImage2File("");
-      showInData.image3File ? setImage3File(showInData.image3File) : setImage3File("");
+      showInData.imageLgFile
+        ? setImageLgFile(showInData.imageLgFile)
+        : setImageLgFile("");
+      showInData.image1File
+        ? setImage1File(showInData.image1File)
+        : setImage1File("");
+      showInData.image2File
+        ? setImage2File(showInData.image2File)
+        : setImage2File("");
+      showInData.image3File
+        ? setImage3File(showInData.image3File)
+        : setImage3File("");
 
       showInData.video1 ? setVideo1(showInData.video1) : setVideo1("");
       showInData.link1 ? setLink1(showInData.link1) : setLink1("");
@@ -386,7 +394,9 @@ export default function EditShow() {
                     )}
                   </Form.Group>
                   <Form.Group>
-                    <Form.Label>Image (large) / Splash Image: {imageLg}</Form.Label>
+                    <Form.Label>
+                      Image (large) / Splash Image: {imageLg}
+                    </Form.Label>
                     <Form.Control
                       // id="file_button"
                       type="file"

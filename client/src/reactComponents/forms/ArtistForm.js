@@ -52,9 +52,10 @@ function ArtistForm() {
     event.target.bioInput.value = "";
     event.target.showNameInput.value = "";
     event.target.showDescInput.value = "";
-    event.target.imageOne.value = "";
-    event.target.imageTwo.value = "";
-    event.target.imageThree.value = "";
+    event.target.imageLg.value = "";
+    event.target.image1.value = "";
+    event.target.image2.value = "";
+    event.target.image3.value = "";
     event.target.vidInput.value = "";
   }
 
@@ -63,7 +64,8 @@ function ArtistForm() {
   const handleChange = (event) => {
     if (event.target.files[0]) {
       setimageLgFile(event.target.files[0]);
-    } handleUpload(event)
+    }
+    handleUpload(event);
   };
 
   const handleUpload = (evt) => {
@@ -84,7 +86,8 @@ function ArtistForm() {
   const handleChange1 = (event) => {
     if (event.target.files[0]) {
       setImage1File(event.target.files[0]);
-    } handleUpload1(event) 
+    }
+    handleUpload1(event);
   };
 
   const handleUpload1 = (evt) => {
@@ -105,7 +108,8 @@ function ArtistForm() {
   const handleChange2 = (event) => {
     if (event.target.files[0]) {
       setImage2File(event.target.files[0]);
-    } handleUpload2(event)
+    }
+    handleUpload2(event);
   };
 
   const handleUpload2 = (evt) => {
@@ -126,7 +130,8 @@ function ArtistForm() {
   const handleChange3 = (event) => {
     if (event.target.files[0]) {
       setImage3File(event.target.files[0]);
-    } handleUpload3(event)
+    }
+    handleUpload3(event);
   };
 
   const handleUpload3 = (evt) => {
