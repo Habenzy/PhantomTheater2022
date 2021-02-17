@@ -54,7 +54,7 @@ function Home() {
    }
 
    async function loadHomePage(currentShows) {
-  
+
       setSplashImage(currentShows[0].imageLg)
       setSplashTitle(currentShows[0].title)
       setSplashDates(currentShows[0].dates)
@@ -66,19 +66,28 @@ function Home() {
    }
 
    seeAllShows()
+
    function changeDate(date) {
+      let months = {
+         "05": 'May',
+         "06": 'June',
+         "07": 'July',
+         "08": 'August',
+         "09": 'September'
+      }
+
       //------- changing the military time string to normal tim
       let newTime;
       ///sepparating the string at the T.
       let dateFix = date.split("T");
-     
+
       let startDate = dateFix[0];
-      let year = startDate.split("-")[0];
+
       let month = startDate.split("-")[1];
       let day = startDate.split("-")[2];
 
-      let endDate = month + "/" + day + "/" + year;
-    
+      let endDate = months[month] + " " + day + ' - ';
+
       /// targetting second item of the dateFix array (which is the time)
       let time = dateFix[1];
       // hours is the first index item of the time array which was split at the :
@@ -137,7 +146,7 @@ function Home() {
                {splashShowNum >= 6 ? <br /> : console.log()}
                {splashShowNum >= 6 ? changeDate(splashDates[5]) : console.log()}
 
-              
+
             </div>
          </div>
 
@@ -158,7 +167,7 @@ function Home() {
                {nextShowNum >= 5 ? changeDate(nextDates[4]) : console.log()}
                {nextShowNum >= 6 ? <br /> : console.log()}
                {nextShowNum >= 6 ? changeDate(nextDates[5]) : console.log()}
-              
+
             </div>
          </div>
       </div>
