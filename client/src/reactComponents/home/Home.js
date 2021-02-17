@@ -86,7 +86,7 @@ function Home() {
       let month = startDate.split("-")[1];
       let day = startDate.split("-")[2];
 
-      let endDate = months[month] + " " + day + ' - ';
+      let endDate = months[month] + " " + day + ': ';
 
       /// targetting second item of the dateFix array (which is the time)
       let time = dateFix[1];
