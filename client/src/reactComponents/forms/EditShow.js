@@ -178,7 +178,7 @@ export default function EditShow() {
     evt.preventDefault();
 
     let storageRef = app.storage().ref();
-    let largeRef = storageRef.child(`/testingForBen/${imageLgFile.name}`);
+    let largeRef = storageRef.child(`/images/${imageLgFile.name}`);
 
     largeRef.put(imageLgFile).then((snapshot) => {
       largeRef.getDownloadURL().then((url) => {
@@ -200,7 +200,7 @@ export default function EditShow() {
     evt.preventDefault();
 
     let storageRef = app.storage().ref();
-    let imgOneRef = storageRef.child(`/testingForBen/${image1File.name}`);
+    let imgOneRef = storageRef.child(`/images/${image1File.name}`);
 
     imgOneRef.put(image1File).then((snapshot) => {
       imgOneRef.getDownloadURL().then((url) => {
@@ -222,7 +222,7 @@ export default function EditShow() {
     evt.preventDefault();
 
     let storageRef = app.storage().ref();
-    let imgTwoRef = storageRef.child(`/testingForBen/${image2File.name}`);
+    let imgTwoRef = storageRef.child(`/images/${image2File.name}`);
 
     imgTwoRef.put(image2File).then((snapshot) => {
       imgTwoRef.getDownloadURL().then((url) => {
@@ -244,7 +244,7 @@ export default function EditShow() {
     evt.preventDefault();
 
     let storageRef = app.storage().ref();
-    let imgThreeRef = storageRef.child(`/testingForBen/${image3File.name}`);
+    let imgThreeRef = storageRef.child(`/images/${image3File.name}`);
 
     imgThreeRef.put(image3File).then((snapshot) => {
       imgThreeRef.getDownloadURL().then((url) => {
@@ -262,7 +262,10 @@ export default function EditShow() {
         style={{ minHeight: "80vh" }}
       >
         <div className="w-100" style={{ maxWidth: "840px" }}>
-          <Card>
+              <Card>
+                 
+
+
             <Form
               id="adminForm"
               onSubmit={enterUpdates}

@@ -1,18 +1,23 @@
 import React, { useState } from "react";
 import { Form, Button, Card, Container } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 import app, { firestore } from "../firebase/firebase";
 import NumberFormat from "react-number-format";
 import "../formcss/artistForm.css";
 
-let nullDetails = {
+let nullShow = {
+   title: "title",
+   type: "type",
+   blurb: "blurb",
+   imageLg: "imageLg",
+   status: "status",
+   dates: [],
    artist: "artist",
    contactName: "contactName",
    phone: "phone",
    email: "email",
-   title: "title",
-   description: "description",
    bio: "bio",
-   imageLg: "imageLg",
+   description: "description",
    image1: "image1",
    image2: "image2",
    image3: "image3",
@@ -21,17 +26,27 @@ let nullDetails = {
    link2: "link2",
 };
 
-function ArtistForm() {
-   let [thisShow, setThisShow] = useState(nullDetails);
-   // create state for each artist field
+export default function ArtistForm() {
+
+   const history = useHistory();
+   // create state object to hold values from database
+   let [thisShow, setThisShow] = useState(nullShow);
+
+   // create state objects to hold values from input form
+   let [title, setTitle] = useState("");
+   let [blurb, setBlurb] = useState("");
+   let [type, setType] = useState("");
+   let [status, setStatus] = useState("");
+   let [dates, setDates] = useState([]);
    let [artist, setArtist] = useState("");
    let [contactName, setContactName] = useState("");
    let [phone, setPhone] = useState("");
    let [email, setEmail] = useState("");
    let [bio, setBio] = useState("");
-   let [title, setTitle] = useState("");
    let [description, setDescription] = useState("");
-
+   let [video1, setVideo1] = useState("");
+   let [link1, setLink1] = useState("");
+   let [link2, setLink2] = useState("");
    //image variables
    let [imageLg, setImageLg] = useState("");
    let [image1, setImage1] = useState("");
@@ -41,45 +56,57 @@ function ArtistForm() {
    let [image1File, setImage1File] = useState("");
    let [image2File, setImage2File] = useState("");
    let [image3File, setImage3File] = useState("");
-   let [video1, setVideo1] = useState("");
-   let [link1, setLink1] = useState("")
-   let [link2, setLink2] = useState("")
 
-   // create artist object from state
+   // get document from database and set it in state
+   // then populate form with state values
    async function getOneShow() {
       let id = document.location.hash.substring(1);
-
       const showRef = await firestore.collection("shows").doc(id);
       const showIn = await showRef.get();
-
       if (!showIn.exists) {
          alert("no such document", id);
       } else {
          let showInData = showIn.data();
          setThisShow(showInData);
-         console.log('1 ', id, showInData, thisShow)
+
+         showInData.title ? setTitle(showInData.title) : setTitle("");
+         showInData.blurb ? setBlurb(showInData.blurb) : setBlurb("");
+         showInData.type ? setType(showInData.type) : setType("");
+         showInData.status ? setStatus(showInData.status) : setStatus("");
+         showInData.dates ? setDates(showInData.dates) : setDates([]);
          showInData.artist ? setArtist(showInData.artist) : setArtist("");
-         showInData.contactName ? setContactName(showInData.contactName) : setContactName("");
+         showInData.contactName
+            ? setContactName(showInData.contactName)
+            : setContactName("");
          showInData.phone ? setPhone(showInData.phone) : setPhone("");
          showInData.email ? setEmail(showInData.email) : setEmail("");
          showInData.bio ? setBio(showInData.bio) : setBio("");
-         showInData.title ? setTitle(showInData.title) : setTitle("");
-         showInData.description ? setDescription(showInData.description) : setDescription("");
-
+         showInData.description
+            ? setDescription(showInData.description)
+            : setDescription("");
          showInData.imageLg ? setImageLg(showInData.imageLg) : setImageLg("");
          showInData.image1 ? setImage1(showInData.image1) : setImage1("");
          showInData.image2 ? setImage2(showInData.image2) : setImage2("");
          showInData.image3 ? setImage3(showInData.image3) : setImage3("");
 
-         showInData.imageLgFile ? setImageLgFile(showInData.imageLgFile) : setImageLgFile("");
-         showInData.image1File ? setImage1File(showInData.image1File) : setImage1File("");
-         showInData.image2File ? setImage2File(showInData.image2File) : setImage2File("");
-         showInData.image3File ? setImage3File(showInData.image3File) : setImage3File("");
+         showInData.imageLgFile
+            ? setImageLgFile(showInData.imageLgFile)
+            : setImageLgFile("");
+         showInData.image1File
+            ? setImage1File(showInData.image1File)
+            : setImage1File("");
+         showInData.image2File
+            ? setImage2File(showInData.image2File)
+            : setImage2File("");
+         showInData.image3File
+            ? setImage3File(showInData.image3File)
+            : setImage3File("");
 
          showInData.video1 ? setVideo1(showInData.video1) : setVideo1("");
          showInData.link1 ? setLink1(showInData.link1) : setLink1("");
          showInData.link2 ? setLink2(showInData.link2) : setLink2("");
-         console.log('2 ', id, showInData, thisShow)
+
+         console.log(thisShow)
       }
    }
 
@@ -87,13 +114,21 @@ function ArtistForm() {
       getOneShow();
    }
 
-   // write current state to artist collection
+   //*************************************************** */
+
    async function enterNewArtist(event) {
       console.log('enter new artist fired')
       event.preventDefault();
+      console.log("Updating...");
 
-      let artistUpdate = {
+      // take each date input and .push onto the dates array
+
+      let showUpdate = {
          title: title,
+         type: type,
+         blurb: blurb,
+         status: status,
+         dates: dates,
          artist: artist,
          contactName: contactName,
          phone: phone,
@@ -109,14 +144,14 @@ function ArtistForm() {
          link2: link2,
       };
 
-
-
+      console.log("second: ", showUpdate);
       let id = document.location.hash.substring(1);
-      await firestore.collection("shows").doc(id).set(artistUpdate);
-
+      await firestore.collection("shows").doc(id).set(showUpdate);
+      history.push("/adminDash");
    }
 
-   //-----------------------------------image uploading/handling-------------------------//
+
+   //---------------------------image handling-----------------------------------//
    //imageLg or splash image
    const handleChange = (event) => {
       if (event.target.files[0]) {
@@ -129,7 +164,7 @@ function ArtistForm() {
       evt.preventDefault();
 
       let storageRef = app.storage().ref();
-      let largeRef = storageRef.child(`/testingForBen/${imageLgFile.name}`);
+      let largeRef = storageRef.child(`/images/${imageLgFile.name}`);
 
       largeRef.put(imageLgFile).then((snapshot) => {
          largeRef.getDownloadURL().then((url) => {
@@ -151,7 +186,7 @@ function ArtistForm() {
       evt.preventDefault();
 
       let storageRef = app.storage().ref();
-      let imgOneRef = storageRef.child(`/testingForBen/${image1File.name}`);
+      let imgOneRef = storageRef.child(`/images/${image1File.name}`);
 
       imgOneRef.put(image1File).then((snapshot) => {
          imgOneRef.getDownloadURL().then((url) => {
@@ -173,7 +208,7 @@ function ArtistForm() {
       evt.preventDefault();
 
       let storageRef = app.storage().ref();
-      let imgTwoRef = storageRef.child(`/testingForBen/${image2File.name}`);
+      let imgTwoRef = storageRef.child(`/images/${image2File.name}`);
 
       imgTwoRef.put(image2File).then((snapshot) => {
          imgTwoRef.getDownloadURL().then((url) => {
@@ -195,7 +230,7 @@ function ArtistForm() {
       evt.preventDefault();
 
       let storageRef = app.storage().ref();
-      let imgThreeRef = storageRef.child(`/testingForBen/${image3File.name}`);
+      let imgThreeRef = storageRef.child(`/images/${image3File.name}`);
 
       imgThreeRef.put(image3File).then((snapshot) => {
          imgThreeRef.getDownloadURL().then((url) => {
@@ -204,7 +239,7 @@ function ArtistForm() {
          });
       });
    };
-   //--------------------------------------------------------------------------------------//
+   //---------------------------------------------------------------------------//
 
    return (
       /* Artist Form container */
@@ -216,11 +251,21 @@ function ArtistForm() {
          >
             <div className="w-100" style={{ maxWidth: "420px" }}>
                <Card>
-                  <Card.Body>
-                     <h2 className="text-center mb-2">Artist Information Form</h2>
-                     <br />
-                     {/* Start of the form */}
-                     <Form id="ArtistForm" onSubmit={enterNewArtist}>
+                  {/* Start of the form */}
+                  <Form
+                     id="ArtistForm"
+                     onSubmit={enterNewArtist}
+                     type="submit"
+                     value="submit"
+                  >
+
+
+
+                     <Card.Body>
+                        <h2 className="text-center mb-2">Artist Information Form</h2>
+                        <br />
+
+
                         {/* Artist name container */}
                         <Form.Group id="artName">
                            <Form.Label>Artist Name:</Form.Label>
@@ -228,6 +273,7 @@ function ArtistForm() {
                               type="text"
                               name="artistInput"
                               placeholder="Enter Artist Name"
+                              value={artist}
                               onChange={(evt) => setArtist(evt.target.value)}
                            />
                         </Form.Group>
@@ -239,6 +285,7 @@ function ArtistForm() {
                               type="text"
                               name="contactNameInput"
                               placeholder="Enter Contact Name"
+                              value={contactName}
                               onChange={(evt) => setContactName(evt.target.value)}
                            />
                         </Form.Group>
@@ -253,6 +300,7 @@ function ArtistForm() {
                               placeholder="Enter Phone"
                               type="phone"
                               name="phoneInput"
+                              value={phone}
                               onChange={(evt) => setPhone(evt.target.value)}
                            />
                         </Form.Group>
@@ -264,6 +312,7 @@ function ArtistForm() {
                               type="email"
                               name="emailInput"
                               placeholder="Enter Email"
+                              value={email}
                               onChange={(evt) => setEmail(evt.target.value)}
                            />
                         </Form.Group>
@@ -275,6 +324,7 @@ function ArtistForm() {
                               type="text"
                               name="titleInput"
                               placeholder="Enter Show Title"
+                              value={title}
                               onChange={(evt) => setTitle(evt.target.value)}
                            />
                         </Form.Group>
@@ -289,6 +339,7 @@ function ArtistForm() {
                               placeholder="Enter Show Description"
                               // I'd like to make it so that this field looks like bio looks
                               height="20px"
+                              value={description}
                               onChange={(evt) => setDescription(evt.target.value)}
                            />
                         </Form.Group>
@@ -301,12 +352,13 @@ function ArtistForm() {
                               name="bioInput"
                               rows="6"
                               placeholder="Enter Artist Bio"
+                              value={bio}
                               onChange={(evt) => setBio(evt.target.value)}
                            />
                         </Form.Group>
                         {/*End of bio container */}
                         <Form.Group>
-                           <Form.Label>Image (large) / Splash Image:</Form.Label>
+                           <Form.Label>Image (large) / Splash Image: </Form.Label>
                            <Form.Control
                               className="img_submit"
                               type="file"
@@ -317,7 +369,7 @@ function ArtistForm() {
                         </Form.Group>
                         {/* Image 1 Container */}
                         <Form.Group>
-                           <Form.Label>Image 1:</Form.Label>
+                           <Form.Label>Image 1: </Form.Label>
                            <Form.Control
                               type="file"
                               name="image1Input"
@@ -328,7 +380,7 @@ function ArtistForm() {
                         {/* End of Image 1 Container */}
                         {/* Image 2 Container */}
                         <Form.Group>
-                           <Form.Label>Image 2:</Form.Label>
+                           <Form.Label>Image 2:  </Form.Label>
                            <Form.Control
                               type="file"
                               name="image2Input"
@@ -339,7 +391,7 @@ function ArtistForm() {
                         {/* End Of image 2 container */}
                         {/* Image 3 Container */}
                         <Form.Group>
-                           <Form.Label>Image 3:</Form.Label>
+                           <Form.Label>Image 3: </Form.Label>
                            <Form.Control
                               type="file"
                               name="image3Input"
@@ -362,14 +414,13 @@ function ArtistForm() {
                         {/* Submit Button */}
                         <Button id="form_button" className="w-100" type="submit">
                            Submit
-                </Button>
-                     </Form>
-                  </Card.Body>
+                        </Button>
+                   
+                     </Card.Body>
+                  </Form>
                </Card>
             </div>
          </Container>
       </div>
    );
 }
-
-export default ArtistForm;

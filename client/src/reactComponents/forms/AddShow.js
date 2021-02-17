@@ -124,7 +124,7 @@ function AdminForm() {
     evt.preventDefault();
 
     let storageRef = app.storage().ref();
-    let largeRef = storageRef.child(`/testingForBen/${imageLgFile.name}`);
+    let largeRef = storageRef.child(`/images/${imageLgFile.name}`);
 
     largeRef.put(imageLgFile).then((snapshot) => {
       largeRef.getDownloadURL().then((url) => {
@@ -145,7 +145,7 @@ function AdminForm() {
     evt.preventDefault();
 
     let storageRef = app.storage().ref();
-    let imgOneRef = storageRef.child(`/testingForBen/${image1File.name}`);
+    let imgOneRef = storageRef.child(`/images/${image1File.name}`);
 
     imgOneRef.put(image1File).then((snapshot) => {
       imgOneRef.getDownloadURL().then((url) => {
@@ -166,7 +166,7 @@ function AdminForm() {
     evt.preventDefault();
 
     let storageRef = app.storage().ref();
-    let imgTwoRef = storageRef.child(`/testingForBen/${image2File.name}`);
+    let imgTwoRef = storageRef.child(`/images/${image2File.name}`);
 
     imgTwoRef.put(image2File).then((snapshot) => {
       imgTwoRef.getDownloadURL().then((url) => {
@@ -187,7 +187,7 @@ function AdminForm() {
     evt.preventDefault();
 
     let storageRef = app.storage().ref();
-    let imgThreeRef = storageRef.child(`/testingForBen/${image3File.name}`);
+    let imgThreeRef = storageRef.child(`/images/${image3File.name}`);
 
     imgThreeRef.put(image3File).then((snapshot) => {
       imgThreeRef.getDownloadURL().then((url) => {
