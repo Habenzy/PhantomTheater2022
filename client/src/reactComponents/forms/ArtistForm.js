@@ -114,6 +114,8 @@ export default function ArtistForm() {
       getOneShow();
    }
 
+   let id = document.location.hash.substring(1);
+
    //*************************************************** */
 
    async function enterNewArtist(event) {
@@ -145,101 +147,100 @@ export default function ArtistForm() {
       };
 
       console.log("second: ", showUpdate);
-      let id = document.location.hash.substring(1);
+
       await firestore.collection("shows").doc(id).set(showUpdate);
-      history.push("/adminDash");
+      // history.push("/");
    }
 
 
    //---------------------------image handling-----------------------------------//
    //imageLg or splash image
-   const handleChange = (event) => {
-      if (event.target.files[0]) {
-         setImageLgFile(event.target.files[0]);
-      }
-      handleUpload(event);
-   };
+   const handleChange = async (event) => {
+      event.preventDefault()
+      let storageRef = app.storage().ref()
+      let imageLgRef = storageRef.child(`/images/${id}/${event.target.files[0].name}`)
 
-   const handleUpload = (evt) => {
-      evt.preventDefault();
+      await imageLgRef.put(event.target.files[0]).then((snapshot) => {
+         imageLgRef.getDownloadURL().then((url) => {
+            setImageLg(url)
+            console.log(url)
+         })
+      })
+   }
 
-      let storageRef = app.storage().ref();
-      let largeRef = storageRef.child(`/images/${imageLgFile.name}`);
 
-      largeRef.put(imageLgFile).then((snapshot) => {
-         largeRef.getDownloadURL().then((url) => {
-            setImageLg(url);
-            console.log(url);
-         });
-      });
-   };
 
-   //image1
-   const handleChange1 = (event) => {
-      if (event.target.files[0]) {
-         setImage1File(event.target.files[0]);
-      }
-      handleUpload1(event);
-   };
 
-   const handleUpload1 = (evt) => {
-      evt.preventDefault();
 
-      let storageRef = app.storage().ref();
-      let imgOneRef = storageRef.child(`/images/${image1File.name}`);
 
-      imgOneRef.put(image1File).then((snapshot) => {
-         imgOneRef.getDownloadURL().then((url) => {
-            setImage1(url);
-            console.log(url);
-         });
-      });
-   };
 
-   //image2
-   const handleChange2 = (event) => {
-      if (event.target.files[0]) {
-         setImage2File(event.target.files[0]);
-      }
-      handleUpload2(event);
-   };
 
-   const handleUpload2 = (evt) => {
-      evt.preventDefault();
+   // //image1
+   // const handleChange1 = (event) => {
+   //    if (event.target.files[0]) {
+   //       setImage1File(event.target.files[0]);
+   //    }
+   //    handleUpload1(event);
+   // };
 
-      let storageRef = app.storage().ref();
-      let imgTwoRef = storageRef.child(`/images/${image2File.name}`);
+   // const handleUpload1 = (evt) => {
+   //    evt.preventDefault();
 
-      imgTwoRef.put(image2File).then((snapshot) => {
-         imgTwoRef.getDownloadURL().then((url) => {
-            setImage2(url);
-            console.log(url);
-         });
-      });
-   };
+   //    let storageRef = app.storage().ref();
+   //    let imgOneRef = storageRef.child(`/images/${image1File.name}`);
 
-   //image3
-   const handleChange3 = (event) => {
-      if (event.target.files[0]) {
-         setImage3File(event.target.files[0]);
-      }
-      handleUpload3(event);
-   };
+   //    imgOneRef.put(image1File).then((snapshot) => {
+   //       imgOneRef.getDownloadURL().then((url) => {
+   //          setImage1(url);
+   //          console.log(url);
+   //       });
+   //    });
+   // };
 
-   const handleUpload3 = (evt) => {
-      evt.preventDefault();
+   // //image2
+   // const handleChange2 = (event) => {
+   //    if (event.target.files[0]) {
+   //       setImage2File(event.target.files[0]);
+   //    }
+   //    handleUpload2(event);
+   // };
 
-      let storageRef = app.storage().ref();
-      let imgThreeRef = storageRef.child(`/images/${image3File.name}`);
+   // const handleUpload2 = (evt) => {
+   //    evt.preventDefault();
 
-      imgThreeRef.put(image3File).then((snapshot) => {
-         imgThreeRef.getDownloadURL().then((url) => {
-            setImage3(url);
-            console.log(url);
-         });
-      });
-   };
-   //---------------------------------------------------------------------------//
+   //    let storageRef = app.storage().ref();
+   //    let imgTwoRef = storageRef.child(`/images/${image2File.name}`);
+
+   //    imgTwoRef.put(image2File).then((snapshot) => {
+   //       imgTwoRef.getDownloadURL().then((url) => {
+   //          setImage2(url);
+   //          console.log(url);
+   //       });
+   //    });
+   // };
+
+   // //image3
+   // const handleChange3 = (event) => {
+   //    if (event.target.files[0]) {
+   //       setImage3File(event.target.files[0]);
+   //    }
+   //    handleUpload3(event);
+   // };
+
+   // const handleUpload3 = (evt) => {
+   //    evt.preventDefault();
+
+   //    let storageRef = app.storage().ref();
+   //    let imgThreeRef = storageRef.child(`/images/${image3File.name}`);
+
+   //    imgThreeRef.put(image3File).then((snapshot) => {
+   //       imgThreeRef.getDownloadURL().then((url) => {
+   //          setImage3(url);
+   //          console.log(url);
+   //       });
+   //    });
+   // };
+   // //---------------------------------------------------------------------------//
 
    return (
       /* Artist Form container */
@@ -374,7 +375,7 @@ export default function ArtistForm() {
                               type="file"
                               name="image1Input"
                               className="img_submit"
-                              onChange={handleChange1}
+                              onChange={handleChange}
                            />
                         </Form.Group>
                         {/* End of Image 1 Container */}
@@ -385,7 +386,7 @@ export default function ArtistForm() {
                               type="file"
                               name="image2Input"
                               className="img_submit"
-                              onChange={handleChange2}
+                              onChange={handleChange}
                            />
                         </Form.Group>
                         {/* End Of image 2 container */}
@@ -396,7 +397,7 @@ export default function ArtistForm() {
                               type="file"
                               name="image3Input"
                               className="img_submit"
-                              onChange={handleChange3}
+                              onChange={handleChange}
                            />
                         </Form.Group>
                         {/* End of Image 3 container */}
@@ -415,7 +416,7 @@ export default function ArtistForm() {
                         <Button id="form_button" className="w-100" type="submit">
                            Submit
                         </Button>
-                   
+
                      </Card.Body>
                   </Form>
                </Card>
