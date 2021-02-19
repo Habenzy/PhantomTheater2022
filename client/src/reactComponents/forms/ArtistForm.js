@@ -9,7 +9,6 @@ let nullShow = {
    title: "title",
    type: "type",
    blurb: "blurb",
-   imageLg: "imageLg",
    status: "status",
    dates: [],
    artist: "artist",
@@ -18,9 +17,14 @@ let nullShow = {
    email: "email",
    bio: "bio",
    description: "description",
+   imageLg: "imageLg",
+   imageLgName: "imageLgName",
    image1: "image1",
+   image1Name: "image1Name",
    image2: "image2",
+   image2Name: "image2Name",
    image3: "image3",
+   image3Name: "image3Name",
    video1: "video1",
    link1: "link1",
    link2: "link2",
@@ -49,13 +53,14 @@ export default function ArtistForm() {
    let [link2, setLink2] = useState("");
    //image variables
    let [imageLg, setImageLg] = useState("");
+   let [imageLgName, setImageLgName] = useState("")
    let [image1, setImage1] = useState("");
+   let [image1Name, setImage1Name] = useState("");
    let [image2, setImage2] = useState("");
+   let [image2Name, setImage2Name] = useState("");
    let [image3, setImage3] = useState("");
-   let [imageLgFile, setImageLgFile] = useState("");
-   let [image1File, setImage1File] = useState("");
-   let [image2File, setImage2File] = useState("");
-   let [image3File, setImage3File] = useState("");
+   let [image3Name, setImage3Name] = useState("");
+
 
    // get document from database and set it in state
    // then populate form with state values
@@ -85,28 +90,18 @@ export default function ArtistForm() {
             ? setDescription(showInData.description)
             : setDescription("");
          showInData.imageLg ? setImageLg(showInData.imageLg) : setImageLg("");
+         showInData.imageLgName ? setImageLgName(showInData.imageLgName) : setImageLgName("")
          showInData.image1 ? setImage1(showInData.image1) : setImage1("");
+         showInData.image1Name ? setImage1Name(showInData.image1Name) : setImage1Name("")
          showInData.image2 ? setImage2(showInData.image2) : setImage2("");
+         showInData.image2Name ? setImage2Name(showInData.image2Name) : setImage2Name("")
          showInData.image3 ? setImage3(showInData.image3) : setImage3("");
-
-         showInData.imageLgFile
-            ? setImageLgFile(showInData.imageLgFile)
-            : setImageLgFile("");
-         showInData.image1File
-            ? setImage1File(showInData.image1File)
-            : setImage1File("");
-         showInData.image2File
-            ? setImage2File(showInData.image2File)
-            : setImage2File("");
-         showInData.image3File
-            ? setImage3File(showInData.image3File)
-            : setImage3File("");
+         showInData.image3Name ? setImage3Name(showInData.image3Name) : setImage3Name("")
 
          showInData.video1 ? setVideo1(showInData.video1) : setVideo1("");
          showInData.link1 ? setLink1(showInData.link1) : setLink1("");
          showInData.link2 ? setLink2(showInData.link2) : setLink2("");
 
-         console.log(thisShow)
       }
    }
 
@@ -123,7 +118,6 @@ export default function ArtistForm() {
       event.preventDefault();
       console.log("Updating...");
 
-      // take each date input and .push onto the dates array
 
       let showUpdate = {
          title: title,
@@ -138,9 +132,13 @@ export default function ArtistForm() {
          bio: bio,
          description: description,
          imageLg: imageLg,
+         imageLgName: imageLgName,
          image1: image1,
+         image1Name: image1Name,
          image2: image2,
+         image2Name: image2Name,
          image3: image3,
+         image3Name: image3Name,
          video1: video1,
          link1: link1,
          link2: link2,
@@ -158,11 +156,13 @@ export default function ArtistForm() {
    const handleImageLg = async (event) => {
       event.preventDefault()
       let storageRef = app.storage().ref()
-      let imageLgRef = storageRef.child(`/images/${id}/${event.target.files[0].name}`)
+      let imageLgRef = storageRef.child(`/images/${id}/SplashImage`)
+
 
       await imageLgRef.put(event.target.files[0]).then((snapshot) => {
          imageLgRef.getDownloadURL().then((url) => {
             setImageLg(url)
+            setImageLgName(event.target.files[0].name)
             console.log(url)
          })
       })
@@ -171,11 +171,12 @@ export default function ArtistForm() {
    const handleImage1 = async (event) => {
       event.preventDefault()
       let storageRef = app.storage().ref()
-      let image1Ref = storageRef.child(`/images/${id}/${event.target.files[0].name}`)
+      let image1Ref = storageRef.child(`/images/${id}/Image1`)
 
       await image1Ref.put(event.target.files[0]).then((snapshot) => {
          image1Ref.getDownloadURL().then((url) => {
             setImage1(url)
+            setImage1Name(event.target.files[0].name)
             console.log(url)
          })
       })
@@ -184,11 +185,12 @@ export default function ArtistForm() {
    const handleImage2 = async (event) => {
       event.preventDefault()
       let storageRef = app.storage().ref()
-      let image2Ref = storageRef.child(`/images/${id}/${event.target.files[0].name}`)
+      let image2Ref = storageRef.child(`/images/${id}/Image2`)
 
       await image2Ref.put(event.target.files[0]).then((snapshot) => {
          image2Ref.getDownloadURL().then((url) => {
             setImage2(url)
+            setImage2Name(event.target.files[0].name)
             console.log(url)
          })
       })
@@ -197,11 +199,12 @@ export default function ArtistForm() {
    const handleImage3 = async (event) => {
       event.preventDefault()
       let storageRef = app.storage().ref()
-      let image3Ref = storageRef.child(`/images/${id}/${event.target.files[0].name}`)
+      let image3Ref = storageRef.child(`/images/${id}/Image3`)
 
       await image3Ref.put(event.target.files[0]).then((snapshot) => {
          image3Ref.getDownloadURL().then((url) => {
             setImage3(url)
+            setImage3Name(event.target.files[0].name)
             console.log(url)
          })
       })
@@ -246,7 +249,7 @@ export default function ArtistForm() {
                               onChange={(evt) => setArtist(evt.target.value)}
                            />
                         </Form.Group>
-                        {/* End of Artist Name Container */}
+
                         {/* Contact Name container */}
                         <Form.Group id="contactName">
                            <Form.Label>Contact Name:</Form.Label>
@@ -258,7 +261,7 @@ export default function ArtistForm() {
                               onChange={(evt) => setContactName(evt.target.value)}
                            />
                         </Form.Group>
-                        {/* End of Contact container */}
+
                         {/* Phone container */}
                         <Form.Group id="contactPhone">
                            <Form.Label>Contact Phone:</Form.Label>
@@ -273,7 +276,7 @@ export default function ArtistForm() {
                               onChange={(evt) => setPhone(evt.target.value)}
                            />
                         </Form.Group>
-                        {/* End of Phone container */}
+
                         {/* Email container */}
                         <Form.Group id="contactEmail">
                            <Form.Label>Contact Email:</Form.Label>
@@ -285,7 +288,7 @@ export default function ArtistForm() {
                               onChange={(evt) => setEmail(evt.target.value)}
                            />
                         </Form.Group>
-                        {/* End of email container */}
+
                         {/* Show name container*/}
                         <Form.Group id="title">
                            <Form.Label>Show Title:</Form.Label>
@@ -297,7 +300,7 @@ export default function ArtistForm() {
                               onChange={(evt) => setTitle(evt.target.value)}
                            />
                         </Form.Group>
-                        {/* End of show name container */}
+
                         {/* Description of the show container */}
                         <Form.Group>
                            <Form.Label>Description of the Show: </Form.Label>
@@ -312,7 +315,7 @@ export default function ArtistForm() {
                               onChange={(evt) => setDescription(evt.target.value)}
                            />
                         </Form.Group>
-                        {/* End of description container */}
+
                         {/* Bio Container */}
                         <Form.Group>
                            <Form.Label>Bio:</Form.Label>
@@ -325,50 +328,47 @@ export default function ArtistForm() {
                               onChange={(evt) => setBio(evt.target.value)}
                            />
                         </Form.Group>
-                        {/*End of bio container */}
+
+                        {/* Splash Image Container */}
                         <Form.Group>
-                           <Form.Label>Image (large) / Splash Image: </Form.Label>
-                           <Form.Control
+                           <Form.File
                               className="img_submit"
-                              type="file"
+                              label={imageLgName ? "Splash Image: " + imageLgName : "Please choose a Splash Image"}
                               name="imageLgIn"
                               onChange={handleImageLg}
                            />
-                           {/* <progress value="0" max="100" id="upload"></progress> */}
                         </Form.Group>
+
                         {/* Image 1 Container */}
                         <Form.Group>
-                           <Form.Label>Image 1: </Form.Label>
-                           <Form.Control
-                              type="file"
-                              name="image1Input"
+                           <Form.File
                               className="img_submit"
+                              label={image1Name ? "Image 1: " + image1Name : "Please choose Image 1"}
+                              name="image1In"
                               onChange={handleImage1}
                            />
                         </Form.Group>
-                        {/* End of Image 1 Container */}
+                     
                         {/* Image 2 Container */}
                         <Form.Group>
-                           <Form.Label>Image 2:  </Form.Label>
-                           <Form.Control
-                              type="file"
-                              name="image2Input"
+                           <Form.File
                               className="img_submit"
+                              label={image2Name ? "Image 2: " + image2Name : "Please choose Image 2"}
+                              name="image2In"
                               onChange={handleImage2}
                            />
                         </Form.Group>
-                        {/* End Of image 2 container */}
+                   
                         {/* Image 3 Container */}
                         <Form.Group>
-                           <Form.Label>Image 3: </Form.Label>
-                           <Form.Control
-                              type="file"
-                              name="image3Input"
+                           <Form.File
                               className="img_submit"
+                              label={image3Name ? "Image 3: " + image3Name : "Please choose Image 3"}
+                              name="image3In"
                               onChange={handleImage3}
                            />
                         </Form.Group>
-                        {/* End of Image 3 container */}
+                       
                         {/* Video link COntainer */}
                         <Form.Group id="vidLink">
                            <Form.Label>Video Link:</Form.Label>
@@ -379,7 +379,7 @@ export default function ArtistForm() {
                               placeholder="Enter Video Link"
                            />
                         </Form.Group>
-                        {/* End of video link container */}
+                    
                         {/* Submit Button */}
                         <Button id="form_button" className="w-100" type="submit">
                            Submit
