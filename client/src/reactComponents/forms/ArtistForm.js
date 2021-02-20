@@ -25,9 +25,11 @@ let nullShow = {
    image2Name: "image2Name",
    image3: "image3",
    image3Name: "image3Name",
-   video1: "video1",
-   link1: "link1",
-   link2: "link2",
+   artistWebsite: "artistWebsite",
+   artistFacebook: "artistFacebook",
+   artistYouTube: "artistYouTube",
+   artistInstagram: "artistInstagram",
+   artistSpotify: "artistSpotify"
 };
 
 export default function ArtistForm() {
@@ -48,10 +50,8 @@ export default function ArtistForm() {
    let [email, setEmail] = useState("");
    let [bio, setBio] = useState("");
    let [description, setDescription] = useState("");
-   let [video1, setVideo1] = useState("");
-   let [link1, setLink1] = useState("");
-   let [link2, setLink2] = useState("");
-   //image variables
+
+   //images
    let [imageLg, setImageLg] = useState("");
    let [imageLgName, setImageLgName] = useState("")
    let [image1, setImage1] = useState("");
@@ -60,6 +60,14 @@ export default function ArtistForm() {
    let [image2Name, setImage2Name] = useState("");
    let [image3, setImage3] = useState("");
    let [image3Name, setImage3Name] = useState("");
+
+   //social media
+   let [artistWebsite, setArtistWebsite] = useState("");
+   let [artistFacebook, setArtistFacebook] = useState("");
+   let [artistYouTube, setArtistYouTube] = useState("");
+   let [artistInstagram, setArtistInstagram] = useState("");
+   let [artistSpotify, setArtistSpotify] = useState("");
+
 
 
    // get document from database and set it in state
@@ -89,18 +97,21 @@ export default function ArtistForm() {
          showInData.description
             ? setDescription(showInData.description)
             : setDescription("");
+         
          showInData.imageLg ? setImageLg(showInData.imageLg) : setImageLg("");
-         showInData.imageLgName ? setImageLgName(showInData.imageLgName) : setImageLgName("")
+         showInData.imageLgName ? setImageLgName(showInData.imageLgName) : setImageLgName("");
          showInData.image1 ? setImage1(showInData.image1) : setImage1("");
-         showInData.image1Name ? setImage1Name(showInData.image1Name) : setImage1Name("")
+         showInData.image1Name ? setImage1Name(showInData.image1Name) : setImage1Name("");
          showInData.image2 ? setImage2(showInData.image2) : setImage2("");
-         showInData.image2Name ? setImage2Name(showInData.image2Name) : setImage2Name("")
+         showInData.image2Name ? setImage2Name(showInData.image2Name) : setImage2Name("");
          showInData.image3 ? setImage3(showInData.image3) : setImage3("");
-         showInData.image3Name ? setImage3Name(showInData.image3Name) : setImage3Name("")
+         showInData.image3Name ? setImage3Name(showInData.image3Name) : setImage3Name("");
 
-         showInData.video1 ? setVideo1(showInData.video1) : setVideo1("");
-         showInData.link1 ? setLink1(showInData.link1) : setLink1("");
-         showInData.link2 ? setLink2(showInData.link2) : setLink2("");
+         showInData.artistWebsite ? setArtistWebsite(showInData.artistWebsite) : setArtistWebsite("");
+         showInData.artistFacebook ? setArtistFacebook(showInData.artistFacebook) : setArtistFacebook("");
+         showInData.artistYouTube ? setArtistYouTube(showInData.artistYouTube) : setArtistYouTube("");
+         showInData.artistInstagram ? setArtistInstagram(showInData.artistInstagram) : setArtistInstagram("");
+         showInData.artistSpotify ? setArtistSpotify(showInData.artistSpotify) : setArtistSpotify("");
 
       }
    }
@@ -139,15 +150,17 @@ export default function ArtistForm() {
          image2Name: image2Name,
          image3: image3,
          image3Name: image3Name,
-         video1: video1,
-         link1: link1,
-         link2: link2,
+         artistWebsite: artistWebsite,
+         artistFacebook: artistFacebook,
+         artistYouTube: artistYouTube,
+         artistInstagram: artistInstagram,
+         artistSpotify: artistSpotify
       };
 
       console.log("second: ", showUpdate);
 
       await firestore.collection("shows").doc(id).set(showUpdate);
-       history.push("/");
+      history.push("/");
    }
 
 
@@ -348,7 +361,7 @@ export default function ArtistForm() {
                               onChange={handleImage1}
                            />
                         </Form.Group>
-                     
+
                         {/* Image 2 Container */}
                         <Form.Group>
                            <Form.File
@@ -358,7 +371,7 @@ export default function ArtistForm() {
                               onChange={handleImage2}
                            />
                         </Form.Group>
-                   
+
                         {/* Image 3 Container */}
                         <Form.Group>
                            <Form.File
@@ -368,19 +381,62 @@ export default function ArtistForm() {
                               onChange={handleImage3}
                            />
                         </Form.Group>
-                       
-                        {/* Video link COntainer */}
-                        <Form.Group id="vidLink">
-                           <Form.Label>Video Link: { video1 ? video1 : "Please choose a video link"}</Form.Label>
+
+                        {/* Website link COntainer */}
+                        <Form.Group id="socialMediaLink">
+                           <Form.Label>{artistWebsite ? "Website: " + artistWebsite : "Website" }</Form.Label>
                            <Form.Control
                               type="url"
                               name="vidInput"
-                              onChange={(evt) => setVideo1(evt.target.value)}
-                              placeholder="Choose Video Link"
-                             
+                              onChange={(evt) => setArtistWebsite(evt.target.value)}
+                              placeholder="Paste Your Website Link Here"
                            />
                         </Form.Group>
-                    
+
+                        {/* Facebook link COntainer */}
+                        <Form.Group id="socialMediaLink">
+                           <Form.Label>{artistFacebook ? "Facebook: " + artistFacebook : "Facebook"}</Form.Label>
+                           <Form.Control
+                              type="url"
+                              name="vidInput"
+                              onChange={(evt) => setArtistFacebook(evt.target.value)}
+                              placeholder="Paste Your Facebook Link Here"
+                           />
+                        </Form.Group>
+
+                        {/* YouTube COntainer */}
+                        <Form.Group id="socialMediaLink">
+                           <Form.Label>{artistYouTube ? "YouTube: " + artistYouTube : "YouTube"}</Form.Label>
+                           <Form.Control
+                              type="url"
+                              name="vidInput"
+                              onChange={(evt) => setArtistYouTube(evt.target.value)}
+                              placeholder="Paste Your YouTube Link Here"
+                           />
+                        </Form.Group>
+
+                        {/* Instagram COntainer */}
+                        <Form.Group id="socialMediaLink">
+                           <Form.Label>{artistInstagram ? "Instagram: " + artistInstagram : "Instagram"}</Form.Label>
+                           <Form.Control
+                              type="url"
+                              name="vidInput"
+                              onChange={(evt) => setArtistInstagram(evt.target.value)}
+                              placeholder="Paste Your Instagram Link Here"
+                           />
+                        </Form.Group>
+
+                        {/* Spotify link COntainer */}
+                        <Form.Group id="socialMediaLink">
+                           <Form.Label>{artistSpotify ? "Spotify: " + artistSpotify : "Spotify"}</Form.Label>
+                           <Form.Control
+                              type="url"
+                              name="vidInput"
+                              onChange={(evt) => setArtistSpotify(evt.target.value)}
+                              placeholder="Paste Your Spotify Link Here"
+                           />
+                        </Form.Group>
+
                         {/* Submit Button */}
                         <Button id="form_button" className="w-100" type="submit">
                            Submit
