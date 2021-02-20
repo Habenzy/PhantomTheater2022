@@ -3,9 +3,9 @@
   color: rgb(195, 247, 9);
 }
 /* Text color of the form files */
-.form-control-file {
+/* .img_submit {
   color: white;
-}
+} */
 /* Form Button color */
 #form_button{
     border:none;
@@ -17,3 +17,4 @@
     transition: transform 0.3s ease-out;
     transform:scale(1.1);
 }
+

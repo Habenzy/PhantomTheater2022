@@ -147,7 +147,7 @@ export default function ArtistForm() {
       console.log("second: ", showUpdate);
 
       await firestore.collection("shows").doc(id).set(showUpdate);
-      // history.push("/");
+       history.push("/");
    }
 
 
@@ -371,12 +371,13 @@ export default function ArtistForm() {
                        
                         {/* Video link COntainer */}
                         <Form.Group id="vidLink">
-                           <Form.Label>Video Link:</Form.Label>
+                           <Form.Label>Video Link: { video1 ? video1 : "Please choose a video link"}</Form.Label>
                            <Form.Control
                               type="url"
                               name="vidInput"
                               onChange={(evt) => setVideo1(evt.target.value)}
-                              placeholder="Enter Video Link"
+                              placeholder="Choose Video Link"
+                             
                            />
                         </Form.Group>
                     
