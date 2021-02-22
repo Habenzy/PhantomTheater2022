@@ -6,6 +6,7 @@ import "../formcss/singleShow.css";
 
 export default function SingleShow(props) {
    let numberOfShows = props.dates.length;
+   props.dates.sort()
 
    function changeDate(date) {
       //------- changing the military time string to normal tim

@@ -171,9 +171,11 @@ export default function EditShow() {
     console.log(numberOfShows);
   };
 
-  const handleDates = (evt) => {
+   const handleDates = (evt) => {
+     evt.preventDefault()
     let currentDates = dates;
-    currentDates.push(evt.target.value);
+      currentDates.push(evt.target.value);
+      
     setDates(currentDates);
     console.log(dates);
   };
@@ -362,7 +364,7 @@ export default function EditShow() {
                     <Form.Label>Showtimes:</Form.Label>
                     {numberOfShows >= 1 ? (
                       <Form.Control
-                        onChange={(evt) => handleDates(evt)}
+                        onBlur={(evt) => handleDates(evt)}
                         type="dateTime-local"
                         className="dates"
                         defaultValue={dates[0]}
@@ -372,7 +374,7 @@ export default function EditShow() {
                     )}
                     {numberOfShows >= 2 ? (
                       <Form.Control
-                        onChange={(evt) => handleDates(evt)}
+                        onBlur={(evt) => handleDates(evt)}
                         type="dateTime-local"
                         className="dates"
                         defaultValue={dates[1]}
@@ -382,7 +384,7 @@ export default function EditShow() {
                     )}
                     {numberOfShows >= 3 ? (
                       <Form.Control
-                        onChange={(evt) => handleDates(evt)}
+                        onBlur={(evt) => handleDates(evt)}
                         type="dateTime-local"
                         className="dates"
                         defaultValue={dates[2]}
@@ -392,7 +394,7 @@ export default function EditShow() {
                     )}
                     {numberOfShows >= 4 ? (
                       <Form.Control
-                        onChange={(evt) => handleDates(evt)}
+                        onBlur={(evt) => handleDates(evt)}
                         type="dateTime-local"
                         className="dates"
                         defaultValue={dates[3]}
@@ -402,7 +404,7 @@ export default function EditShow() {
                     )}
                     {numberOfShows >= 5 ? (
                       <Form.Control
-                        onChange={(evt) => handleDates(evt)}
+                        onBlur={(evt) => handleDates(evt)}
                         type="dateTime-local"
                         className="dates"
                         defaultValue={dates[4]}
@@ -412,7 +414,7 @@ export default function EditShow() {
                     )}
                     {numberOfShows >= 6 ? (
                       <Form.Control
-                        onChange={(evt) => handleDates(evt)}
+                        onBlur={(evt) => handleDates(evt)}
                         type="dateTime-local"
                         className="dates"
                         defaultValue={dates[5]}
