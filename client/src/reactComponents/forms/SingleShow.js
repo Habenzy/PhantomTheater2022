@@ -45,10 +45,11 @@ export default function SingleShow(props) {
    }
 
    return (
+
       <div className="single_show">
-         {/* {props.id} */}
-         {/* {numberOfShows} */}
-         {/* {today} */}
+         <span>Artist Link: <a href={`http://localhost:3000/artistForm#${props.id}`}>
+            {`http://localhost:3000/artistForm#${props.id}`}
+         </a></span>
          <h4>{props.title}</h4>
 
          {numberOfShows >= 1 ? changeDate(props.dates[0]) : console.log()}
