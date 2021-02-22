@@ -97,7 +97,7 @@ export default function ArtistForm() {
          showInData.description
             ? setDescription(showInData.description)
             : setDescription("");
-         
+
          showInData.imageLg ? setImageLg(showInData.imageLg) : setImageLg("");
          showInData.imageLgName ? setImageLgName(showInData.imageLgName) : setImageLgName("");
          showInData.image1 ? setImage1(showInData.image1) : setImage1("");
@@ -344,9 +344,9 @@ export default function ArtistForm() {
 
                         {/* Splash Image Container */}
                         <Form.Group>
+                           <span>Splash Image: <Form.Label> {imageLgName ? imageLgName : "Please choose a Splash Image"} </Form.Label></span>
                            <Form.File
                               className="img_submit"
-                              label={imageLgName ? "Splash Image: " + imageLgName : "Please choose a Splash Image"}
                               name="imageLgIn"
                               onChange={handleImageLg}
                            />
@@ -354,9 +354,9 @@ export default function ArtistForm() {
 
                         {/* Image 1 Container */}
                         <Form.Group>
+                           <span>Image 1: <Form.Label> {image1Name ? image1Name : "Please choose an Image"} </Form.Label></span>
                            <Form.File
                               className="img_submit"
-                              label={image1Name ? "Image 1: " + image1Name : "Please choose Image 1"}
                               name="image1In"
                               onChange={handleImage1}
                            />
@@ -364,9 +364,9 @@ export default function ArtistForm() {
 
                         {/* Image 2 Container */}
                         <Form.Group>
+                           <span>Image 2: <Form.Label> {image2Name ? image2Name : "Please choose an Image"} </Form.Label></span>
                            <Form.File
                               className="img_submit"
-                              label={image2Name ? "Image 2: " + image2Name : "Please choose Image 2"}
                               name="image2In"
                               onChange={handleImage2}
                            />
@@ -374,9 +374,9 @@ export default function ArtistForm() {
 
                         {/* Image 3 Container */}
                         <Form.Group>
+                           <span>Image 3: <Form.Label> {image3Name ? image3Name : "Please choose an Image"} </Form.Label></span>
                            <Form.File
                               className="img_submit"
-                              label={image3Name ? "Image 3: " + image3Name : "Please choose Image 3"}
                               name="image3In"
                               onChange={handleImage3}
                            />
@@ -384,7 +384,7 @@ export default function ArtistForm() {
 
                         {/* Website link COntainer */}
                         <Form.Group id="socialMediaLink">
-                           <Form.Label>{artistWebsite ? "Website: " + artistWebsite : "Website" }</Form.Label>
+                           <Form.Label>{artistWebsite ? "Website: " + artistWebsite : "Website"}</Form.Label>
                            <Form.Control
                               type="url"
                               name="vidInput"

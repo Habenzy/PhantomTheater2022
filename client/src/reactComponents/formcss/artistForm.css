@@ -1,23 +1,34 @@
 /* Text color */
+
 .artist_container {
-  color: rgb(195, 247, 9);
+   color: rgb(195, 247, 9);
 }
+
 /* Text color of the form files */
+
 /* .img_submit {
   color: white;
 } */
+
 /* Form Button color */
-#form_button{
-    border:none;
-    background-color: #ffae57;
-    color:#1d2433;
+
+#form_button {
+   border: none;
+   background-color: #ffae57;
+   color: #1d2433;
 }
+
 /* Form Button Animation */
-#form_button:hover{
-    transition: transform 0.3s ease-out;
-    transform:scale(1.1);
+
+#form_button:hover {
+   transition: transform 0.3s ease-out;
+   transform: scale(1.1);
 }
 
 span {
    color: white
+}
+
+Label {
+   color: rgb(195, 247, 9);
 }
