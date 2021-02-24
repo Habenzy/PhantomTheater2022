@@ -6,6 +6,8 @@ import React, { useState } from "react";
 import "./Home.css";
 import { firestore } from '../firebase/firebase';
 // import { storage } from '../firebase/firebase';
+import { Link } from "react-router-dom";
+
 
 
 // repetitive code that gets all ids and documents in a collection for .map
@@ -19,8 +21,7 @@ const collectAllIdsAndDocs = doc => {
 function Home() {
 
    let [allShows, setAllShows] = useState("")
-   // let [currentShow1, setCurrentShow1] = useState("")
-   // let [currentShow2, setCurrentShow2] = useState("")
+   let [splashId, setSplashId] = useState("")
    let [splashImage, setSplashImage] = useState("")
    let [splashTitle, setSplashTitle] = useState("")
    let [splashDates, setSplashDates] = useState([])
@@ -54,7 +55,7 @@ function Home() {
    }
 
    async function loadHomePage(currentShows) {
-
+      setSplashId(currentShows[0].id)
       setSplashImage(currentShows[0].imageLg)
       setSplashTitle(currentShows[0].title)
       setSplashDates(currentShows[0].dates)
@@ -75,25 +76,19 @@ function Home() {
          "08": 'August',
          "09": 'September'
       }
-
       //------- changing the military time string to normal tim
       let newTime;
       ///sepparating the string at the T.
       let dateFix = date.split("T");
-
       let startDate = dateFix[0];
-
       let month = startDate.split("-")[1];
       let day = startDate.split("-")[2];
-
-      let endDate = months[month] + " " + day + ': ';
-
+      let endDate = months[month] + " " + day + '  -  ';
       /// targetting second item of the dateFix array (which is the time)
       let time = dateFix[1];
       // hours is the first index item of the time array which was split at the :
       let hours = time.split(":")[0];
       let minutes = time.split(":")[1];
-
       // if hours are a higher number than 12 (milt time)  
       // then subtract 12 to convert to normal time
       if (hours > 12) {
@@ -105,6 +100,8 @@ function Home() {
       let finalDate = endDate + " " + newTime;
       return finalDate;
    }
+
+
 
    return (
       <div className="homeContainer">
@@ -145,6 +142,8 @@ function Home() {
                {splashShowNum >= 5 ? changeDate(splashDates[4]) : console.log()}
                {splashShowNum >= 6 ? <br /> : console.log()}
                {splashShowNum >= 6 ? changeDate(splashDates[5]) : console.log()}
+               <br />
+               <div><Link to="/Artist">- Artist Info -</Link></div>
 
 
             </div>

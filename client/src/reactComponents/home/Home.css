@@ -41,6 +41,13 @@
    text-shadow: 2px 2px 1px black;
 }
 
+a {
+   color: rgb(195, 247, 9) !important;
+   background-color: rgb(3, 3, 3);
+   border-radius: 50%;
+   text-decoration: none !important;
+}
+
 /* .currentPlayText p {
    font-size: 20pt;
 } */
@@ -50,19 +57,14 @@
 .whatNext {
    display: flex;
    flex-direction: column;
-   
    width: 20vw;
    height: auto;
    position: absolute;
- 
 }
 
 .whatNextImg {
-  
    width: 20vw
 }
-
-
 
 .whatNextText {
    color: white;

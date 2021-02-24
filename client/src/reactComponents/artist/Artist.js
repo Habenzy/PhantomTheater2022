@@ -28,6 +28,7 @@ function Artist() {
 
   seeAllArtists()
 
+   
   return (
     <div className="artistsContainer">
       <h1>Artists</h1>
