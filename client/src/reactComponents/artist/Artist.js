@@ -5,54 +5,77 @@ import { firestore } from "../firebase/firebase";
 import ArtistEvent from '../forms/ArtistEvent'
 import '../artist/Artist.css'
 
-const collectAllIdsAndDocs = (doc) => {
-  return { id: doc.id, ...doc.data() }
-}
 
-// ------- Season function with calendar and show titles and dates
-//----------------Artist component function ----------------
 
-function Artist() {
-  let [allArtists, setAllArtists] = useState(null)
+export default function Artist() {
 
-  async function seeAllArtists() {
-    const artistsRef = firestore.collection('shows')
-    const artistSnapshot = await artistsRef.where('status', '!=', 'Proposal').get()
+   let [thisShow, setThisShow] = useState("");
+   let [artist, setArtist] = useState("");
+   let [bio, setBio] = useState("");
+   let [image1, setImage1] = useState("");
+ 
+   let [image2, setImage2] = useState("");
+  
+   let [image3, setImage3] = useState("");
+ 
+   // let [artistWebsite, setArtistWebsite] = useState("");
+   // let [artistFacebook, setArtistFacebook] = useState("");
+   // let [artistYouTube, setArtistYouTube] = useState("");
+   // let [artistInstagram, setArtistInstagram] = useState("");
+   // let [artistSpotify, setArtistSpotify] = useState("");
 
-    const allArtistsArray = artistSnapshot.docs.map(collectAllIdsAndDocs)
-    if (!allArtists) {
-      console.log('allArtistsArray = ', allArtistsArray)
-      setAllArtists(allArtistsArray)
-    }
-  }
 
-  seeAllArtists()
+  
+   async function getOneShow() {
+      let id = document.location.hash.substring(1);
+      const showRef = await firestore.collection("shows").doc(id);
+      const showIn = await showRef.get();
+      if (!showIn.exists) {
+         alert("no such document", id);
+      } else {
+         let showInData = showIn.data();
 
-   
-  return (
-    <div className="artistsContainer">
-      <h1>Artists</h1>
-      { allArtists ? allArtists.map(show => {
-        return <ArtistEvent
+         setThisShow(showInData);
 
-          key={show.id}
-          id={show.id}
-          artist={show.artist}
-          image1={show.image1}
-          image2={show.image2}
-          image3={show.image3}
-
-          bio={show.bio}
-          email={show.email}
-          link1={show.link1}
-          link2={show.link2}
-        ></ArtistEvent >
-      }) : 'loading'
-
+         showInData.artist ? setArtist(showInData.artist) : setArtist("");
+         showInData.bio ? setBio(showInData.bio) : setBio("");
+         showInData.image1 ? setImage1(showInData.image1) : setImage1("");
+         showInData.image2 ? setImage2(showInData.image2) : setImage2("");
+         showInData.image3 ? setImage3(showInData.image3) : setImage3("");
       }
-    </div >
-  );
-}
+      console.log(thisShow)
+   }
+  getOneShow()
+  
+   
+   return (
+      <div className="artistsContainer">
+         
+         <br />
+         <h3>{artist}</h3>
+         <br />
+         <p>{bio}</p>
 
-//------export the component---------
-export default Artist;
+         <div className="artistImageContainer">
+            <img src={image1} alt="artist-1"></img>
+            <br />
+            <img src={image2} alt="artist-2"></img>
+            <br />
+            <img src={image3} alt="artist-3"></img>
+         </div>
+
+         <div className="textContainer">
+           
+            <div className="artistContact">
+           
+
+             
+               <br />
+            </div>
+         </div>
+         <div className="line"></div>
+
+         
+      </div>
+   )
+}

@@ -6,7 +6,8 @@ import React, { useState } from "react";
 import "./Home.css";
 import { firestore } from '../firebase/firebase';
 // import { storage } from '../firebase/firebase';
-import { Link } from "react-router-dom";
+
+import { useHistory } from 'react-router-dom'
 
 
 
@@ -30,7 +31,7 @@ function Home() {
    let [nextTitle, setNextTitle] = useState("")
    let [nextDates, setNextDates] = useState([])
    let [nextShowNum, setNextShowNum] = useState(0)
-
+   const history = useHistory()
 
    // print list of all shows
    async function seeAllShows() {
@@ -101,7 +102,11 @@ function Home() {
       return finalDate;
    }
 
-
+   async function showArtist() {
+      let id = splashId
+      console.log("id is ", id)
+      history.push(`/Artist#${id}`)
+   }
 
    return (
       <div className="homeContainer">
@@ -143,7 +148,8 @@ function Home() {
                {splashShowNum >= 6 ? <br /> : console.log()}
                {splashShowNum >= 6 ? changeDate(splashDates[5]) : console.log()}
                <br />
-               <div><Link to="/Artist">- Artist Info -</Link></div>
+               <button
+                  onClick={showArtist}>- Artist Info -</button>
 
 
             </div>

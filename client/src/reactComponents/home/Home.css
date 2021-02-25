@@ -48,6 +48,13 @@ a {
    text-decoration: none !important;
 }
 
+button {
+   color: rgb(195, 247, 9) !important;
+   background-color: rgb(3, 3, 3);
+   border-radius: 50%;
+   text-decoration: none !important;
+}
+
 /* .currentPlayText p {
    font-size: 20pt;
 } */
