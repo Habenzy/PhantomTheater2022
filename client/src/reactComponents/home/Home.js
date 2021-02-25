@@ -104,7 +104,6 @@ function Home() {
 
    async function showArtist() {
       let id = splashId
-      console.log("id is ", id)
       history.push(`/Artist#${id}`)
    }
 
@@ -133,8 +132,7 @@ function Home() {
             </div>
             <div className="currentPlayText">
 
-               {/* <h1>Website Under Construction</h1>
-               <h3>See you next Summer !</h3> */}
+         
                <h2>{`${splashTitle}`}</h2>
                {splashShowNum >= 1 ? changeDate(splashDates[0]) : console.log()}
                {splashShowNum >= 2 ? <br /> : console.log()}
@@ -148,8 +146,7 @@ function Home() {
                {splashShowNum >= 6 ? <br /> : console.log()}
                {splashShowNum >= 6 ? changeDate(splashDates[5]) : console.log()}
                <br />
-               <button
-                  onClick={showArtist}>- Artist Info -</button>
+               <button onClick={showArtist}>- Artist Info -</button>
 
 
             </div>

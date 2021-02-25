@@ -39,7 +39,7 @@
   flex-direction: row;
   display: flex;
   justify-content: space-between;
-  width: 80%;
+  width: 100%;
 }
 
 .textContainer a {
@@ -62,7 +62,7 @@
 }
 
 img {
-   width: 250px
+   width: 30vw;
 }
 
 /* -----------------------Screen resizing styling--------------- */

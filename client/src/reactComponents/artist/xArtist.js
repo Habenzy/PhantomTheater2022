@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import "./Artist.css";
 import { firestore } from "../firebase/firebase";
-import ArtistEvent from '../forms/ArtistEvent'
+import ArtistEvent from '../forms/xArtistEvent'
 import '../artist/Artist.css'
 
 
