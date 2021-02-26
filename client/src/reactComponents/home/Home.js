@@ -1,12 +1,7 @@
 //-----------------------------Imports---------------------------------------------------------------
 import React, { useState } from "react";
-// import Image from "../images/barn3.jpeg";
-// import ImageH from "../images/barn3crop.jpg"
-// import Image2 from "../images/SarahRose.jpg";
 import "./Home.css";
 import { firestore } from '../firebase/firebase';
-// import { storage } from '../firebase/firebase';
-
 import { useHistory } from 'react-router-dom'
 
 
@@ -21,7 +16,7 @@ const collectAllIdsAndDocs = doc => {
 //------ Homepage component function with currently playing as central image and next show -----------
 function Home() {
 
-   let [allShows, setAllShows] = useState("")
+   // let [allShows, setAllShows] = useState("")
    let [splashId, setSplashId] = useState("")
    let [splashImage, setSplashImage] = useState("")
    let [splashTitle, setSplashTitle] = useState("")
@@ -34,7 +29,7 @@ function Home() {
    const history = useHistory()
 
    // print list of all shows
-   async function seeAllShows() {
+   async function getNowPlaying() {
       // get system date
       let date = "2020-08-01T00:00"
       // get all data from shows collection
@@ -48,14 +43,10 @@ function Home() {
          return new Date(a.dates[0]) - new Date(b.dates[0]);
       });
 
-      if (!allShows) {
-         setAllShows(currentShows)
-      }
+      // if (!allShows) {
+      //    setAllShows(currentShows)
+      // }
 
-      loadHomePage(currentShows)
-   }
-
-   async function loadHomePage(currentShows) {
       setSplashId(currentShows[0].id)
       setSplashImage(currentShows[0].imageLg)
       setSplashTitle(currentShows[0].title)
@@ -67,7 +58,8 @@ function Home() {
       setNextShowNum(currentShows[1].dates.length)
    }
 
-   seeAllShows()
+ 
+   getNowPlaying()
 
    function changeDate(date) {
       let months = {
@@ -102,9 +94,8 @@ function Home() {
       return finalDate;
    }
 
-   async function showArtist() {
-      let id = splashId
-      history.push(`/Artist#${id}`)
+   function showArtist() {
+      history.push(`/Artist#${splashId}`)
    }
 
    return (
@@ -132,7 +123,7 @@ function Home() {
             </div>
             <div className="currentPlayText">
 
-         
+
                <h2>{`${splashTitle}`}</h2>
                {splashShowNum >= 1 ? changeDate(splashDates[0]) : console.log()}
                {splashShowNum >= 2 ? <br /> : console.log()}

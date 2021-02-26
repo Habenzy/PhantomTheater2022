@@ -23,7 +23,7 @@ function Season() {
 
     const allShowsArray = showSnapshot.docs.map(collectAllIdsAndDocs)
     if (!allShows) {
-      console.log('allShowsArray =', allShowsArray)
+   
       setAllShows(allShowsArray)
     }
 

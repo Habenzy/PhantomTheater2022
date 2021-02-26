@@ -5,6 +5,7 @@ import Home from "./reactComponents/home/Home";
 import Footer from "./reactComponents/footer/Footer";
 import About from "./reactComponents/about/About";
 import Artist from "./reactComponents/artist/Artist";
+import AllArtist from "./reactComponents/artist/AllArtist"
 import Reserve from "./reactComponents/reserve/Reserve";
 import Season from "./reactComponents/season/Season";
 import Burger from "./reactComponents/burger/Burger.js";
@@ -43,7 +44,8 @@ function App() {
             <Route path="/allShows" component={AllShows} />
             <Route path="/Season" component={Season} />
             <Route path="/About" component={About} />
-            <Route path="/Artist" component={Artist} />
+                 <Route path="/Artist" component={Artist} />
+                 <Route path="/AllArtist" component={AllArtist} />
             <Route path="/Reserve" component={Reserve} />
           </Switch>
         </AuthProvider>

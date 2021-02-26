@@ -18,7 +18,7 @@ function SeasonEvent(props) {
     // ---------sepparating string at T
     let dateFix = date.split("T");
 
-    console.log(dateFix);
+  
 
     let startDate = dateFix[0];
     let year = startDate.split("-")[0];
@@ -26,7 +26,7 @@ function SeasonEvent(props) {
     let day = startDate.split("-")[2];
 
     let endDate = month + "/" + day + "/" + year;
-    console.log(endDate);
+  
 
     let time = dateFix[1];
 

@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import "./Artist.css";
 import { firestore } from "../firebase/firebase";
-import ArtistEvent from '../forms/xArtistEvent'
+import ArtistEvent from '../forms/ArtistEvent'
 import '../artist/Artist.css'
 
 
@@ -22,7 +22,7 @@ function Artist() {
 
     const allArtistsArray = artistSnapshot.docs.map(collectAllIdsAndDocs)
     if (!allArtists) {
-      console.log('allArtistsArray = ', allArtistsArray)
+     
       setAllArtists(allArtistsArray)
     }
   }

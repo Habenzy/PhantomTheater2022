@@ -18,11 +18,11 @@ export default function Artist() {
 
    let [image3, setImage3] = useState("");
 
-   // let [artistWebsite, setArtistWebsite] = useState("");
-   // let [artistFacebook, setArtistFacebook] = useState("");
-   // let [artistYouTube, setArtistYouTube] = useState("");
-   // let [artistInstagram, setArtistInstagram] = useState("");
-   // let [artistSpotify, setArtistSpotify] = useState("");
+   let [artistWebsite, setArtistWebsite] = useState("");
+   let [artistFacebook, setArtistFacebook] = useState("");
+   let [artistYouTube, setArtistYouTube] = useState("");
+   let [artistInstagram, setArtistInstagram] = useState("");
+   let [artistSpotify, setArtistSpotify] = useState("");
 
 
 
@@ -40,6 +40,13 @@ export default function Artist() {
          showInData.image1 ? setImage1(showInData.image1) : setImage1("");
          showInData.image2 ? setImage2(showInData.image2) : setImage2("");
          showInData.image3 ? setImage3(showInData.image3) : setImage3("");
+
+
+         showInData.artistWebsite ? setArtistWebsite(showInData.artistWebsite) : setArtistWebsite("");
+         showInData.artistFacebook ? setArtistFacebook(showInData.artistFacebook) : setArtistFacebook("");
+         showInData.artistYouTube ? setArtistYouTube(showInData.artistYouTube) : setArtistYouTube("");
+         showInData.artistInstagram ? setArtistInstagram(showInData.artistInstagram) : setArtistInstagram("");
+         showInData.artistSpotify ? setArtistSpotify(showInData.artistSpotify) : setArtistSpotify("");
       }
 
    }
@@ -57,16 +64,20 @@ export default function Artist() {
 
          <div className="artistImageContainer">
             <img src={image1} alt=""></img>
-           
+
             {image2 ? <img src={image2} alt=""></img> : 'Loading'}
-           
+
             <img src={image3} alt=""></img>
          </div>
 
          <div className="textContainer">
 
             <div className="artistContact">
-
+               {artistWebsite ? <span>Website: {artistWebsite}</span> : console.log()  }
+               {artistFacebook ? <span>FaceBook: {artistFacebook}</span> : console.log()  }
+               {artistYouTube ? <span>YouTube: {artistYouTube}</span> : console.log()  }
+               {artistInstagram ? <span>Instagram: {artistInstagram}</span> : console.log()  }
+               {artistSpotify ? <span>Spotify: {artistSpotify}</span> : console.log()  }
 
 
 
