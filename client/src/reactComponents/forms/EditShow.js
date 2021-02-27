@@ -173,9 +173,10 @@ export default function EditShow() {
 
    const handleDates = (evt) => {
      evt.preventDefault()
-    let currentDates = dates;
+      let currentDates = dates;
+     
       currentDates.push(evt.target.value);
-      
+      currentDates.sort()
     setDates(currentDates);
     console.log(dates);
   };

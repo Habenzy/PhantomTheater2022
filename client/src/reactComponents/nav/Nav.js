@@ -15,7 +15,7 @@ function Nav() {
       <nav className='menu'>
            <li><Link to="/About">About</Link></li>
            {/* <li><Link to="/">Artists</Link></li> */}
-        <li><Link to="/AllArtist">Artists</Link></li>
+        <li><Link to="/AllArtist">All Artists</Link></li>
         <Link to="/"><div className='logo'>
           <img className="logoimg" src={Logo} />
         </div></Link>

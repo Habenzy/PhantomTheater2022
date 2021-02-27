@@ -58,7 +58,7 @@ function Home() {
       setNextShowNum(currentShows[1].dates.length)
    }
 
- 
+
    getNowPlaying()
 
    function changeDate(date) {
@@ -88,7 +88,7 @@ function Home() {
          newTime = hours - 12 + ":" + minutes + " PM";
       } else {
          // otherwise the time will just print the number if it is lower than 12
-         newTime = hours + ":" + minutes;
+         newTime = hours + ":" + minutes + " AM";
       }
       let finalDate = endDate + " " + newTime;
       return finalDate;
@@ -100,29 +100,28 @@ function Home() {
 
    return (
       <div className="homeContainer">
+         {/* Firefly Divs that draws to the page */}
+         <div className="firefly"></div>
+         <div className="firefly"></div>
+         <div className="firefly"></div>
+         <div className="firefly"></div>
+         <div className="firefly"></div>
+         <div className="firefly"></div>
+         <div className="firefly"></div>
+         <div className="firefly"></div>
+         <div className="firefly"></div>
+         <div className="firefly"></div>
+         <div className="firefly"></div>
+         <div className="firefly"></div>
+         <div className="firefly"></div>
+         <div className="firefly"></div>
+         <div className="firefly"></div>
+
          <div className="currentPlay">
             <div className="imageDiv">
-
-               {/* Firefly Divs that draws to the page */}
-               <div className="firefly"></div>
-               <div className="firefly"></div>
-               <div className="firefly"></div>
-               <div className="firefly"></div>
-               <div className="firefly"></div>
-               <div className="firefly"></div>
-               <div className="firefly"></div>
-               <div className="firefly"></div>
-               <div className="firefly"></div>
-               <div className="firefly"></div>
-               <div className="firefly"></div>
-               <div className="firefly"></div>
-               <div className="firefly"></div>
-               <div className="firefly"></div>
-               <div className="firefly"></div>
                <img className="homeImage" src={splashImage} alt="Now Showing" />
             </div>
             <div className="currentPlayText">
-
 
                <h2>{`${splashTitle}`}</h2>
                {splashShowNum >= 1 ? changeDate(splashDates[0]) : console.log()}
@@ -138,7 +137,6 @@ function Home() {
                {splashShowNum >= 6 ? changeDate(splashDates[5]) : console.log()}
                <br />
                <button onClick={showArtist}>- Artist Info -</button>
-
 
             </div>
          </div>
