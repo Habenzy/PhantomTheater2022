@@ -38,3 +38,8 @@
    margin-top: 15px;
    margin-bottom: 30px;
 }
+
+.dashLink {
+   color: #007bff !important;
+   background-color: transparent ;
+}

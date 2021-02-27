@@ -48,7 +48,7 @@ export default function SingleShow(props) {
    return (
 
       <div className="single_show">
-         <span>Artist Link: <a href={`http://localhost:3000/artistForm#${props.id}`}>
+         <span>Artist Link: <a className="dashLink" href={`http://localhost:3000/artistForm#${props.id}`}>
             {`http://localhost:3000/artistForm#${props.id}`}
          </a></span>
          <h4>{props.title}</h4>
