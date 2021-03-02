@@ -16,7 +16,7 @@ const collectAllIdsAndDocs = doc => {
 //------ Homepage component function with currently playing as central image and next show -----------
 function Home() {
 
-   // let [allShows, setAllShows] = useState("")
+   let [allShows, setAllShows] = useState("")
    let [splashId, setSplashId] = useState("")
    let [splashImage, setSplashImage] = useState("")
    let [splashTitle, setSplashTitle] = useState("")
@@ -43,9 +43,7 @@ function Home() {
          return new Date(a.dates[0]) - new Date(b.dates[0]);
       });
 
-      // if (!allShows) {
-      //    setAllShows(currentShows)
-      // }
+      setAllShows(currentShows)
 
       setSplashId(currentShows[0].id)
       setSplashImage(currentShows[0].imageLg)
@@ -56,10 +54,11 @@ function Home() {
       setNextTitle(currentShows[1].title)
       setNextDates(currentShows[1].dates)
       setNextShowNum(currentShows[1].dates.length)
+
    }
 
+   if (!allShows) getNowPlaying()
 
-   getNowPlaying()
 
    function changeDate(date) {
       let months = {
