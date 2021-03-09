@@ -171,12 +171,12 @@ export default function EditShow() {
     console.log(numberOfShows);
   };
 
-   const handleDates = (evt) => {
-     evt.preventDefault()
-      let currentDates = dates;
-     
-      currentDates.push(evt.target.value);
-      currentDates.sort()
+  const handleDates = (evt) => {
+    evt.preventDefault();
+    let currentDates = dates;
+
+    currentDates.push(evt.target.value);
+    currentDates.sort();
     setDates(currentDates);
     console.log(dates);
   };
@@ -348,7 +348,7 @@ export default function EditShow() {
                       value={status}
                       onChange={(evt) => setStatus(evt.target.value)}
                     >
-                      <option selected>Proposal </option>
+                      <option defaultValue>Proposal </option>
                       <option>Booked</option>
                     </select>
                   </Form.Group>
@@ -437,6 +437,7 @@ export default function EditShow() {
                       onChange={handleImageLg}
                       onClick={resetProgressLg}
                     />
+                    <img className="thumbNail" src={imageLg} alt=""/>
                   </Form.Group>
                   <ProgressBar
                     striped
@@ -458,6 +459,7 @@ export default function EditShow() {
                       onChange={handleImage1}
                       onClick={resetProgress1}
                     />
+                    <img className="thumbNail" src={image1} alt="" />
                   </Form.Group>
                   <ProgressBar
                     striped
@@ -478,6 +480,7 @@ export default function EditShow() {
                       onChange={handleImage2}
                       onClick={resetProgress2}
                     />
+                    <img className="thumbNail" src={image2} alt="" />
                   </Form.Group>
                   <ProgressBar
                     striped
@@ -498,6 +501,7 @@ export default function EditShow() {
                       onChange={handleImage3}
                       onClick={resetProgress3}
                     />
+                    <img className="thumbNail" src={image3} alt="" />
                   </Form.Group>
                   <ProgressBar
                     striped

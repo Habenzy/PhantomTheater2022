@@ -200,7 +200,7 @@ function AdminForm() {
                            {/* End of Artist Bio container */}
                            {/* Show Description Container */}
                            <Form.Group>
-                              <Form.Label for="showDescription">
+                              <Form.Label>
                                  Description of the Show:
                     </Form.Label>
                               <textarea

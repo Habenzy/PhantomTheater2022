@@ -401,6 +401,7 @@ export default function ArtistForm() {
                     onChange={handleImageLg}
                     onClick={resetProgressLg}
                   />
+                  <img className="thumbNail" src={imageLg} alt="" />
                 </Form.Group>
                 <ProgressBar
                   striped
@@ -423,6 +424,7 @@ export default function ArtistForm() {
                     onChange={handleImage1}
                     onClick={resetProgress1}
                   />
+                  <img className="thumbNail" src={image1} alt="" />
                 </Form.Group>
                 <ProgressBar
                   striped
@@ -445,6 +447,7 @@ export default function ArtistForm() {
                     onChange={handleImage2}
                     onClick={resetProgress2}
                   />
+                  <img className="thumbNail" src={image2} alt="" />
                 </Form.Group>
                 <ProgressBar
                   striped
@@ -467,6 +470,7 @@ export default function ArtistForm() {
                     onChange={handleImage3}
                     onClick={resetProgress3}
                   />
+                  <img className="thumbNail" src={image3} alt="" />
                 </Form.Group>
                 <ProgressBar
                   striped

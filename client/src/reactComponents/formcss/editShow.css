@@ -14,3 +14,8 @@
     transition: transform 0.3s ease-out;
     transform:scale(1.1);
 }
+
+/* .thumbNail{
+    width: 20vw;
+    height: auto;
+} */
