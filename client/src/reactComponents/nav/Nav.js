@@ -15,7 +15,7 @@ function Nav() {
       <nav className='menu'>
            <li><Link to="/About">About</Link></li>
          
-           <li><Link to="/AllArtist">All Artists</Link></li>
+           <li><Link to="/AllArtist">Featured</Link></li>
            
         <Link to="/"><div className='logo'>
           <img className="logoimg" src={Logo} />
@@ -23,7 +23,7 @@ function Nav() {
            
            <li><Link to="/Season">Season</Link></li>
            
-        <li><Link to="/Reserve">Reserve</Link></li> 
+        <li><Link to="/AllArtist">Artists</Link></li> 
      
        
       </nav>

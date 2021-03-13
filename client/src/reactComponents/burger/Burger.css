@@ -8,7 +8,7 @@
 }
 
 #burger {
-  width: 40px; 
+  width: 40px;
   background: none;
   border: none;
   margin-right: 10px;
@@ -26,10 +26,9 @@
 
 #burger img {
   width: 40px;
-  align-self: flex-end;
 }
 
-.burgerNavBar .menu{
+.burgerNavBar .menu {
   display: flex;
   flex-direction: column;
   width: 20vw;

@@ -105,7 +105,7 @@ function Home() {
       "11": 'November',
       "12": 'December'
     }
-    //------- changing the military time string to normal tim
+    //------- changing the military time string to normal time
     let newTime;
     ///sepparating the string at the T.
     let dateFix = date.split("T");
@@ -156,7 +156,7 @@ function Home() {
       <div className="firefly"></div>
 
       <div className="currentPlay">
-        <div className="imageDiv">
+        <div className="currentPlay">
           <img className="homeImage" src={splashImage} alt="Now Showing" />
         </div>
         <div className="currentPlayText">
