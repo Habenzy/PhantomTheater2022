@@ -15,7 +15,7 @@ function About() {
 ALWAYS ENTERTAINING, NOT TO BE MISSED!</h3>
             <div>
                <div className="aboutImgDiv1">
-                  <img className="aboutImage1" src={Masks} />
+                  <img className="aboutImage1" src={Masks} alt="" />
                </div>
                <br />
           Phantom Theater was created in Warren, Vermont in 1985. Since its
@@ -48,7 +48,7 @@ ALWAYS ENTERTAINING, NOT TO BE MISSED!</h3>
             <h1>Contact Us</h1>
             <div>
                <div className="aboutImgDiv2">
-                  <img className="aboutImage2" src={Map} />
+                  <img className="aboutImage2" src={Map} alt="" />
                </div>
                <br />
           PHANTOM

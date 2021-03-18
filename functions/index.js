@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 admin.initializeApp();
@@ -34,3 +35,18 @@ exports.getDates = functions.https.onRequest((request, response) => {
         response.status(500).send("Error Occurred");
       });
 });
+
+
+// firestore trigger for updates
+
+// exports.sortDates = functions.firestore.document("/shows/{id}")
+//     .onUpdate((snapshot, context) => {
+//       const id = context.params.id;
+
+
+//       console.log(snapshot.dates);
+//       console.log(id);
+
+//       return null;
+//     }
+//     );

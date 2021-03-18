@@ -7,9 +7,9 @@ import { useHistory } from 'react-router-dom'
 
 
 // repetitive code that gets all ids and documents in a collection for .map
-const collectAllIdsAndDocs = doc => {
-  return { id: doc.id, ...doc.data() }
-}
+// const collectAllIdsAndDocs = doc => {
+//   return { id: doc.id, ...doc.data() }
+// }
 
 
 
@@ -78,15 +78,15 @@ function Home() {
     setNextShowNum(currentShows[1].dates.length)
 
    
-    console.log("today is: ", date)
-    console.log("current shows: ", currentShows)
+   // console.log("today is: ", date)
+   // console.log("current shows: ", currentShows)
 
   }
 
   if (!allShows) getNowPlaying()
  
-  console.log("splashDates is: ", splashDates[0])
-  console.log(allShows);
+ // console.log("splashDates is: ", splashDates[0])
+ // console.log(allShows);
 
 
 // this function changes the date object into a readable string formatted for 12 hour display

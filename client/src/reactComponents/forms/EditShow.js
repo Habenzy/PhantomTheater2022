@@ -52,9 +52,7 @@ export default function EditShow() {
    let [email, setEmail] = useState("");
    let [bio, setBio] = useState("");
    let [description, setDescription] = useState("");
-   let [video1, setVideo1] = useState("");
-   let [link1, setLink1] = useState("");
-   let [link2, setLink2] = useState("");
+  
    //image variables
    let [imageLg, setImageLg] = useState("");
    let [imageLgName, setImageLgName] = useState("");
@@ -195,6 +193,8 @@ export default function EditShow() {
    };
 
    const handleDates = (evt) => {
+      console.log("target value: ", evt.target.value)
+      console.log("datess: ", dates)
       evt.preventDefault();
       let currentDates = dates;
 

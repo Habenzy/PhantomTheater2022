@@ -1,0 +1,165 @@
+[debug] [2021-03-17T13:47:57.193Z] ----------------------------------------------------------------------
+[debug] [2021-03-17T13:47:57.194Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve --only functions
+[debug] [2021-03-17T13:47:57.195Z] CLI Version:   9.5.0
+[debug] [2021-03-17T13:47:57.195Z] Platform:      win32
+[debug] [2021-03-17T13:47:57.195Z] Node Version:  v12.15.0
+[debug] [2021-03-17T13:47:57.195Z] Time:          Wed Mar 17 2021 09:47:57 GMT-0400 (Eastern Daylight Time)
+[debug] [2021-03-17T13:47:57.196Z] ----------------------------------------------------------------------
+[debug] [2021-03-17T13:47:57.196Z] 
+[debug] [2021-03-17T13:47:57.197Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2021-03-17T13:47:57.218Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-03-17T13:47:57.219Z] > authorizing via signed-in user
+[debug] [2021-03-17T13:47:57.219Z] [iam] checking project phantom-database-ee13a for permissions ["firebase.projects.get"]
+[debug] [2021-03-17T13:47:57.220Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-03-17T13:47:57.221Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-03-17T13:47:57.398Z] <<< HTTP RESPONSE 200 {"date":"Wed, 17 Mar 2021 13:47:56 GMT","pragma":"no-cache","cache-control":"no-cache, no-store, max-age=0, must-revalidate","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-17T13:47:57.405Z] [iam] error while checking permissions, command may fail: FirebaseError: Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2021-03-17T13:47:57.406Z] > refreshing access token with scopes: []
+[debug] [2021-03-17T13:47:57.406Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-03-17T13:47:57.431Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2021-03-17T13:47:57.431Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2021-03-17T13:47:57.533Z] <<< HTTP RESPONSE 200 {"expires":"Mon, 01 Jan 1990 00:00:00 GMT","date":"Wed, 17 Mar 2021 13:47:56 GMT","pragma":"no-cache","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-17T13:47:57.538Z] Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2021-03-17T13:47:57.646Z] FirebaseError: Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+    at invalidCredentialError (C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\lib\auth.js:26:12)
+    at refreshTokens (C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\lib\auth.js:297:15)
+    at processTicksAndRejections (internal/process/task_queues.js:94:5)
+    at async Client.getAccessToken (C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:144:23)
+    at async Client.addAuthHeader (C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:135:21)
+    at async Client.request (C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:93:34)
+    at async Object.getFirebaseProject (C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\lib\management\projects.js:289:21)
+    at async getProjectNumber (C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\lib\getProjectNumber.js:11:22)
+    at async C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\lib\command.js:161:17
+[error] 
+[error] Error: Failed to get Firebase project phantom-database-ee13a. Please make sure the project exists and your account has permission to access it.
+[debug] [2021-03-17T13:47:57.932Z] Error: EPERM: operation not permitted, rename 'C:\Users\foxfl\.config\configstore\firebase-tools.json.751804048' -> 'C:\Users\foxfl\.config\configstore\firebase-tools.json'
+    at Object.renameSync (fs.js:643:3)
+    at Function.writeFileSync [as sync] (C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\write-file-atomic\index.js:244:8)
+    at Configstore.set all [as all] (C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\configstore\index.js:61:20)
+    at Configstore.set (C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\configstore\index.js:91:12)
+    at process.<anonymous> (C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js:108:21)
+    at process.emit (events.js:228:7)
+    at process.exit (internal/process/per_thread.js:158:15)
+    at Timeout._onTimeout (C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\lib\errorOut.js:20:17)
+    at listOnTimeout (internal/timers.js:531:17)
+    at processTimers (internal/timers.js:475:7)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2021-03-17T14:00:24.073Z] ----------------------------------------------------------------------
+[debug] [2021-03-17T14:00:24.075Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve --only functions
+[debug] [2021-03-17T14:00:24.075Z] CLI Version:   9.5.0
+[debug] [2021-03-17T14:00:24.075Z] Platform:      win32
+[debug] [2021-03-17T14:00:24.075Z] Node Version:  v12.15.0
+[debug] [2021-03-17T14:00:24.076Z] Time:          Wed Mar 17 2021 10:00:24 GMT-0400 (Eastern Daylight Time)
+[debug] [2021-03-17T14:00:24.076Z] ----------------------------------------------------------------------
+[debug] [2021-03-17T14:00:24.076Z] 
+[debug] [2021-03-17T14:00:24.078Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2021-03-17T14:00:24.098Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-03-17T14:00:24.099Z] > authorizing via signed-in user
+[debug] [2021-03-17T14:00:24.099Z] [iam] checking project phantom-database-ee13a for permissions ["firebase.projects.get"]
+[debug] [2021-03-17T14:00:24.100Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-03-17T14:00:24.100Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-03-17T14:00:24.257Z] <<< HTTP RESPONSE 200 {"date":"Wed, 17 Mar 2021 14:00:23 GMT","pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-17T14:00:24.264Z] [iam] error while checking permissions, command may fail: FirebaseError: Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2021-03-17T14:00:24.265Z] > refreshing access token with scopes: []
+[debug] [2021-03-17T14:00:24.265Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-03-17T14:00:24.319Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2021-03-17T14:00:24.319Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2021-03-17T14:00:24.389Z] <<< HTTP RESPONSE 200 {"pragma":"no-cache","date":"Wed, 17 Mar 2021 14:00:23 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-17T14:00:24.395Z] Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2021-03-17T14:00:24.517Z] FirebaseError: Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+    at invalidCredentialError (C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\lib\auth.js:26:12)
+    at refreshTokens (C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\lib\auth.js:297:15)
+    at processTicksAndRejections (internal/process/task_queues.js:94:5)
+    at async Client.getAccessToken (C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:144:23)
+    at async Client.addAuthHeader (C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:135:21)
+    at async Client.request (C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:93:34)
+    at async Object.getFirebaseProject (C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\lib\management\projects.js:289:21)
+    at async getProjectNumber (C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\lib\getProjectNumber.js:11:22)
+    at async C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\lib\command.js:161:17
+[error] 
+[error] Error: Failed to get Firebase project phantom-database-ee13a. Please make sure the project exists and your account has permission to access it.
+[debug] [2021-03-17T14:00:24.811Z] Error: EPERM: operation not permitted, rename 'C:\Users\foxfl\.config\configstore\firebase-tools.json.4103886167' -> 'C:\Users\foxfl\.config\configstore\firebase-tools.json'
+    at Object.renameSync (fs.js:643:3)
+    at Function.writeFileSync [as sync] (C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\write-file-atomic\index.js:244:8)
+    at Configstore.set all [as all] (C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\configstore\index.js:61:20)
+    at Configstore.set (C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\configstore\index.js:91:12)
+    at process.<anonymous> (C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js:108:21)
+    at process.emit (events.js:228:7)
+    at process.exit (internal/process/per_thread.js:158:15)
+    at Timeout._onTimeout (C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\lib\errorOut.js:20:17)
+    at listOnTimeout (internal/timers.js:531:17)
+    at processTimers (internal/timers.js:475:7)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2021-03-17T14:01:27.669Z] ----------------------------------------------------------------------
+[debug] [2021-03-17T14:01:27.670Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve --only functions
+[debug] [2021-03-17T14:01:27.671Z] CLI Version:   9.5.0
+[debug] [2021-03-17T14:01:27.671Z] Platform:      win32
+[debug] [2021-03-17T14:01:27.671Z] Node Version:  v12.15.0
+[debug] [2021-03-17T14:01:27.671Z] Time:          Wed Mar 17 2021 10:01:27 GMT-0400 (Eastern Daylight Time)
+[debug] [2021-03-17T14:01:27.672Z] ----------------------------------------------------------------------
+[debug] [2021-03-17T14:01:27.672Z] 
+[debug] [2021-03-17T14:01:27.673Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2021-03-17T14:01:27.693Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-03-17T14:01:27.694Z] > authorizing via signed-in user
+[debug] [2021-03-17T14:01:27.694Z] [iam] checking project phantom-database-ee13a for permissions ["firebase.projects.get"]
+[debug] [2021-03-17T14:01:27.695Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-03-17T14:01:27.696Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-03-17T14:01:27.840Z] <<< HTTP RESPONSE 200 {"pragma":"no-cache","cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Wed, 17 Mar 2021 14:01:27 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-17T14:01:27.848Z] [iam] error while checking permissions, command may fail: FirebaseError: Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2021-03-17T14:01:27.848Z] > refreshing access token with scopes: []
+[debug] [2021-03-17T14:01:27.848Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-03-17T14:01:27.873Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2021-03-17T14:01:27.873Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2021-03-17T14:01:27.962Z] <<< HTTP RESPONSE 200 {"date":"Wed, 17 Mar 2021 14:01:27 GMT","expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-17T14:01:27.968Z] Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2021-03-17T14:01:28.064Z] FirebaseError: Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+    at invalidCredentialError (C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\lib\auth.js:26:12)
+    at refreshTokens (C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\lib\auth.js:297:15)
+    at processTicksAndRejections (internal/process/task_queues.js:94:5)
+    at async Client.getAccessToken (C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:144:23)
+    at async Client.addAuthHeader (C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:135:21)
+    at async Client.request (C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:93:34)
+    at async Object.getFirebaseProject (C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\lib\management\projects.js:289:21)
+    at async getProjectNumber (C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\lib\getProjectNumber.js:11:22)
+    at async C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\lib\command.js:161:17
+[error] 
+[error] Error: Failed to get Firebase project phantom-database-ee13a. Please make sure the project exists and your account has permission to access it.
+[debug] [2021-03-17T14:01:28.356Z] Error: EPERM: operation not permitted, rename 'C:\Users\foxfl\.config\configstore\firebase-tools.json.2840963449' -> 'C:\Users\foxfl\.config\configstore\firebase-tools.json'
+    at Object.renameSync (fs.js:643:3)
+    at Function.writeFileSync [as sync] (C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\write-file-atomic\index.js:244:8)
+    at Configstore.set all [as all] (C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\configstore\index.js:61:20)
+    at Configstore.set (C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\configstore\index.js:91:12)
+    at process.<anonymous> (C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js:108:21)
+    at process.emit (events.js:228:7)
+    at process.exit (internal/process/per_thread.js:158:15)
+    at Timeout._onTimeout (C:\Users\foxfl\AppData\Roaming\npm\node_modules\firebase-tools\lib\errorOut.js:20:17)
+    at listOnTimeout (internal/timers.js:531:17)
+    at processTimers (internal/timers.js:475:7)
+[error] 
+[error] Error: An unexpected error has occurred.
