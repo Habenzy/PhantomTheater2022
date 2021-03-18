@@ -48,11 +48,12 @@ export default function SingleShow(props) {
    return (
 
       <div className="single_show">
+
+         <div className='singleShowTitle'><h4>Title : {props.title}</h4></div>
          <span>Artist Link: <a className="dashLink" href={`http://localhost:3000/artistForm#${props.id}`}>
             {`http://localhost:3000/artistForm#${props.id}`}
          </a></span>
-         <h4>{props.title}</h4>
-
+         <div className="singleShowLine"><p>Show Dates:</p>
          {numberOfShows >= 1 ? changeDate(props.dates[0]) : console.log()}
          {numberOfShows >= 1 ? <br /> : console.log()}
          {numberOfShows >= 2 ? changeDate(props.dates[1]) : console.log()}
@@ -65,12 +66,12 @@ export default function SingleShow(props) {
          {numberOfShows >= 5 ? <br /> : console.log()}
          {numberOfShows >= 6 ? changeDate(props.dates[5]) : console.log()}
          {numberOfShows >= 6 ? <br /> : console.log()}
+         </div>
          <br />
-         {props.artist}
-         <br />
-         {props.type}
-         <br />
-         <p className="blurb">{props.blurb}</p>
+         <div className="singleShowLine"><p>Artist : </p> {props.artist}</div>
+         <div className="singleShowLine"><p>Show type:</p>{props.type}</div>
+         <div className="singleShowLineSum"><p>Summary:</p>{props.blurb}</div>
+         
          <br />
          <div className="buttons">
             <button

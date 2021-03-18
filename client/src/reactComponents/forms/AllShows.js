@@ -74,11 +74,11 @@ function AllShows() {
                deleteThisShow={handleDelete}
                editThisShow={handleEdit}
                id={show.id}
-               title={`Title : ${show.title}`}
+               title={show.title}
                dates={show.dates}
-               type={`Show type : ${show.type}`}
-               blurb={`Summary : ${show.blurb}`}
-               artist={`Artist : ${show.artist}`}
+               type= {show.type}
+               blurb={show.blurb}
+               artist={show.artist}
 
             ></SingleShow>
          }) : 'Loading'

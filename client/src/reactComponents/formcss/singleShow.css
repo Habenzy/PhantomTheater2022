@@ -2,13 +2,10 @@
    text-align: center;
    display: flex;
    flex-direction: column;
-   align-items: center;
+   align-items: flex-start;
    background-color: #1d2433;
    color: white;
-}
-
-.single_show .blurb {
-   margin: 0px 100px;
+   width: 40vw;
 }
 
 .show_button {
@@ -42,4 +39,26 @@
 .dashLink {
    color: #007bff !important;
    background-color: transparent ;
+}
+
+.singleShowLine {
+  display: flex;
+}
+
+.dates, p {
+   color: rgb(195, 247, 9);
+   text-decoration: underline;
+   margin-right: 5px;
+}
+
+.singleShowLineSum {
+   display: flex;
+   width: 45vw;
+   text-align: justify;
+}
+
+.buttons {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
 }

@@ -38,7 +38,7 @@ function Home() {
     let yyyy = today.getFullYear();
 
     today = mm + '-' + dd + '-' + yyyy + "T00:00";
-    
+
     let date = today
 
     // get all data from shows collection
@@ -53,14 +53,14 @@ function Home() {
     const currentShows = allShowsArray.filter(show => show.dates[0] >= date)
 
     // iterate through allShowsArray
-   
+
     // for every record
     // push a dateTime : Id pair onto a new array
     // sort new array by dateTimes
     // eliminate all dates less than today
     // splash show is [0]
     // next show is first different ID in array
-    
+
     currentShows.sort(function (a, b) {
       return new Date(a.dates[0]) - new Date(b.dates[0]);
     });
@@ -77,19 +77,19 @@ function Home() {
     setNextDates(currentShows[1].dates)
     setNextShowNum(currentShows[1].dates.length)
 
-   
+
     console.log("today is: ", date)
     console.log("current shows: ", currentShows)
 
   }
 
   if (!allShows) getNowPlaying()
- 
+
   console.log("splashDates is: ", splashDates[0])
   console.log(allShows);
 
 
-// this function changes the date object into a readable string formatted for 12 hour display
+  // this function changes the date object into a readable string formatted for 12 hour display
   function changeDate(date) {
     let months = {
       "01": 'January',
@@ -130,7 +130,7 @@ function Home() {
     return finalDate;
   }
 
-// go to single artist display page by id
+  // go to single artist display page by id
   function showArtist() {
     history.push(`/Artist#${splashId}`)
   }
@@ -196,6 +196,10 @@ function Home() {
           {nextShowNum >= 5 ? changeDate(nextDates[4]) : console.log()}
           {nextShowNum >= 6 ? <br /> : console.log()}
           {nextShowNum >= 6 ? changeDate(nextDates[5]) : console.log()}
+
+          <br />
+          <button onClick={showArtist}>- Artist Info -</button>
+
 
         </div>
       </div>

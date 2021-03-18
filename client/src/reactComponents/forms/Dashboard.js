@@ -50,7 +50,7 @@ function Dashboard() {
                   <AllShows />
                ) : (
                   <AllProposals />
-                     )}
+               )}
             </div>
          </div>
 

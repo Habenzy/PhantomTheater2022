@@ -37,12 +37,13 @@
 .currentPlayImg img {
   width: 100%;
   height: 70vh;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .currentPlayText {
   color: white;
   text-align: left;
+  font-size:16pt;
   text-shadow: 2px 2px 1px black;
 }
 
@@ -53,7 +54,7 @@ a {
   /* text-decoration: none !important; */
 }
 
-button {
+ button {
   color: rgb(195, 247, 9);
   background-color: rgb(3, 3, 3);
   border-radius: 50%;
@@ -79,8 +80,16 @@ button {
 
 .whatNextText {
   color: white;
+  font-size: 16pt;
   text-align: right;
-  text-shadow: 2px 2px 1px black;
+
+}
+
+.whatNextText button {
+  color: rgb(195, 247, 9);
+  background-color: rgb(3, 3, 3);
+  border-radius: 50%;
+  /* text-decoration: none !important; */
 }
 
 /* ------------------------ Positioning footer------------------------------------------ */
@@ -158,9 +167,9 @@ button {
  }
 
  .whatNextText {
-   width: 24vw;
-   top: 5%;
-   left:32%;
+  width: 24vw;
+  top: 8%;
+  left: 17%;
  }
  .whatNextText h2 {
    font-size: 24pt;
@@ -188,15 +197,15 @@ button {
     object-fit: contain;
   }
   .whatNext img {
-    height: 25vh;
+    height: 30vh;
     width: 50vw;
     object-fit: contain;
   }
 
   .whatNextText {
     width: 24vw;
-    top: 10%;
-    left: 69%;
+    top: 6%;
+    left: 11%
   }
   .whatNextText h2 {
     font-size: 30pt;
@@ -210,10 +219,17 @@ button {
 /* -----------------------Screen resizing styling--------------- */
 
 @media screen and (min-width: 1200px) {
+
+  .whatNext img {
+    height: 35vh;
+    width: 60vw;
+    object-fit: contain;
+  }
+
   .whatNextText {
     width: 25vw;
-    top: 35%;
-    left: 45%;
+    top: 7%;
+    left:15%;
   }
 }
 
