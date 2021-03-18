@@ -28,7 +28,7 @@ function AllShows() {
       // create array of all shows
       const allShowsArray = showSnapshot.docs.map(collectAllIdsAndDocs)
       if (!allShows) {
-         console.log('allShowsArray = ', allShowsArray)
+       //  console.log('allShowsArray = ', allShowsArray)
          setAllShows(allShowsArray)
       }
    }
