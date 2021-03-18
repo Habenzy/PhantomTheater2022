@@ -18,7 +18,7 @@ function Nav() {
            <li><Link to="/AllArtist">Featured</Link></li>
            
         <Link to="/"><div className='logo'>
-          <img className="logoimg" src={Logo} />
+          <img className="logoimg" src={Logo} alt="" />
            </div></Link>
            
            <li><Link to="/Season">Season</Link></li>

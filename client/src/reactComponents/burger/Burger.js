@@ -23,12 +23,12 @@ const Burger = () => {
     <div id="burgerbar">
       {/*logo */}
       <div className='burgerLogo'>
-        <img className="burgerLogoImg" src={Logo} />
+           <img className="burgerLogoImg" src={Logo} alt="" />
       </div>
 
       <div className="burgerDiv">
         <button id="burger" onClick={handleModal}>
-          <img src={BurgerIcon} />
+              <img src={BurgerIcon} alt=""/>
         </button>
 
         {modal && <BurgerNav />}

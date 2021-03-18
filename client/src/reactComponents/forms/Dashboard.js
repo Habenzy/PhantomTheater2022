@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 // get the database
-import { firestore } from "../firebase/firebase";
+
 import AllShows from "./AllShows";
 import AllProposals from "./AllProposals";
 import AddShow from "./AddShow";

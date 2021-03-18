@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import app, { firestore } from "../firebase/firebase";
+import { firestore } from "../firebase/firebase";
 import { Form, Button, Card, Container } from "react-bootstrap";
 // import { storage } from "../firebase/firebase";
 import { useHistory } from "react-router-dom";
@@ -13,7 +13,7 @@ function AdminForm() {
    let [blurb, setBlurb] = useState("");
    let [type, setType] = useState("");
    let [status] = useState("Booked");
-   let [dates, setDates] = useState([]); // creates array of dates/times
+  
    // create state for each artist field
    let [artist, setArtist] = useState("");
    let [contactName, setContactName] = useState("");
@@ -29,7 +29,7 @@ function AdminForm() {
       type: type,
       blurb: blurb,
       status: status,
-      dates: dates,
+     
       artist: artist,
       contactName: contactName,
       phone: phone,

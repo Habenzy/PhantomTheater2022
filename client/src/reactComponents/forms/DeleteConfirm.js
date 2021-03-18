@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import "../formcss/deleteConfirm.css"
 
 function DeleteConfirm(props) {
