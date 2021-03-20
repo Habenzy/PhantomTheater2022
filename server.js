@@ -1,17 +1,18 @@
 //---------------------------- imports/server set-up --------------------------//
+import cors from ('cors')
 const express = require("express");
 const app = express();
 const path = require("path");
 const port = process.env.PORT || 5000;
 const nodemailer = require("nodemailer");
-const bodyParser = require("body-parser");
 require("dotenv").config();
 
 //-------------------------------- middleware------------------------------//
 app.use(express.static(path.resolve("./client/build")));
 //middleware for email alert
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(urlencoded({ extended: true }));
+app.use(json());
+app.use(cors());
 
 // app.get('/admin', (req, res) => {
 //    res.sendFile(path.resolve('/index/admin'))
@@ -51,11 +52,10 @@ app.post("/send", (req, res) => {
   let phone = req.body.phone;
   let description = req.body.description;
 
-
-//e-mail body template
+  //e-mail body template
   let mailBody = `Artist Name: ${artist}\nEmail: ${email}\nPhone: ${phone}\nDescription: ${description}`;
 
-//structure of e-mail sent 
+  //structure of e-mail sent
   let sentMsg = {
     from: artist,
     to: "bschussid@aol.com",
@@ -63,8 +63,7 @@ app.post("/send", (req, res) => {
     text: mailBody,
   };
 
-
-//e-mail send function + error handling
+  //e-mail send function + error handling
   transporter.sendMail(sentMsg, (err, info) => {
     if (err) {
       console.log("Error occurred: " + err.message);
