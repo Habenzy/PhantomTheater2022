@@ -39,14 +39,14 @@ exports.getDates = functions.https.onRequest((request, response) => {
 
 // firestore trigger for updates
 
-// exports.sortDates = functions.firestore.document("/shows/{id}")
-//     .onUpdate((snapshot, context) => {
-//       const id = context.params.id;
+exports.sortDates = functions.firestore.document("/shows/{id}")
+    .onUpdate((snapshot, context) => {
+      const id = context.params.id;
 
 
-//       console.log(snapshot.dates);
-//       console.log(id);
+      console.log(snapshot.dates);
+      console.log(id);
 
-//       return null;
-//     }
-//     );
+      return null;
+    }
+    );
