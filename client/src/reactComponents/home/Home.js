@@ -21,7 +21,8 @@ function Home() {
   let [splashImage, setSplashImage] = useState("")
   let [splashTitle, setSplashTitle] = useState("")
   let [splashDates, setSplashDates] = useState([])
-  let [splashShowNum, setSplashShowNum] = useState(0)
+   let [splashShowNum, setSplashShowNum] = useState(0)
+   let [nextId, setNextId] = useState("")
   let [nextImage, setNextImage] = useState("")
   let [nextTitle, setNextTitle] = useState("")
   let [nextDates, setNextDates] = useState([])
@@ -71,7 +72,9 @@ function Home() {
     setSplashImage(currentShows[0].imageLg)
     setSplashTitle(currentShows[0].title)
     setSplashDates(currentShows[0].dates)
-    setSplashShowNum(currentShows[0].dates.length)
+     setSplashShowNum(currentShows[0].dates.length)
+     
+     setNextId(currentShows[1].id)
     setNextImage(currentShows[1].imageLg)
     setNextTitle(currentShows[1].title)
     setNextDates(currentShows[1].dates)
@@ -131,10 +134,12 @@ function Home() {
   }
 
   // go to single artist display page by id
-  function showArtist() {
+  function showSplashArtist() {
     history.push(`/Artist#${splashId}`)
   }
-
+   function showNextArtist() {
+      history.push(`/Artist#${nextId}`)
+   }
 
   return (
     <div className="homeContainer">
@@ -174,7 +179,7 @@ function Home() {
           {splashShowNum >= 6 ? <br /> : console.log()}
           {splashShowNum >= 6 ? changeDate(splashDates[5]) : console.log()}
           <br />
-          <button onClick={showArtist}>- Artist Info -</button>
+          <button onClick={showSplashArtist}>- Artist Info -</button>
 
         </div>
       </div>
@@ -198,7 +203,7 @@ function Home() {
           {nextShowNum >= 6 ? changeDate(nextDates[5]) : console.log()}
 
           <br />
-          <button onClick={showArtist}>- Artist Info -</button>
+          <button onClick={showNextArtist}>- Artist Info -</button>
 
 
         </div>
