@@ -9,39 +9,42 @@ export default function SingleShow(props) {
    props.dates.sort()
 
    function changeDate(date) {
-      //------- changing the military time string to normal tim
-
+      let months = {
+         "01": 'January',
+         "02": 'February',
+         "03": 'March',
+         "04": 'April',
+         "05": 'May',
+         "06": 'June',
+         "07": 'July',
+         "08": 'August',
+         "09": 'September',
+         "10": 'October',
+         "11": 'November',
+         "12": 'December'
+      }
+      //------- changing the military time string to normal time
       let newTime;
       ///sepparating the string at the T.
       let dateFix = date.split("T");
-
-
-      // console.log(dateFix);
       let startDate = dateFix[0];
-      let year = startDate.split("-")[0];
       let month = startDate.split("-")[1];
       let day = startDate.split("-")[2];
-
-      let endDate = month + "/" + day + "/" + year;
-      // console.log(endDate);
-
+      let endDate = months[month] + " " + day + '  -  ';
       /// targetting second item of the dateFix array (which is the time)
       let time = dateFix[1];
       // hours is the first index item of the time array which was split at the :
       let hours = time.split(":")[0];
       let minutes = time.split(":")[1];
-
       // if hours are a higher number than 12 (milt time)  
       // then subtract 12 to convert to normal time
       if (hours > 12) {
          newTime = hours - 12 + ":" + minutes + " PM";
       } else {
          // otherwise the time will just print the number if it is lower than 12
-         newTime = hours + ":" + minutes;
+         newTime = hours + ":" + minutes + " AM";
       }
-
       let finalDate = endDate + " " + newTime;
-
       return finalDate;
    }
 

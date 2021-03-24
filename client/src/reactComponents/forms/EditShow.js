@@ -52,7 +52,7 @@ export default function EditShow() {
    let [email, setEmail] = useState("");
    let [bio, setBio] = useState("");
    let [description, setDescription] = useState("");
-  
+
    //image variables
    let [imageLg, setImageLg] = useState("");
    let [imageLgName, setImageLgName] = useState("");
@@ -152,8 +152,6 @@ export default function EditShow() {
       event.preventDefault();
       console.log("Updating...");
 
-      // take each date input and .push onto the dates array
-
       let showUpdate = {
          title: title,
          type: type,
@@ -187,6 +185,12 @@ export default function EditShow() {
       history.push("/adminDash");
    }
 
+
+
+
+
+   //***********   show dates handling   ******************* */
+
    const handleAddShow = () => {
       setNumberOfShows((numberOfShows += 1));
       console.log(numberOfShows);
@@ -203,6 +207,18 @@ export default function EditShow() {
       setDates(currentDates);
       console.log(dates);
    };
+
+   const deleteDate = (evt, showIndex) => {
+      console.log( "edit show " + evt.target.value + showIndex)
+      console.log("before", dates)
+      let processDates = dates
+      processDates.splice(showIndex, 1).sort()
+      setDates(processDates)
+      console.log("after ", dates)
+      console.log("edit show " + id)
+
+   }
+
 
    //---------------------------image handling-----------------------------------//
    //imageLg or splash image
@@ -385,65 +401,120 @@ export default function EditShow() {
                                  Add Showtimes
                               </Button>
                            </Form.Group>
+
                            <Form.Group>
                               <Form.Label>Showtimes:</Form.Label>
+
                               {numberOfShows >= 1 ? (
-                                 <Form.Control
-                                    onBlur={(evt) => handleDates(evt)}
-                                    type="dateTime-local"
-                                    className="dates"
-                                    defaultValue={dates[0]}
-                                 />
+                                 <Form.Group>
+                                    <Form.Control
+                                       onBlur={(evt) => handleDates(evt)}
+                                       type="dateTime-local"
+                                       className="dates"
+                                       defaultValue={dates[0]}
+                                    />
+                                    <Button
+                                       // type="submit"
+                                       className="delete"
+                                       width="50px"
+                                       onClick={(evt) => deleteDate(evt, 0)}
+                                    >Delete Date</Button>
+                                 </Form.Group>
                               ) : (
                                  console.log()
                               )}
+
                               {numberOfShows >= 2 ? (
-                                 <Form.Control
-                                    onBlur={(evt) => handleDates(evt)}
-                                    type="dateTime-local"
-                                    className="dates"
-                                    defaultValue={dates[1]}
-                                 />
+                                 <Form.Group>
+                                    <Form.Control
+                                       onBlur={(evt) => handleDates(evt)}
+                                       type="dateTime-local"
+                                       className="dates"
+                                       defaultValue={dates[1]}
+                                    />
+                                    <Button
+                                       // type="submit"
+                                       className="delete"
+                                       width="50px"
+                                       onClick={(evt) => deleteDate(evt, 1)}
+                                    >Delete Date</Button>
+                                 </Form.Group>
                               ) : (
                                  console.log()
                               )}
+
                               {numberOfShows >= 3 ? (
-                                 <Form.Control
-                                    onBlur={(evt) => handleDates(evt)}
-                                    type="dateTime-local"
-                                    className="dates"
-                                    defaultValue={dates[2]}
-                                 />
+                                 <Form.Group>
+                                    <Form.Control
+                                       onBlur={(evt) => handleDates(evt)}
+                                       type="dateTime-local"
+                                       className="dates"
+                                       defaultValue={dates[2]}
+                                    />
+                                    <Button
+                                       // type="submit"
+                                       className="delete"
+                                       width="50px"
+                                       onClick={(evt) => deleteDate(evt, 2)}
+                                    >Delete Date</Button>
+                                 </Form.Group>
                               ) : (
                                  console.log()
                               )}
+
                               {numberOfShows >= 4 ? (
-                                 <Form.Control
-                                    onBlur={(evt) => handleDates(evt)}
-                                    type="dateTime-local"
-                                    className="dates"
-                                    defaultValue={dates[3]}
-                                 />
+                                 <Form.Group>
+                                    <Form.Control
+                                       onBlur={(evt) => handleDates(evt)}
+                                       type="dateTime-local"
+                                       className="dates"
+                                       defaultValue={dates[3]}
+                                    />
+                                    <Button
+                                       // type="submit"
+                                       className="delete"
+                                       width="50px"
+                                       onClick={(evt) => deleteDate(evt, 3)}
+                                    >Delete Date</Button>
+                                 </Form.Group>
                               ) : (
                                  console.log()
                               )}
+
                               {numberOfShows >= 5 ? (
-                                 <Form.Control
-                                    onBlur={(evt) => handleDates(evt)}
-                                    type="dateTime-local"
-                                    className="dates"
-                                    defaultValue={dates[4]}
-                                 />
+                                 <Form.Group>
+                                    <Form.Control
+                                       onBlur={(evt) => handleDates(evt)}
+                                       type="dateTime-local"
+                                       className="dates"
+                                       defaultValue={dates[4]}
+                                    />
+                                    <Button
+                                       // type="submit"
+                                       className="delete"
+                                       width="50px"
+                                       onClick={(evt) => deleteDate(evt, 4)}
+                                    >Delete Date</Button>
+                                 </Form.Group>
                               ) : (
                                  console.log()
                               )}
+
                               {numberOfShows >= 6 ? (
-                                 <Form.Control
-                                    onBlur={(evt) => handleDates(evt)}
-                                    type="dateTime-local"
-                                    className="dates"
-                                    defaultValue={dates[5]}
-                                 />
+                                 <Form.Group>
+                                    <Form.Control
+                                       onBlur={(evt) => handleDates(evt)}
+                                       type="dateTime-local"
+                                       className="dates"
+                                       defaultValue={dates[5]}
+                                    />
+                                    <Button
+                                       // type="submit"
+                                       className="delete"
+                                       width="50px"
+                                       onClick={(evt) => deleteDate(evt, 5)}
+                                    >Delete Date</Button>
+                                 </Form.Group>
                               ) : (
                                  console.log()
                               )}
