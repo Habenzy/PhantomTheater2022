@@ -7,6 +7,10 @@
    border: none
 }
 
+h2 {
+   color: rgb(195, 247, 9);
+}
+
 .w-100 {
    border: none;
    background-color: #ffae57;
@@ -32,5 +36,4 @@
    border: none;
    background-color: #ffae57;
    color: #1d2433;
-   width: 100px;
 }
