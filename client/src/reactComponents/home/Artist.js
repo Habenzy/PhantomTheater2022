@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import "./Artist.css";
 import { firestore } from "../firebase/firebase";
 
-import '../HOME_NEW/Artist.css'
+import './Artist.css'
 
 
 

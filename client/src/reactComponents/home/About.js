@@ -2,7 +2,7 @@
 import React from "react";
 import Masks from "../images/barn4.jpg";
 import Map from "../images/map.png";
-import "../HOME_NEW/About.css";
+import "./About.css";
 
 //------About Page component function containing Phantom Theater information
 // and sponsor list. -----------------------------------------------------------

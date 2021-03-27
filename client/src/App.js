@@ -1,14 +1,14 @@
 //------------Imports -----------
 import "./App.css";
-import Nav from "./reactComponents/HOME_NEW/Nav";
-import Home from "./reactComponents/HOME_NEW/Home";
-import Footer from "./reactComponents/HOME_NEW/Footer";
-import About from "./reactComponents/HOME_NEW/About";
-import Artist from "./reactComponents/HOME_NEW/Artist";
-import AllArtist from "./reactComponents/HOME_NEW/AllArtist"
-import Reserve from "./reactComponents/HOME_NEW/Reserve";
-import Season from "./reactComponents/HOME_NEW/Season";
-import Burger from "./reactComponents/HOME_NEW/Burger.js";
+import Nav from "./reactComponents/home/Nav";
+import Home from "./reactComponents/home/Home";
+import Footer from "./reactComponents/home/Footer";
+import About from "./reactComponents/home/About";
+import Artist from "./reactComponents/home/Artist";
+import AllArtist from "./reactComponents/home/AllArtist"
+import Reserve from "./reactComponents/home/Reserve";
+import Season from "./reactComponents/home/Season";
+import Burger from "./reactComponents/home/Burger.js";
 import AddShow from "./reactComponents/forms/AddShow";
 import AllShows from "./reactComponents/forms/AllShows";
 import Login from "./reactComponents/forms/Login";
