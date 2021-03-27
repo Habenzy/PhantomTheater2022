@@ -35,6 +35,7 @@ let nullShow = {
 };
 
 export default function EditShow() {
+ 
    let [numberOfShows, setNumberOfShows] = useState(0);
    const history = useHistory();
    // create state object to hold values from database
@@ -182,7 +183,7 @@ export default function EditShow() {
       console.log("second: ", showUpdate);
 
       await firestore.collection("shows").doc(id).set(showUpdate);
-      history.push("/adminDash");
+       history.push("/adminDash");
    }
 
 
@@ -190,6 +191,10 @@ export default function EditShow() {
 
 
    //***********   show dates handling   ******************* */
+
+   const refresh = () => {
+     window.location.reload(false)
+   }
 
    const handleAddShow = () => {
       setNumberOfShows((numberOfShows += 1));
@@ -209,14 +214,15 @@ export default function EditShow() {
    };
 
    const deleteDate = (evt, showIndex) => {
-      console.log( "edit show " + evt.target.value + showIndex)
+      console.log("edit show " + evt.target.value + showIndex)
       console.log("before", dates)
       let processDates = dates
       processDates.splice(showIndex, 1).sort()
       setDates(processDates)
       console.log("after ", dates)
       console.log("edit show " + id)
-
+      enterUpdates(evt)
+      refresh()
    }
 
 
