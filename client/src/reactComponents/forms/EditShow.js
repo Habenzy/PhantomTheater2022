@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import app, { firestore } from "../firebase/firebase";
 import ProgressBar from "react-bootstrap/ProgressBar";
-import { Form, Button, Card, Container } from "react-bootstrap";
+import { Form, Button, Card, Container, FormLabel } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import "../formcss/editShow.css";
 import NumberFormat from "react-number-format";
@@ -209,7 +209,7 @@ export default function EditShow() {
    };
 
    const deleteDate = (evt, showIndex) => {
-      console.log( "edit show " + evt.target.value + showIndex)
+      console.log("edit show " + evt.target.value + showIndex)
       console.log("before", dates)
       let processDates = dates
       processDates.splice(showIndex, 1).sort()
@@ -342,7 +342,7 @@ export default function EditShow() {
                      <div className="d-flex flex-direction row">
                         {/* left side column of form */}
                         <Card.Body>
-                           <h2 className="text-center mb-2">Edit Show:</h2>
+                           <h2 className="text-left mb-2">Edit Show:</h2>
                            <br />
 
                            <Form.Group>
@@ -392,18 +392,20 @@ export default function EditShow() {
                               </select>
                            </Form.Group>
                            {/* Show Time Input Controls ****************************** */}
-                           <Form.Group>
-                              <Button
-                                 id="show_button"
-                                 className="w-100"
-                                 onClick={handleAddShow}
-                              >
-                                 Add Showtimes
-                              </Button>
-                           </Form.Group>
+
 
                            <Form.Group>
                               <Form.Label>Showtimes:</Form.Label>
+
+                              <Form.Group>
+                                 <Button
+                                    id="show_button"
+                                    className="w-100"
+                                    onClick={handleAddShow}
+                                 >
+                                    Add Showtimes
+                              </Button>
+                              </Form.Group>
 
                               {numberOfShows >= 1 ? (
                                  <Form.Group>
@@ -520,9 +522,9 @@ export default function EditShow() {
                               )}
                            </Form.Group>
 
-
                            {/* Splash Image Container **************************************/}
                            <Form.Group>
+                              <FormLabel>Image Uploads:</FormLabel>
                               <Form.File
                                  className="img_submit"
                                  label={
