@@ -1,5 +1,5 @@
 import React from 'react'
-import '../artist/Artist.css'
+import '../HOME_NEW/Artist.css'
 
 
 function ArtistEvent(props) {

@@ -1,9 +1,8 @@
 // ---------------------Imports --------------------------
 import React, { useState } from "react";
-import "./Artist.css";
 import { firestore } from "../firebase/firebase";
 import ArtistEvent from '../forms/ArtistEvent'
-import '../artist/Artist.css'
+import './Artist.css'
 
 
 const collectAllIdsAndDocs = (doc) => {

@@ -1,6 +1,6 @@
 // ------------ Imports ---------------
 import React, { useState } from "react";
-import BurgerNav from "../burgernav/BurgerNav";
+import BurgerNav from "../HOME_NEW/BurgerNav";
 import Logo from "../images/Logo.jpg";
 import BurgerIcon from "../images/burgericon.jpg";
 import './Burger.css'
