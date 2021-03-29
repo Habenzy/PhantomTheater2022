@@ -1,5 +1,5 @@
 /* Add show container styling */
-.add_show {
+.add_show, h3 {
   background-color: #1d2433;
   color: rgb(195, 247, 9);
 }
@@ -23,8 +23,6 @@
   color: #1d2433;
   border: none;
   border-radius: 6%;
-  text-transform: uppercase;
-  
 }
 /* Submit form button annimation */
 #add_submit:hover {

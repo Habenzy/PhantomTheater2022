@@ -35,7 +35,7 @@ let nullShow = {
 };
 
 export default function EditShow() {
- 
+
    let [numberOfShows, setNumberOfShows] = useState(0);
    const history = useHistory();
    // create state object to hold values from database
@@ -183,7 +183,7 @@ export default function EditShow() {
       console.log("second: ", showUpdate);
 
       await firestore.collection("shows").doc(id).set(showUpdate);
-       history.push("/adminDash");
+      history.push("/adminDash");
    }
 
 
@@ -193,7 +193,7 @@ export default function EditShow() {
    //***********   show dates handling   ******************* */
 
    const refresh = () => {
-     window.location.reload(false)
+      window.location.reload(false)
    }
 
    const handleAddShow = () => {
@@ -333,11 +333,14 @@ export default function EditShow() {
 
    return (
       <div className="edit_show">
+
          <Container
             className="d-flex align-items center justify-content-center mt-5"
-            style={{ minHeight: "80vh" }}
+            style={{ minHeight: "80vh", minWidth: "90vw" }}
+
          >
-            <div className="w-100" style={{ maxWidth: "840px" }}>
+            <div className="w-100">
+
                <Card>
                   <Form
                      id="adminForm"
@@ -345,13 +348,14 @@ export default function EditShow() {
                      type="submit"
                      value="submit"
                   >
-                     <div className="d-flex flex-direction row">
-                        {/* left side column of form */}
-                        <Card.Body>
-                           <h2 className="text-left mb-2">Edit Show:</h2>
-                           <br />
+                     <div className="d-flex flex-direction row-3">
+                        {/* left  column of form */}
 
+                        <Card.Body>
+
+                           <h5>Admin Input Information:</h5>
                            <Form.Group>
+
                               <Form.Label>Show Title:</Form.Label>
                               <Form.Control
                                  type="text"
@@ -418,7 +422,7 @@ export default function EditShow() {
                                     <Form.Control
                                        onBlur={(evt) => handleDates(evt)}
                                        type="dateTime-local"
-                                       className="dates"
+                                       className="dates mb-1"
                                        defaultValue={dates[0]}
                                     />
                                     <Button
@@ -527,101 +531,14 @@ export default function EditShow() {
                                  console.log()
                               )}
                            </Form.Group>
-
-                           {/* Splash Image Container **************************************/}
-                           <Form.Group>
-                              <FormLabel>Image Uploads:</FormLabel>
-                              <Form.File
-                                 className="img_submit"
-                                 label={
-                                    imageLgName
-                                       ? "Splash Image: " + imageLgName
-                                       : "Please choose a Splash Image"
-                                 }
-                                 name="imageLgIn"
-                                 onChange={handleImageLg}
-                                 onClick={resetProgressLg}
-                              />
-                              <img className="thumbNail" src={imageLg} alt="" />
-                           </Form.Group>
-                           <ProgressBar
-                              striped
-                              variant="info"
-                              now={progressLg}
-                           ></ProgressBar>
-                           <br></br>
-
-                           {/* Image 1 Container */}
-                           <Form.Group>
-                              <Form.File
-                                 className="img_submit"
-                                 label={
-                                    image1Name
-                                       ? "Image 1: " + image1Name
-                                       : "Please choose Image 1"
-                                 }
-                                 name="image1In"
-                                 onChange={handleImage1}
-                                 onClick={resetProgress1}
-                              />
-                              <img className="thumbNail" src={image1} alt="" />
-                           </Form.Group>
-                           <ProgressBar
-                              striped
-                              variant="info"
-                              now={progress1}
-                           ></ProgressBar>
-                           <br></br>
-                           {/* Image 2 Container */}
-                           <Form.Group>
-                              <Form.File
-                                 className="img_submit"
-                                 label={
-                                    image2Name
-                                       ? "Image 2: " + image2Name
-                                       : "Please choose Image 2"
-                                 }
-                                 name="image2In"
-                                 onChange={handleImage2}
-                                 onClick={resetProgress2}
-                              />
-                              <img className="thumbNail" src={image2} alt="" />
-                           </Form.Group>
-                           <ProgressBar
-                              striped
-                              variant="info"
-                              now={progress2}
-                           ></ProgressBar>
-                           <br></br>
-                           {/* Image 3 Container */}
-                           <Form.Group>
-                              <Form.File
-                                 className="img_submit"
-                                 label={
-                                    image3Name
-                                       ? "Image 3: " + image3Name
-                                       : "Please choose Image 3"
-                                 }
-                                 name="image3In"
-                                 onChange={handleImage3}
-                                 onClick={resetProgress3}
-                              />
-                              <img className="thumbNail" src={image3} alt="" />
-                           </Form.Group>
-                           <ProgressBar
-                              striped
-                              variant="info"
-                              now={progress3}
-                           ></ProgressBar>
-                           <br></br>
+                           <hr />
                         </Card.Body>
-                        {/* left side column of form END*/}
-                        {/* right side column of form */}
+                        {/* left  column of form END*/}
+                        {/* middle  column of form */}
                         <Card.Body>
+
                            <Form.Group>
-                              <br />
-                              <br />
-                              <br />
+                              <h5>Artist Input Information:</h5>
                               <Form.Label>Artist Name: </Form.Label>
                               <Form.Control
                                  type="text"
@@ -760,11 +677,122 @@ export default function EditShow() {
                               />
                            </Form.Group>
                         </Card.Body>
-                        <Button id="show_button" className="w-100" type="submit">
+                        {/* middle  column of form END*/}
+                        {/* right  column of form */}
+                        <Card.Body className="imageCard">
+                           <h5>Image Uploads:</h5>
+                           {/* Splash Image Container **************************************/}
+
+                           <Form.Group>
+                              <FormLabel>Splash Image Upload:</FormLabel>
+                              <br />
+
+                              <img className="thumbNail" src={imageLg} alt="" />
+                           </Form.Group>
+                           <ProgressBar
+                              striped
+                              variant="info"
+                              now={progressLg}
+                           ></ProgressBar>
+                           <Form.File
+                              className="img_submit"
+                              label={
+                                 imageLgName
+                                    ? "Splash Image: " + imageLgName
+                                    : "Please choose a Splash Image"
+                              }
+                              name="imageLgIn"
+                              onChange={handleImageLg}
+                              onClick={resetProgressLg}
+                           />
+
+                           <br></br>
+
+                           {/* Image 1 Container */}
+
+                           <Form.Group>
+                              <FormLabel>Image 1 Upload:</FormLabel>
+                              <br />
+
+                              <img className="thumbNail splash" src={image1} alt="" />
+                           </Form.Group>
+                           <ProgressBar
+                              striped
+                              variant="info"
+                              now={progress1}
+                           ></ProgressBar>
+                           <Form.File
+                              className="img_submit"
+                              label={
+                                 image1Name
+                                    ? "Image 1: " + image1Name
+                                    : "Please choose Image 1"
+                              }
+                              name="image1In"
+                              onChange={handleImage1}
+                              onClick={resetProgress1}
+                           />
+
+                           <br></br>
+                           {/* Image 2 Container */}
+
+                           <Form.Group>
+                              <FormLabel>Image 2 Upload:</FormLabel>
+                              <br />
+                              <img className="thumbNail splash" src={image2} alt="" />
+                           </Form.Group>
+                           <ProgressBar
+                              striped
+                              variant="info"
+                              now={progress2}
+                           ></ProgressBar>
+                           <Form.File
+                              className="img_submit"
+                              label={
+                                 image2Name
+                                    ? "Image 2: " + image2Name
+                                    : "Please choose Image 2"
+                              }
+                              name="image2In"
+                              onChange={handleImage2}
+                              onClick={resetProgress2}
+                           />
+
+                           <br></br>
+                           {/* Image 3 Container */}
+
+                           <Form.Group>
+                              <FormLabel>Image 3 Upload:</FormLabel>
+                              <br />
+                              <img className="thumbNail splash" src={image3} alt="" />
+                           </Form.Group>
+
+                           <ProgressBar
+                              striped
+                              variant="info"
+                              now={progress3}
+                           ></ProgressBar>
+                           <Form.File
+                              className="img_submit"
+                              label={
+                                 image3Name
+                                    ? "Image 3: " + image3Name
+                                    : "Please choose Image 3"
+                              }
+                              name="image3In"
+                              onChange={handleImage3}
+                              onClick={resetProgress3}
+                           />
+
+                           <br></br>
+                        </Card.Body>
+                        {/* right  column of form END*/}
+
+                     </div>
+                     <div class="text-center">
+                        <Button id="show_button" className="w-75 mb-5" type="submit">
                            Submit Updates
                 </Button>
-
-                        {/* right side column of form END */}
                      </div>
                   </Form>
                </Card>

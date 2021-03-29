@@ -13,7 +13,7 @@ function AdminForm() {
    let [blurb, setBlurb] = useState("");
    let [type, setType] = useState("");
    let [status] = useState("Booked");
-  
+
    // create state for each artist field
    let [artist, setArtist] = useState("");
    let [contactName, setContactName] = useState("");
@@ -29,7 +29,7 @@ function AdminForm() {
       type: type,
       blurb: blurb,
       status: status,
-     
+
       artist: artist,
       contactName: contactName,
       phone: phone,
@@ -88,10 +88,10 @@ function AdminForm() {
          {/* Add show container */}
          <Container
             id="container_add"
-            className="d-flex align-items center justify-content-center mt-5"
-            style={{ minHeight: "80vh" }}
+            className="d-flex align-items center justify-content-center"
+          
          >
-            <div className="w-100" style={{ maxWidth: "840px" }}>
+            <div className="w-100">
                <Card>
 
                   {/* Start of the form Container. */}
@@ -104,7 +104,7 @@ function AdminForm() {
                      <div id="form" className="d-flex flex-direction row">
                         {/* Add Show section  */}
                         <Card.Body>
-                           <h2 className="text-center mb-2">Add A Show:</h2>
+                           <h3 className="text-center mb-2">Add A Show:</h3>
                            <br />
                            {/* Insert Show Title */}
                            <Form.Group>
@@ -212,12 +212,12 @@ function AdminForm() {
                               />
                               {/* End of Show Description Container */}
                            </Form.Group>
-                        </Card.Body>
-                        {/* End of Second Card Body */}
-
-                        <Button id="add_submit" className="w-100" type="submit">
+                           <Button id="add_submit" className="w-100" type="submit">
                            Submit
                 </Button>
+                        </Card.Body>
+                        {/* End of Second Card Body */}
+                        
                      </div>
                   </Form>
                </Card>

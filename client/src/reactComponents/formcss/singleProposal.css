@@ -1,8 +1,8 @@
 .single_proposal {
-   text-align: center;
+   text-align: left;
    display: flex;
    flex-direction: column;
-   align-items: center;
+   align-items: flex-start;
    background-color: #1d2433;
    color: white;
 }

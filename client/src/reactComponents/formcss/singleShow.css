@@ -53,8 +53,9 @@
 
 .singleShowLineSum {
    display: flex;
-   width: 45vw;
+   width: 40vw;
    text-align: justify;
+   margin-bottom: 10px;
 }
 
 .buttons {

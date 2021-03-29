@@ -29,7 +29,7 @@ function Dashboard() {
       <div className="dash_board">
          <h2>Admin Dashboard</h2>
          <div className="dash_buttons">
-            <div>
+            <div className= "upper">
                <Button id="dash_button" onClick={editProposal} type="submit">
                   Proposals
           </Button>

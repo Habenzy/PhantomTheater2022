@@ -4,17 +4,18 @@
 }
 
 .card-body {
-   border: none
+   border: none;
 }
 
-h2 {
+h2, h5 {
    color: rgb(195, 247, 9);
 }
 
-.w-100 {
+.w-75, .w-100 {
    border: none;
    background-color: #ffae57;
    color: #1d2433;
+   width: 50vw;
 }
 
 #show_button:hover {
@@ -23,13 +24,13 @@ h2 {
 }
 
 .thumbNail {
-   width: 20vw;
+   width: 17vw;
    height: auto;
 }
 
 .dates {
    color: black;
-   width: fit-content
+   width: fit-content;
 }
 
 .delete {
@@ -37,3 +38,20 @@ h2 {
    background-color: #ffae57;
    color: #1d2433;
 }
+
+.progress {
+   width: 17vw;
+}
+
+.imageCard {
+   width: 10vw;
+}
+
+h5 .image {
+   font-size:12pt;
+}
+
+.form-file-label {
+   color: white;
+}
+
