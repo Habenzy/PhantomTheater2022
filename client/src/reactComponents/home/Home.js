@@ -32,15 +32,13 @@ function Home() {
   // print list of all shows
   async function getNowPlaying() {
 
-    // get system date
-   //  let today = new Date();
-   //  let dd = String(today.getDate()).padStart(2, '0');
-   //  let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-   //  let yyyy = today.getFullYear();
-
-   //  today = mm + '-' + dd + '-' + yyyy + "T00:00";
-
-   //  let date = today
+     // get system date
+     let today = new Date();
+     let dd = String(today.getDate()).padStart(2, '0');
+     let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+     let yyyy = today.getFullYear();
+     today = yyyy + '-' + mm + '-' + dd + "T00:00";
+     let date = today
 
     // get all data from shows collection
     const showsRef = firestore.collection('shows')

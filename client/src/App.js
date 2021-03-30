@@ -1,6 +1,6 @@
 //------------Imports -----------
 import React, { useState } from "react";
-import { firestore } from './reactComponents/firebase/firebase';
+import app, { firestore } from './reactComponents/firebase/firebase';
 import "./App.css";
 import Nav from "./reactComponents/home/Nav";
 import Home from "./reactComponents/home/Home";
@@ -37,23 +37,38 @@ function App() {
       // create array of all Booked shows
       const allShowsArray = showSnapshot.docs.map(doc => {
          return { id: doc.id, ...doc.data() }
-
       })
 
       let stillPlaying = allShowsArray.map(doc => {
-         
-         console.log(doc.dates[(doc.dates.length -= 1)])
-         return (doc.dates.length)
-       
+         // get system date
+         let today = new Date();
+         let dd = String(today.getDate()).padStart(2, '0');
+         let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+         let yyyy = today.getFullYear();
+         today = yyyy + '-' + mm + '-' + dd + "T00:00";
+         let date = today
+
+         let lastShow = doc.dates[doc.dates.length - 1]
+
+         if (lastShow < date) {
+            doc.status = "Done"
+            console.log(doc.id, doc.status)
+            updateDB(doc.id, doc.status)
+         }
+
+         async function updateDB(showId, showStatus) {
+            await firestore.collection("shows").doc(showId).update({status: showStatus})
+           
+         }
+         return (doc)
       })
 
       setAllShows(stillPlaying)
-      console.log("From App.js ", allShowsArray)
+
    }
 
    if (!allShows) archiveShowsDone()
-
-
+   console.log("From App.js ", allShows)
 
 
    return (
