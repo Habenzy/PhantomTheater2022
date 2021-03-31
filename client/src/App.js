@@ -52,13 +52,11 @@ function App() {
 
          if (lastShow < date) {
             doc.status = "Done"
-            console.log(doc.id, doc.status)
             updateDB(doc.id, doc.status)
          }
 
          async function updateDB(showId, showStatus) {
-            await firestore.collection("shows").doc(showId).update({status: showStatus})
-           
+            await firestore.collection("shows").doc(showId).update({ status: showStatus })
          }
          return (doc)
       })
@@ -68,8 +66,6 @@ function App() {
    }
 
    if (!allShows) archiveShowsDone()
-   console.log("From App.js ", allShows)
-
 
    return (
       <Router>
