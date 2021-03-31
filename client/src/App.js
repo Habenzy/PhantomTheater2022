@@ -1,4 +1,6 @@
 //------------Imports -----------
+import React, { useState } from "react";
+import app, { firestore } from './reactComponents/firebase/firebase';
 import "./App.css";
 import Nav from "./reactComponents/home/Nav";
 import Home from "./reactComponents/home/Home";
@@ -24,35 +26,76 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 // Function containing the route paths  to all components
 function App() {
-  return (
-    <Router>
-      <div className="App">
-        <Burger />
-        <Nav />
-        <AuthProvider>
-          <Switch>
-            <Route exact path="/">
-              <Home />
-              {/* <CurrentShow /> */}
-            </Route>
-            <Route path="/login" component={Login} />
-            <Route path="/adminDash" component={Dashboard} />
-            <Route path="/proposalForm" component={ProposalForm} />
-            <Route path="/editShow" component={EditShow} />
-            <Route path="/addShow" component={AddShow} />
-            <Route path="/artistForm" component={ArtistForm} />
-            <Route path="/allShows" component={AllShows} />
-            <Route path="/Season" component={Season} />
-            <Route path="/About" component={About} />
-                 <Route path="/Artist" component={Artist} />
-                 <Route path="/AllArtist" component={AllArtist} />
-            <Route path="/Reserve" component={Reserve} />
-          </Switch>
-        </AuthProvider>
-        <Footer />
-      </div>
-    </Router>
-  );
+
+   let [allShows, setAllShows] = useState("")
+
+   async function archiveShowsDone() {
+      // get all data from shows collection
+      const showsRef = firestore.collection('shows')
+      // query for booked shows
+      const showSnapshot = await showsRef.where('status', '==', 'Booked').get()
+      // create array of all Booked shows
+      const allShowsArray = showSnapshot.docs.map(doc => {
+         return { id: doc.id, ...doc.data() }
+      })
+
+      let stillPlaying = allShowsArray.map(doc => {
+         // get system date
+         let today = new Date();
+         let dd = String(today.getDate()).padStart(2, '0');
+         let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+         let yyyy = today.getFullYear();
+         today = yyyy + '-' + mm + '-' + dd + "T00:00";
+         let date = today
+
+         let lastShow = doc.dates[doc.dates.length - 1]
+
+         if (lastShow < date) {
+            doc.status = "Done"
+            updateDB(doc.id, doc.status)
+         }
+
+         async function updateDB(showId, showStatus) {
+            await firestore.collection("shows").doc(showId).update({ status: showStatus })
+         }
+         return (doc)
+      })
+
+      setAllShows(stillPlaying)
+
+   }
+
+   if (!allShows) archiveShowsDone()
+
+   return (
+      <Router>
+         <div className="App">
+            <Burger />
+            <Nav />
+            <AuthProvider>
+               <Switch>
+                  <Route exact path="/">
+                     <Home />
+                     {/* <CurrentShow /> */}
+                  </Route>
+                  <Route path="/login" component={Login} />
+                  <Route path="/adminDash" component={Dashboard} />
+                  <Route path="/proposalForm" component={ProposalForm} />
+                  <Route path="/editShow" component={EditShow} />
+                  <Route path="/addShow" component={AddShow} />
+                  <Route path="/artistForm" component={ArtistForm} />
+                  <Route path="/allShows" component={AllShows} />
+                  <Route path="/Season" component={Season} />
+                  <Route path="/About" component={About} />
+                  <Route path="/Artist" component={Artist} />
+                  <Route path="/AllArtist" component={AllArtist} />
+                  <Route path="/Reserve" component={Reserve} />
+               </Switch>
+            </AuthProvider>
+            <Footer />
+         </div>
+      </Router>
+   );
 }
 
 //------export the component---------
