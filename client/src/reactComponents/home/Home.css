@@ -30,8 +30,9 @@
 .currentPlay {
   display: flex;
   flex-direction: column;
+  justify-items:center;
   height: auto;
-  width: 100%;
+  width: 70vw;
 }
 
 .currentPlayImg img {
@@ -170,6 +171,7 @@ a {
   width: 24vw;
   top: 8%;
   left: 17%;
+  font-size:14pt;
  }
  .whatNextText h2 {
    font-size: 24pt;

@@ -368,7 +368,10 @@ export default function EditShow() {
                            </Form.Group>
                            <Form.Group>
                               <Form.Label>Show Blurb:</Form.Label>
-                              <Form.Control
+
+                              <textarea
+                                 className='form-control'
+                                 rows="4"
                                  type="text"
                                  id="blurb"
                                  name="blurbIn"
@@ -376,6 +379,7 @@ export default function EditShow() {
                                  value={blurb}
                                  onChange={(evt) => setBlurb(evt.target.value)}
                               />
+
                            </Form.Group>
                            <Form.Group>
                               <Form.Label>Show Type:</Form.Label>
@@ -587,7 +591,9 @@ export default function EditShow() {
                            </Form.Group>
                            <Form.Group>
                               <Form.Label>Artist Bio:</Form.Label>
-                              <Form.Control
+                              <textarea
+                                 className="form-control"
+                                 rows="4"
                                  type="text"
                                  id="bio"
                                  name="bioInput"
@@ -597,7 +603,9 @@ export default function EditShow() {
                            </Form.Group>
                            <Form.Group>
                               <Form.Label>Description of the Show: </Form.Label>
-                              <Form.Control
+                              <textarea
+                                 className="form-control"
+                                 rows="6"
                                  type="text"
                                  id="showDescription"
                                  name="showDescriptionInput"

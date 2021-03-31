@@ -1,41 +1,41 @@
 .single_proposal {
-   text-align: left;
-   display: flex;
-   flex-direction: column;
-   align-items: flex-start;
-   background-color: #1d2433;
-   color: white;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #1d2433;
+  color: white;
 }
 
 .proposal_button {
-   border: none;
-   background-color: #ffae57;
-   color: #1d2433;
-   width: 75px;
-   height: 35px;
+  border: none;
+  background-color: #ffae57;
+  color: #1d2433;
+  width: 75px;
+  height: 35px;
 }
 
 .proposal_button:hover {
-   transition: transform 0.3s ease-out;
-   transform: scale(1.1);
+  transition: transform 0.3s ease-out;
+  transform: scale(1.1);
 }
 
 .single_proposal h4 {
-   color: rgb(195, 247, 9);
+  color: rgb(195, 247, 9);
 }
 
 .single_proposal {
-   background-color: #1d2433;
-   color: white;
+  background-color: #1d2433;
+  color: white;
 }
 
 .single_proposal .line {
-   border: solid 1px;
-   border-color: #ffae57;
-   border-left: none;
-   border-right: none;
-   width: 60vw;
-   height: 5px;
-   margin-top: 15px;
-   margin-bottom: 30px;
+  border: solid 1px;
+  border-color: #ffae57;
+  border-left: none;
+  border-right: none;
+  width: 60vw;
+  height: 5px;
+  margin-top: 15px;
+  margin-bottom: 30px;
 }

@@ -122,6 +122,8 @@
 
 .sponsorsWrapper .thankYou {
   text-align: center;
+  color: white;
+  text-decoration: none;
 }
 
 .sponsorHowTo {
@@ -131,6 +133,7 @@
 
 .sponsorHowTo .special {
   color: rgb(195, 247, 9);
+  text-decoration:none;
 }
 
 /* -----------------------Screen resizing styling--------------- */

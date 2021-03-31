@@ -89,7 +89,7 @@ function AdminForm() {
          <Container
             id="container_add"
             className="d-flex align-items center justify-content-center"
-          
+
          >
             <div className="w-100">
                <Card>
@@ -120,7 +120,9 @@ function AdminForm() {
                            {/* Show Blurb Container */}
                            <Form.Group>
                               <Form.Label>Show Blurb:</Form.Label>
-                              <Form.Control
+                              <textarea
+                                 className="form-control"
+                                 rows="3"
                                  type="text"
                                  name="blurbIn"
                                  placeholder="Enter Blurb"
@@ -213,11 +215,11 @@ function AdminForm() {
                               {/* End of Show Description Container */}
                            </Form.Group>
                            <Button id="add_submit" className="w-100" type="submit">
-                           Submit
+                              Submit
                 </Button>
                         </Card.Body>
                         {/* End of Second Card Body */}
-                        
+
                      </div>
                   </Form>
                </Card>

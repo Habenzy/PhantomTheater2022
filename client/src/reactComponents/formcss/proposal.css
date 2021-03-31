@@ -1,14 +1,19 @@
-.proposal_container{
-    color: rgb(195, 247, 9);
+.proposal_container {
+  background-color: #1d2433;
+  color: rgb(195, 247, 9);
 }
 
-#submit_button{
-    background-color:#ffae57;
-    border:none;
-    color:#1d2433;
-    
+.card-body {
+    border: none;
+ }
+
+#submit_button {
+  background-color: #ffae57;
+  border: none;
+  color: #1d2433;
 }
-#submit_button:hover{
-    transition: transform 0.3s ease-out;
-    transform:scale(1.1);
-  }
+#submit_button:hover {
+  transition: transform 0.3s ease-out;
+  transform: scale(1.1);
+}
+

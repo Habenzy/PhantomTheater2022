@@ -10,7 +10,7 @@
 .footer a {
   color:  rgb(195, 247, 9);
   font-size: 12pt;
-  text-decoration: none;
+
 }
 
 /*--------------------- styling targetting both logo images------------------ */
@@ -22,9 +22,10 @@
   display: flex;
 }
 
-p {
+.footer p {
   color: white;
   margin-bottom: 10px;
+  text-decoration:none;
 }
 
 /* ------------------------- Styling for container of social media logo images-------------- */

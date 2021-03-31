@@ -30,10 +30,10 @@ ALWAYS ENTERTAINING, NOT TO BE MISSED!</h3>
           </div>
             <br />
             <h4 className="barn">THE EDGCOMB BARN</h4>
-            <p>Direct from a Sears
+            Direct from a Sears
             Roebuck catalog kit, the historic Edgcomb Barn is Phantom Theater's
             home. A space at once intimate and gracious, it brings the flavor of Vermont to all of our productions. (The occasional cat or bat has been known to steal a scene.) The surrounding grounds make an excellent place for a pre-show picnic.
-          </p>
+          
 
 
             <h4>BOARD OF DIRECTORS</h4>
