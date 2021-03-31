@@ -96,7 +96,7 @@ function ProposalForm() {
                   />
                 </Form.Group>
                 <Form.Group>
-                  <Form.Label for="bio">
+                  <Form.Label>
                     Brief description of your act:
                 </Form.Label>
                   <textarea

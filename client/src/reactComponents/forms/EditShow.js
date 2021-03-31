@@ -610,7 +610,6 @@ export default function EditShow() {
                                  id="showDescription"
                                  name="showDescriptionInput"
                                  placeholder="Enter Show Decription"
-                                 rows="6"
                                  value={description}
                                  onChange={(evt) => setDescription(evt.target.value)}
                               />
@@ -797,7 +796,7 @@ export default function EditShow() {
                         {/* right  column of form END*/}
 
                      </div>
-                     <div class="text-center">
+                     <div className="text-center">
                         <Button id="show_button" className="w-75 mb-5" type="submit">
                            Submit Updates
                 </Button>
