@@ -23,7 +23,7 @@ function AllShows() {
    async function seeAllShows() {
       // get all data from shows collection
       const showsRef = firestore.collection('shows')
-      const showSnapshot = await showsRef.where('status', '==', 'Booked').get()
+      const showSnapshot = await showsRef.where('status', '!=', 'Proposal').get()
 
       // create array of all shows
       const allShowsArray = showSnapshot.docs.map(collectAllIdsAndDocs)
@@ -78,7 +78,8 @@ function AllShows() {
                dates={show.dates}
                type= {show.type}
                blurb={show.blurb}
-               artist={show.artist}
+              artist={show.artist}
+              status={show.status}
 
             ></SingleShow>
          }) : 'Loading'

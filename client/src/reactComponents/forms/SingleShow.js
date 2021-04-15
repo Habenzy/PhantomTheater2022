@@ -52,7 +52,8 @@ export default function SingleShow(props) {
 
       <div className="single_show">
 
-         <div className='singleShowTitle'><h4>Title : {props.title}</h4></div>
+       <div className='singleShowTitle'><h4>Title : {props.title}</h4></div>
+         <h5>Status: {props.status}</h5>
          <span>Artist Link: <a className="dashLink" href={`http://localhost:3000/artistForm#${props.id}`}>
             {`http://localhost:3000/artistForm#${props.id}`}
          </a></span>

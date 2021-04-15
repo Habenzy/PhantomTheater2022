@@ -1,17 +1,9 @@
-//-----------------------------Imports---------------------------------------------------------------
-import React, { useState } from "react";
+//-----------------------Imports-----------------------------------
+import React, { useState, useEffect } from "react";
 import "./Home.css";
 import { firestore } from '../firebase/firebase';
 import { useHistory } from 'react-router-dom'
-
-
-
-// repetitive code that gets all ids and documents in a collection for .map
-// const collectAllIdsAndDocs = doc => {
-//   return { id: doc.id, ...doc.data() }
-// }
-
-
+import placeholderImage from '../images/barn3crop.jpg'
 
 //------ Homepage component function with currently playing as central image and next show -----------
 function Home() {
@@ -19,10 +11,10 @@ function Home() {
   let [allShows, setAllShows] = useState("")
   let [splashId, setSplashId] = useState("")
   let [splashImage, setSplashImage] = useState("")
-  let [splashTitle, setSplashTitle] = useState("")
+  let [splashTitle, setSplashTitle] = useState("Shows coming Soon!")
   let [splashDates, setSplashDates] = useState([])
-   let [splashShowNum, setSplashShowNum] = useState(0)
-   let [nextId, setNextId] = useState("")
+  let [splashShowNum, setSplashShowNum] = useState(0)
+  let [nextId, setNextId] = useState("")
   let [nextImage, setNextImage] = useState("")
   let [nextTitle, setNextTitle] = useState("")
   let [nextDates, setNextDates] = useState([])
@@ -32,13 +24,13 @@ function Home() {
   // print list of all shows
   async function getNowPlaying() {
 
-     // get system date
-     let today = new Date();
-     let dd = String(today.getDate()).padStart(2, '0');
-     let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-     let yyyy = today.getFullYear();
-     today = yyyy + '-' + mm + '-' + dd + "T00:00";
-     let date = today
+    // get system date
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, '0');
+    let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    let yyyy = today.getFullYear();
+    today = yyyy + '-' + mm + '-' + dd + "T00:00";
+  //  let date = today
 
     // get all data from shows collection
     const showsRef = firestore.collection('shows')
@@ -51,43 +43,49 @@ function Home() {
 
     const currentShows = allShowsArray
 
-    // iterate through allShowsArray
-
-    // for every record
-    // push a dateTime : Id pair onto a new array
-    // sort new array by dateTimes
-    // eliminate all dates less than today
-    // splash show is [0]
-    // next show is first different ID in array
-
     currentShows.sort(function (a, b) {
       return new Date(a.dates[0]) - new Date(b.dates[0]);
     });
 
     setAllShows(currentShows)
-
-    setSplashId(currentShows[0].id)
-    setSplashImage(currentShows[0].imageLg)
-    setSplashTitle(currentShows[0].title)
-    setSplashDates(currentShows[0].dates)
-     setSplashShowNum(currentShows[0].dates.length)
-     
-     setNextId(currentShows[1].id)
-    setNextImage(currentShows[1].imageLg)
-    setNextTitle(currentShows[1].title)
-    setNextDates(currentShows[1].dates)
-    setNextShowNum(currentShows[1].dates.length)
-
-   
-   // console.log("today is: ", date)
-   // console.log("current shows: ", currentShows)
+    setSplashImage(placeholderImage)
+    // console.log("today is: ", date)
+    console.log("current shows: ", currentShows)
 
   }
 
-  if (!allShows) getNowPlaying()
- 
- // console.log("splashDates is: ", splashDates[0])
- // console.log(allShows);
+  // if (!allShows) getNowPlaying()
+
+  useEffect(() => {
+    getNowPlaying()
+  }, [])
+
+  useEffect(() => {
+    console.log("all shows: ", allShows)
+    // do this if all shows.length >= 1
+    if (allShows.length >= 1) {
+      setSplashId(allShows[0].id)
+      setSplashImage(allShows[0].imageLg)
+      setSplashTitle(allShows[0].title)
+      setSplashDates(allShows[0].dates)
+      setSplashShowNum(allShows[0].dates.length)
+    }
+
+    if (allShows.length >= 2) {
+      setNextId(allShows[1].id)
+      setNextImage(allShows[1].imageLg)
+      setNextTitle(allShows[1].title)
+      setNextDates(allShows[1].dates)
+      setNextShowNum(allShows[1].dates.length)
+    }
+
+    // return () => {
+    //   cleanup
+    // }
+  }, [allShows])
+
+  // console.log("splashDates is: ", splashDates[0])
+  // console.log(allShows);
 
 
   // this function changes the date object into a readable string formatted for 12 hour display
@@ -135,9 +133,9 @@ function Home() {
   function showSplashArtist() {
     history.push(`/Artist#${splashId}`)
   }
-   function showNextArtist() {
-      history.push(`/Artist#${nextId}`)
-   }
+  function showNextArtist() {
+    history.push(`/Artist#${nextId}`)
+  }
 
   return (
     <div className="homeContainer">
@@ -160,11 +158,17 @@ function Home() {
 
       <div className="currentPlay">
         <div className="currentPlay">
+
           <img className="homeImage" src={splashImage} alt="Now Showing" />
+
         </div>
         <div className="currentPlayText">
 
           <h2>{`${splashTitle}`}</h2>
+
+          {/* change this to a .map function */}
+          {splashShowNum === 0 ? <div>Showtimes coming soon.</div> : console.log()}
+          {/* {splashShowNum >= 1 ? <br /> : console.log()} */}
           {splashShowNum >= 1 ? changeDate(splashDates[0]) : console.log()}
           {splashShowNum >= 2 ? <br /> : console.log()}
           {splashShowNum >= 2 ? changeDate(splashDates[1]) : console.log()}
@@ -176,36 +180,39 @@ function Home() {
           {splashShowNum >= 5 ? changeDate(splashDates[4]) : console.log()}
           {splashShowNum >= 6 ? <br /> : console.log()}
           {splashShowNum >= 6 ? changeDate(splashDates[5]) : console.log()}
+
+
           <br />
-          <button onClick={showSplashArtist}>- Artist Info -</button>
+          {splashId ? <button onClick={showSplashArtist}>- Artist Info -</button> : console.log()}
 
         </div>
       </div>
 
-      <div className="whatNext">
-        <div className="whatNextImg">
-          <img id="nextImage" src={nextImage} alt={'show pic'} />
+      {nextId ?
+        <div className="whatNext">
+          <div className="whatNextImg">
+            <img id="nextImage" src={nextImage} alt={'show pic'} />
+          </div>
+          <div className="whatNextText">
+            <h2>{`${nextTitle}`}</h2>
+            {/* change this to a .map function */}
+            {nextShowNum === 0 ? <div>Showtimes coming soon.</div> : console.log()}
+            {nextShowNum >= 1 ? changeDate(nextDates[0]) : console.log()}
+            {nextShowNum >= 2 ? <br /> : console.log()}
+            {nextShowNum >= 2 ? changeDate(nextDates[1]) : console.log()}
+            {nextShowNum >= 3 ? <br /> : console.log()}
+            {nextShowNum >= 3 ? changeDate(nextDates[2]) : console.log()}
+            {nextShowNum >= 4 ? <br /> : console.log()}
+            {nextShowNum >= 4 ? changeDate(nextDates[3]) : console.log()}
+            {nextShowNum >= 5 ? <br /> : console.log()}
+            {nextShowNum >= 5 ? changeDate(nextDates[4]) : console.log()}
+            {nextShowNum >= 6 ? <br /> : console.log()}
+            {nextShowNum >= 6 ? changeDate(nextDates[5]) : console.log()}
+            <br />
+            <button onClick={showNextArtist}>- Artist Info -</button> 
+         </div>
         </div>
-        <div className="whatNextText">
-          <h2>{`${nextTitle}`}</h2>
-          {nextShowNum >= 1 ? changeDate(nextDates[0]) : console.log()}
-          {nextShowNum >= 2 ? <br /> : console.log()}
-          {nextShowNum >= 2 ? changeDate(nextDates[1]) : console.log()}
-          {nextShowNum >= 3 ? <br /> : console.log()}
-          {nextShowNum >= 3 ? changeDate(nextDates[2]) : console.log()}
-          {nextShowNum >= 4 ? <br /> : console.log()}
-          {nextShowNum >= 4 ? changeDate(nextDates[3]) : console.log()}
-          {nextShowNum >= 5 ? <br /> : console.log()}
-          {nextShowNum >= 5 ? changeDate(nextDates[4]) : console.log()}
-          {nextShowNum >= 6 ? <br /> : console.log()}
-          {nextShowNum >= 6 ? changeDate(nextDates[5]) : console.log()}
-
-          <br />
-          <button onClick={showNextArtist}>- Artist Info -</button>
-
-
-        </div>
-      </div>
+        : console.log()}
     </div>
   );
 }
