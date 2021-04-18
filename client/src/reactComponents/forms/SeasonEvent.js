@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 function SeasonEvent(props) {
   let showImage = (
-    <img src={props.imageLg} alt="" style={{ width: 200 + "px" }} />
+    <img src={props.imageLg} alt="" />
   );
   let numberOfShows = props.dates.length;
 
@@ -58,8 +58,9 @@ function SeasonEvent(props) {
       <br />
       {showImage}
       <br />
+      <p className="artist">
       {props.artist}
-      <br />
+      </p>
       <p className="blurb">{props.blurb}</p>
       <br />
 
@@ -70,9 +71,7 @@ function SeasonEvent(props) {
       {numberOfShows >= 4 ? <p className="date">{changeDate(props.dates[3])}</p> : console.log()}
 
       <p className="date">{props.dates[4]}</p>
-      <Link to="Reserve">
-        <button className="season_button">Reserve</button>
-      </Link>
+   
       <div className="line"></div>
     </div>
   );

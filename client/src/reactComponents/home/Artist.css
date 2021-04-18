@@ -18,21 +18,24 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: 14pt;
+  margin: 0px 40px;
 }
 
 .artistsContainer h1 {
   margin: 20px 0px 30px 0px;
   color: rgb(195, 247, 9);
-  font-size:38pt;
+  font-size: 38pt;
 }
 
 .artistsContainer h3 {
   font-size: 22pt;
 }
 
-.artistImage {
-  height: 15vw;
-  width: auto;
+.artistsContainer img {
+  height: auto;
+  width: 30vw;
+  margin: 0px 5px;
 }
 
 .artistImageContainer {
@@ -52,7 +55,7 @@
   margin-top: 20px;
   width: 90vw;
   text-align: justify;
-  margin: 20px 6% 0px 6%;
+  margin: 0px 10px 15px 10px;
 }
 
 .artistContact {
@@ -61,11 +64,44 @@
   align-items: center;
 }
 
-.artistImageContainer img {
-   width: 30vw;
+.textContainer p {
+  text-decoration: none;
+  color: white;
+  margin: 15px 100px;
 }
 
 /* -----------------------Screen resizing styling--------------- */
+
+@media screen and (min-width: 200px) and (max-width: 600px) {
+  .artistsContainer h1 {
+    font-size: 28pt;
+  }
+
+  .artistsContainer h3 {
+    font-size: 20pt;
+    margin: 5px 0px;
+  }
+
+  .artistsContainer h5 {
+    font-size: 12pt;
+  }
+
+  .textContainer p {
+    font-size: 12pt;
+    margin: 0px 5px;
+    text-decoration: none;
+    color: white;
+  }
+
+  .artistsContainer .line {
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
+
+  .artistImageContainer img {
+    width: 100%;
+  }
+}
 
 @media screen and (min-width: 601px) {
   .textContainer {

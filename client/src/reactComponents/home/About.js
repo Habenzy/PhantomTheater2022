@@ -13,27 +13,27 @@ function About() {
             <h1>About Us</h1>
             <h3 id="about_us">SOMETIMES FUNKY, OCCASIONALLY SHOCKING,
 ALWAYS ENTERTAINING, NOT TO BE MISSED!</h3>
-            <div>
+            <div className="aboutBox1">
                <div className="aboutImgDiv1">
                   <img className="aboutImage1" src={Masks} alt="" />
                </div>
-               <br />
-          Phantom Theater was created in Warren, Vermont in 1985. Since its
-          inception, Phantom has brought professional theater artists from
-          Vermont as well as many cities throughout the country to act, direct,
-          dance, teach workshops, and compose and play music. Phantom’s mission
-          is to explore and experiment with theatrical, musical, and
-          dance/movement ideas by supporting the authentic vision of each artist
-          or student. The theater presents original works of art, serving as
-          both a venue for polished performances and a laboratory for the
-          development of new pieces.
-          </div>
+               <div className="text">
+                  Phantom Theater was created in Warren, Vermont in 1985. Since its
+                  inception, Phantom has brought professional theater artists from
+                  Vermont as well as many cities throughout the country to act, direct,
+                  dance, teach workshops, and compose and play music. Phantom’s mission
+                  is to explore and experiment with theatrical, musical, and
+                  dance/movement ideas by supporting the authentic vision of each artist
+                  or student. The theater presents original works of art, serving as
+                  both a venue for polished performances and a laboratory for the
+          development of new pieces.</div>
+            </div>
             <br />
             <h4 className="barn">THE EDGCOMB BARN</h4>
-            Direct from a Sears
+            <div className="text">Direct from a Sears
             Roebuck catalog kit, the historic Edgcomb Barn is Phantom Theater's
             home. A space at once intimate and gracious, it brings the flavor of Vermont to all of our productions. (The occasional cat or bat has been known to steal a scene.) The surrounding grounds make an excellent place for a pre-show picnic.
-          
+            </div>
 
 
             <h4>BOARD OF DIRECTORS</h4>

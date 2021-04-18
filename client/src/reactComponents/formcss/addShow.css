@@ -2,6 +2,7 @@
 .add_show, h3 {
   background-color: #1d2433;
   color: rgb(195, 247, 9);
+  margin-bottom: 15px;
 }
 /* Form back ground color */
 #form {
