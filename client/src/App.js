@@ -1,5 +1,5 @@
 //------------Imports -----------
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import app, { firestore } from './reactComponents/firebase/firebase';
 import "./App.css";
 import Nav from "./reactComponents/home/Nav";
@@ -66,7 +66,11 @@ function App() {
 
    }
 
-   if (!allShows) archiveShowsDone()
+ // if (!allShows) archiveShowsDone()
+  useEffect(() => {
+   archiveShowsDone()
+  }, [])
+  
 
    return (
       <Router>

@@ -7,7 +7,7 @@ import placeholderImage from '../images/barn3crop.jpg'
 
 //------ Homepage component function with currently playing as central image and next show -----------
 function Home() {
-
+  let [rightNow, setRightNow] = useState(new Date())
   let [allShows, setAllShows] = useState("")
   let [splashId, setSplashId] = useState("")
   let [splashImage, setSplashImage] = useState("")
@@ -23,9 +23,9 @@ function Home() {
 
   // print list of all shows
   async function getNowPlaying() {
-
+    
     // get system date
-    let today = new Date();
+    let today = rightNow;
     let dd = String(today.getDate()).padStart(2, '0');
     let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
     let yyyy = today.getFullYear();
@@ -57,8 +57,13 @@ function Home() {
   // if (!allShows) getNowPlaying()
 
   useEffect(() => {
+    setRightNow(new Date())
     getNowPlaying()
+    
   }, [])
+
+
+
 
   useEffect(() => {
     console.log("all shows: ", allShows)
