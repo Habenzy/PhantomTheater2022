@@ -11,6 +11,7 @@
 
 .homeContainer {
   /* z-index: 0; */
+ 
 }
 
 .homeContainer h1,
@@ -34,8 +35,13 @@
   height: auto;
   object-fit: contain;
   /* width: 70vw; */
-  margin: 0 25px; 
+  align-items: center;
+  /* margin-left: 15vw; */
   /* having a margin of 124px left and right seems to also center it */
+}
+
+.nowPlaying {
+  width: 70vw;
 }
 
 .currentPlayText {
