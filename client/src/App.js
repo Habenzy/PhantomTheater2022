@@ -1,5 +1,5 @@
 //------------Imports -----------
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import app, { firestore } from './reactComponents/firebase/firebase';
 import "./App.css";
 import Nav from "./reactComponents/home/Nav";
@@ -44,8 +44,9 @@ function App() {
          let today = new Date();
          let dd = String(today.getDate()).padStart(2, '0');
          let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-         let yyyy = today.getFullYear();
-         today = yyyy + '-' + mm + '-' + dd + "T00:00";
+        let yyyy = today.getFullYear();
+        let time = today.getTime()
+         today = yyyy + '-' + mm + '-' + dd + "T" + time;
          let date = today
 
          let lastShow = doc.dates[doc.dates.length - 1]
@@ -65,7 +66,11 @@ function App() {
 
    }
 
-   if (!allShows) archiveShowsDone()
+ // if (!allShows) archiveShowsDone()
+  useEffect(() => {
+   archiveShowsDone()
+  }, [])
+  
 
    return (
       <Router>
