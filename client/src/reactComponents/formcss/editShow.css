@@ -9,6 +9,7 @@
 
 h2, h5 {
    color: rgb(195, 247, 9);
+   font-size:17pt;
 }
 
 .w-75, .w-100 {
@@ -51,14 +52,41 @@ h2, h5 {
 }
 
 .imageCard {
-   width: 10vw;
+   justify-items:center;
 }
 
 h5 .image {
-   font-size:12pt;
+   font: size 13px;
 }
 
 .form-file-label {
    color: white;
 }
 
+.edit_show p {
+   text-decoration: none;
+   color: white;
+   font-size: 11pt;
+   margin: 3px 0px;;
+}
+
+.admin {
+   width: 25%;
+}
+
+.socialMediaLink {
+   width:25%;
+}
+
+
+.imageCard {
+   display: flex;
+   flex-direction:row;
+   flex-wrap: wrap;
+   width:25%;
+  
+}
+
+.imageUpload {
+   margin: 10px 10px;
+}
