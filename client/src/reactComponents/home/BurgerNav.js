@@ -1,30 +1,85 @@
 // imports for the Nav Bar -----------------
-import React from "react";
-
+import React, {useState} from "react";
+import Burger from './Burger.js'
 import "./BurgerNav.css";
 import { Link } from "react-router-dom";
+import { render } from "react-dom";
+import Menu from 'react-burger-menu/lib/menus/slide'
 
 
 // Nav Bar functionality with links to home, about , artists, season and reserve components
-function BurgerNav() {
+// class BurgerNav extends React.Component {
+//   constructor(props) {
+//     super(props)
+//     this.state = {menuOpen:false}
+//     this.handleClick = this.handleClick.bind(this)
+//   }
+//   handleClick() {
+//     console.log('click')
+//   }
+
+//   handleStateChange(state) {
+//     this.setState({menuOpen:state.isOpen})
+//     console.log('handStateChange')
+//   }
+
+//   closeMenu () {
+//     this.setState({menuOpen:false})
+//     console.log('closeMenu')
+//   }
+
+//   toggleMenu () {
+//     this.setState(state => ({menuOpen: !state.menuOpen}))
+//   }
+
+//   render() {
+//     return (
+//       <div className="burgerNavBar">
+//         {/*menu */}
+//         <Menu
+//         className='menu'
+//         isOpen={this.state.menuOpen} 
+//         onClick={(state) => this.handleStateChange(state)}
+//       >
+//         <li onClick={() => this.closeMenu()}><Link to="/">Home</Link></li>
+//         <li onClick={() => this.closeMenu()}><Link to="/About">About</Link></li>
+//         <li onClick={() => this.closeMenu()}><Link to="/AllArtist">Featured</Link></li>
+//         <li onClick={() => this.closeMenu()}><Link to="/Season">Season</Link></li>
+//         <li onClick={() => this.closeMenu()}><Link to="/AllArtist">Artists</Link></li>
 
 
-  return (
+//         </Menu>
+//       </div >
+
+//     )
+//   }
+// }
+
+const BurgerNav = () => {
+  const [modal, setModal] = useState(true)
+  const handleModal = () => { 
+    setModal(!modal)
+    console.log('handled')
+  }
+
+  return(
     <div className="burgerNavBar">
-      {/*menu */}
-      <nav className='menu'>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/About">About</Link></li>
-        <li><Link to="/AllArtist">Featured</Link></li>
-        <li><Link to="/Season">Season</Link></li>
-        <li><Link to="/AllArtist">Artists</Link></li> 
-
-  
-      </nav>
-    </div>
-
-  );
+          {/*menu */}
+            <nav
+            className='menu'
+          >
+            <li onClick={handleModal}><Link to="/">Home</Link></li>
+            <li onClick={handleModal}><Link to="/About">About</Link></li>
+            <li onClick={handleModal}><Link to="/AllArtist">Featured</Link></li>
+            <li onClick={handleModal}><Link to="/Season">Season</Link></li>
+            <li onClick={handleModal}><Link to="/AllArtist">Artists</Link></li>
+    
+    
+            </nav>
+          </div >
+  )
 }
+
 
 //------export the component---------
 export default BurgerNav;
