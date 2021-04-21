@@ -2,11 +2,6 @@
 import React, { useState } from "react";
 import ArtistEvent from "../forms/ArtistEvent"
 import { firestore } from "../firebase/firebase";
-import websiteIcon from "../images/internet.png";
-import facebookIcon from "../images/facebookb.png";
-import youtubeIcon from "../images/youtube.png";
-import instagramIcon from "../images/instagramColor.png"
-import spotifyIcon from "../images/spotify.png"
 import './Artist.css'
 
 

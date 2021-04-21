@@ -23,11 +23,11 @@ function ArtistEvent(props) {
         <p>{props.bio}</p>
         <h5> {props.email}</h5>
         <div className="artistContact">
-          {props.website ? <a href={props.website}><img src={websiteIcon} alt="" style={{ width: "50px" }} ></img></a> : ""}
-          {props.facebook ? <a href={props.facebook}><img src={facebookIcon} alt="" style={{ width: "50px" }} ></img></a> : ""}
-          {props.youtube ? <a href={props.youtube}><img src={youtubeIcon} alt="" style={{ width: "50px" }} ></img></a> : ""}
-          {props.instagram ? <a href={props.instagram}><img src={instagramIcon} alt="" style={{ width: "50px" }} ></img></a> : ""}
-          {props.spotify ? <a href={props.spotify}><img src={spotifyIcon} alt="" style={{ width: "50px" }} ></img></a> : ""}
+          {props.website ? <a href={props.website } target="blank"><img src={websiteIcon} alt="" style={{ width: "50px" }} ></img></a> : ""}
+          {props.facebook ? <a href={props.facebook } target="blank"><img src={facebookIcon} alt="" style={{ width: "50px" }} ></img></a> : ""}
+          {props.youtube ? <a href={props.youtube } target="blank"><img src={youtubeIcon} alt="" style={{ width: "50px" }} ></img></a> : ""}
+          {props.instagram ? <a href={props.instagram } target="blank"><img src={instagramIcon} alt="" style={{ width: "50px" }} ></img></a> : ""}
+          {props.spotify ? <a href={props.spotify } target="blank"><img src={spotifyIcon} alt="" style={{ width: "50px" }} ></img></a> : ""}
         </div>
       </div>
       <div className="line"></div>
