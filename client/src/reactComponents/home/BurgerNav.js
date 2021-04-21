@@ -4,7 +4,7 @@ import Burger from './Burger.js'
 import "./BurgerNav.css";
 import { Link } from "react-router-dom";
 import { render } from "react-dom";
-import Menu from 'react-burger-menu/lib/menus/slide'
+
 
 
 // Nav Bar functionality with links to home, about , artists, season and reserve components
