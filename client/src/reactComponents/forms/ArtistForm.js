@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form, Button, Card, Container } from "react-bootstrap";
 import ProgressBar from "react-bootstrap/ProgressBar";
+// import Image from 'react-bootstrap/Image'
 import { useHistory } from "react-router-dom";
 import app, { firestore } from "../firebase/firebase";
 import NumberFormat from "react-number-format";
@@ -390,24 +391,39 @@ export default function ArtistForm() {
                     Splash Image:{" "}
                     <Form.Label>
                       {" "}
-                      {imageLgName
+                      {imageLg
                         ? imageLgName
                         : "Please choose a Splash Image"}{" "}
                     </Form.Label>
+                    <Form.Text className="mb-3" muted>
+                      This will be the image displayed on the homepage
+                    </Form.Text>
                   </span>
+                  {imageLg ? (
+                    <img className="thumbNail" src={imageLg} alt="" />
+                  ) : (
+                    <div />
+                  )}
                   <Form.File
-                    className="img_submit"
+                    className="img_submit mt-3"
                     name="imageLgIn"
                     onChange={handleImageLg}
                     onClick={resetProgressLg}
                   />
-                  <img className="thumbNail" src={imageLg} alt="" />
                 </Form.Group>
                 <ProgressBar
                   striped
                   variant="info"
                   now={progressLg}
                 ></ProgressBar>
+                <Button
+                  type="reset"
+                  className="mt-3 mb-5"
+                  variant="outline-danger"
+                  onClick={(e) => setImageLg("")}
+                >
+                  Delete Splash Image
+                </Button>
                 <br></br>
                 {/* Image 1 Container */}
                 <Form.Group>
@@ -415,7 +431,7 @@ export default function ArtistForm() {
                     Image 1:{" "}
                     <Form.Label>
                       {" "}
-                      {image1Name ? image1Name : "Please choose an Image"}{" "}
+                      {image1 ? image1Name : "Please choose an Image"}{" "}
                     </Form.Label>
                   </span>
                   <Form.File
@@ -424,13 +440,25 @@ export default function ArtistForm() {
                     onChange={handleImage1}
                     onClick={resetProgress1}
                   />
-                  <img className="thumbNail" src={image1} alt="" />
+                  {image1 ? (
+                    <img className="thumbNail" src={image1} alt="" />
+                  ) : (
+                    <div />
+                  )}
                 </Form.Group>
                 <ProgressBar
                   striped
                   variant="info"
                   now={progress1}
                 ></ProgressBar>
+                <Button
+                  type="reset"
+                  className="mt-3 mb-5"
+                  variant="outline-danger"
+                  onClick={(e) => setImage1("")}
+                >
+                  Delete Image 1
+                </Button>
                 <br></br>
                 {/* Image 2 Container */}
                 <Form.Group>
@@ -438,7 +466,7 @@ export default function ArtistForm() {
                     Image 2:{" "}
                     <Form.Label>
                       {" "}
-                      {image2Name ? image2Name : "Please choose an Image"}{" "}
+                      {image2 ? image2Name : "Please choose an Image"}{" "}
                     </Form.Label>
                   </span>
                   <Form.File
@@ -447,13 +475,25 @@ export default function ArtistForm() {
                     onChange={handleImage2}
                     onClick={resetProgress2}
                   />
-                  <img className="thumbNail" src={image2} alt="" />
+                  {image2 ? (
+                    <img className="thumbNail" src={image2} alt="" />
+                  ) : (
+                    <div />
+                  )}
                 </Form.Group>
                 <ProgressBar
                   striped
                   variant="info"
                   now={progress2}
                 ></ProgressBar>
+                <Button
+                  type="reset"
+                  className="mt-3 mb-5"
+                  variant="outline-danger"
+                  onClick={(e) => setImage2("")}
+                >
+                  Delete Image 2
+                </Button>
                 <br></br>
                 {/* Image 3 Container */}
                 <Form.Group>
@@ -461,7 +501,7 @@ export default function ArtistForm() {
                     Image 3:{" "}
                     <Form.Label>
                       {" "}
-                      {image3Name ? image3Name : "Please choose an Image"}{" "}
+                      {image3 ? image3Name : "Please choose an Image"}{" "}
                     </Form.Label>
                   </span>
                   <Form.File
@@ -470,13 +510,27 @@ export default function ArtistForm() {
                     onChange={handleImage3}
                     onClick={resetProgress3}
                   />
-                  <img className="thumbNail" src={image3} alt="" />
+                  {/* <Image src={image3} thumbnail /> */}
+                  {image3 ? (
+                    <img className="thumbNail" src={image3} alt="" />
+                  ) : (
+                    <div />
+                  )}
                 </Form.Group>
                 <ProgressBar
                   striped
                   variant="info"
                   now={progress3}
                 ></ProgressBar>
+                <Button
+                  type="reset"
+                  className="mt-3 mb-5"
+                  variant="outline-danger"
+                  onClick={(e) => setImage3("")}
+                  onMouseDown={resetProgress3}
+                >
+                  Delete Image 3
+                </Button>
                 <br></br>
                 {/* Website link COntainer */}
                 <Form.Group id="socialMediaLink">

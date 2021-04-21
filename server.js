@@ -1,24 +1,23 @@
 //---------------------------- imports/server set-up --------------------------//
-import cors from ('cors')
+// require cors from 'cors'
+// require { urlencoded, json } from 'body-parser'
 const express = require("express");
 const app = express();
 const path = require("path");
 const port = process.env.PORT || 5000;
 const nodemailer = require("nodemailer");
 require("dotenv").config();
+// require('urlencoded').config()
 
 //-------------------------------- middleware------------------------------//
 app.use(express.static(path.resolve("./client/build")));
+
 //middleware for email alert
-app.use(urlencoded({ extended: true }));
-app.use(json());
-app.use(cors());
 
-// app.get('/admin', (req, res) => {
-//    res.sendFile(path.resolve('/index/admin'))
-// } )
-
-// app.get('/artist')
+// commented out for time being
+// app.use(urlencoded({ extended: true }));
+// app.use(json());
+// app.use(cors());
 
 // path home
 app.get("*", (req, res) => {

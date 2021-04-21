@@ -17,6 +17,7 @@ import Login from "./reactComponents/forms/Login";
 import ArtistForm from "./reactComponents/forms/ArtistForm";
 import ProposalForm from "./reactComponents/forms/ProposalForm";
 import EditShow from "./reactComponents/forms/EditShow";
+import PrivateRoute from './reactComponents/forms/PrivateRoute'
 import { AuthProvider } from "./reactComponents/forms/AuthContext";
 // import PrivateRoute from "../src/reactComponents/forms/PrivateRoute";
 
