@@ -55,12 +55,8 @@ import Menu from 'react-burger-menu/lib/menus/slide'
 //   }
 // }
 
-const BurgerNav = () => {
-  const [modal, setModal] = useState(true)
-  const handleModal = () => { 
-    setModal(!modal)
-    console.log('handled')
-  }
+const BurgerNav = (props) => {
+ 
 
   return(
     <div className="burgerNavBar">
@@ -68,11 +64,11 @@ const BurgerNav = () => {
             <nav
             className='menu'
           >
-            <li onClick={handleModal}><Link to="/">Home</Link></li>
-            <li onClick={handleModal}><Link to="/About">About</Link></li>
-            <li onClick={handleModal}><Link to="/AllArtist">Featured</Link></li>
-            <li onClick={handleModal}><Link to="/Season">Season</Link></li>
-            <li onClick={handleModal}><Link to="/AllArtist">Artists</Link></li>
+            <li onClick={props.handleModal}><Link to="/">Home</Link></li>
+            <li onClick={props.handleModal}><Link to="/About">About</Link></li>
+            <li onClick={props.handleModal}><Link to="/AllArtist">Featured</Link></li>
+            <li onClick={props.handleModal}><Link to="/Season">Season</Link></li>
+            <li onClick={props.handleModal}><Link to="/AllArtist">Artists</Link></li>
     
     
             </nav>

@@ -31,7 +31,8 @@ const Burger = () => {
               <img src={BurgerIcon} alt=""/>
         </button>
 
-        {modal && <BurgerNav />}
+        {modal && <BurgerNav
+        handleModal={handleModal} />}
       </div>
     </div>
   );
