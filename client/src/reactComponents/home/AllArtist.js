@@ -44,8 +44,11 @@ function Artist() {
 
           bio={show.bio}
           email={show.email}
-          link1={show.link1}
-          link2={show.link2}
+          website={show.artistWebsite}
+          facebook={show.artistFacebook}
+          youtube={show.artistYouTube}
+          instagram={show.artistInstagram}
+          spotify={show.artistSpotify}
         ></ArtistEvent >
       }) : 'loading'
 

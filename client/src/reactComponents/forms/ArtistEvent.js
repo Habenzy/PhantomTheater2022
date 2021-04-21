@@ -1,30 +1,33 @@
 import React from 'react'
 import '../home/Artist.css'
+import websiteIcon from "../images/internet.png";
+import facebookIcon from "../images/facebookb.png";
+import youtubeIcon from "../images/youtube.png";
+import instagramIcon from "../images/instagramColor.png"
+import spotifyIcon from "../images/spotify.png"
 
 
 function ArtistEvent(props) {
-  let artistImage1 = <img src={props.image1} alt="" className="artistImage" />
-  let artistImage2 = <img src={props.image2} alt="" className="artistImage" />
-  let artistImage3 = <img src={props.image3} alt="" className="artistImage" />
+  
   return (
     <div className="artistsContainer">
       <h3>{props.artist}</h3>
 
       <div className="artistImageContainer">
-        {artistImage1}
-        {artistImage2}
-        {artistImage3} 
+        {props.image1 ? <img src={props.image1} alt="" /> : ""}
+        {props.image2 ? <img src={props.image2} alt="" /> : ""}
+        {props.image3 ? <img src={props.image3} alt="" /> : ""}
       </div>
 
       <div className="textContainer">
         <p>{props.bio}</p>
-
+        <h5> {props.email}</h5>
         <div className="artistContact">
-          <h5> {props.email}</h5>
-          
-          <a href={props.link1}>{props.link1}</a>
-          <a href={props.link2}>{props.link2}</a>
-          <br />
+          {props.website ? <a href={props.website}><img src={websiteIcon} alt="" style={{ width: "50px" }} ></img></a> : ""}
+          {props.facebook ? <a href={props.facebook}><img src={facebookIcon} alt="" style={{ width: "50px" }} ></img></a> : ""}
+          {props.youtube ? <a href={props.youtube}><img src={youtubeIcon} alt="" style={{ width: "50px" }} ></img></a> : ""}
+          {props.instagram ? <a href={props.instagram}><img src={instagramIcon} alt="" style={{ width: "50px" }} ></img></a> : ""}
+          {props.spotify ? <a href={props.spotify}><img src={spotifyIcon} alt="" style={{ width: "50px" }} ></img></a> : ""}
         </div>
       </div>
       <div className="line"></div>

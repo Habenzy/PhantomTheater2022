@@ -1,8 +1,12 @@
 // ---------------------Imports --------------------------
 import React, { useState } from "react";
-import "./Artist.css";
+import ArtistEvent from "../forms/ArtistEvent"
 import { firestore } from "../firebase/firebase";
-
+import websiteIcon from "../images/internet.png";
+import facebookIcon from "../images/facebookb.png";
+import youtubeIcon from "../images/youtube.png";
+import instagramIcon from "../images/instagramColor.png"
+import spotifyIcon from "../images/spotify.png"
 import './Artist.css'
 
 
@@ -10,82 +14,68 @@ import './Artist.css'
 export default function Artist() {
 
 
-   let [artist, setArtist] = useState("");
-   let [bio, setBio] = useState("");
-   let [image1, setImage1] = useState("");
-
-   let [image2, setImage2] = useState("");
-
-   let [image3, setImage3] = useState("");
-
-   let [artistWebsite, setArtistWebsite] = useState("");
-   let [artistFacebook, setArtistFacebook] = useState("");
-   let [artistYouTube, setArtistYouTube] = useState("");
-   let [artistInstagram, setArtistInstagram] = useState("");
-   let [artistSpotify, setArtistSpotify] = useState("");
+  let [artist, setArtist] = useState("");
+  let [bio, setBio] = useState("");
+  let [image1, setImage1] = useState("");
+  let [image2, setImage2] = useState("");
+  let [image3, setImage3] = useState("");
+  let [email, setEmail] = useState("");
+  let [artistWebsite, setArtistWebsite] = useState("");
+  let [artistFacebook, setArtistFacebook] = useState("");
+  let [artistYouTube, setArtistYouTube] = useState("");
+  let [artistInstagram, setArtistInstagram] = useState("");
+  let [artistSpotify, setArtistSpotify] = useState("");
 
 
 
-   async function getOneShow() {
-      let id = document.location.hash.substring(1);
-      const showRef = await firestore.collection("shows").doc(id);
-      const showIn = await showRef.get();
-      if (!showIn.exists) {
-         alert("no such document", id);
-      } else {
-         let showInData = showIn.data();
+  async function getOneShow() {
+    let id = document.location.hash.substring(1);
+    const showRef = await firestore.collection("shows").doc(id);
+    const showIn = await showRef.get();
+    if (!showIn.exists) {
+      alert("no such document", id);
+    } else {
+      let showInData = showIn.data();
 
-         showInData.artist ? setArtist(showInData.artist) : setArtist("");
-         showInData.bio ? setBio(showInData.bio) : setBio("");
-         showInData.image1 ? setImage1(showInData.image1) : setImage1("");
-         showInData.image2 ? setImage2(showInData.image2) : setImage2("");
-         showInData.image3 ? setImage3(showInData.image3) : setImage3("");
-
-
-         showInData.artistWebsite ? setArtistWebsite(showInData.artistWebsite) : setArtistWebsite("");
-         showInData.artistFacebook ? setArtistFacebook(showInData.artistFacebook) : setArtistFacebook("");
-         showInData.artistYouTube ? setArtistYouTube(showInData.artistYouTube) : setArtistYouTube("");
-         showInData.artistInstagram ? setArtistInstagram(showInData.artistInstagram) : setArtistInstagram("");
-         showInData.artistSpotify ? setArtistSpotify(showInData.artistSpotify) : setArtistSpotify("");
-      }
-
-   }
-   getOneShow()
+      showInData.artist ? setArtist(showInData.artist) : setArtist("");
+      showInData.email ? setEmail(showInData.email) : setEmail("");
+      showInData.bio ? setBio(showInData.bio) : setBio("");
+      showInData.image1 ? setImage1(showInData.image1) : setImage1("");
+      showInData.image2 ? setImage2(showInData.image2) : setImage2("");
+      showInData.image3 ? setImage3(showInData.image3) : setImage3("");
 
 
-   return (
-      <div className="artistsContainer">
+      showInData.artistWebsite ? setArtistWebsite(showInData.artistWebsite) : setArtistWebsite("");
+      showInData.artistFacebook ? setArtistFacebook(showInData.artistFacebook) : setArtistFacebook("");
+      showInData.artistYouTube ? setArtistYouTube(showInData.artistYouTube) : setArtistYouTube("");
+      showInData.artistInstagram ? setArtistInstagram(showInData.artistInstagram) : setArtistInstagram("");
+      showInData.artistSpotify ? setArtistSpotify(showInData.artistSpotify) : setArtistSpotify("");
+    }
 
-         <br />
-         <h2>{artist}</h2>
-         <br />
-         <div>{bio}</div>
-         <br />
-
-         <div className="artistImageContainer">
-            <img src={image1} alt=""></img>
-
-            {image2 ? <img src={image2} alt=""></img> : 'Loading'}
-
-            <img src={image3} alt=""></img>
-         </div>
-
-         <div className="textContainer">
-
-            <div className="artistContact">
-               {artistWebsite ? <span>Website: {artistWebsite}</span> : console.log()  }
-               {artistFacebook ? <span>FaceBook: {artistFacebook}</span> : console.log()  }
-               {artistYouTube ? <span>YouTube: {artistYouTube}</span> : console.log()  }
-               {artistInstagram ? <span>Instagram: {artistInstagram}</span> : console.log()  }
-               {artistSpotify ? <span>Spotify: {artistSpotify}</span> : console.log()  }
+  }
+  getOneShow()
 
 
+  return (
+    <div className="artistsContainer">
+      <h1>Artists</h1>
+    
+        return <ArtistEvent
+          artist={artist}
+          image1={image1}
+          image2={image2}
+          image3={image3}
 
-            </div>
-         </div>
-         <div className="line"></div>
+          bio={bio}
+          email={email}
+          website={artistWebsite}
+          facebook={artistFacebook}
+          youtube={artistYouTube}
+          instagram={artistInstagram}
+          spotify={artistSpotify}
+        ></ArtistEvent >
+      
+    </div >
 
-
-      </div>
-   )
+  )
 }
