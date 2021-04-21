@@ -35,7 +35,6 @@ let nullShow = {
 };
 
 export default function EditShow() {
-
   let [numberOfShows, setNumberOfShows] = useState(0);
   const history = useHistory();
   // create state object to hold values from database
@@ -186,15 +185,11 @@ export default function EditShow() {
     history.push("/adminDash");
   }
 
-
-
-
-
   //***********   show dates handling   ******************* */
 
   const refresh = () => {
-    window.location.reload(false)
-  }
+    window.location.reload(false);
+  };
 
   const handleAddShow = () => {
     setNumberOfShows((numberOfShows += 1));
@@ -202,8 +197,8 @@ export default function EditShow() {
   };
 
   const handleDates = (evt) => {
-    console.log("target value: ", evt.target.value)
-    console.log("datess: ", dates)
+    console.log("target value: ", evt.target.value);
+    console.log("datess: ", dates);
     evt.preventDefault();
     let currentDates = dates;
 
@@ -214,17 +209,16 @@ export default function EditShow() {
   };
 
   const deleteDate = (evt, showIndex) => {
-    console.log("edit show " + evt.target.value + showIndex)
-    console.log("before", dates)
-    let processDates = dates
-    processDates.splice(showIndex, 1).sort()
-    setDates(processDates)
-    console.log("after ", dates)
-    console.log("edit show " + id)
-    enterUpdates(evt)
-    refresh()
-  }
-
+    console.log("edit show " + evt.target.value + showIndex);
+    console.log("before", dates);
+    let processDates = dates;
+    processDates.splice(showIndex, 1).sort();
+    setDates(processDates);
+    console.log("after ", dates);
+    console.log("edit show " + id);
+    enterUpdates(evt);
+    refresh();
+  };
 
   //---------------------------image handling-----------------------------------//
   //imageLg or splash image
@@ -333,14 +327,11 @@ export default function EditShow() {
 
   return (
     <div className="edit_show">
-
       <Container
         className="d-flex align-items center justify-content-center mt-5"
         style={{ minHeight: "80vh", minWidth: "90vw" }}
-
       >
         <div className="w-100">
-
           <Card>
             <Form
               id="adminForm"
@@ -352,10 +343,8 @@ export default function EditShow() {
                 {/* left  column of form */}
 
                 <Card.Body className="admin">
-
                   <h5>Admin Input Information:</h5>
                   <Form.Group>
-
                     <Form.Label>Show Title:</Form.Label>
                     <p>This will appear on the Home page and Season page.</p>
                     <Form.Control
@@ -371,7 +360,7 @@ export default function EditShow() {
                     <Form.Label>Show Blurb:</Form.Label>
                     <p>This will appear on the Artists page.</p>
                     <textarea
-                      className='form-control'
+                      className="form-control"
                       rows="4"
                       type="text"
                       id="blurb"
@@ -380,7 +369,6 @@ export default function EditShow() {
                       value={blurb}
                       onChange={(evt) => setBlurb(evt.target.value)}
                     />
-
                   </Form.Group>
                   <Form.Group>
                     <Form.Label>Show Type:</Form.Label>
@@ -404,18 +392,21 @@ export default function EditShow() {
                       value={status}
                       onChange={(evt) => setStatus(evt.target.value)}
                     >
-                      <option >Proposal </option>
+                      <option>Proposal </option>
                       <option>Booked</option>
                       <option>Done</option>
                     </select>
                   </Form.Group>
                   {/* Show Time Input Controls ****************************** */}
 
-
-                  <Form.Group >
+                  <Form.Group>
                     <div className="showtimes">
                       <Form.Label>Showtimes:</Form.Label>
-                      <p>Remember to hit SUBMIT at the bottom of this page to save date changes. These will appear on the Home and Season page.</p>
+                      <p>
+                        Remember to hit SUBMIT at the bottom of this page to
+                        save date changes. These will appear on the Home and
+                        Season page.
+                      </p>
                       <Form.Group>
                         <Button
                           id="show_button"
@@ -423,7 +414,7 @@ export default function EditShow() {
                           onClick={handleAddShow}
                         >
                           Add Showtimes
-                              </Button>
+                        </Button>
                       </Form.Group>
 
                       {numberOfShows >= 1 ? (
@@ -439,7 +430,9 @@ export default function EditShow() {
                             className="delete"
                             width="50px"
                             onClick={(evt) => deleteDate(evt, 0)}
-                          >Delete Date</Button>
+                          >
+                            Delete Date
+                          </Button>
                         </Form.Group>
                       ) : (
                         console.log()
@@ -458,7 +451,9 @@ export default function EditShow() {
                             className="delete"
                             width="50px"
                             onClick={(evt) => deleteDate(evt, 1)}
-                          >Delete Date</Button>
+                          >
+                            Delete Date
+                          </Button>
                         </Form.Group>
                       ) : (
                         console.log()
@@ -477,7 +472,9 @@ export default function EditShow() {
                             className="delete"
                             width="50px"
                             onClick={(evt) => deleteDate(evt, 2)}
-                          >Delete Date</Button>
+                          >
+                            Delete Date
+                          </Button>
                         </Form.Group>
                       ) : (
                         console.log()
@@ -496,7 +493,9 @@ export default function EditShow() {
                             className="delete"
                             width="50px"
                             onClick={(evt) => deleteDate(evt, 3)}
-                          >Delete Date</Button>
+                          >
+                            Delete Date
+                          </Button>
                         </Form.Group>
                       ) : (
                         console.log()
@@ -515,7 +514,9 @@ export default function EditShow() {
                             className="delete"
                             width="50px"
                             onClick={(evt) => deleteDate(evt, 4)}
-                          >Delete Date</Button>
+                          >
+                            Delete Date
+                          </Button>
                         </Form.Group>
                       ) : (
                         console.log()
@@ -534,7 +535,9 @@ export default function EditShow() {
                             className="delete"
                             width="50px"
                             onClick={(evt) => deleteDate(evt, 5)}
-                          >Delete Date</Button>
+                          >
+                            Delete Date
+                          </Button>
                         </Form.Group>
                       ) : (
                         console.log()
@@ -546,11 +549,12 @@ export default function EditShow() {
                 {/* left  column of form END*/}
                 {/* middle  column of form */}
                 <Card.Body>
-
                   <Form.Group>
                     <h5>Artist Input Information:</h5>
                     <Form.Label>Artist Name: </Form.Label>
-                    <p>This will appear on Season, Artist, and Artist Info pages.</p>
+                    <p>
+                      This will appear on Season, Artist, and Artist Info pages.
+                    </p>
                     <Form.Control
                       type="text"
                       id="artist"
@@ -626,8 +630,6 @@ export default function EditShow() {
                       onChange={(evt) => setDescription(evt.target.value)}
                     />
                   </Form.Group>
-
-
                 </Card.Body>
                 {/* middle  column of form END*/}
               </div>
@@ -705,28 +707,26 @@ export default function EditShow() {
                   </Form.Group>
                 </Card.Body>
                 {/* right  column of form */}
-                
+
                 <Card.Body className="imageCard">
-                  
                   {/* Splash Image Container **************************************/}
                   <div className="imageUpload">
-                  <h5>Image Uploads:</h5>
+                    <h5>Image Uploads:</h5>
                     <Form.Group>
                       <FormLabel>Splash Image Upload:</FormLabel>
-                      <p>This will appear as the main image on the Home page.</p>
-
-
-                      <img className="thumbNail" src={imageLg} alt="" />
-                    </Form.Group>
-                    <ProgressBar
-                      striped
-                      variant="info"
-                      now={progressLg}
-                    ></ProgressBar>
+                      <p>
+                        This will appear as the main image on the Home page.
+                      </p>
+                      {imageLg ? (
+                        <img className="thumbNail" src={imageLg} alt="" />
+                      ) : (
+                        <div />
+                      )}
+                    </Form.Group> 
                     <Form.File
                       className="img_submit"
                       label={
-                        imageLgName
+                        imageLg
                           ? "Splash Image: " + imageLgName
                           : "Please choose a Splash Image"
                       }
@@ -734,27 +734,41 @@ export default function EditShow() {
                       onChange={handleImageLg}
                       onClick={resetProgressLg}
                     />
+                    <ProgressBar
+                      striped
+                      variant="info"
+                      now={progressLg}
+                    ></ProgressBar>
+                    <Button
+                      type="reset"
+                      className="mt-3"
+                      variant="outline-danger"
+                      onClick={(e) => setImageLg("")}
+                    >
+                      Delete Splash Image
+                    </Button>
                   </div>
                   <br></br>
 
                   {/* Image 1 Container */}
                   <div className="imageUpload">
-                  <br></br>
+                    <br></br>
                     <Form.Group>
                       <FormLabel>Image 1 Upload:</FormLabel>
-                      <p>This will appear on the Artist and Artist Info page.</p>
+                      <p>
+                        This will appear on the Artist and Artist Info page.
+                      </p>
 
-                      <img className="thumbNail splash" src={image1} alt="" />
+                      {image1 ? (
+                        <img className="thumbNail" src={image1} alt="" />
+                      ) : (
+                        <div />
+                      )}
                     </Form.Group>
-                    <ProgressBar
-                      striped
-                      variant="info"
-                      now={progress1}
-                    ></ProgressBar>
                     <Form.File
                       className="img_submit"
                       label={
-                        image1Name
+                        image1
                           ? "Image 1: " + image1Name
                           : "Please choose Image 1"
                       }
@@ -762,25 +776,38 @@ export default function EditShow() {
                       onChange={handleImage1}
                       onClick={resetProgress1}
                     />
+                    <ProgressBar
+                      striped
+                      variant="info"
+                      now={progress1}
+                    ></ProgressBar>
+                    <Button
+                      type="reset"
+                      className="mt-3"
+                      variant="outline-danger"
+                      onClick={(e) => setImage1("")}
+                    >
+                      Delete Image 1
+                    </Button>
                   </div>
                   <br></br>
                   {/* Image 2 Container */}
                   <div className="imageUpload">
-
                     <Form.Group>
                       <FormLabel>Image 2 Upload:</FormLabel>
-                      <p>This will appear on the Artist and Artist Info page.</p>
-                      <img className="thumbNail splash" src={image2} alt="" />
+                      <p>
+                        This will appear on the Artist and Artist Info page.
+                      </p>
+                      {image2 ? (
+                        <img className="thumbNail" src={image2} alt="" />
+                      ) : (
+                        <div />
+                      )}
                     </Form.Group>
-                    <ProgressBar
-                      striped
-                      variant="info"
-                      now={progress2}
-                    ></ProgressBar>
                     <Form.File
                       className="img_submit"
                       label={
-                        image2Name
+                        image2
                           ? "Image 2: " + image2Name
                           : "Please choose Image 2"
                       }
@@ -788,25 +815,38 @@ export default function EditShow() {
                       onChange={handleImage2}
                       onClick={resetProgress2}
                     />
+                    <ProgressBar
+                      striped
+                      variant="info"
+                      now={progress2}
+                    ></ProgressBar>
+                    <Button
+                      type="reset"
+                      className="mt-3"
+                      variant="outline-danger"
+                      onClick={(e) => setImage2("")}
+                    >
+                      Delete Image 2
+                    </Button>
                   </div>
                   <br></br>
                   {/* Image 3 Container */}
                   <div className="imageUpload">
                     <Form.Group>
                       <FormLabel>Image 3 Upload:</FormLabel>
-                      <p>This will appear on the Artist and Artist Info page.</p>
-                      <img className="thumbNail splash" src={image3} alt="" />
+                      <p>
+                        This will appear on the Artist and Artist Info page.
+                      </p>
+                      {image3 ? (
+                        <img className="thumbNail" src={image3} alt="" />
+                      ) : (
+                        <div />
+                      )}
                     </Form.Group>
-
-                    <ProgressBar
-                      striped
-                      variant="info"
-                      now={progress3}
-                    ></ProgressBar>
                     <Form.File
                       className="img_submit"
                       label={
-                        image3Name
+                        image3
                           ? "Image 3: " + image3Name
                           : "Please choose Image 3"
                       }
@@ -814,10 +854,23 @@ export default function EditShow() {
                       onChange={handleImage3}
                       onClick={resetProgress3}
                     />
+                    <ProgressBar
+                      striped
+                      variant="info"
+                      now={progress3}
+                    ></ProgressBar>
+                    <Button
+                      type="reset"
+                      className="mt-3"
+                      variant="outline-danger"
+                      onClick={(e) => setImage3("")}
+                      onMouseDown={resetProgress3}
+                    >
+                      Delete Image 3
+                    </Button>
                   </div>
                   <br></br>
                 </Card.Body>
-
               </div>
               {/* right  column of form END*/}
               <div className="text-center">
