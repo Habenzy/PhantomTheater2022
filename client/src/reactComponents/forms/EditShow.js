@@ -351,12 +351,13 @@ export default function EditShow() {
               <div className="d-flex flex-direction row-3">
                 {/* left  column of form */}
 
-                <Card.Body>
+                <Card.Body className="admin">
 
                   <h5>Admin Input Information:</h5>
                   <Form.Group>
 
                     <Form.Label>Show Title:</Form.Label>
+                    <p>This will appear on the Home page and Season page.</p>
                     <Form.Control
                       type="text"
                       id="title"
@@ -368,7 +369,7 @@ export default function EditShow() {
                   </Form.Group>
                   <Form.Group>
                     <Form.Label>Show Blurb:</Form.Label>
-
+                    <p>This will appear on the Artists page.</p>
                     <textarea
                       className='form-control'
                       rows="4"
@@ -383,6 +384,7 @@ export default function EditShow() {
                   </Form.Group>
                   <Form.Group>
                     <Form.Label>Show Type:</Form.Label>
+                    <p>This will not appear on the site. For internal use.</p>
                     <Form.Control
                       type="text"
                       id="type"
@@ -394,6 +396,7 @@ export default function EditShow() {
                   </Form.Group>
                   <Form.Group>
                     <Form.Label>Status:</Form.Label>
+                    <p>IMPORTANT! Used by database for site function.</p>
                     <select
                       className="form-control"
                       id="status"
@@ -409,132 +412,134 @@ export default function EditShow() {
                   {/* Show Time Input Controls ****************************** */}
 
 
-                  <Form.Group>
-                    <Form.Label>Showtimes:</Form.Label>
-
-                    <Form.Group>
-                      <Button
-                        id="show_button"
-                        className="w-100"
-                        onClick={handleAddShow}
-                      >
-                        Add Showtimes
+                  <Form.Group >
+                    <div className="showtimes">
+                      <Form.Label>Showtimes:</Form.Label>
+                      <p>Remember to hit SUBMIT at the bottom of this page to save date changes. These will appear on the Home and Season page.</p>
+                      <Form.Group>
+                        <Button
+                          id="show_button"
+                          className="w-100"
+                          onClick={handleAddShow}
+                        >
+                          Add Showtimes
                               </Button>
-                    </Form.Group>
-
-                    {numberOfShows >= 1 ? (
-                      <Form.Group>
-                        <Form.Control
-                          onBlur={(evt) => handleDates(evt)}
-                          type="dateTime-local"
-                          className="dates mb-1"
-                          defaultValue={dates[0]}
-                        />
-                        <Button
-                          // type="submit"
-                          className="delete"
-                          width="50px"
-                          onClick={(evt) => deleteDate(evt, 0)}
-                        >Delete Date</Button>
                       </Form.Group>
-                    ) : (
-                      console.log()
-                    )}
 
-                    {numberOfShows >= 2 ? (
-                      <Form.Group>
-                        <Form.Control
-                          onBlur={(evt) => handleDates(evt)}
-                          type="dateTime-local"
-                          className="dates"
-                          defaultValue={dates[1]}
-                        />
-                        <Button
-                          // type="submit"
-                          className="delete"
-                          width="50px"
-                          onClick={(evt) => deleteDate(evt, 1)}
-                        >Delete Date</Button>
-                      </Form.Group>
-                    ) : (
-                      console.log()
-                    )}
+                      {numberOfShows >= 1 ? (
+                        <Form.Group>
+                          <Form.Control
+                            onBlur={(evt) => handleDates(evt)}
+                            type="dateTime-local"
+                            className="dates mb-1"
+                            defaultValue={dates[0]}
+                          />
+                          <Button
+                            // type="submit"
+                            className="delete"
+                            width="50px"
+                            onClick={(evt) => deleteDate(evt, 0)}
+                          >Delete Date</Button>
+                        </Form.Group>
+                      ) : (
+                        console.log()
+                      )}
 
-                    {numberOfShows >= 3 ? (
-                      <Form.Group>
-                        <Form.Control
-                          onBlur={(evt) => handleDates(evt)}
-                          type="dateTime-local"
-                          className="dates"
-                          defaultValue={dates[2]}
-                        />
-                        <Button
-                          // type="submit"
-                          className="delete"
-                          width="50px"
-                          onClick={(evt) => deleteDate(evt, 2)}
-                        >Delete Date</Button>
-                      </Form.Group>
-                    ) : (
-                      console.log()
-                    )}
+                      {numberOfShows >= 2 ? (
+                        <Form.Group>
+                          <Form.Control
+                            onBlur={(evt) => handleDates(evt)}
+                            type="dateTime-local"
+                            className="dates"
+                            defaultValue={dates[1]}
+                          />
+                          <Button
+                            // type="submit"
+                            className="delete"
+                            width="50px"
+                            onClick={(evt) => deleteDate(evt, 1)}
+                          >Delete Date</Button>
+                        </Form.Group>
+                      ) : (
+                        console.log()
+                      )}
 
-                    {numberOfShows >= 4 ? (
-                      <Form.Group>
-                        <Form.Control
-                          onBlur={(evt) => handleDates(evt)}
-                          type="dateTime-local"
-                          className="dates"
-                          defaultValue={dates[3]}
-                        />
-                        <Button
-                          // type="submit"
-                          className="delete"
-                          width="50px"
-                          onClick={(evt) => deleteDate(evt, 3)}
-                        >Delete Date</Button>
-                      </Form.Group>
-                    ) : (
-                      console.log()
-                    )}
+                      {numberOfShows >= 3 ? (
+                        <Form.Group>
+                          <Form.Control
+                            onBlur={(evt) => handleDates(evt)}
+                            type="dateTime-local"
+                            className="dates"
+                            defaultValue={dates[2]}
+                          />
+                          <Button
+                            // type="submit"
+                            className="delete"
+                            width="50px"
+                            onClick={(evt) => deleteDate(evt, 2)}
+                          >Delete Date</Button>
+                        </Form.Group>
+                      ) : (
+                        console.log()
+                      )}
 
-                    {numberOfShows >= 5 ? (
-                      <Form.Group>
-                        <Form.Control
-                          onBlur={(evt) => handleDates(evt)}
-                          type="dateTime-local"
-                          className="dates"
-                          defaultValue={dates[4]}
-                        />
-                        <Button
-                          // type="submit"
-                          className="delete"
-                          width="50px"
-                          onClick={(evt) => deleteDate(evt, 4)}
-                        >Delete Date</Button>
-                      </Form.Group>
-                    ) : (
-                      console.log()
-                    )}
+                      {numberOfShows >= 4 ? (
+                        <Form.Group>
+                          <Form.Control
+                            onBlur={(evt) => handleDates(evt)}
+                            type="dateTime-local"
+                            className="dates"
+                            defaultValue={dates[3]}
+                          />
+                          <Button
+                            // type="submit"
+                            className="delete"
+                            width="50px"
+                            onClick={(evt) => deleteDate(evt, 3)}
+                          >Delete Date</Button>
+                        </Form.Group>
+                      ) : (
+                        console.log()
+                      )}
 
-                    {numberOfShows >= 6 ? (
-                      <Form.Group>
-                        <Form.Control
-                          onBlur={(evt) => handleDates(evt)}
-                          type="dateTime-local"
-                          className="dates"
-                          defaultValue={dates[5]}
-                        />
-                        <Button
-                          // type="submit"
-                          className="delete"
-                          width="50px"
-                          onClick={(evt) => deleteDate(evt, 5)}
-                        >Delete Date</Button>
-                      </Form.Group>
-                    ) : (
-                      console.log()
-                    )}
+                      {numberOfShows >= 5 ? (
+                        <Form.Group>
+                          <Form.Control
+                            onBlur={(evt) => handleDates(evt)}
+                            type="dateTime-local"
+                            className="dates"
+                            defaultValue={dates[4]}
+                          />
+                          <Button
+                            // type="submit"
+                            className="delete"
+                            width="50px"
+                            onClick={(evt) => deleteDate(evt, 4)}
+                          >Delete Date</Button>
+                        </Form.Group>
+                      ) : (
+                        console.log()
+                      )}
+
+                      {numberOfShows >= 6 ? (
+                        <Form.Group>
+                          <Form.Control
+                            onBlur={(evt) => handleDates(evt)}
+                            type="dateTime-local"
+                            className="dates"
+                            defaultValue={dates[5]}
+                          />
+                          <Button
+                            // type="submit"
+                            className="delete"
+                            width="50px"
+                            onClick={(evt) => deleteDate(evt, 5)}
+                          >Delete Date</Button>
+                        </Form.Group>
+                      ) : (
+                        console.log()
+                      )}
+                    </div>
                   </Form.Group>
                   <hr />
                 </Card.Body>
@@ -545,6 +550,7 @@ export default function EditShow() {
                   <Form.Group>
                     <h5>Artist Input Information:</h5>
                     <Form.Label>Artist Name: </Form.Label>
+                    <p>This will appear on Season, Artist, and Artist Info pages.</p>
                     <Form.Control
                       type="text"
                       id="artist"
@@ -556,6 +562,7 @@ export default function EditShow() {
                   </Form.Group>
                   <Form.Group>
                     <Form.Label>Contact Name: </Form.Label>
+                    <p>For internal use.</p>
                     <Form.Control
                       type="text"
                       id="contactName"
@@ -567,6 +574,7 @@ export default function EditShow() {
                   </Form.Group>
                   <Form.Group>
                     <Form.Label>Phone: </Form.Label>
+                    <p>For internal use.</p>
                     <NumberFormat
                       className="form-control"
                       mask="_"
@@ -581,6 +589,7 @@ export default function EditShow() {
                   </Form.Group>
                   <Form.Group>
                     <Form.Label>Email:</Form.Label>
+                    <p>This will appear on the Artist page.</p>
                     <Form.Control
                       type="text"
                       id="email"
@@ -592,6 +601,7 @@ export default function EditShow() {
                   </Form.Group>
                   <Form.Group>
                     <Form.Label>Artist Bio:</Form.Label>
+                    <p>This will appear on the Artist and Artist Info page.</p>
                     <textarea
                       className="form-control"
                       rows="4"
@@ -604,6 +614,7 @@ export default function EditShow() {
                   </Form.Group>
                   <Form.Group>
                     <Form.Label>Description of the Show: </Form.Label>
+                    <p>This will not appear on the site. For internal use.</p>
                     <textarea
                       className="form-control"
                       rows="6"
@@ -616,8 +627,16 @@ export default function EditShow() {
                     />
                   </Form.Group>
 
-                  {/* Website link COntainer */}
+
+                </Card.Body>
+                {/* middle  column of form END*/}
+              </div>
+              <div className="d-flex flex-direction row-3">
+                {/* Website link COntainer */}
+                <Card.Body>
                   <Form.Group id="socialMediaLink">
+                    <h5>Social Media Links:</h5>
+                    <p>These will appear on Artist Info page.</p>
                     <Form.Label>
                       {artistWebsite ? "Website: " + artistWebsite : "Website"}
                     </Form.Label>
@@ -629,7 +648,7 @@ export default function EditShow() {
                     />
                   </Form.Group>
 
-                  {/* Facebook link COntainer */}
+                  {/* Facebook link Container */}
                   <Form.Group id="socialMediaLink">
                     <Form.Label>
                       {artistFacebook
@@ -685,118 +704,122 @@ export default function EditShow() {
                     />
                   </Form.Group>
                 </Card.Body>
-                {/* middle  column of form END*/}
                 {/* right  column of form */}
+                
                 <Card.Body className="imageCard">
-                  <h5>Image Uploads:</h5>
+                  
                   {/* Splash Image Container **************************************/}
+                  <div className="imageUpload">
+                  <h5>Image Uploads:</h5>
+                    <Form.Group>
+                      <FormLabel>Splash Image Upload:</FormLabel>
+                      <p>This will appear as the main image on the Home page.</p>
 
-                  <Form.Group>
-                    <FormLabel>Splash Image Upload:</FormLabel>
-                    <br />
 
-                    <img className="thumbNail" src={imageLg} alt="" />
-                  </Form.Group>
-                  <ProgressBar
-                    striped
-                    variant="info"
-                    now={progressLg}
-                  ></ProgressBar>
-                  <Form.File
-                    className="img_submit"
-                    label={
-                      imageLgName
-                        ? "Splash Image: " + imageLgName
-                        : "Please choose a Splash Image"
-                    }
-                    name="imageLgIn"
-                    onChange={handleImageLg}
-                    onClick={resetProgressLg}
-                  />
-
+                      <img className="thumbNail" src={imageLg} alt="" />
+                    </Form.Group>
+                    <ProgressBar
+                      striped
+                      variant="info"
+                      now={progressLg}
+                    ></ProgressBar>
+                    <Form.File
+                      className="img_submit"
+                      label={
+                        imageLgName
+                          ? "Splash Image: " + imageLgName
+                          : "Please choose a Splash Image"
+                      }
+                      name="imageLgIn"
+                      onChange={handleImageLg}
+                      onClick={resetProgressLg}
+                    />
+                  </div>
                   <br></br>
 
                   {/* Image 1 Container */}
+                  <div className="imageUpload">
+                  <br></br>
+                    <Form.Group>
+                      <FormLabel>Image 1 Upload:</FormLabel>
+                      <p>This will appear on the Artist and Artist Info page.</p>
 
-                  <Form.Group>
-                    <FormLabel>Image 1 Upload:</FormLabel>
-                    <br />
-
-                    <img className="thumbNail splash" src={image1} alt="" />
-                  </Form.Group>
-                  <ProgressBar
-                    striped
-                    variant="info"
-                    now={progress1}
-                  ></ProgressBar>
-                  <Form.File
-                    className="img_submit"
-                    label={
-                      image1Name
-                        ? "Image 1: " + image1Name
-                        : "Please choose Image 1"
-                    }
-                    name="image1In"
-                    onChange={handleImage1}
-                    onClick={resetProgress1}
-                  />
-
+                      <img className="thumbNail splash" src={image1} alt="" />
+                    </Form.Group>
+                    <ProgressBar
+                      striped
+                      variant="info"
+                      now={progress1}
+                    ></ProgressBar>
+                    <Form.File
+                      className="img_submit"
+                      label={
+                        image1Name
+                          ? "Image 1: " + image1Name
+                          : "Please choose Image 1"
+                      }
+                      name="image1In"
+                      onChange={handleImage1}
+                      onClick={resetProgress1}
+                    />
+                  </div>
                   <br></br>
                   {/* Image 2 Container */}
+                  <div className="imageUpload">
 
-                  <Form.Group>
-                    <FormLabel>Image 2 Upload:</FormLabel>
-                    <br />
-                    <img className="thumbNail splash" src={image2} alt="" />
-                  </Form.Group>
-                  <ProgressBar
-                    striped
-                    variant="info"
-                    now={progress2}
-                  ></ProgressBar>
-                  <Form.File
-                    className="img_submit"
-                    label={
-                      image2Name
-                        ? "Image 2: " + image2Name
-                        : "Please choose Image 2"
-                    }
-                    name="image2In"
-                    onChange={handleImage2}
-                    onClick={resetProgress2}
-                  />
-
+                    <Form.Group>
+                      <FormLabel>Image 2 Upload:</FormLabel>
+                      <p>This will appear on the Artist and Artist Info page.</p>
+                      <img className="thumbNail splash" src={image2} alt="" />
+                    </Form.Group>
+                    <ProgressBar
+                      striped
+                      variant="info"
+                      now={progress2}
+                    ></ProgressBar>
+                    <Form.File
+                      className="img_submit"
+                      label={
+                        image2Name
+                          ? "Image 2: " + image2Name
+                          : "Please choose Image 2"
+                      }
+                      name="image2In"
+                      onChange={handleImage2}
+                      onClick={resetProgress2}
+                    />
+                  </div>
                   <br></br>
                   {/* Image 3 Container */}
+                  <div className="imageUpload">
+                    <Form.Group>
+                      <FormLabel>Image 3 Upload:</FormLabel>
+                      <p>This will appear on the Artist and Artist Info page.</p>
+                      <img className="thumbNail splash" src={image3} alt="" />
+                    </Form.Group>
 
-                  <Form.Group>
-                    <FormLabel>Image 3 Upload:</FormLabel>
-                    <br />
-                    <img className="thumbNail splash" src={image3} alt="" />
-                  </Form.Group>
-
-                  <ProgressBar
-                    striped
-                    variant="info"
-                    now={progress3}
-                  ></ProgressBar>
-                  <Form.File
-                    className="img_submit"
-                    label={
-                      image3Name
-                        ? "Image 3: " + image3Name
-                        : "Please choose Image 3"
-                    }
-                    name="image3In"
-                    onChange={handleImage3}
-                    onClick={resetProgress3}
-                  />
-
+                    <ProgressBar
+                      striped
+                      variant="info"
+                      now={progress3}
+                    ></ProgressBar>
+                    <Form.File
+                      className="img_submit"
+                      label={
+                        image3Name
+                          ? "Image 3: " + image3Name
+                          : "Please choose Image 3"
+                      }
+                      name="image3In"
+                      onChange={handleImage3}
+                      onClick={resetProgress3}
+                    />
+                  </div>
                   <br></br>
                 </Card.Body>
-                {/* right  column of form END*/}
 
               </div>
+              {/* right  column of form END*/}
               <div className="text-center">
                 <Button id="show_button" className="w-75 mb-5" type="submit">
                   Submit Updates
