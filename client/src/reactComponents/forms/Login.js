@@ -29,15 +29,15 @@ export default function Login() {
       //initial state of form - free of errors & loading form (button is enabled)
       setError("");
       setLoading(true);
-      
+      console.log()
       //waits for login to happen, otherwise, catch block is run and error is printed
       await login(emailRef.current.value, passwordRef.current.value);
+      history.push("/adminDash");  
       console.log("Login successful");
     } catch {
       setError("Login Failed");
     }
     setLoading(false);
-    history.push("/adminDash");
   }
 
   return (

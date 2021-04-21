@@ -32,3 +32,14 @@ span {
 Label {
    color: rgb(195, 247, 9);
 }
+
+img.thumbNail {
+   width: 50%;
+   height: auto;
+   margin-top: 5px;
+   padding: 5px;
+   border: 2px solid rgb(175, 175, 175);
+   min-height: 100px;
+
+
+}
