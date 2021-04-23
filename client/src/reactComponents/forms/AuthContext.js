@@ -18,6 +18,10 @@ export function AuthProvider({ children }) {
     return auth.signInWithEmailAndPassword(email, password);
   }
 
+  function logout() {
+    return auth.signOut();
+  }
+
   //sets user once as component mounts
   useEffect(() => {
     //unsubscribe is returned from onAuth method when component unmounts
@@ -34,6 +38,7 @@ export function AuthProvider({ children }) {
   const value = {
     loggedUser,
     login,
+    logout,
   };
 
   //provides context to children above - value object passed as prop
