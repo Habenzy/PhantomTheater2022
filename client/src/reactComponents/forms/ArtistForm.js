@@ -403,6 +403,7 @@ export default function ArtistForm() {
                       name="websiteInput"
                       onChange={(evt) => setArtistWebsite(evt.target.value)}
                       value={artistWebsite}
+                      placeholder="Paste Your Website Link Here"
                     />
                   </Form.Group>
 
@@ -416,6 +417,7 @@ export default function ArtistForm() {
                       name="facebookInput"
                       onChange={(evt) => setArtistFacebook(evt.target.value)}
                       value={artistFacebook}
+                      placeholder="Paste Your Facebook Link Here"
                     />
                   </Form.Group>
 
@@ -429,6 +431,7 @@ export default function ArtistForm() {
                       name="youtubeInput"
                       onChange={(evt) => setArtistYouTube(evt.target.value)}
                       value={artistYouTube}
+                      placeholder="Paste Your YouTube Link Here"
                     />
                   </Form.Group>
 
@@ -442,6 +445,7 @@ export default function ArtistForm() {
                       name="InstagramInput"
                       onChange={(evt) => setArtistInstagram(evt.target.value)}
                       value={artistInstagram}
+                      placeholder="Paste Your Instagram Link Here"
                     />
                   </Form.Group>
 
@@ -455,6 +459,7 @@ export default function ArtistForm() {
                       name="spotifyInput"
                       onChange={(evt) => setArtistSpotify(evt.target.value)}
                       value={artistSpotify}
+                      placeholder="Paste Your Spotify Link Here"
                     />
                   </Form.Group>
 
