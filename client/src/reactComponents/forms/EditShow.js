@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import app, { firestore } from "../firebase/firebase";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import { Form, Button, Card, Container, FormLabel } from "react-bootstrap";
@@ -121,19 +121,19 @@ export default function EditShow() {
 
       showInData.artistWebsite
         ? setArtistWebsite(showInData.artistWebsite)
-        : setArtistWebsite("");
+        : setArtistWebsite("Paste Your Website Link Here");
       showInData.artistFacebook
         ? setArtistFacebook(showInData.artistFacebook)
-        : setArtistFacebook("");
+        : setArtistFacebook("Paste Your Facebook Link Here");
       showInData.artistYouTube
         ? setArtistYouTube(showInData.artistYouTube)
-        : setArtistYouTube("");
+        : setArtistYouTube("Paste Your YouTube Link Here");
       showInData.artistInstagram
         ? setArtistInstagram(showInData.artistInstagram)
-        : setArtistInstagram("");
+        : setArtistInstagram("Paste Your Instagram Link Here");
       showInData.artistSpotify
         ? setArtistSpotify(showInData.artistSpotify)
-        : setArtistSpotify("");
+        : setArtistSpotify("Paste Your Spotify Link Here");
 
       numberOfShows !== showInData.dates.length
         ? setNumberOfShows(showInData.dates.length)
@@ -141,9 +141,13 @@ export default function EditShow() {
     }
   }
 
-  if (thisShow.title === "title") {
+  useEffect(() => {
     getOneShow();
-  }
+  }, [])
+
+  // if (thisShow.title === "title") {
+  //   getOneShow();
+  // }
 
   let id = document.location.hash.substring(1);
   //*************************************************** */
@@ -638,71 +642,67 @@ export default function EditShow() {
                 <Card.Body>
                   <Form.Group id="socialMediaLink">
                     <h5>Social Media Links:</h5>
-                    <p>These will appear on Artist Info page.</p>
+                    <p>These will appear as links on the Artist Info page.</p>
                     <Form.Label>
-                      {artistWebsite ? "Website: " + artistWebsite : "Website"}
+                      Website:
                     </Form.Label>
                     <Form.Control
-                      type="url"
-                      name="vidInput"
+                      type="text"
+                      name="websiteInput"
                       onChange={(evt) => setArtistWebsite(evt.target.value)}
-                      placeholder="Paste Your Website Link Here"
+                      value={artistWebsite}
                     />
                   </Form.Group>
 
                   {/* Facebook link Container */}
                   <Form.Group id="socialMediaLink">
                     <Form.Label>
-                      {artistFacebook
-                        ? "Facebook: " + artistFacebook
-                        : "Facebook"}
+                      Facebook:
                     </Form.Label>
                     <Form.Control
-                      type="url"
-                      name="vidInput"
+                      type="text"
+                      name="facebookInput"
                       onChange={(evt) => setArtistFacebook(evt.target.value)}
-                      placeholder="Paste Your Facebook Link Here"
+                      value={artistFacebook}
                     />
                   </Form.Group>
 
                   {/* YouTube COntainer */}
                   <Form.Group id="socialMediaLink">
                     <Form.Label>
-                      {artistYouTube ? "YouTube: " + artistYouTube : "YouTube"}
+                      YouTube:
                     </Form.Label>
                     <Form.Control
-                      type="url"
-                      name="vidInput"
+                      type="text"
+                      name="youtubeInput"
                       onChange={(evt) => setArtistYouTube(evt.target.value)}
-                      placeholder="Paste Your YouTube Link Here"
+                      value={artistYouTube}
                     />
                   </Form.Group>
 
                   {/* Instagram COntainer */}
                   <Form.Group id="socialMediaLink">
                     <Form.Label>
-                      {artistInstagram
-                        ? "Instagram: " + artistInstagram
-                        : "Instagram"}
+                      Instagram:
                     </Form.Label>
                     <Form.Control
-                      type="url"
-                      name="vidInput"
+                      type="text"
+                      name="InstagramInput"
                       onChange={(evt) => setArtistInstagram(evt.target.value)}
-                      placeholder="Paste Your Instagram Link Here"
+                      value={artistInstagram}
                     />
                   </Form.Group>
 
                   {/* Spotify link COntainer */}
                   <Form.Group id="socialMediaLink">
                     <Form.Label>
-                      {artistSpotify ? "Spotify: " + artistSpotify : "Spotify"}
+                      Spotify:
                     </Form.Label>
                     <Form.Control
-                      type="url"
-                      name="vidInput"
+                      type="text"
+                      name="spotifyInput"
                       onChange={(evt) => setArtistSpotify(evt.target.value)}
-                      placeholder="Paste Your Spotify Link Here"
+                      value={artistSpotify}
                     />
                   </Form.Group>
                 </Card.Body>
@@ -722,7 +722,7 @@ export default function EditShow() {
                       ) : (
                         <div />
                       )}
-                    </Form.Group> 
+                    </Form.Group>
                     <Form.File
                       className="img_submit"
                       label={
