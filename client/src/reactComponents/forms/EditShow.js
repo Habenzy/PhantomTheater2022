@@ -121,19 +121,19 @@ export default function EditShow() {
 
       showInData.artistWebsite
         ? setArtistWebsite(showInData.artistWebsite)
-        : setArtistWebsite("Paste Your Website Link Here");
+        : setArtistWebsite("");
       showInData.artistFacebook
         ? setArtistFacebook(showInData.artistFacebook)
-        : setArtistFacebook("Paste Your Facebook Link Here");
+        : setArtistFacebook("");
       showInData.artistYouTube
         ? setArtistYouTube(showInData.artistYouTube)
-        : setArtistYouTube("Paste Your YouTube Link Here");
+        : setArtistYouTube("");
       showInData.artistInstagram
         ? setArtistInstagram(showInData.artistInstagram)
-        : setArtistInstagram("Paste Your Instagram Link Here");
+        : setArtistInstagram("");
       showInData.artistSpotify
         ? setArtistSpotify(showInData.artistSpotify)
-        : setArtistSpotify("Paste Your Spotify Link Here");
+        : setArtistSpotify("");
 
       numberOfShows !== showInData.dates.length
         ? setNumberOfShows(showInData.dates.length)
@@ -651,6 +651,7 @@ export default function EditShow() {
                       name="websiteInput"
                       onChange={(evt) => setArtistWebsite(evt.target.value)}
                       value={artistWebsite}
+                      placeholder="Paste Your Website Link Here"
                     />
                   </Form.Group>
 
@@ -664,6 +665,7 @@ export default function EditShow() {
                       name="facebookInput"
                       onChange={(evt) => setArtistFacebook(evt.target.value)}
                       value={artistFacebook}
+                      placeholder="Paste Your Facebook Link Here"
                     />
                   </Form.Group>
 
@@ -677,6 +679,7 @@ export default function EditShow() {
                       name="youtubeInput"
                       onChange={(evt) => setArtistYouTube(evt.target.value)}
                       value={artistYouTube}
+                      placeholder="Paste Your YouTube Link Here"
                     />
                   </Form.Group>
 
@@ -690,6 +693,7 @@ export default function EditShow() {
                       name="InstagramInput"
                       onChange={(evt) => setArtistInstagram(evt.target.value)}
                       value={artistInstagram}
+                      placeholder="Paste Your Instagram Link Here"
                     />
                   </Form.Group>
 
@@ -703,6 +707,7 @@ export default function EditShow() {
                       name="spotifyInput"
                       onChange={(evt) => setArtistSpotify(evt.target.value)}
                       value={artistSpotify}
+                      placeholder="Paste Your Spotify Link Here"
                     />
                   </Form.Group>
                 </Card.Body>
