@@ -534,70 +534,68 @@ export default function ArtistForm() {
                 <br></br>
                 {/* Website link COntainer */}
                 <Form.Group id="socialMediaLink">
+                  <h5>Social Media Links:</h5>
+                  <p>These will appear as links on the Artist Info page.</p>
                   <Form.Label>
-                    {artistWebsite ? "Website: " + artistWebsite : "Website"}
-                  </Form.Label>
+                    Website:
+                    </Form.Label>
                   <Form.Control
-                    type="url"
-                    name="vidInput"
+                    type="text"
+                    name="websiteInput"
                     onChange={(evt) => setArtistWebsite(evt.target.value)}
-                    placeholder="Paste Your Website Link Here"
+                    value={artistWebsite}
                   />
                 </Form.Group>
 
-                {/* Facebook link COntainer */}
+                {/* Facebook link Container */}
                 <Form.Group id="socialMediaLink">
                   <Form.Label>
-                    {artistFacebook
-                      ? "Facebook: " + artistFacebook
-                      : "Facebook"}
-                  </Form.Label>
+                    Facebook:
+                    </Form.Label>
                   <Form.Control
-                    type="url"
-                    name="vidInput"
+                    type="text"
+                    name="facebookInput"
                     onChange={(evt) => setArtistFacebook(evt.target.value)}
-                    placeholder="Paste Your Facebook Link Here"
+                    value={artistFacebook}
                   />
                 </Form.Group>
 
                 {/* YouTube COntainer */}
                 <Form.Group id="socialMediaLink">
                   <Form.Label>
-                    {artistYouTube ? "YouTube: " + artistYouTube : "YouTube"}
-                  </Form.Label>
+                    YouTube:
+                    </Form.Label>
                   <Form.Control
-                    type="url"
-                    name="vidInput"
+                    type="text"
+                    name="youtubeInput"
                     onChange={(evt) => setArtistYouTube(evt.target.value)}
-                    placeholder="Paste Your YouTube Link Here"
+                    value={artistYouTube}
                   />
                 </Form.Group>
 
                 {/* Instagram COntainer */}
                 <Form.Group id="socialMediaLink">
                   <Form.Label>
-                    {artistInstagram
-                      ? "Instagram: " + artistInstagram
-                      : "Instagram"}
-                  </Form.Label>
+                    Instagram:
+                    </Form.Label>
                   <Form.Control
-                    type="url"
-                    name="vidInput"
+                    type="text"
+                    name="InstagramInput"
                     onChange={(evt) => setArtistInstagram(evt.target.value)}
-                    placeholder="Paste Your Instagram Link Here"
+                    value={artistInstagram}
                   />
                 </Form.Group>
 
                 {/* Spotify link COntainer */}
                 <Form.Group id="socialMediaLink">
                   <Form.Label>
-                    {artistSpotify ? "Spotify: " + artistSpotify : "Spotify"}
-                  </Form.Label>
+                    Spotify:
+                    </Form.Label>
                   <Form.Control
-                    type="url"
-                    name="vidInput"
+                    type="text"
+                    name="spotifyInput"
                     onChange={(evt) => setArtistSpotify(evt.target.value)}
-                    placeholder="Paste Your Spotify Link Here"
+                    value={artistSpotify}
                   />
                 </Form.Group>
 
