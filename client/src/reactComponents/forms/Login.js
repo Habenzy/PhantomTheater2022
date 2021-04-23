@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert, Container } from "react-bootstrap";
 import { useAuth } from "./AuthContext";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "../formcss/login.css";
 
 export default function Login() {
@@ -70,6 +70,9 @@ export default function Login() {
                   Log In
                 </Button>
               </Form>
+              <div className='w-100 text-center mt-3'>
+                <Link to='/forgot-password'>Forgot Password?</Link>
+              </div>
             </Card.Body>
           </Card>
         </div>
