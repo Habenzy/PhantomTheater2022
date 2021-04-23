@@ -5,6 +5,7 @@ import { Button } from "react-bootstrap";
 import AllShows from "./AllShows";
 import AllProposals from "./AllProposals";
 import AddShow from "./AddShow";
+import ShowArchive from "./ShowArchive"
 import "../formcss/dashBoard.css";
 
 function Dashboard() {
@@ -21,7 +22,11 @@ function Dashboard() {
 
    function addShow() {
       setToggle("add");
-   }
+  }
+  
+  function archive() {
+    setToggle("archive")
+  }
 
 
 
@@ -39,8 +44,13 @@ function Dashboard() {
           </Button>
 
                <Button id="dash_button" onClick={addShow} type="submit">
-                  Add a Show
+             Add a Show
           </Button>
+           
+           <Button id="dash_button" onClick={archive} type="submit">
+             Show Archive
+          </Button>
+          
             </div>
             <div className="line"></div>
             <div>
@@ -48,9 +58,9 @@ function Dashboard() {
                   <AddShow />
                ) : toggle === "shows" ? (
                   <AllShows />
-               ) : (
+               ) : toggle === "proposals" ? (
                   <AllProposals />
-               )}
+               ) : <ShowArchive />}
             </div>
          </div>
 
