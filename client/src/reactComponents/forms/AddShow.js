@@ -189,17 +189,7 @@ function AdminForm() {
                               />
                            </Form.Group>
                            {/* End of email container */}
-                           {/* Artist Bio container */}
-                           <Form.Group>
-                              <Form.Label>Artist Bio:</Form.Label>
-                              <Form.Control
-                                 type="text"
-                                 name="bioInput"
-                                 placeholder="Enter Artist Bio"
-                                 onChange={(evt) => setBio(evt.target.value)}
-                              />
-                           </Form.Group>
-                           {/* End of Artist Bio container */}
+                        
                            {/* Show Description Container */}
                            <Form.Group>
                               <Form.Label>
