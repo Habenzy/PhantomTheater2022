@@ -72,6 +72,7 @@ function App() {
    archiveShowsDone()
   }, [])
   
+  //be sure to make adminDash, editShow, and addShow private routes!
 
    return (
       <Router>
@@ -84,11 +85,11 @@ function App() {
                      <Home />
                      {/* <CurrentShow /> */}
                   </Route>
-                  <Route path="/login" component={Login} />
                   <Route path="/adminDash" component={Dashboard} />
-                  <Route path="/proposalForm" component={ProposalForm} />
                   <Route path="/editShow" component={EditShow} />
                   <Route path="/addShow" component={AddShow} />
+                  <Route path="/login" component={Login} />
+                  <Route path="/proposalForm" component={ProposalForm} />
                   <Route path="/artistForm" component={ArtistForm} />
                   <Route path="/allShows" component={AllShows} />
                   <Route path="/Season" component={Season} />
