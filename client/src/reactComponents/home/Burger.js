@@ -4,6 +4,8 @@ import BurgerNav from "./BurgerNav";
 import Logo from "../images/Logo.jpg";
 import BurgerIcon from "../images/burgericon.jpg";
 import './Burger.css'
+import { Link } from "react-router-dom";
+
 
 // ------burger component creation
 const Burger = () => {
@@ -22,9 +24,10 @@ const Burger = () => {
   return (
     <div id="burgerbar">
       {/*logo */}
+      <Link to="/">
       <div className='burgerLogo'>
            <img className="burgerLogoImg" src={Logo} alt="" />
-      </div>
+      </div></Link>
 
       <div className="burgerDiv">
         <button id="burger" onClick={handleModal}>
