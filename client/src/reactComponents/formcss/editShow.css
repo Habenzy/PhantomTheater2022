@@ -5,6 +5,7 @@
 
 .card-body {
    border: none;
+   width: 25%;
 }
 
 h2, h5 {
@@ -31,7 +32,7 @@ h2, h5 {
    transform: scale(1.1);
 }
 
-.thumbNail {
+ .thumbNail {
    width: 17vw;
    height: auto;
 }
@@ -56,7 +57,7 @@ h2, h5 {
 }
 
 h5 .image {
-   font: size 13px;
+   margin: none;
 }
 
 .form-file-label {
@@ -74,10 +75,6 @@ h5 .image {
    width: 25%;
 }
 
-.socialMediaLink {
-   width:25%;
-}
-
 
 .imageCard {
    display: flex;
@@ -88,5 +85,20 @@ h5 .image {
 }
 
 .imageUpload {
-   margin: 10px 10px;
+   margin: 0 10px;
+   width:46%;
+}
+
+.imageCard .form-group {
+   margin-top: 10px;
+}
+
+@media screen and (min-width: 600px) and (max-width: 1200px) {
+   .imageUpload {
+      width: 100%;
+   }
+
+   .imageUpload .thumbNail {
+      width:65%;
+   }
 }
