@@ -22,6 +22,10 @@ export function AuthProvider({ children }) {
     return auth.signOut();
   }
 
+  function resetPassword(email) {
+    return auth.sendPasswordResetEmail(email)
+  }
+
   //sets user once as component mounts
   useEffect(() => {
     //unsubscribe is returned from onAuth method when component unmounts
@@ -39,6 +43,7 @@ export function AuthProvider({ children }) {
     loggedUser,
     login,
     logout,
+    resetPassword
   };
 
   //provides context to children above - value object passed as prop
