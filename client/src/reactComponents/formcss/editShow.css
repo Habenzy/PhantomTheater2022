@@ -3,7 +3,7 @@
    color: rgb(195, 247, 9);
 }
 
-.card-body {
+.edit_show .card-body {
    border: none;
    width: 25%;
 }

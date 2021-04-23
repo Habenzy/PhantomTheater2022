@@ -279,9 +279,10 @@ export default function ArtistForm() {
       {/* Container of the artist form */}
       <Container
         className="d-flex align-items center justify-content-center mt-5"
-        style={{ minHeight: "80vh" }}
+        style={{ minHeight: "80vh", minWidth: "90vw" }}
       >
-        <div className="w-100" style={{ maxWidth: "420px" }}>
+        <div className="w-100" >
+          <h2 className="text-center mb-2">Artist Information Form</h2>
           <Card>
             {/* Start of the form */}
             <Form
@@ -290,324 +291,366 @@ export default function ArtistForm() {
               type="submit"
               value="submit"
             >
-              <Card.Body>
-                <h2 className="text-center mb-2">Artist Information Form</h2>
-                <br />
+              <div className="d-flex flex-direction row-3">
+                <Card.Body className="artist">
+                  <h2 className="text-center mb-2">Basic Info</h2>
+                  <br />
 
-                {/* Artist name container */}
-                <Form.Group id="artName">
-                  <Form.Label>Artist Name:</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="artistInput"
-                    placeholder="Enter Artist Name"
-                    value={artist}
-                    onChange={(evt) => setArtist(evt.target.value)}
-                  />
-                </Form.Group>
+                  {/* Artist name container */}
+                  <Form.Group id="artName">
+                    <Form.Label>Artist Name:</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="artistInput"
+                      placeholder="Enter Artist Name"
+                      value={artist}
+                      onChange={(evt) => setArtist(evt.target.value)}
+                    />
+                  </Form.Group>
 
-                {/* Contact Name container */}
-                <Form.Group id="contactName">
-                  <Form.Label>Contact Name:</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="contactNameInput"
-                    placeholder="Enter Contact Name"
-                    value={contactName}
-                    onChange={(evt) => setContactName(evt.target.value)}
-                  />
-                </Form.Group>
+                  {/* Contact Name container */}
+                  <Form.Group id="contactName">
+                    <Form.Label>Contact Name:</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="contactNameInput"
+                      placeholder="Enter Contact Name"
+                      value={contactName}
+                      onChange={(evt) => setContactName(evt.target.value)}
+                    />
+                  </Form.Group>
 
-                {/* Phone container */}
-                <Form.Group id="contactPhone">
-                  <Form.Label>Contact Phone:</Form.Label>
-                  <NumberFormat
-                    className="form-control"
-                    mask="_"
-                    format="(###) ###-####"
-                    placeholder="Enter Phone"
-                    type="phone"
-                    name="phoneInput"
-                    value={phone}
-                    onChange={(evt) => setPhone(evt.target.value)}
-                  />
-                </Form.Group>
+                  {/* Phone container */}
+                  <Form.Group id="contactPhone">
+                    <Form.Label>Contact Phone:</Form.Label>
+                    <NumberFormat
+                      className="form-control"
+                      mask="_"
+                      format="(###) ###-####"
+                      placeholder="Enter Phone"
+                      type="phone"
+                      name="phoneInput"
+                      value={phone}
+                      onChange={(evt) => setPhone(evt.target.value)}
+                    />
+                  </Form.Group>
 
-                {/* Email container */}
-                <Form.Group id="contactEmail">
-                  <Form.Label>Contact Email:</Form.Label>
-                  <Form.Control
-                    type="email"
-                    name="emailInput"
-                    placeholder="Enter Email"
-                    value={email}
-                    onChange={(evt) => setEmail(evt.target.value)}
-                  />
-                </Form.Group>
+                  {/* Email container */}
+                  <Form.Group id="contactEmail">
+                    <Form.Label>Contact Email:</Form.Label>
+                    <Form.Control
+                      type="email"
+                      name="emailInput"
+                      placeholder="Enter Email"
+                      value={email}
+                      onChange={(evt) => setEmail(evt.target.value)}
+                    />
+                  </Form.Group>
 
-                {/* Show name container*/}
-                <Form.Group id="title">
-                  <Form.Label>Show Title:</Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="titleInput"
-                    placeholder="Enter Show Title"
-                    value={title}
-                    onChange={(evt) => setTitle(evt.target.value)}
-                  />
-                </Form.Group>
+                  {/* Show name container*/}
+                  <Form.Group id="title">
+                    <Form.Label>Show Title:</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="titleInput"
+                      placeholder="Enter Show Title"
+                      value={title}
+                      onChange={(evt) => setTitle(evt.target.value)}
+                    />
+                  </Form.Group>
 
-                {/* Description of the show container */}
-                <Form.Group>
-                  <Form.Label>Description of the Show: </Form.Label>
-                  <Form.Control
-                    type="text"
-                    id="showDesc"
-                    name="showDescInput"
-                    placeholder="Enter Show Description"
-                    // I'd like to make it so that this field looks like bio looks
-                    height="20px"
-                    value={description}
-                    onChange={(evt) => setDescription(evt.target.value)}
-                  />
-                </Form.Group>
+                  {/* Description of the show container */}
+                  <Form.Group>
+                    <Form.Label>Description of the Show: </Form.Label>
+                    <Form.Control
+                      type="text"
+                      id="showDesc"
+                      name="showDescInput"
+                      placeholder="Enter Show Description"
+                      // I'd like to make it so that this field looks like bio looks
+                      height="20px"
+                      value={description}
+                      onChange={(evt) => setDescription(evt.target.value)}
+                    />
+                  </Form.Group>
 
-                {/* Bio Container */}
-                <Form.Group>
-                  <Form.Label>Bio:</Form.Label>
-                  <textarea
-                    className="form-control"
-                    name="bioInput"
-                    rows="6"
-                    placeholder="Enter Artist Bio"
-                    value={bio}
-                    onChange={(evt) => setBio(evt.target.value)}
-                  />
-                </Form.Group>
-
-                {/* Splash Image Container */}
-                <Form.Group>
-                  <span>
-                    Splash Image:{" "}
+                  {/* Bio Container */}
+                  <Form.Group>
+                    <Form.Label>Bio:</Form.Label>
+                    <textarea
+                      className="form-control"
+                      name="bioInput"
+                      rows="6"
+                      placeholder="Enter Artist Bio"
+                      value={bio}
+                      onChange={(evt) => setBio(evt.target.value)}
+                    />
+                  </Form.Group>
+                </Card.Body>
+                <Card.Body className="socials">
+                  {/* Website link COntainer */}
+                  <h2 className="text-center mb-2">Social Media Links</h2>
+                  <br></br>
+                  {/* Website link COntainer */}
+                  <Form.Group id="socialMediaLink">
+                    <h5>Social Media Links:</h5>
+                    <p>These will appear as links on the Artist Info page.</p>
                     <Form.Label>
-                      {" "}
-                      {imageLg
-                        ? imageLgName
-                        : "Please choose a Splash Image"}{" "}
+                      Website:
                     </Form.Label>
-                    <Form.Text className="mb-3" muted>
-                      This will be the image displayed on the homepage
+                    <Form.Control
+                      type="text"
+                      name="websiteInput"
+                      onChange={(evt) => setArtistWebsite(evt.target.value)}
+                      value={artistWebsite}
+                    />
+                  </Form.Group>
+
+                  {/* Facebook link Container */}
+                  <Form.Group id="socialMediaLink">
+                    <Form.Label>
+                      Facebook:
+                    </Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="facebookInput"
+                      onChange={(evt) => setArtistFacebook(evt.target.value)}
+                      value={artistFacebook}
+                    />
+                  </Form.Group>
+
+                  {/* YouTube COntainer */}
+                  <Form.Group id="socialMediaLink">
+                    <Form.Label>
+                      YouTube:
+                    </Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="youtubeInput"
+                      onChange={(evt) => setArtistYouTube(evt.target.value)}
+                      value={artistYouTube}
+                    />
+                  </Form.Group>
+
+                  {/* Instagram COntainer */}
+                  <Form.Group id="socialMediaLink">
+                    <Form.Label>
+                      Instagram:
+                    </Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="InstagramInput"
+                      onChange={(evt) => setArtistInstagram(evt.target.value)}
+                      value={artistInstagram}
+                    />
+                  </Form.Group>
+
+                  {/* Spotify link COntainer */}
+                  <Form.Group id="socialMediaLink">
+                    <Form.Label>
+                      Spotify:
+                    </Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="spotifyInput"
+                      onChange={(evt) => setArtistSpotify(evt.target.value)}
+                      value={artistSpotify}
+                    />
+                  </Form.Group>
+
+
+                </Card.Body>
+              </div>
+              <h5>Images Upload:</h5>
+              <div className="d-flex flex-direction row-3">
+                <Card.Body className="imagesUploadArtistForm">
+
+                  {/* Splash Image Container */}
+                  <div className="artistImagesCard">
+                    <Form.Group>
+                      <span>
+                        Splash Image:{" "}
+                        <Form.Label>
+                          {" "}
+                          {imageLg
+                            ? imageLgName
+                            : "Please choose a Splash Image"}{" "}
+                        </Form.Label>
+                        <Form.Text className="mb-3" muted>
+                          This will appear on the Home and Season page.
                     </Form.Text>
-                  </span>
-                  {imageLg ? (
-                    <img className="thumbNail" src={imageLg} alt="" />
-                  ) : (
-                    <div />
-                  )}
-                  <Form.File
-                    className="img_submit mt-3"
-                    name="imageLgIn"
-                    onChange={handleImageLg}
-                    onClick={resetProgressLg}
-                  />
-                </Form.Group>
-                <ProgressBar
-                  striped
-                  variant="info"
-                  now={progressLg}
-                ></ProgressBar>
-                <Button
-                  type="reset"
-                  className="mt-3 mb-5"
-                  variant="outline-danger"
-                  onClick={(e) => setImageLg("")}
-                >
-                  Delete Splash Image
-                </Button>
-                <br></br>
-                {/* Image 1 Container */}
-                <Form.Group>
-                  <span>
-                    Image 1:{" "}
-                    <Form.Label>
-                      {" "}
-                      {image1 ? image1Name : "Please choose an Image"}{" "}
-                    </Form.Label>
-                  </span>
-                  <Form.File
-                    className="img_submit"
-                    name="image1In"
-                    onChange={handleImage1}
-                    onClick={resetProgress1}
-                  />
-                  {image1 ? (
-                    <img className="thumbNail" src={image1} alt="" />
-                  ) : (
-                    <div />
-                  )}
-                </Form.Group>
-                <ProgressBar
-                  striped
-                  variant="info"
-                  now={progress1}
-                ></ProgressBar>
-                <Button
-                  type="reset"
-                  className="mt-3 mb-5"
-                  variant="outline-danger"
-                  onClick={(e) => setImage1("")}
-                >
-                  Delete Image 1
-                </Button>
-                <br></br>
-                {/* Image 2 Container */}
-                <Form.Group>
-                  <span>
-                    Image 2:{" "}
-                    <Form.Label>
-                      {" "}
-                      {image2 ? image2Name : "Please choose an Image"}{" "}
-                    </Form.Label>
-                  </span>
-                  <Form.File
-                    className="img_submit"
-                    name="image2In"
-                    onChange={handleImage2}
-                    onClick={resetProgress2}
-                  />
-                  {image2 ? (
-                    <img className="thumbNail" src={image2} alt="" />
-                  ) : (
-                    <div />
-                  )}
-                </Form.Group>
-                <ProgressBar
-                  striped
-                  variant="info"
-                  now={progress2}
-                ></ProgressBar>
-                <Button
-                  type="reset"
-                  className="mt-3 mb-5"
-                  variant="outline-danger"
-                  onClick={(e) => setImage2("")}
-                >
-                  Delete Image 2
-                </Button>
-                <br></br>
-                {/* Image 3 Container */}
-                <Form.Group>
-                  <span>
-                    Image 3:{" "}
-                    <Form.Label>
-                      {" "}
-                      {image3 ? image3Name : "Please choose an Image"}{" "}
-                    </Form.Label>
-                  </span>
-                  <Form.File
-                    className="img_submit"
-                    name="image3In"
-                    onChange={handleImage3}
-                    onClick={resetProgress3}
-                  />
-                  {/* <Image src={image3} thumbnail /> */}
-                  {image3 ? (
-                    <img className="thumbNail" src={image3} alt="" />
-                  ) : (
-                    <div />
-                  )}
-                </Form.Group>
-                <ProgressBar
-                  striped
-                  variant="info"
-                  now={progress3}
-                ></ProgressBar>
-                <Button
-                  type="reset"
-                  className="mt-3 mb-5"
-                  variant="outline-danger"
-                  onClick={(e) => setImage3("")}
-                  onMouseDown={resetProgress3}
-                >
-                  Delete Image 3
-                </Button>
-                <br></br>
-                {/* Website link COntainer */}
-                <Form.Group id="socialMediaLink">
-                  <h5>Social Media Links:</h5>
-                  <p>These will appear as links on the Artist Info page.</p>
-                  <Form.Label>
-                    Website:
-                    </Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="websiteInput"
-                    onChange={(evt) => setArtistWebsite(evt.target.value)}
-                    value={artistWebsite}
-                  />
-                </Form.Group>
+                      </span>
+                      {imageLg ? (
+                        <img className="thumbNail" src={imageLg} alt="" />
+                      ) : (
+                        <div />
+                      )}
 
-                {/* Facebook link Container */}
-                <Form.Group id="socialMediaLink">
-                  <Form.Label>
-                    Facebook:
-                    </Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="facebookInput"
-                    onChange={(evt) => setArtistFacebook(evt.target.value)}
-                    value={artistFacebook}
-                  />
-                </Form.Group>
+                      <Form.File
+                        className="img_submit mt-3"
+                        name="imageLgIn"
+                        onChange={handleImageLg}
+                        onClick={resetProgressLg}
+                      />
+                    </Form.Group>
+                    <ProgressBar
+                      striped
+                      variant="info"
+                      now={progressLg}
+                    ></ProgressBar>
+                    <Button
+                      type="reset"
+                      className="mt-3 mb-5"
+                      variant="outline-danger"
+                      onClick={(e) => setImageLg("")}
+                    >
+                      Delete Splash Image
+                   </Button>
+                    <br></br>
+                    {/* Image 1 Container */}
+                  </div>
+                  <div className="artistImagesCard">
+                    <Form.Group>
+                      <span>
+                        Image 1:{" "}
+                        <Form.Label>
+                          {" "}
+                          {image1 ? image1Name : "Please choose an Image"}{" "}
+                        </Form.Label>
+                        <Form.Text className="mb-3" muted>
+                          This will appear on the Artist and Artist Info page.
+                    </Form.Text>
+                      </span>
 
-                {/* YouTube COntainer */}
-                <Form.Group id="socialMediaLink">
-                  <Form.Label>
-                    YouTube:
-                    </Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="youtubeInput"
-                    onChange={(evt) => setArtistYouTube(evt.target.value)}
-                    value={artistYouTube}
-                  />
-                </Form.Group>
+                      {image1 ? (
+                        <img className="thumbNail" src={image1} alt="" />
+                      ) : (
+                        <div />
+                      )}
 
-                {/* Instagram COntainer */}
-                <Form.Group id="socialMediaLink">
-                  <Form.Label>
-                    Instagram:
-                    </Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="InstagramInput"
-                    onChange={(evt) => setArtistInstagram(evt.target.value)}
-                    value={artistInstagram}
-                  />
-                </Form.Group>
+                      <Form.File
+                        className="img_submit mt-3"
+                        name="image1In"
+                        onChange={handleImage1}
+                        onClick={resetProgress1}
+                      />
+                    </Form.Group>
+                    <ProgressBar
+                      striped
+                      variant="info"
+                      now={progress1}
+                    ></ProgressBar>
+                    <Button
+                      type="reset"
+                      className="mt-3 mb-5"
+                      variant="outline-danger"
+                      onClick={(e) => setImage1("")}
+                    >
+                      Delete Image 1
+                    </Button>
+                  </div>
 
-                {/* Spotify link COntainer */}
-                <Form.Group id="socialMediaLink">
-                  <Form.Label>
-                    Spotify:
-                    </Form.Label>
-                  <Form.Control
-                    type="text"
-                    name="spotifyInput"
-                    onChange={(evt) => setArtistSpotify(evt.target.value)}
-                    value={artistSpotify}
-                  />
-                </Form.Group>
+                  {/* Image 2 Container */}
+                  <div className="artistImagesCard">
+                    <Form.Group>
+
+                      <span>
+                        Image 2:{" "}
+                        <Form.Label>
+                          {" "}
+                          {image2 ? image2Name : "Please choose an Image"}{" "}
+                        </Form.Label>
+                        <Form.Text className="mb-3" muted>
+                          This will appear on the Artist and Artist Info page.
+                    </Form.Text>
+                      </span>
+
+                      {image2 ? (
+                        <img className="thumbNail" src={image2} alt="" />
+                      ) : (
+                        <div />
+                      )}
+                      <Form.File
+                        className="img_submit mt-3"
+
+                        name="image2In"
+                        onChange={handleImage2}
+                        onClick={resetProgress2}
+                      />
+                    </Form.Group>
+                    <ProgressBar
+                      striped
+                      variant="info"
+                      now={progress2}
+                    ></ProgressBar>
+                    <Button
+                      type="reset"
+                      className="mt-3 mb-5"
+                      variant="outline-danger"
+                      onClick={(e) => setImage2("")}
+                    >
+                      Delete Image 2
+                    </Button>
+
+                  </div>
+                  {/* Image 3 Container */}
+                  <div className="artistImagesCard">
+                    <Form.Group>
+
+                      <span>
+                        Image 3:{" "}
+                        <Form.Label>
+                          {" "}
+                          {image3 ? image3Name : "Please choose an Image"}{" "}
+                        </Form.Label>
+                        <Form.Text className="mb-3" muted>
+                          This will appear on the Artist and Artist Info page.
+                    </Form.Text>
+                      </span>
+
+                      {/* <Image src={image3} thumbnail /> */}
+                      {image3 ? (
+                        <img className="thumbNail" src={image3} alt="" />
+                      ) : (
+                        <div />
+                      )}
+                      <Form.File
+                        className="img_submit mt-3"
+                        className="img_submit"
+                        name="image3In"
+                        onChange={handleImage3}
+                        onClick={resetProgress3}
+                      />
+                    </Form.Group>
+                    <ProgressBar
+                      striped
+                      variant="info"
+                      now={progress3}
+                    ></ProgressBar>
+                    <Button
+                      type="reset"
+                      className="mt-3 mb-5"
+                      variant="outline-danger"
+                      onClick={(e) => setImage3("")}
+                      onMouseDown={resetProgress3}
+                    >
+                      Delete Image 3
+                    </Button>
+                  </div>
+                </Card.Body>
+
+
 
                 {/* Submit Button */}
-                <Button id="form_button" className="w-100" type="submit">
+                <Button id="form_button" className="w-75 mb-5 btn btn-primary" type="submit">
                   Submit
                 </Button>
-              </Card.Body>
+              </div>
             </Form>
           </Card>
         </div>
       </Container>
     </div>
+
   );
 }

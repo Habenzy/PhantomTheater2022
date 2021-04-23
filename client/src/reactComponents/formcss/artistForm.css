@@ -1,45 +1,78 @@
 /* Text color */
 
 .artist_container {
-   color: rgb(195, 247, 9);
+  color: rgb(195, 247, 9);
 }
-
-/* Text color of the form files */
-
-/* .img_submit {
-  color: white;
-} */
 
 /* Form Button color */
 
 #form_button {
-   border: none;
-   background-color: #ffae57;
-   color: #1d2433;
+  border: none;
+  background-color: #ffae57;
+  color: #1d2433;
+  align-self: center;
+}
+
+.btn-primary {
+  text-align: center;
 }
 
 /* Form Button Animation */
 
 #form_button:hover {
-   transition: transform 0.3s ease-out;
-   transform: scale(1.1);
+  transition: transform 0.3s ease-out;
+  transform: scale(1.1);
 }
 
 span {
-   color: white
+  color: white;
 }
 
 Label {
-   color: rgb(195, 247, 9);
+  color: rgb(195, 247, 9);
 }
 
 img.thumbNail {
-   width: 50%;
-   height: auto;
-   margin-top: 5px;
-   padding: 5px;
-   border: 2px solid rgb(175, 175, 175);
-   min-height: 100px;
+  width: 17vw;
+  height: auto;
+  margin-top: 5px;
+  padding: 5px;
+  border: 2px solid rgb(175, 175, 175);
+  min-height: 100px;
+}
 
+.artist_container .card-body {
+  border: none;
+  width: 25%;
+  justify-content: space-between;
+}
 
+.imagesUploadArtistForm {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.w-100 {
+  display: flex;
+  flex-direction: column;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.artistImagesCard {
+  display: flex;
+  flex-direction: column;
+}
+
+#ArtistForm {
+  display: flex;
+  flex-direction: column;
+}
+
+#ArtistForm h5 {
+  margin-left: 20px;
 }
