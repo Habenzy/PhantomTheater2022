@@ -14,6 +14,7 @@ import Burger from "./reactComponents/home/Burger.js";
 import AddShow from "./reactComponents/forms/AddShow";
 import AllShows from "./reactComponents/forms/AllShows";
 import Login from "./reactComponents/forms/Login";
+import ForgotPassword from './reactComponents/forms/ForgotPassword'
 import ArtistForm from "./reactComponents/forms/ArtistForm";
 import ProposalForm from "./reactComponents/forms/ProposalForm";
 import EditShow from "./reactComponents/forms/EditShow";
@@ -24,6 +25,7 @@ import { AuthProvider } from "./reactComponents/forms/AuthContext";
 import Dashboard from "./reactComponents/forms/Dashboard";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 
 // Function containing the route paths  to all components
 function App() {
@@ -89,6 +91,7 @@ function App() {
                   <Route path="/editShow" component={EditShow} />
                   <Route path="/addShow" component={AddShow} />
                   <Route path="/login" component={Login} />
+                  <Route path='/forgot-password' component={ForgotPassword} />
                   <Route path="/proposalForm" component={ProposalForm} />
                   <Route path="/artistForm" component={ArtistForm} />
                   <Route path="/allShows" component={AllShows} />
