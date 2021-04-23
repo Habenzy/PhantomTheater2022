@@ -42,12 +42,12 @@
   text-shadow: 2px 2px 1px black;
 }
 
-a {
+.whatNextText a, .currentPlayText a {
   background-color: rgb(3, 3, 3);
   border-radius: 50%;
 }
 
-button {
+.whatNextText button, .currentPlayText button {
   color: rgb(195, 247, 9);
   background-color: rgb(3, 3, 3);
   border-radius: 50%;
