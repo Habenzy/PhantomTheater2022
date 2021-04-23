@@ -9,11 +9,6 @@
 
 /*-------------------Home Page Image Overlay Text Styling-------------------------- */
 
-.homeContainer {
-  /* z-index: 0; */
- 
-}
-
 .homeContainer h1,
 .homeContainer h2 {
   color: white;
@@ -31,17 +26,13 @@
 .currentPlay {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   height: auto;
   object-fit: contain;
-  /* width: 70vw; */
   align-items: center;
-  /* margin-left: 15vw; */
-  /* having a margin of 124px left and right seems to also center it */
 }
 
-.nowPlaying {
-  width: 70vw;
+.homeImage {
+  height: auto;
 }
 
 .currentPlayText {
@@ -52,17 +43,14 @@
 }
 
 a {
-  /* color: rgb(195, 247, 9) !important; */
   background-color: rgb(3, 3, 3);
   border-radius: 50%;
-  /* text-decoration: none !important; */
 }
 
 button {
   color: rgb(195, 247, 9);
   background-color: rgb(3, 3, 3);
   border-radius: 50%;
-  /* text-decoration: none !important; */
 }
 
 /*------------------------ next playing image and text styling------------------------ */
@@ -70,7 +58,6 @@ button {
 .whatNext {
   display: flex;
   flex-direction: column;
-  /* width: 20vw; */
   height: auto;
   position: absolute;
   height: auto;
@@ -93,7 +80,6 @@ button {
   color: rgb(195, 247, 9);
   background-color: rgb(3, 3, 3);
   border-radius: 50%;
-  /* text-decoration: none !important; */
 }
 
 /* ------------------------ Positioning footer------------------------------------------ */
@@ -105,16 +91,24 @@ button {
 /* -----------------------Screen resizing styling--------------- */
 
 @media screen and (min-width: 320px) {
-  /* .currentPlayImg {
-    height: 50vh;
-    width: 100vw;
-  } */
+  .homeImage {
+    width: 100%;
+  }
 
   .currentPlayText {
     position: absolute;
     width: 60vw;
     top: 5%;
     left: 3%;
+    font-size: 12pt;
+  }
+  .currentPlayText h2 {
+    font-size: 20pt;
+  }
+
+  .whatNextText h2 {
+    font-size: 24pt;
+    margin-bottom: 0px;
   }
 
   .whatNext {
@@ -127,6 +121,7 @@ button {
     top: 10%;
     left: 35%;
     text-align: right;
+    font-size: 12pt;
   }
   .whatNext img {
     width: 100vw;
@@ -149,7 +144,7 @@ button {
   .homeContainer h1 {
     font-size: 45pt;
   }
-  .homeContainer h2 {
+  .currentPlayText h2 {
     font-size: 35pt;
   }
 }
@@ -157,6 +152,10 @@ button {
 /* -----------------------Screen resizing styling--------------- */
 
 @media screen and (min-width: 768px) {
+  /* .homeImage {
+    width: 50%;
+  } */
+
   .whatNext {
     position: absolute;
     top: 56%;

@@ -639,7 +639,7 @@ export default function EditShow() {
               </div>
               <div className="d-flex flex-direction row-3">
                 {/* Website link COntainer */}
-                <Card.Body>
+                <Card.Body id="socialMediaCard">
                   <Form.Group id="socialMediaLink">
                     <h5>Social Media Links:</h5>
                     <p>These will appear as links on the Artist Info page.</p>
