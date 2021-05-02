@@ -23,7 +23,7 @@
   background-color: #ffae57;
   color: #1d2433;
   border: none;
-  border-radius: 6%;
+  border-radius:3%;
 }
 /* Submit form button annimation */
 #add_submit:hover {

@@ -25,6 +25,7 @@ h2, h5 {
    background-color: #ffae57;
    color: #1d2433;
    width: 50vw;
+   text-align: center;
 }
 
 #show_button:hover {
