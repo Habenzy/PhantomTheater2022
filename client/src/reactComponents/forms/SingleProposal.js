@@ -11,7 +11,8 @@ export default function SingleShow(props) {
             {`http://localhost:3000/artistForm#${props.id}`}
          </a></span>
     
-         <h4> {props.title} </h4>
+       <h4> {props.title} </h4>
+       <h5> { props.status }</h5>
          <p>Show Description:</p>
          <h5>   {props.description} </h5>
          {props.artist}

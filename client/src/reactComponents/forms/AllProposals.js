@@ -69,8 +69,9 @@ export default function AllProposals() {
                deleteThisShow={handleDelete}
                editThisShow={handleEdit}
                id={proposal.id}
-               // title={`Title : ${proposal.title}`}
-               artist= {`Artist: ${proposal.artist}`} 
+                title={`Title : ${proposal.title}`}
+              artist={`Artist: ${proposal.artist}`}
+              status={`Status: ${proposal.status}`}
                contactName={proposal.contactName}
                phone={`Phone: ${proposal.phone}`}
                email={`Email:  ${proposal.email}`}

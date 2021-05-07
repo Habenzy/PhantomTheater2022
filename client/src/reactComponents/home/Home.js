@@ -50,6 +50,8 @@ function Home() {
     setAllShows(currentShows)
     setSplashImage(placeholderImage)
     // console.log("today is: ", date)
+    console.log("Today is: ", today)
+    
     console.log("current shows: ", currentShows)
 
   }
@@ -58,7 +60,10 @@ function Home() {
 
   useEffect(() => {
     setRightNow(new Date())
+    
+    console.log(rightNow)
     getNowPlaying()
+  
     
   }, [])
 

@@ -13,8 +13,8 @@ function AdminForm() {
   let [title, setTitle] = useState("");
   let [blurb, setBlurb] = useState("");
   let [type, setType] = useState("");
-  let [status] = useState("Booked");
-  let [dates] = useState([])
+  let [status] = useState("Proposal");
+ // let [dates] = useState([])
 
   // create state for each artist field
   let [artist, setArtist] = useState("");
@@ -32,7 +32,7 @@ function AdminForm() {
     type: type,
     blurb: blurb,
     status: status,
-    dates: dates,
+   // dates: dates,
 
     artist: artist,
     contactName: contactName,
@@ -83,6 +83,8 @@ function AdminForm() {
       setDescription("");
 
       history.push("/adminDash");
+      
+      
     }
   }
 
