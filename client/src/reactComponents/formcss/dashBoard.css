@@ -12,7 +12,8 @@
   margin-top:20px;
 }
 .dash_board button {
-  margin-right: 20px;
+  margin-right: 10px;
+  margin-left: 10px;
   border-radius: 6%;
 }
 
@@ -39,7 +40,7 @@
   border-color: #ffae57;
   border-left: none;
   border-right: none;
-  width: 40vw;
+  width: 55vw;
   height: 5px;
   margin-top: 15px;
   margin-bottom: 30px;

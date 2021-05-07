@@ -19,7 +19,7 @@
 
 .season_container h3 {
   font-size: 22pt;
-  text-decoration: underline;
+  font-style: italic ;
 }
 
 .season_container .date {

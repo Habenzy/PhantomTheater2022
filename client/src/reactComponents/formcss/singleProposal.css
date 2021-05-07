@@ -5,6 +5,7 @@
   align-items: flex-start;
   background-color: #1d2433;
   color: white;
+  width: 50vw;
 }
 
 .proposal_button {
@@ -29,13 +30,15 @@
   color: white;
 }
 
-.single_proposal .line {
-  border: solid 1px;
-  border-color: #ffae57;
-  border-left: none;
-  border-right: none;
-  width: 60vw;
-  height: 5px;
-  margin-top: 15px;
-  margin-bottom: 30px;
+
+
+.single_proposal p {
+text-decoration: none;
+color: white;
+}
+
+.single_proposal h5 {
+  font-size: 12pt;
+  text-align: justify;
+  width: 100%;
 }
