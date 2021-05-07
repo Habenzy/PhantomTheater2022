@@ -13,7 +13,6 @@ export default function SingleShow(props) {
     
          <h4> {props.title} </h4>
          <p>Show Description:</p>
-         {/* <br /> */}
          <h5>   {props.description} </h5>
          {props.artist}
          <br />
