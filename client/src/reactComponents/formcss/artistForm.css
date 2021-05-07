@@ -11,6 +11,7 @@
   background-color: #ffae57;
   color: #1d2433;
   align-self: center;
+  margin: 0 20%;
 }
 
 .btn-primary {
@@ -73,6 +74,18 @@ img.thumbNail {
   flex-direction: column;
 }
 
-#ArtistForm h5 {
-  margin-left: 20px;
+#ArtistForm p {
+  text-decoration: none;
+  color: white;
+}
+
+@media screen and (min-width: 320px) and (max-width: 1000px) {
+ #artistCard {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  #artistCard .card-body {
+    width: 100%;
+  }
 }

@@ -94,6 +94,34 @@ h5 .image {
    margin-top: 10px;
 }
 
+@media screen and (min-width: 320px) and (max-width: 1000px) {
+   #artistInfoCard {
+      display: flex;
+      flex-direction: column;
+    }
+    #artistInfoCard .card-body {
+      width: 100%;
+    }
+
+    #artistImagesCard {
+       display: flex;
+       flex-direction: column;
+    }
+
+    #artistImagesCard .card-body {
+       width:100%;
+    }
+
+    .imageUpload {
+      width: 100%;
+   }
+
+   .imageUpload .thumbNail {
+      width:65%;
+   }
+
+  }
+
 @media screen and (min-width: 600px) and (max-width: 1200px) {
    .imageUpload {
       width: 100%;

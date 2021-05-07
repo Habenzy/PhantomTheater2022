@@ -45,3 +45,22 @@
   margin-top: 15px;
   margin-bottom: 30px;
 }
+
+@media screen and (min-width: 320px) and (max-width: 600px) {
+
+
+  .upper {
+    flex-direction:column;
+  }
+
+  #dash_button {
+    margin: 5px;
+    width: 100%;
+  }
+
+  .dash_buttons {
+    width:85%;
+  }
+
+  
+}

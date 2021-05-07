@@ -291,7 +291,7 @@ export default function ArtistForm() {
               type="submit"
               value="submit"
             >
-              <div className="d-flex flex-direction row-3">
+              <div id="artistCard" className="d-flex flex-direction row-3">
                 <Card.Body className="artist">
                   <h2 className="text-center mb-2">Basic Info</h2>
                   <br />
@@ -362,13 +362,14 @@ export default function ArtistForm() {
                   {/* Description of the show container */}
                   <Form.Group>
                     <Form.Label>Description of the Show: </Form.Label>
-                    <Form.Control
+                    <textarea
+                      className="form-control"
                       type="text"
                       id="showDesc"
                       name="showDescInput"
                       placeholder="Enter Show Description"
                       // I'd like to make it so that this field looks like bio looks
-                      height="20px"
+                      rows="4"
                       value={description}
                       onChange={(evt) => setDescription(evt.target.value)}
                     />
@@ -380,7 +381,7 @@ export default function ArtistForm() {
                     <textarea
                       className="form-control"
                       name="bioInput"
-                      rows="6"
+                      rows="4"
                       placeholder="Enter Artist Bio"
                       value={bio}
                       onChange={(evt) => setBio(evt.target.value)}
@@ -394,7 +395,7 @@ export default function ArtistForm() {
                   {/* Website link COntainer */}
                   <Form.Group id="socialMediaLink">
                     <h5>Social Media Links:</h5>
-                    <p>These will appear as links on the Artist Info page.</p>
+                    <p>These will appear as hyperlinked icons on the Artist Info page.</p>
                     <Form.Label>
                       Website:
                     </Form.Label>
@@ -642,14 +643,12 @@ export default function ArtistForm() {
                       Delete Image 3
                     </Button>
                   </div>
+                  {/* Submit Button */}
+                  <Button id="form_button" className="w-75 mb-5 btn btn-primary" type="submit">
+                    Submit
+                </Button>
                 </Card.Body>
 
-
-
-                {/* Submit Button */}
-                <Button id="form_button" className="w-75 mb-5 btn btn-primary" type="submit">
-                  Submit
-                </Button>
               </div>
             </Form>
           </Card>

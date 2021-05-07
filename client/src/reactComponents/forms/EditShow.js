@@ -327,7 +327,7 @@ export default function EditShow() {
               type="submit"
               value="submit"
             >
-              <div className="d-flex flex-direction row-3">
+              <div id="artistInfoCard" className="d-flex flex-direction row-3">
                 {/* left  column of form */}
 
                 <Card.Body className="admin">
@@ -621,7 +621,7 @@ export default function EditShow() {
                 </Card.Body>
                 {/* middle  column of form END*/}
               </div>
-              <div className="d-flex flex-direction row-3">
+              <div id="artistImagesCard" className="d-flex flex-direction row-3">
                 {/* Website link COntainer */}
                 <Card.Body id="socialMediaCard">
                   <Form.Group id="socialMediaLink">
