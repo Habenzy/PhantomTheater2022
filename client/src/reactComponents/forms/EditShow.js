@@ -86,7 +86,7 @@ export default function EditShow() {
     } else {
       let showInData = showIn.data();
       setThisShow(showInData);
-// if it has data then set it in state
+      // if it has data then set it in state
       showInData.title ? setTitle(showInData.title) : setTitle("");
       showInData.blurb ? setBlurb(showInData.blurb) : setBlurb("");
       showInData.type ? setType(showInData.type) : setType("");
@@ -145,15 +145,7 @@ export default function EditShow() {
     getOneShow();
   }, [])
 
-useEffect(() => {
-  setNumberOfShows(dates.length)
-  console.log("useEffect hook fired")
-  // return () => {
-  //   cleanup
-  // }
-}, [dates])
 
- 
   let id = document.location.hash.substring(1);
   //*************************************************** */
 
@@ -196,39 +188,24 @@ useEffect(() => {
 
   //***********   show dates handling   ******************* */
 
-  //FIND A BETTER WAY TO DO THIS
-  const refresh = () => {
-    window.location.reload(false);
-  };
-
   const handleAddShow = () => {
     setNumberOfShows((numberOfShows += 1));
     console.log(numberOfShows);
   };
 
   const handleDates = (evt) => {
-    console.log("target value: ", evt.target.value);
-    console.log("datess: ", dates);
     evt.preventDefault();
     let currentDates = dates;
-
     currentDates.push(evt.target.value);
     currentDates.sort();
     setDates(currentDates);
-    console.log(dates);
   };
 
   const deleteDate = (evt, showIndex) => {
-    console.log("edit show " + evt.target.value + showIndex);
-    console.log("before", numberOfShows, dates);
     let processDates = dates;
     processDates.splice(showIndex, 1).sort();
     setDates(processDates);
     setNumberOfShows(numberOfShows - 1)
-    console.log("after ", numberOfShows, dates);
-    console.log("edit show " + id);
-    // enterUpdates(evt);
-    // refresh();
   };
 
   //---------------------------image handling-----------------------------------//
