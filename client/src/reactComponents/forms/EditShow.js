@@ -86,7 +86,7 @@ export default function EditShow() {
     } else {
       let showInData = showIn.data();
       setThisShow(showInData);
-
+// if it has data then set it in state
       showInData.title ? setTitle(showInData.title) : setTitle("");
       showInData.blurb ? setBlurb(showInData.blurb) : setBlurb("");
       showInData.type ? setType(showInData.type) : setType("");
@@ -145,10 +145,15 @@ export default function EditShow() {
     getOneShow();
   }, [])
 
-  // if (thisShow.title === "title") {
-  //   getOneShow();
+useEffect(() => {
+  setNumberOfShows(dates.length)
+  console.log("useEffect hook fired")
+  // return () => {
+  //   cleanup
   // }
+}, [dates])
 
+ 
   let id = document.location.hash.substring(1);
   //*************************************************** */
 
@@ -191,6 +196,7 @@ export default function EditShow() {
 
   //***********   show dates handling   ******************* */
 
+  //FIND A BETTER WAY TO DO THIS
   const refresh = () => {
     window.location.reload(false);
   };
@@ -214,14 +220,15 @@ export default function EditShow() {
 
   const deleteDate = (evt, showIndex) => {
     console.log("edit show " + evt.target.value + showIndex);
-    console.log("before", dates);
+    console.log("before", numberOfShows, dates);
     let processDates = dates;
     processDates.splice(showIndex, 1).sort();
     setDates(processDates);
-    console.log("after ", dates);
+    setNumberOfShows(numberOfShows - 1)
+    console.log("after ", numberOfShows, dates);
     console.log("edit show " + id);
-    enterUpdates(evt);
-    refresh();
+    // enterUpdates(evt);
+    // refresh();
   };
 
   //---------------------------image handling-----------------------------------//
@@ -424,10 +431,10 @@ export default function EditShow() {
                       {numberOfShows >= 1 ? (
                         <Form.Group>
                           <Form.Control
-                            onBlur={(evt) => handleDates(evt)}
+                            onChange={(evt) => handleDates(evt)}
                             type="dateTime-local"
                             className="dates mb-1"
-                            defaultValue={dates[0]}
+                            value={dates[0]}
                           />
                           <Button
                             // type="submit"
@@ -445,10 +452,10 @@ export default function EditShow() {
                       {numberOfShows >= 2 ? (
                         <Form.Group>
                           <Form.Control
-                            onBlur={(evt) => handleDates(evt)}
+                            onChange={(evt) => handleDates(evt)}
                             type="dateTime-local"
                             className="dates"
-                            defaultValue={dates[1]}
+                            value={dates[1]}
                           />
                           <Button
                             // type="submit"
@@ -466,10 +473,10 @@ export default function EditShow() {
                       {numberOfShows >= 3 ? (
                         <Form.Group>
                           <Form.Control
-                            onBlur={(evt) => handleDates(evt)}
+                            onChange={(evt) => handleDates(evt)}
                             type="dateTime-local"
                             className="dates"
-                            defaultValue={dates[2]}
+                            value={dates[2]}
                           />
                           <Button
                             // type="submit"
@@ -487,10 +494,10 @@ export default function EditShow() {
                       {numberOfShows >= 4 ? (
                         <Form.Group>
                           <Form.Control
-                            onBlur={(evt) => handleDates(evt)}
+                            onChange={(evt) => handleDates(evt)}
                             type="dateTime-local"
                             className="dates"
-                            defaultValue={dates[3]}
+                            value={dates[3]}
                           />
                           <Button
                             // type="submit"
@@ -508,10 +515,10 @@ export default function EditShow() {
                       {numberOfShows >= 5 ? (
                         <Form.Group>
                           <Form.Control
-                            onBlur={(evt) => handleDates(evt)}
+                            onChange={(evt) => handleDates(evt)}
                             type="dateTime-local"
                             className="dates"
-                            defaultValue={dates[4]}
+                            value={dates[4]}
                           />
                           <Button
                             // type="submit"
@@ -529,10 +536,10 @@ export default function EditShow() {
                       {numberOfShows >= 6 ? (
                         <Form.Group>
                           <Form.Control
-                            onBlur={(evt) => handleDates(evt)}
+                            onChange={(evt) => handleDates(evt)}
                             type="dateTime-local"
                             className="dates"
-                            defaultValue={dates[5]}
+                            value={dates[5]}
                           />
                           <Button
                             // type="submit"
