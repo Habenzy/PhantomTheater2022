@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
 import { useAuth } from "./AuthContext";
 import { useHistory } from "react-router-dom";
@@ -11,7 +11,7 @@ import ShowArchive from "./ShowArchive";
 import "../formcss/dashBoard.css";
 
 function Dashboard() {
-  const [toggle, setToggle] = useState("shows");
+  const [toggle, setToggle] = useState("");
   const { loggedUser, logout } = useAuth();
   const history = useHistory();
 
@@ -36,6 +36,10 @@ function Dashboard() {
     setToggle("archive");
   }
 
+  useEffect(() => {
+    setToggle("")
+  }, [])
+
   return (
     <div>
       <Button
@@ -50,33 +54,34 @@ function Dashboard() {
         <h4 className="mb-4">Welcome, {loggedUser.email}</h4>
         <div className="dash_buttons">
           <div className="upper">
-            <Button id="dash_button" onClick={editProposal} type="submit">
+            <Button className="dash_button" id="proposalButton" onClick={editProposal} type="submit">
               Proposals
             </Button>
 
-            <Button id="dash_button" onClick={editShow} type="submit">
+            <Button className="dash_button" id="showsButton" onClick={editShow} type="submit">
               Shows
             </Button>
 
-            <Button id="dash_button" onClick={addShow} type="submit">
+            <Button className="dash_button" id="addShowButton" onClick={addShow} type="submit">
               Add a Show
             </Button>
 
-            <Button id="dash_button" onClick={archive} type="submit">
+            <Button className="dash_button" id="archiveShowButton" onClick={archive} type="submit">
               Show Archive
             </Button>
           </div>
           <div className="line"></div>
           <div>
             {toggle === "add" ? (
-              <AddShow />
+              <AddShow
+              editShow={editShow} />
             ) : toggle === "shows" ? (
               <AllShows />
             ) : toggle === "proposals" ? (
               <AllProposals />
-            ) : (
+            ) : toggle === "archive" ? (
               <ShowArchive />
-            )}
+            ) : ""}
           </div>
         </div>
       </div>

@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { firestore } from "../firebase/firebase";
 import { Form, Button, Card, Container } from "react-bootstrap";
 // import { storage } from "../firebase/firebase";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import NumberFormat from "react-number-format";
 import "../formcss/addShow.css";
+import  "../forms/Dashboard.js"
 import splashPlaceholder from "../images/testpattern.gif"
 
-function AdminForm() {
+function AdminForm(props) {
   // create state for show information
   const history = useHistory();
   let [title, setTitle] = useState("");
@@ -55,17 +56,17 @@ function AdminForm() {
       //for testing
       console.log("show added: ", show);
 
-      //form clearing functions need testing
-      // clear form inputs
-      // event.target.titleIn.value = "";
-      // event.target.blurbIn.value = "";
-      // event.target.typeIn.value = "";
-      // event.target.showDescriptionInput.value = "";
-      // event.target.artistInput.value = "";
-      // event.target.contactNameInput.value = "";
-      // event.target.phoneInput.value = "";
-      // event.target.emailInput.value = "";
-      // event.target.bioInput.value = "";
+    //  form clearing functions need testing
+    //  clear form inputs
+      event.target.titleIn.value = "";
+      event.target.blurbIn.value = "";
+      event.target.typeIn.value = "";
+      event.target.showDescriptionInput.value = "";
+      event.target.artistInput.value = "";
+      event.target.contactNameInput.value = "";
+      event.target.phoneInput.value = "";
+      event.target.emailInput.value = "";
+      event.target.bioInput.value = "";
 
       //success message & reroute
       alert("Show has been added!");
@@ -82,9 +83,8 @@ function AdminForm() {
       setBio("");
       setDescription("");
 
-      history.push("/adminDash");
-      
-      
+      props.editShow()
+          
     }
   }
 
@@ -93,7 +93,9 @@ function AdminForm() {
 
   // form sets state on input change and fires enterNewShow on submit
   return (
+   
     <div className="add_show">
+    
       {/* Add show container */}
       <Container
         id="container_add"
