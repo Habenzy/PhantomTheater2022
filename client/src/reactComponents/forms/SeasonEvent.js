@@ -1,7 +1,6 @@
 //------- Imports -------
 import React from "react";
 import "../formcss/seasonEvent.css";
-import { Link } from "react-router-dom";
 
 // -------- Season event component functionality and export
 
