@@ -47,8 +47,7 @@ function Dashboard() {
       </Button>
       <div className="dash_board">
         <h2>Admin Dashboard</h2>
-        <h4>Welcome, </h4>
-        {loggedUser.email}
+        <h4 className="mb-4">Welcome, {loggedUser.email}</h4>
         <div className="dash_buttons">
           <div className="upper">
             <Button id="dash_button" onClick={editProposal} type="submit">
