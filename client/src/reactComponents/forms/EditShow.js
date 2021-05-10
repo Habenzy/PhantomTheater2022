@@ -382,7 +382,7 @@ export default function EditShow() {
                     >
                       <option>Proposal </option>
                       <option>Booked</option>
-                      <option>Done</option>
+                      <option>Archive</option>
                     </select>
                   </Form.Group>
                   {/* Show Time Input Controls ****************************** */}

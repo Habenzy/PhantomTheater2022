@@ -23,7 +23,7 @@ function ShowArchive() {
   async function seeAllShows() {
     // get all data from shows collection
     const showsRef = firestore.collection('shows')
-    const showSnapshot = await showsRef.where('status', '==', 'Done').get()
+    const showSnapshot = await showsRef.where('status', '==', 'Archive').get()
 
     // create array of all shows
     const allShowsArray = showSnapshot.docs.map(collectAllIdsAndDocs)

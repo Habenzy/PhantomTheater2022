@@ -32,7 +32,7 @@ function App() {
 
    let [allShows, setAllShows] = useState("")
 
-   async function archiveShowsDone() {
+   async function archiveShows() {
       // get all data from shows collection
       const showsRef = firestore.collection('shows')
       // query for booked shows
@@ -55,7 +55,7 @@ function App() {
          let lastShow = doc.dates[doc.dates.length - 1]
 
          if (lastShow < date) {
-            doc.status = "Done"
+            doc.status = "Archive"
             updateDB(doc.id, doc.status)
          }
 
@@ -69,9 +69,9 @@ function App() {
 
    }
 
- // if (!allShows) archiveShowsDone()
+ 
   useEffect(() => {
-   archiveShowsDone()
+   archiveShows()
   }, [])
   
   //be sure to make adminDash, editShow, and addShow private routes!
