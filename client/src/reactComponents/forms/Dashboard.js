@@ -15,8 +15,8 @@ function Dashboard() {
   const { loggedUser, logout } = useAuth();
   const history = useHistory();
 
-  async function handleLogout() {
-    await logout();
+  function handleLogout() {
+    logout();
     history.push("/login");
   }
 
@@ -47,7 +47,8 @@ function Dashboard() {
       </Button>
       <div className="dash_board">
         <h2>Admin Dashboard</h2>
-        {/* <h4 className="mb-5">Welcome, {loggedUser.email}</h4> */}
+        <h4>Welcome, </h4>
+        {loggedUser.email}
         <div className="dash_buttons">
           <div className="upper">
             <Button id="dash_button" onClick={editProposal} type="submit">

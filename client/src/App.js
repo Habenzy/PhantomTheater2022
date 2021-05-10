@@ -1,6 +1,6 @@
 //------------Imports -----------
 import React, { useState, useEffect } from "react";
-import app, { firestore } from './reactComponents/firebase/firebase';
+import { firestore } from './reactComponents/firebase/firebase';
 import "./App.css";
 import Nav from "./reactComponents/home/Nav";
 import Home from "./reactComponents/home/Home";
