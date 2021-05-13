@@ -508,7 +508,10 @@ export default function ArtistForm() {
                       type="reset"
                       className="mt-3 mb-5"
                       variant="outline-danger"
-                      onClick={(e) => setImageLg("")}
+                      onClick={(e) => {
+                        setImageLg("")
+                        setImageLgName("")
+                      }}
                     >
                       Delete Splash Image
                    </Button>
@@ -550,7 +553,10 @@ export default function ArtistForm() {
                       type="reset"
                       className="mt-3 mb-5"
                       variant="outline-danger"
-                      onClick={(e) => setImage1("")}
+                      onClick={(e) => {
+                        setImage1("")
+                        setImage1Name("")
+                      }}
                     >
                       Delete Image 1
                     </Button>
@@ -593,7 +599,10 @@ export default function ArtistForm() {
                       type="reset"
                       className="mt-3 mb-5"
                       variant="outline-danger"
-                      onClick={(e) => setImage2("")}
+                      onClick={(e) => {
+                        setImage2("")
+                        setImage2Name("")
+                      }}
                     >
                       Delete Image 2
                     </Button>
@@ -637,8 +646,10 @@ export default function ArtistForm() {
                       type="reset"
                       className="mt-3 mb-5"
                       variant="outline-danger"
-                      onClick={(e) => setImage3("")}
-                      onMouseDown={resetProgress3}
+                      onClick={(e) => {
+                        setImage3("")
+                        setImage3Name("")
+                      }}
                     >
                       Delete Image 3
                     </Button>

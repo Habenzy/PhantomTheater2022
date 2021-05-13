@@ -167,9 +167,9 @@ function Home() {
       <div className="firefly"></div>
 
       <div className="currentPlay">
-        <div className="nowPlaying">
+        <div id="nowPlaying">
 
-          <img className="homeImage" src={splashImage} alt="Now Showing" />
+          <img id="homeImage" src={splashImage} alt="Now Showing" />
 
         </div>
         <div className="currentPlayText">

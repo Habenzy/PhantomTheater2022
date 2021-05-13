@@ -9,8 +9,7 @@
 
 /*-------------------Home Page Image Overlay Text Styling-------------------------- */
 
-.homeContainer h1,
-.homeContainer h2 {
+.homeContainer h1, .homeContainer h2 {
   color: white;
   -webkit-text-fill-color: white;
   -webkit-text-stroke-width: 1px;
@@ -26,13 +25,15 @@
 .currentPlay {
   display: flex;
   flex-direction: column;
-  height: auto;
-  object-fit: contain;
   align-items: center;
 }
 
-.homeImage {
-  height: auto;
+#nowPlaying {
+  height: 70vh;
+}
+
+#homeImage {
+  height: 100%
 }
 
 .currentPlayText {
@@ -94,7 +95,6 @@
   .homeImage {
     width: 100%;
   }
-
   .currentPlayText {
     position: absolute;
     width: 60vw;
@@ -105,16 +105,13 @@
   .currentPlayText h2 {
     font-size: 20pt;
   }
-
   .whatNextText h2 {
     font-size: 24pt;
     margin-bottom: 0px;
   }
-
   .whatNext {
     position: relative;
   }
-
   .whatNextText {
     position: absolute;
     width: 60vw;
@@ -140,7 +137,6 @@
     top: 5%;
     left: 32%;
   }
-
   .homeContainer h1 {
     font-size: 45pt;
   }
@@ -155,7 +151,6 @@
   /* .homeImage {
     width: 50%;
   } */
-
   .whatNext {
     position: absolute;
     top: 56%;
@@ -167,7 +162,6 @@
     width: 60vw;
     object-fit: contain;
   }
-
   .whatNextText {
     width: 24vw;
     top: 8%;
@@ -188,11 +182,9 @@
     top: 5%;
     left: 8%;
   }
-
   .currentPlayText h1 {
     font-size: 48pt;
   }
-
   .whatNext {
     position: absolute;
     top: 56%;
@@ -204,7 +196,6 @@
     width: 50vw;
     object-fit: contain;
   }
-
   .whatNextText {
     width: 24vw;
     top: 6%;
@@ -227,7 +218,6 @@
     width: 60vw;
     object-fit: contain;
   }
-
   .whatNextText {
     width: 25vw;
     top: 7%;
@@ -238,12 +228,19 @@
 /* ----------------------------------------------------------------------------------- */
 
 /* Fireflies Animation  Need Comments.....  */
+
 /* Fireflies Animation  Need Comments.....  */
+
 /* Fireflies Animation  Need Comments.....  */
+
 /* Fireflies Animation  Need Comments.....  */
+
 /* Fireflies Animation  Need Comments.....  */
+
 /* Fireflies Animation  Need Comments.....  */
+
 /* Fireflies Animation  Need Comments.....  */
+
 /* Fireflies Animation  Need Comments.....  */
 
 .firefly {
@@ -257,8 +254,7 @@
   pointer-events: none;
 }
 
-.firefly::before,
-.firefly::after {
+.firefly::before, .firefly::after {
   content: "";
   position: absolute;
   width: 100%;
@@ -288,9 +284,7 @@
 /* This is the animation that makes the flies blink */
 
 @keyframes flash {
-  0%,
-  30%,
-  100% {
+  0%, 30%, 100% {
     opacity: 0;
     box-shadow: 0 0 0vw 0vw yellow;
   }
