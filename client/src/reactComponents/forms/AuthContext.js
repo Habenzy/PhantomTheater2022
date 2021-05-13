@@ -3,17 +3,21 @@ import { auth } from "../firebase/firebase";
 
 const AuthContext = React.createContext();
 
-//function allows us to use this context
+//creates user context to be used elsewhere
 export function useAuth() {
   return useContext(AuthContext);
 }
 
+//provides context for and sets the user
 export function AuthProvider({ children }) {
-  //tracks logged-in user in state
+  //tracks logged-in user / user variable
   const [loggedUser, setLoggedUser] = useState();
-  //setting initial loading state
+  //initial loading state
   const [loading, setLoading] = useState(true);
 
+  //**---------------basic functions for the user---------------**//
+  // note: if db other than firebase is ever used,
+  // one should just have to change these for things to still work
   function login(email, password) {
     return auth.signInWithEmailAndPassword(email, password);
   }
@@ -23,8 +27,9 @@ export function AuthProvider({ children }) {
   }
 
   function resetPassword(email) {
-    return auth.sendPasswordResetEmail(email)
+    return auth.sendPasswordResetEmail(email);
   }
+  //---------------------------------------------------------//
 
   //sets user once as component mounts
   useEffect(() => {
@@ -43,7 +48,7 @@ export function AuthProvider({ children }) {
     loggedUser,
     login,
     logout,
-    resetPassword
+    resetPassword,
   };
 
   //provides context to children above - value object passed as prop

@@ -5,11 +5,11 @@ import { Link, useHistory } from "react-router-dom";
 import "../formcss/login.css";
 
 export default function Login() {
-  //grabs input from the form
+  //reference to password/email values
   const emailRef = useRef();
   const passwordRef = useRef();
 
-  //gets values from login function (defined in AuthContext.js) & authenticates
+  //login function (defined in AuthContext.js) & authenticates
   const { login } = useAuth();
 
   //error handling - starts free of errors
@@ -29,10 +29,10 @@ export default function Login() {
       //initial state of form - free of errors & loading form (button is enabled)
       setError("");
       setLoading(true);
-      console.log()
+      console.log();
       //waits for login to happen, otherwise, catch block is run and error is printed
       await login(emailRef.current.value, passwordRef.current.value);
-      history.push("/adminDash");  
+      history.push("/adminDash");
       console.log("Login successful");
     } catch {
       setError("Login Failed");
@@ -70,8 +70,8 @@ export default function Login() {
                   Log In
                 </Button>
               </Form>
-              <div className='w-100 text-center mt-3'>
-                <Link to='/forgot-password'>Forgot Password?</Link>
+              <div className="w-100 text-center mt-3">
+                <Link to="/forgot-password">Forgot Password?</Link>
               </div>
             </Card.Body>
           </Card>
