@@ -11,7 +11,7 @@ import ShowArchive from "./ShowArchive";
 import "../formcss/dashBoard.css";
 
 function Dashboard() {
-  const [toggle, setToggle] = useState("shows");
+  const [toggle, setToggle] = useState("");
   //custom hook that has access to user (from AuthContext.js)
   const { loggedUser, logout } = useAuth();
   const history = useHistory();
@@ -40,9 +40,7 @@ function Dashboard() {
   }
   //----------------------------------//
 
-  useEffect(() => {
-    setToggle("")
-  }, [])
+
 
   return (
     <div>
@@ -78,7 +76,7 @@ function Dashboard() {
           <div>
             {toggle === "add" ? (
               <AddShow
-              editShow={editShow} />
+              editProposal={editProposal} />
             ) : toggle === "shows" ? (
               <AllShows />
             ) : toggle === "proposals" ? (

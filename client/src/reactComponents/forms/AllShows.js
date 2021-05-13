@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // get the database
 import { firestore } from '../firebase/firebase';
 
@@ -32,11 +32,11 @@ function AllShows() {
          setAllShows(allShowsArray)
       }
    }
-   seeAllShows()
-
-
    
-
+  useEffect(() => {
+    seeAllShows()
+    }, [])
+  
    async function handleDelete(id, title) {
       console.log('delete function fired', id, title)
       setModal("true")
@@ -60,7 +60,6 @@ function AllShows() {
    }
 
    async function handleClose() {
-
       setModal('false')
    }
 

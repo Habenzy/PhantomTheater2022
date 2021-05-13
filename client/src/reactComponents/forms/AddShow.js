@@ -1,21 +1,19 @@
 import React, { useState } from "react";
 import { firestore } from "../firebase/firebase";
 import { Form, Button, Card, Container } from "react-bootstrap";
-// import { storage } from "../firebase/firebase";
-import { useHistory, Link } from "react-router-dom";
 import NumberFormat from "react-number-format";
 import "../formcss/addShow.css";
-import  "../forms/Dashboard.js"
+import "../forms/Dashboard.js"
 import splashPlaceholder from "../images/testpattern.gif"
 
 function AdminForm(props) {
   // create state for show information
-  const history = useHistory();
+
   let [title, setTitle] = useState("");
   let [blurb, setBlurb] = useState("");
   let [type, setType] = useState("");
   let [status] = useState("Proposal");
- // let [dates] = useState([])
+  // let [dates] = useState([])
 
   // create state for each artist field
   let [artist, setArtist] = useState("");
@@ -33,7 +31,7 @@ function AdminForm(props) {
     type: type,
     blurb: blurb,
     status: status,
-   // dates: dates,
+    // dates: dates,
 
     artist: artist,
     contactName: contactName,
@@ -56,8 +54,8 @@ function AdminForm(props) {
       //for testing
       console.log("show added: ", show);
 
-    //  form clearing functions need testing
-    //  clear form inputs
+      //  form clearing functions need testing
+      //  clear form inputs
       event.target.titleIn.value = "";
       event.target.blurbIn.value = "";
       event.target.typeIn.value = "";
@@ -70,7 +68,7 @@ function AdminForm(props) {
 
       //success message & reroute
       alert("Show has been added!");
-      
+
 
       // clear state - is clearing state and clearing form fields (above) both necessary? test & refactor
       setTitle("");
@@ -83,8 +81,8 @@ function AdminForm(props) {
       setBio("");
       setDescription("");
 
-      props.editShow()
-          
+      props.editProposal()
+
     }
   }
 
@@ -93,9 +91,9 @@ function AdminForm(props) {
 
   // form sets state on input change and fires enterNewShow on submit
   return (
-   
+
     <div className="add_show">
-    
+
       {/* Add show container */}
       <Container
         id="container_add"
@@ -192,7 +190,7 @@ function AdminForm(props) {
                   <Form.Group>
                     <Form.Label>Email:</Form.Label>
                     <Form.Control
-                      type="text"
+                      type="email"
                       name="emailInput"
                       placeholder="Enter Email"
                       onChange={(evt) => setEmail(evt.target.value)}
