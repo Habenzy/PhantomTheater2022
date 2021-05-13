@@ -58,9 +58,9 @@ export default function SingleShow(props) {
             {`http://localhost:3000/artistForm#${props.id}`}
          </a></span>
         
-         <div className="singleShowLine"><p>Artist : </p> {props.artist}</div>
-         <div className="singleShowLine"><p>Show type:</p>{props.type}</div>
-         <div className="singleShowLineSum"><p>Summary:</p>{props.blurb}</div>
+         <div className="singleShowLine"><p>Artist:  </p> {props.artist}</div>
+         <div className="singleShowLine"><p>Show type: </p>{props.type}</div>
+         <div className="singleShowLineSum"><p>Summary: </p>{props.blurb}</div>
          <div className="singleShowLine"><p>Show Dates:</p>
          {numberOfShows >= 1 ? changeDate(props.dates[0]) : console.log()}
          {numberOfShows >= 1 ? <br /> : console.log()}

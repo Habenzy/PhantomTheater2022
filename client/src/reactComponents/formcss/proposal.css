@@ -17,3 +17,10 @@
   transform: scale(1.1);
 }
 
+.proposal_container h2 {
+  font-size: 28pt;
+}
+
+.proposal_container Label {
+  font-size:15pt;
+}

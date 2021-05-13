@@ -1,65 +1,69 @@
 .single_show {
-   text-align: center;
-   display: flex;
-   flex-direction: column;
-   align-items: flex-start;
-   background-color: #1d2433;
-   color: white;
-   width: 40vw;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #1d2433;
+  color: white;
+  width: 40vw;
 }
 
 .show_button {
-   border: none;
-   background-color: #ffae57;
-   color: #1d2433;
-   width: 75px;
-   height: 35px;
+  border: none;
+  background-color: #ffae57;
+  color: #1d2433;
+  width: 75px;
+  height: 35px;
 }
 
 .show_button:hover {
-   transition: transform 0.3s ease-out;
-   transform: scale(1.1);
+  transition: transform 0.3s ease-out;
+  transform: scale(1.1);
 }
 
 .single_show h4 {
-   color: rgb(195, 247, 9);
+  color: rgb(195, 247, 9);
 }
 
 .single_show .line {
-   border: solid 1px;
-   border-color: #ffae57;
-   border-left: none;
-   border-right: none;
-   width: 60vw;
-   height: 5px;
-   margin-top: 15px;
-   margin-bottom: 30px;
+  border: solid 1px;
+  border-color: #ffae57;
+  border-left: none;
+  border-right: none;
+  width: 60vw;
+  height: 5px;
+  margin-top: 15px;
+  margin-bottom: 30px;
 }
 
 .dashLink {
-   color: #007bff !important;
-   background-color: transparent ;
+  color: #007bff !important;
+  background-color: transparent;
 }
 
 .singleShowLine {
   display: flex;
 }
 
-.dates, p {
-   color: rgb(195, 247, 9);
-   text-decoration: underline;
-   margin-right: 5px;
+.dates p {
+  color: rgb(195, 247, 9);
+  text-decoration: underline;
+  margin-right: 5px;
 }
 
 .singleShowLineSum {
-   display: flex;
-   width: 40vw;
-   text-align: justify;
-   margin-bottom: 10px;
+  display: flex;
+  width: 40vw;
+  text-align: justify;
+  margin-bottom: 10px;
 }
 
 .buttons {
-   display: flex;
-   flex-direction: row;
-   justify-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.single_show p {
+  margin-right: 5px;
 }

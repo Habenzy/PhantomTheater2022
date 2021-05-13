@@ -15,7 +15,7 @@
   margin-bottom: 30px;
 }
 
-/* ---------- Styling for about container , font color and background color---------- */
+/* ---------- Styling for donate container, font color and background color---------- */
 .donate {
   display: flex;
   flex-direction: column;
@@ -29,35 +29,6 @@
   color: rgb(195, 247, 9);
   margin-bottom: 10px;
   font-size: 38pt;
-}
-#about_us {
-  color: #ffae57;
-}
-
-.donateImgDiv1 {
-  display: flex;
-  justify-content: center;
-  float: left;
-  margin-right: 12px;
-}
-.donateImgDiv2 {
-  display: flex;
-  justify-content: center;
-  float: right;
-  margin-left: 12px;
-}
-
-.donateImage2 {
-  width: 50vw;
-}
-
-.donateImage1 {
-  margin: 20px 10px 0 0;
-  height: 40vw;
-}
-
-.donateImage2 {
-  margin: 20px 0 10px 10px;
 }
 
 .donateWrapper {
@@ -77,9 +48,9 @@
   margin-top: 25px;
 }
 
-.donateWrapper .barn {
-  text-align: center;
-  margin-top: 0px;
+.donate a {
+  text-decoration: underline;
+  color: rgb(195, 247, 9);
 }
 
 .board {
@@ -90,15 +61,6 @@
   -moz-column-width: 100px;
   column-width: 100px;
   column-gap: 50px;
-}
-
-/* --------------Contact elements styling-------- */
-.contactWrapper {
-  display: flex;
-  flex-direction: column;
-  margin: 0 25px 0 25px;
-  text-align: justify;
-  align-items: center;
 }
 
 /* ------Sponsor list wrapper styling ---- */
@@ -154,16 +116,6 @@
     column-count: 1;
   }
 
-  .donateImage1 {
-    height: 70vw;
-    margin: 0px 0px 10px 10px;
-  }
-
-  .donateImage2 {
-    width: 85vw;
-    margin: 0px 10px 10px 0px;
-  }
-
   .text {
     margin-left: 10px;
     margin-right: 10px;
@@ -193,14 +145,6 @@
     font-size: 13pt;
   }
 
-  .donateImage1 {
-    margin: 0px 0px 10px 10px;
-  }
-
-  .donateImage2 {
-    margin: 0px 10px 10px 0px;
-  }
-
   .board {
     -webkit-column-count: 2;
     -moz-column-count: 2;
@@ -209,7 +153,6 @@
 
   .donate {
     margin: 0 25px 20px 25px;
-    /* margin-bottom: 20px; */
   }
 
   .sponsorHowTo {
@@ -234,13 +177,6 @@
 }
 
 @media screen and (min-width: 1000px) {
-  .donateImage2 {
-    width: 35vw;
-  }
-
-  .donateImage1 {
-    height: 25vw;
-  }
   .donateWrapper {
     margin: 0px 150px 0 150px;
   }
