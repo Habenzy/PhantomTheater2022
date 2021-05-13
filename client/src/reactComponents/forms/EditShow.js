@@ -735,6 +735,7 @@ export default function EditShow() {
                       onClick={(e) => {
                         setImageLg("")
                         setImageLgName("")
+                        resetProgressLg()
                       }}
                     >
                       Delete Splash Image
@@ -780,6 +781,7 @@ export default function EditShow() {
                       onClick={(e) => {
                         setImage1("")
                         setImage1Name("")
+                        resetProgress1()
                       }}
                     >
                       Delete Image 1
@@ -822,6 +824,7 @@ export default function EditShow() {
                       onClick={(e) => {
                         setImage2("")
                         setImage2Name("")
+                        resetProgress2()
                       }}
                     >
                       Delete Image 2
@@ -864,6 +867,7 @@ export default function EditShow() {
                       onClick={(e) => {
                         setImage3("")
                         setImage3Name("")
+                        resetProgress3()
                       }}
                     >
                       Delete Image 3
