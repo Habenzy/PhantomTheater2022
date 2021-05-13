@@ -10,6 +10,7 @@ import Artist from "./reactComponents/home/Artist";
 import AllArtist from "./reactComponents/home/AllArtist"
 import Reserve from "./reactComponents/home/Reserve";
 import Season from "./reactComponents/home/Season";
+import Donate from "./reactComponents/home/Donate";
 import Burger from "./reactComponents/home/Burger.js";
 import AddShow from "./reactComponents/forms/AddShow";
 import AllShows from "./reactComponents/forms/AllShows";
@@ -40,7 +41,7 @@ function App() {
       // create array of all Booked shows
       const allShowsArray = showSnapshot.docs.map(doc => {
          return { id: doc.id, ...doc.data() }
-      })
+      });
 
       let stillPlaying = allShowsArray.map(doc => {
          // get system date
@@ -99,7 +100,7 @@ function App() {
                   <Route path="/About" component={About} />
                   <Route path="/Artist" component={Artist} />
                   <Route path="/AllArtist" component={AllArtist} />
-                  <Route path="/Reserve" component={Reserve} />
+                  <Route path="/Donate" component={Donate} />
                </Switch>
             </AuthProvider>
             <Footer />
