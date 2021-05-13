@@ -11,15 +11,18 @@ import ShowArchive from "./ShowArchive";
 import "../formcss/dashBoard.css";
 
 function Dashboard() {
-  const [toggle, setToggle] = useState("");
+  const [toggle, setToggle] = useState("shows");
+  //custom hook that has access to user (from AuthContext.js)
   const { loggedUser, logout } = useAuth();
   const history = useHistory();
 
+  //logout function
   function handleLogout() {
     logout();
     history.push("/login");
   }
 
+  //----------toggle options----------//
   function editShow() {
     setToggle("shows");
   }
@@ -35,6 +38,7 @@ function Dashboard() {
   function archive() {
     setToggle("archive");
   }
+  //----------------------------------//
 
   useEffect(() => {
     setToggle("")
