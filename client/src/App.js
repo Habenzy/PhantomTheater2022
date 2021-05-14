@@ -8,7 +8,6 @@ import Footer from "./reactComponents/home/Footer";
 import About from "./reactComponents/home/About";
 import Artist from "./reactComponents/home/Artist";
 import AllArtist from "./reactComponents/home/AllArtist"
-import Reserve from "./reactComponents/home/Reserve";
 import Season from "./reactComponents/home/Season";
 import Donate from "./reactComponents/home/Donate";
 import Burger from "./reactComponents/home/Burger.js";
@@ -21,92 +20,84 @@ import ProposalForm from "./reactComponents/forms/ProposalForm";
 import EditShow from "./reactComponents/forms/EditShow";
 import PrivateRoute from './reactComponents/forms/PrivateRoute'
 import { AuthProvider } from "./reactComponents/forms/AuthContext";
-// import PrivateRoute from "../src/reactComponents/forms/PrivateRoute";
-
 import Dashboard from "./reactComponents/forms/Dashboard";
-
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-
-// Function containing the route paths  to all components
 function App() {
+  // the purpose of this is to find shows that have gone by or show that are booked with no dates and send them to archive
+  async function archiveShows() {
+    // get all data from shows collection
+    const showsRef = firestore.collection('shows')
+    // query for booked shows
+    const showSnapshot = await showsRef.where('status', '==', 'Booked').get()
+    // create array of all Booked shows
+    const allShowsArray = showSnapshot.docs.map(doc => {
+      return { id: doc.id, ...doc.data() }
+    });
 
-   let [allShows, setAllShows] = useState("")
+    // iterate over booked shows and update status if it meets filter conditions
+    allShowsArray.map(doc => {
+      // get system date 
+      let today = new Date();
+      // re-format date from system to match db
+      let dd = String(today.getDate()).padStart(2, '0');
+      let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+      let yyyy = today.getFullYear();
+      let time = today.getTime()
+      today = yyyy + '-' + mm + '-' + dd + "T" + time;
+      let date = today // todays date in db format
 
-   async function archiveShows() {
-      // get all data from shows collection
-      const showsRef = firestore.collection('shows')
-      // query for booked shows
-      const showSnapshot = await showsRef.where('status', '==', 'Booked').get()
-      // create array of all Booked shows
-      const allShowsArray = showSnapshot.docs.map(doc => {
-         return { id: doc.id, ...doc.data() }
-      });
+      // get last show date from date array
+      let lastShow = doc.dates[doc.dates.length - 1]
 
-      let stillPlaying = allShowsArray.map(doc => {
-         // get system date
-         let today = new Date();
-         let dd = String(today.getDate()).padStart(2, '0');
-         let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-        let yyyy = today.getFullYear();
-        let time = today.getTime()
-         today = yyyy + '-' + mm + '-' + dd + "T" + time;
-         let date = today
+      // filter for 'all shows have happened' or 'show has no dates
+      // if above conditions are true then archive the show
+      if (lastShow < date || doc.dates.length < 1) {
+        doc.status = "Archive"
+        updateDB(doc.id, doc.status)
+      }
+      // update function for show status in db
+      async function updateDB(showId, showStatus) {
+        await firestore.collection("shows").doc(showId).update({ status: showStatus })
+      }
+      return (doc)
+    })
+  }
 
-         let lastShow = doc.dates[doc.dates.length - 1]
-
-         if (lastShow < date || doc.dates.length < 1) {
-            doc.status = "Archive"
-            updateDB(doc.id, doc.status)
-         }
-
-         async function updateDB(showId, showStatus) {
-            await firestore.collection("shows").doc(showId).update({ status: showStatus })
-         }
-         return (doc)
-      })
-
-      setAllShows(stillPlaying)
-
-   }
-
- 
+  // fire archiveShos on page load
   useEffect(() => {
-   archiveShows()
+    archiveShows()
   }, [])
-  
+
   //be sure to make adminDash, editShow, and addShow private routes!
 
-   return (
-      <Router>
-         <div className="App">
-            <Burger />
-            <Nav />
-            <AuthProvider>
-               <Switch>
-                  <Route exact path="/">
-                     <Home />
-                     {/* <CurrentShow /> */}
-                  </Route>
-                  <Route path="/adminDash" component={Dashboard} />
-                  <Route path="/editShow" component={EditShow} />
-                  <Route path="/addShow" component={AddShow} />
-                  <Route path="/login" component={Login} />
-                  <Route path='/forgot-password' component={ForgotPassword} />
-                  <Route path="/proposalForm" component={ProposalForm} />
-                  <Route path="/artistForm" component={ArtistForm} />
-                  <Route path="/allShows" component={AllShows} />
-                  <Route path="/Season" component={Season} />
-                  <Route path="/About" component={About} />
-                  <Route path="/Artist" component={Artist} />
-                  <Route path="/AllArtist" component={AllArtist} />
-                  <Route path="/Donate" component={Donate} />
-               </Switch>
-            </AuthProvider>
-            <Footer />
-         </div>
-      </Router>
-   );
+  return (
+    <Router>
+      <div className="App">
+        <Burger />
+        <Nav />
+        <AuthProvider>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/adminDash" component={Dashboard} />
+            <Route path="/editShow" component={EditShow} />
+            <Route path="/addShow" component={AddShow} />
+            <Route path="/login" component={Login} />
+            <Route path='/forgot-password' component={ForgotPassword} />
+            <Route path="/proposalForm" component={ProposalForm} />
+            <Route path="/artistForm" component={ArtistForm} />
+            <Route path="/allShows" component={AllShows} />
+            <Route path="/Season" component={Season} />
+            <Route path="/About" component={About} />
+            <Route path="/Artist" component={Artist} />
+            <Route path="/AllArtist" component={AllArtist} />
+            <Route path="/Donate" component={Donate} />
+          </Switch>
+        </AuthProvider>
+        <Footer />
+      </div>
+    </Router>
+  );
 }
 
 //------export the component---------
