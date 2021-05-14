@@ -1,16 +1,21 @@
 //---------------------------- imports/server set-up --------------------------//
-// require cors from 'cors'
-// require { urlencoded, json } from 'body-parser'
 const express = require("express");
 const app = express();
 const path = require("path");
 const port = process.env.PORT || 5000;
 const nodemailer = require("nodemailer");
 require("dotenv").config();
-// require('urlencoded').config()
+
 
 //-------------------------------- middleware------------------------------//
 app.use(express.static(path.resolve("./client/build")));
+//for future self: body-parser is deprecated. 'body parsing' just looks like this now
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
+
+//** apparently none of this is needed! */
+
+// app.use(express.static(path.resolve("./client/public")))
 
 //middleware for email alert
 
@@ -18,6 +23,7 @@ app.use(express.static(path.resolve("./client/build")));
 // app.use(urlencoded({ extended: true }));
 // app.use(json());
 // app.use(cors());
+
 
 // path home
 app.get("*", (req, res) => {
@@ -29,8 +35,8 @@ const transporter = nodemailer.createTransport({
   host: "smtp.ethereal.email",
   port: 587,
   auth: {
-    user: "whitney.damore@ethereal.email",
-    pass: "XphNJwxnDSSYhQ1TA7",
+    user: "shaun.rutherford@ethereal.email",
+    pass: "pqdtSZ7fCxqeBwYVkf",
   },
 });
 
@@ -50,6 +56,7 @@ app.post("/send", (req, res) => {
   let email = req.body.email;
   let phone = req.body.phone;
   let description = req.body.description;
+
 
   //e-mail body template
   let mailBody = `Artist Name: ${artist}\nEmail: ${email}\nPhone: ${phone}\nDescription: ${description}`;

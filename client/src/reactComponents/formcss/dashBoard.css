@@ -7,6 +7,10 @@
   flex-direction: column;
 }
 
+.dash-container {
+  min-height: 80vh;
+}
+
 .dash_board h2 {
   color: rgb(195, 247, 9);
   margin-top:20px;

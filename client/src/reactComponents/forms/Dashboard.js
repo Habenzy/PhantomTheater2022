@@ -40,10 +40,8 @@ function Dashboard() {
   }
   //----------------------------------//
 
-
-
   return (
-    <div>
+    <div className="dash-container">
       <Button
         id="dash_button"
         onClick={handleLogout}
@@ -56,27 +54,46 @@ function Dashboard() {
         {/* <h4 className="mb-4">Welcome, {loggedUser.email}</h4> */}
         <div className="dash_buttons">
           <div className="upper">
-            <Button className="dash_button" id="proposalButton" onClick={editProposal} type="submit">
+            <Button
+              className="dash_button"
+              id="proposalButton"
+              onClick={editProposal}
+              type="submit"
+            >
               Proposals
             </Button>
 
-            <Button className="dash_button" id="showsButton" onClick={editShow} type="submit">
+            <Button
+              className="dash_button"
+              id="showsButton"
+              onClick={editShow}
+              type="submit"
+            >
               Shows
             </Button>
 
-            <Button className="dash_button" id="addShowButton" onClick={addShow} type="submit">
+            <Button
+              className="dash_button"
+              id="addShowButton"
+              onClick={addShow}
+              type="submit"
+            >
               Add a Show
             </Button>
 
-            <Button className="dash_button" id="archiveShowButton" onClick={archive} type="submit">
+            <Button
+              className="dash_button"
+              id="archiveShowButton"
+              onClick={archive}
+              type="submit"
+            >
               Show Archive
             </Button>
           </div>
           <div className="line"></div>
           <div>
             {toggle === "add" ? (
-              <AddShow
-              editProposal={editProposal} />
+              <AddShow editProposal={editProposal} />
             ) : toggle === "shows" ? (
                 <AllShows
                   editShow={ editShow} />
@@ -84,7 +101,9 @@ function Dashboard() {
               <AllProposals />
             ) : toggle === "archive" ? (
               <ShowArchive />
-            ) : ""}
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>
