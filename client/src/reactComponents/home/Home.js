@@ -10,7 +10,7 @@ function Home() {
   let [rightNow, setRightNow] = useState(new Date())
   let [allShows, setAllShows] = useState("")
   let [splashId, setSplashId] = useState("")
-  let [splashImage, setSplashImage] = useState(placeholderImage)
+  let [splashImage, setSplashImage] = useState("")
   let [splashTitle, setSplashTitle] = useState("Shows coming Soon!")
   let [splashDates, setSplashDates] = useState([])
   let [splashShowNum, setSplashShowNum] = useState(0)
@@ -21,16 +21,48 @@ function Home() {
   let [nextShowNum, setNextShowNum] = useState(0)
   const history = useHistory()
 
-  // print list of all shows
-  async function getNowPlaying() {
-    
-    // get system date
-    let today = rightNow;
+  function getRightNow() {
+    // get system date 
+    let today = new Date();
+    // re-format date from system to match db
     let dd = String(today.getDate()).padStart(2, '0');
     let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
     let yyyy = today.getFullYear();
-    let date = yyyy + '-' + mm + '-' + dd + "T00:00";
-  //  let date = today
+    let time = today.getTime()
+    let formatToday = yyyy + '-' + mm + '-' + dd + "T" + time;
+    setRightNow(formatToday) // todays date in db format set in state
+  }
+
+  async function archiveShows() {
+    // find shows that have gone by or shows that are booked with no dates and send them to archive
+
+    // get all data from shows collection
+    const showsRef = firestore.collection('shows')
+    // query for booked shows
+    const showSnapshot = await showsRef.where('status', '==', 'Booked').get()
+    // create array of all Booked shows
+    const allShowsArray = showSnapshot.docs.map(doc => {
+      return { id: doc.id, ...doc.data() }
+    });
+    // iterate over booked shows and update status if it meets filter conditions
+    allShowsArray.map(doc => {
+      // get last show date from date array
+      let lastShow = doc.dates[doc.dates.length - 1]
+      // filter for 'all shows have happened' or 'show has no dates
+      // if above conditions are true then archive the show
+      if (lastShow < rightNow || doc.dates.length < 1) {
+        let statusUpdate = "Archive"
+        updateDB(doc.id, statusUpdate)
+      }
+      // update function for show status in db
+      async function updateDB(showId, showStatus) {
+        await firestore.collection("shows").doc(showId).update({ status: showStatus })
+      }
+    })
+  }
+
+  // get all Booked shows
+  async function getNowPlaying() {
 
     // get all data from shows collection
     const showsRef = firestore.collection('shows')
@@ -40,38 +72,26 @@ function Home() {
     const allShowsArray = showSnapshot.docs.map(doc => {
       return { id: doc.id, ...doc.data() }
     })
-
     const currentShows = allShowsArray
-
+    // Sort new array by date[0] soonest to latest
     currentShows.sort(function (a, b) {
       return new Date(a.dates[0]) - new Date(b.dates[0]);
     });
-
+    // set sorted shows array in state
     setAllShows(currentShows)
-    // setSplashImage(placeholderImage)
-    // console.log("today is: ", date)
-    console.log("Today is: ", date)
-    
-    console.log("current shows: ", currentShows)
-
+    // set default image if no shows
+    setSplashImage(placeholderImage)
   }
 
-  // if (!allShows) getNowPlaying()
-
+  // triggers at page load 
   useEffect(() => {
-    setRightNow(new Date())
-    
-    console.log(rightNow)
+    getRightNow()
+    archiveShows()
     getNowPlaying()
-  
-    
   }, [])
 
-
-
-
+  // fires when AllShows changes and populates Splash and Next shows
   useEffect(() => {
-    console.log("all shows: ", allShows)
     // do this if all shows.length >= 1
     if (allShows.length >= 1) {
       setSplashId(allShows[0].id)
@@ -88,15 +108,7 @@ function Home() {
       setNextDates(allShows[1].dates)
       setNextShowNum(allShows[1].dates.length)
     }
-
-    // return () => {
-    //   cleanup
-    // }
   }, [allShows])
-
-  // console.log("splashDates is: ", splashDates[0])
-  // console.log(allShows);
-
 
   // this function changes the date object into a readable string formatted for 12 hour display
   function changeDate(date) {
@@ -116,13 +128,13 @@ function Home() {
     }
     //------- changing the military time string to normal time
     let newTime;
-    ///sepparating the string at the T.
+    ///separating the string at the T.
     let dateFix = date.split("T");
     let startDate = dateFix[0];
     let month = startDate.split("-")[1];
     let day = startDate.split("-")[2];
     let endDate = months[month] + " " + day + '  -  ';
-    /// targetting second item of the dateFix array (which is the time)
+    /// targeting second item of the dateFix array (which is the time)
     let time = dateFix[1];
     // hours is the first index item of the time array which was split at the :
     let hours = time.split(":")[0];
@@ -140,6 +152,7 @@ function Home() {
   }
 
   // go to single artist display page by id
+  // fired by Artist Info button
   function showSplashArtist() {
     history.push(`/Artist#${splashId}`)
   }
@@ -148,6 +161,7 @@ function Home() {
   }
 
   return (
+    // This is the entire page container
     <div className="homeContainer">
       {/* Firefly Divs that draws to the page */}
       <div className="firefly"></div>
@@ -166,19 +180,15 @@ function Home() {
       <div className="firefly"></div>
       <div className="firefly"></div>
 
+      {/* Main show container */}
       <div className="currentPlay">
         <div id="nowPlaying">
-
           <img id="homeImage" src={splashImage} alt="Now Showing" />
-
         </div>
         <div className="currentPlayText">
-
           <h2>{`${splashTitle}`}</h2>
-
-          {/* change this to a .map function */}
+          {/* FUTURE UPDATE: change this to a .map function */}
           {splashShowNum === 0 ? <div>Showtimes coming soon.</div> : console.log()}
-          {/* {splashShowNum >= 1 ? <br /> : console.log()} */}
           {splashShowNum >= 1 ? changeDate(splashDates[0]) : console.log()}
           {splashShowNum >= 2 ? <br /> : console.log()}
           {splashShowNum >= 2 ? changeDate(splashDates[1]) : console.log()}
@@ -190,22 +200,22 @@ function Home() {
           {splashShowNum >= 5 ? changeDate(splashDates[4]) : console.log()}
           {splashShowNum >= 6 ? <br /> : console.log()}
           {splashShowNum >= 6 ? changeDate(splashDates[5]) : console.log()}
-
-
           <br />
+          {/* Artist Info button */}
           {splashId ? <button onClick={showSplashArtist}>- Artist Info -</button> : console.log()}
-
         </div>
       </div>
 
+      {/* This is a MONSTER Bob Stauss style ternary that fires only if there is a next show */}
       {nextId ?
+        // Next show container
         <div className="whatNext">
           <div className="whatNextImg">
             <img id="nextImage" src={nextImage} alt={'show pic'} />
           </div>
           <div className="whatNextText">
             <h2>{`${nextTitle}`}</h2>
-            {/* change this to a .map function */}
+            {/* FUTURE UPDATE: change this to a .map function */}
             {nextShowNum === 0 ? <div>Showtimes coming soon.</div> : console.log()}
             {nextShowNum >= 1 ? changeDate(nextDates[0]) : console.log()}
             {nextShowNum >= 2 ? <br /> : console.log()}
@@ -219,10 +229,11 @@ function Home() {
             {nextShowNum >= 6 ? <br /> : console.log()}
             {nextShowNum >= 6 ? changeDate(nextDates[5]) : console.log()}
             <br />
-            <button onClick={showNextArtist}>- Artist Info -</button> 
-         </div>
+            {/* Artist Info button */}
+            <button onClick={showNextArtist}>- Artist Info -</button>
+          </div>
         </div>
-        : console.log()}
+        : ""}
     </div>
   );
 }

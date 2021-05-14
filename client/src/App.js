@@ -1,6 +1,5 @@
 //------------Imports -----------
-import React, { useState, useEffect } from "react";
-import { firestore } from './reactComponents/firebase/firebase';
+import React from "react";
 import "./App.css";
 import Nav from "./reactComponents/home/Nav";
 import Home from "./reactComponents/home/Home";
@@ -24,51 +23,7 @@ import Dashboard from "./reactComponents/forms/Dashboard";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
-  // the purpose of this is to find shows that have gone by or show that are booked with no dates and send them to archive
-  async function archiveShows() {
-    // get all data from shows collection
-    const showsRef = firestore.collection('shows')
-    // query for booked shows
-    const showSnapshot = await showsRef.where('status', '==', 'Booked').get()
-    // create array of all Booked shows
-    const allShowsArray = showSnapshot.docs.map(doc => {
-      return { id: doc.id, ...doc.data() }
-    });
-
-    // iterate over booked shows and update status if it meets filter conditions
-    allShowsArray.map(doc => {
-      // get system date 
-      let today = new Date();
-      // re-format date from system to match db
-      let dd = String(today.getDate()).padStart(2, '0');
-      let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-      let yyyy = today.getFullYear();
-      let time = today.getTime()
-      today = yyyy + '-' + mm + '-' + dd + "T" + time;
-      let date = today // todays date in db format
-
-      // get last show date from date array
-      let lastShow = doc.dates[doc.dates.length - 1]
-
-      // filter for 'all shows have happened' or 'show has no dates
-      // if above conditions are true then archive the show
-      if (lastShow < date || doc.dates.length < 1) {
-        doc.status = "Archive"
-        updateDB(doc.id, doc.status)
-      }
-      // update function for show status in db
-      async function updateDB(showId, showStatus) {
-        await firestore.collection("shows").doc(showId).update({ status: showStatus })
-      }
-      return (doc)
-    })
-  }
-
-  // fire archiveShos on page load
-  useEffect(() => {
-    archiveShows()
-  }, [])
-
+  
   //be sure to make adminDash, editShow, and addShow private routes!
 
   return (
