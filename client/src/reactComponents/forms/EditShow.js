@@ -415,7 +415,7 @@ return (
                     {numberOfShows >= 1 ? (
                       <Form.Group>
                         <Form.Control
-                          onChange={(evt) => handleDates(evt)}
+                          onChange={handleDates}
                           type="dateTime-local"
                           className="dates mb-1"
                           value={dates[0]}
@@ -436,7 +436,7 @@ return (
                     {numberOfShows >= 2 ? (
                       <Form.Group>
                         <Form.Control
-                          onChange={(evt) => handleDates(evt)}
+                          onChange={handleDates}
                           type="dateTime-local"
                           className="dates"
                           value={dates[1]}
@@ -457,7 +457,7 @@ return (
                     {numberOfShows >= 3 ? (
                       <Form.Group>
                         <Form.Control
-                          onChange={(evt) => handleDates(evt)}
+                          onChange={handleDates}
                           type="dateTime-local"
                           className="dates"
                           value={dates[2]}
@@ -478,7 +478,7 @@ return (
                     {numberOfShows >= 4 ? (
                       <Form.Group>
                         <Form.Control
-                          onChange={(evt) => handleDates(evt)}
+                          onChange={handleDates}
                           type="dateTime-local"
                           className="dates"
                           value={dates[3]}
@@ -499,7 +499,7 @@ return (
                     {numberOfShows >= 5 ? (
                       <Form.Group>
                         <Form.Control
-                          onChange={(evt) => handleDates(evt)}
+                          onChange={handleDates}
                           type="dateTime-local"
                           className="dates"
                           value={dates[4]}
@@ -520,7 +520,7 @@ return (
                     {numberOfShows >= 6 ? (
                       <Form.Group>
                         <Form.Control
-                          onChange={(evt) => handleDates(evt)}
+                          onChange={handleDates}
                           type="dateTime-local"
                           className="dates"
                           value={dates[5]}
