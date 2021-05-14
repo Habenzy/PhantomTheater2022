@@ -10,7 +10,7 @@ function Home() {
   let [rightNow, setRightNow] = useState(new Date())
   let [allShows, setAllShows] = useState("")
   let [splashId, setSplashId] = useState("")
-  let [splashImage, setSplashImage] = useState("")
+  let [splashImage, setSplashImage] = useState(placeholderImage)
   let [splashTitle, setSplashTitle] = useState("Shows coming Soon!")
   let [splashDates, setSplashDates] = useState([])
   let [splashShowNum, setSplashShowNum] = useState(0)
@@ -29,7 +29,7 @@ function Home() {
     let dd = String(today.getDate()).padStart(2, '0');
     let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
     let yyyy = today.getFullYear();
-    today = yyyy + '-' + mm + '-' + dd + "T00:00";
+    let date = yyyy + '-' + mm + '-' + dd + "T00:00";
   //  let date = today
 
     // get all data from shows collection
@@ -48,9 +48,9 @@ function Home() {
     });
 
     setAllShows(currentShows)
-    setSplashImage(placeholderImage)
+    // setSplashImage(placeholderImage)
     // console.log("today is: ", date)
-    console.log("Today is: ", today)
+    console.log("Today is: ", date)
     
     console.log("current shows: ", currentShows)
 

@@ -55,7 +55,7 @@ function App() {
 
          let lastShow = doc.dates[doc.dates.length - 1]
 
-         if (lastShow < date) {
+         if (lastShow < date || doc.dates.length < 1) {
             doc.status = "Archive"
             updateDB(doc.id, doc.status)
          }

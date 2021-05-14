@@ -78,7 +78,8 @@ function Dashboard() {
               <AddShow
               editProposal={editProposal} />
             ) : toggle === "shows" ? (
-              <AllShows />
+                <AllShows
+                  editShow={ editShow} />
             ) : toggle === "proposals" ? (
               <AllProposals />
             ) : toggle === "archive" ? (
