@@ -282,7 +282,7 @@ export default function ArtistForm() {
         style={{ minHeight: "80vh", minWidth: "90vw" }}
       >
         <div className="w-100" >
-          <h2 className="text-center mb-2">Artist Information Form</h2>
+          <h2 className="text-center mb-2">Fuckin Artist Information Form 'N Shit</h2>
           <Card>
             {/* Start of the form */}
             <Form
