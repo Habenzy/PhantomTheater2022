@@ -48,7 +48,7 @@ function Home() {
       let lastShow = doc.dates[doc.dates.length - 1]
       // filter for 'all shows have happened' or 'show has no dates
       // if above conditions are true then archive the show
-      console.log(doc.title, ' ', lastShow, ' ', rightNow)
+      // console.log(doc.title, ' ', lastShow, ' ', rightNow)
       if (lastShow < rightNow) {
         let statusUpdate = "Archive"
         updateDB(doc.id, statusUpdate)
