@@ -49,7 +49,8 @@ function AllShows() {
       console.log("Delete show Fired", showId)
       const allShowsIn = allShows
       await firestore.doc(`shows/${showId}`).delete()
-      const newShowsIn = allShowsIn.filter(show => show.id !== showId)
+     const newShowsIn = allShowsIn.filter(show => show.id !== showId)
+    //  NEED TO ADD FUNCTION TO DELETE ALL STORAGE AT THIS ID
       setAllShows(newShowsIn)
       setModal('false')
    }

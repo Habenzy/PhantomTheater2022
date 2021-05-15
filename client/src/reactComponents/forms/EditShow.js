@@ -186,6 +186,9 @@ export default function EditShow() {
     if (dates.length === 0) {
       await firestore.collection("shows").doc(id).update({ status: "Archive" })
     }
+    // if (dates.length >= 1) {
+    //   await firestore.collection("shows").doc(id).update({ status: "Booked" })
+    // } 
     history.push("/adminDash");
   }
 
@@ -193,20 +196,20 @@ export default function EditShow() {
 
   const handleAddShow = () => {
     setNumberOfShows((numberOfShows += 1));
-    console.log(numberOfShows);
   };
 
 
   const handleDates = (evt) => {
-    console.log('Handle Dates fired', dates)
     evt.preventDefault();
+
     let currentDates = dates;
     currentDates.push(evt.target.value);
     currentDates.sort();
-    console.log("current Dates: ", currentDates)
+
     setDates(currentDates);
     setNumberOfShows(numberOfShows)
-    console.log("dates after setDates ", dates)
+
+    evt.target.disabled = true
   };
 
 
@@ -721,6 +724,7 @@ export default function EditShow() {
 
                 <Card.Body className="imageCard">
                   {/* Splash Image Container **************************************/}
+                  {/* NEED TO ADD FUNCTION TO DELETE ALL STORAGE AT THIS ID */}
                   <div className="imageUpload">
                     <h5>Image Uploads:</h5>
                     <Form.Group>
@@ -758,6 +762,7 @@ export default function EditShow() {
                         setImageLg("")
                         setImageLgName("")
                         resetProgressLg()
+                        //  NEED TO ADD FUNCTION TO DELETE ALL STORAGE AT THIS ID
                       }}
                     >
                       Delete Splash Image

@@ -512,6 +512,7 @@ export default function ArtistForm() {
                         setImageLg("")
                         setImageLgName("")
                         resetProgressLg()
+                        //  NEED TO ADD FUNCTION TO DELETE ALL STORAGE AT THIS ID
                       }}
                     >
                       Delete Splash Image

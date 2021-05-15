@@ -7,7 +7,15 @@ import placeholderImage from '../images/barn3crop.jpg'
 
 //------ Homepage component function with currently playing as central image and next show -----------
 function Home() {
-  let [rightNow, setRightNow] = useState(new Date())
+  let [rightNow, setRightNow] = useState(() => {
+    // todays date in db format set in state
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, '0');
+    let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    let yyyy = today.getFullYear();
+    let formatToday = yyyy + '-' + mm + '-' + dd + "T00:00";
+    return formatToday
+  })
   let [allShows, setAllShows] = useState("")
   let [splashId, setSplashId] = useState("")
   let [splashImage, setSplashImage] = useState("")
@@ -21,17 +29,6 @@ function Home() {
   let [nextShowNum, setNextShowNum] = useState(0)
   const history = useHistory()
 
-  function getRightNow() {
-    // get system date 
-    let today = new Date();
-    // re-format date from system to match db
-    let dd = String(today.getDate()).padStart(2, '0');
-    let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-    let yyyy = today.getFullYear();
-    let time = today.getTime()
-    let formatToday = yyyy + '-' + mm + '-' + dd + "T" + time;
-    setRightNow(formatToday) // todays date in db format set in state
-  }
 
   async function archiveShows() {
     // find shows that have gone by or shows that are booked with no dates and send them to archive
@@ -47,10 +44,12 @@ function Home() {
     // iterate over booked shows and update status if it meets filter conditions
     allShowsArray.map(doc => {
       // get last show date from date array
+
       let lastShow = doc.dates[doc.dates.length - 1]
       // filter for 'all shows have happened' or 'show has no dates
       // if above conditions are true then archive the show
-      if (lastShow < rightNow || doc.dates.length < 1) {
+      console.log(doc.title, ' ', lastShow, ' ', rightNow)
+      if (lastShow < rightNow) {
         let statusUpdate = "Archive"
         updateDB(doc.id, statusUpdate)
       }
@@ -85,7 +84,6 @@ function Home() {
 
   // triggers at page load 
   useEffect(() => {
-    getRightNow()
     archiveShows()
     getNowPlaying()
   }, [])
