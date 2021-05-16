@@ -365,7 +365,7 @@ export default function EditShow() {
                   </Form.Group>
                   <Form.Group>
                     <Form.Label>Show Blurb:</Form.Label>
-                    <p>This will appear on the Artists page.</p>
+                    <p>This will appear on the Seasons page.</p>
                     <textarea
                       className="form-control"
                       rows="4"

@@ -6,24 +6,11 @@ const port = process.env.PORT || 5000;
 const nodemailer = require("nodemailer");
 require("dotenv").config();
 
-
 //-------------------------------- middleware------------------------------//
 app.use(express.static(path.resolve("./client/build")));
-//for future self: body-parser is deprecated. 'body parsing' just looks like this now
-app.use(express.urlencoded({ extended: true }))
-app.use(express.json())
-
-//** apparently none of this is needed! */
-
-// app.use(express.static(path.resolve("./client/public")))
-
-//middleware for email alert
-
-// commented out for time being
-// app.use(urlencoded({ extended: true }));
-// app.use(json());
-// app.use(cors());
-
+//for future self: body-parser is deprecated. 'body just looks like this now
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // path home
 app.get("*", (req, res) => {
@@ -32,11 +19,10 @@ app.get("*", (req, res) => {
 
 //--------------------email sending functionality---------------------//
 const transporter = nodemailer.createTransport({
-  host: "smtp.ethereal.email",
-  port: 587,
+  service: "AOL",
   auth: {
-    user: "shaun.rutherford@ethereal.email",
-    pass: "pqdtSZ7fCxqeBwYVkf",
+    user: process.env.NODEMAILER_USER,
+    pass: process.env.NODEMAILER_PASS,
   },
 });
 
@@ -57,14 +43,13 @@ app.post("/send", (req, res) => {
   let phone = req.body.phone;
   let description = req.body.description;
 
-
   //e-mail body template
   let mailBody = `Artist Name: ${artist}\nEmail: ${email}\nPhone: ${phone}\nDescription: ${description}`;
 
   //structure of e-mail sent
   let sentMsg = {
-    from: artist,
-    to: "bschussid@aol.com",
+    from: process.env.NODEMAILER_USER,
+    to: process.env.NODEMAILER_RECIPIENT,
     subject: "You have a new show proposal!",
     text: mailBody,
   };
