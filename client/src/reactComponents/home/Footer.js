@@ -28,7 +28,7 @@ function Footer() {
       <div>
         <p>Copyright Phantom Theater 2020</p>
       </div>
-      <Link to="/login">Admin Login</Link>
+      <Link to="/adminDash">Admin Login</Link>
     </div>
   );
 }

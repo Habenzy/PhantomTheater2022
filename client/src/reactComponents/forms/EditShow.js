@@ -6,40 +6,11 @@ import { useHistory } from "react-router-dom";
 import "../formcss/editShow.css";
 import NumberFormat from "react-number-format";
 
-// let nullShow = {
-//   title: "title",
-//   type: "type",
-//   blurb: "blurb",
-//   status: "status",
-//   dates: [],
-//   artist: "artist",
-//   contactName: "contactName",
-//   phone: "phone",
-//   email: "email",
-//   bio: "bio",
-//   description: "description",
-//   imageLg: "imageLg",
-//   imageLgName: "imageLgName",
-//   image1: "image1",
-//   image1Name: "image1Name",
-//   image2: "image2",
-//   image2Name: "image2Name",
-//   image3: "image3",
-//   image3Name: "image3Name",
-//   video1: "video1",
-//   artistWebsite: "artistWebsite",
-//   artistFacebook: "artistFacebook",
-//   artistYouTube: "artistYouTube",
-//   artistInstagram: "artistInstagram",
-//   artistSpotify: "artistSpotify",
-// };
 
 export default function EditShow() {
   let [numberOfShows, setNumberOfShows] = useState(0);
   const history = useHistory();
-  // create state object to hold values from database
-  // let [thisShow, setThisShow] = useState(nullShow);
-
+ 
   // create state objects to hold values from input form
   let [title, setTitle] = useState("");
   let [blurb, setBlurb] = useState("");
@@ -85,7 +56,7 @@ export default function EditShow() {
       alert("no such document", id);
     } else {
       let showInData = showIn.data();
-      // setThisShow(showInData);
+     
       // if it has data then set it in state
       showInData.title ? setTitle(showInData.title) : setTitle("");
       showInData.blurb ? setBlurb(showInData.blurb) : setBlurb("");
@@ -150,8 +121,12 @@ export default function EditShow() {
   //*************************************************** */
 
   async function enterUpdates(event) {
+
     event.preventDefault();
 
+    console.log(dates)
+    setDates((dates.sort()))
+    console.log(dates)
 
     let showUpdate = {
       title: title,
@@ -201,15 +176,15 @@ export default function EditShow() {
 
   const handleDates = (evt) => {
     evt.preventDefault();
-
+    console.log("handleDates fired - ", dates, " #shows ", numberOfShows)
     let currentDates = dates;
     currentDates.push(evt.target.value);
-    currentDates.sort();
+    // currentDates.sort();
 
     setDates(currentDates);
-    setNumberOfShows(numberOfShows)
 
     evt.target.disabled = true
+    console.log("handleDates Done - ", dates, " #shows ", numberOfShows)
   };
 
 
@@ -223,16 +198,17 @@ export default function EditShow() {
     // set new spliced array in state 
     setDates(processDates);
     // decrement num of shows
-  
+
     setNumberOfShows((numberOfShows -= 1));
-    updateDB(id, dates)
+    console.log("dates after delete - ", dates, " #shows ", numberOfShows)
+    //updateDB(id, dates)
   };
 
-  async function updateDB(showId, showDates) {
-    
-    await firestore.collection("shows").doc(showId).update({ dates: showDates })
-    console.log("dates after delete - ", dates, " #shows ", numberOfShows)
-  }
+  // async function updateDB(showId, showDates) {
+
+  //   await firestore.collection("shows").doc(showId).update({ dates: showDates })
+
+  // }
 
 
   //---------------------------image handling-----------------------------------//

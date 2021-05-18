@@ -29,7 +29,9 @@
   "engines": {
     "node": "12.15.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint-plugin-react-hooks": "^4.2.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/phantomtheater/PhantomTheater2021.git"
