@@ -215,15 +215,23 @@ export default function EditShow() {
 
 
   const deleteDate = (evt, showIndex) => {
+    console.log("Delete fired - ", dates, " #shows ", numberOfShows, " index - ", showIndex)
+    // get dates from state
     let processDates = dates;
-    processDates.splice(showIndex, 1).sort();
+    // splice (remove) date at this show index, only one record
+    processDates.splice(showIndex, 1).sort(); // sort low to high
+    // set new spliced array in state 
     setDates(processDates);
-    setNumberOfShows(numberOfShows - 1)
+    // decrement num of shows
+  
+    setNumberOfShows((numberOfShows -= 1));
     updateDB(id, dates)
   };
 
   async function updateDB(showId, showDates) {
+    
     await firestore.collection("shows").doc(showId).update({ dates: showDates })
+    console.log("dates after delete - ", dates, " #shows ", numberOfShows)
   }
 
 
