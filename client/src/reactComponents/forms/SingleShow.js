@@ -54,8 +54,8 @@ export default function SingleShow(props) {
 
        <div className='singleShowTitle'><h4>Title : {props.title}</h4></div>
          <h5>Status: {props.status}</h5>
-         <span>Artist Link: <a className="dashLink" href={`http://localhost:3000/artistForm#${props.id}`}>
-         {`http://localhost:3000/artistForm#${props.id}`}
+         <span>Artist Link: <a className="dashLink" href={`https://www.phantomtheater.org/artistForm#${props.id}`}>
+         {`https://www.phantomtheater.org/artistForm#${props.id}`}
          </a></span>
         
          <div className="singleShowLine"><p>Artist:  </p> {props.artist}</div>

@@ -7,8 +7,8 @@ export default function SingleShow(props) {
       <div className="single_proposal">
          {/* don't forget to set this to phantomtheater.org/artistForm#${props.id} 
          and make sure the routing is all set up for new domain*/}
-       <span>Artist Link: <a className="dashLink" href={`http://localhost:3000/artistForm#${props.id}`}>
-         {`http://localhost:3000/artistForm#${props.id}`}
+       <span>Artist Link: <a className="dashLink" href={`https://www.phantomtheater.org/artistForm#${props.id}`}>
+         {`https://www.phantomtheater.org/artistForm#${props.id}`}
          </a></span>
     
        <h4> {props.title} </h4>
