@@ -189,7 +189,7 @@ function Home() {
         <div className="currentPlayText">
           <h2>{`${splashTitle}`}</h2>
           {/* FUTURE UPDATE: change this to a .map function */}
-          {splashShowNum === 0 ? (
+          {(allShows.length >= 1 && splashShowNum === 0) ? (
             <div>Showtimes coming soon.</div>
           ) : (
             console.log()
