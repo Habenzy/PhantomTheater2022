@@ -114,6 +114,7 @@ export default function EditShow() {
 
   useEffect(() => {
     getOneShow();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
 

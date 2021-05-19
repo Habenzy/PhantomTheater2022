@@ -7,7 +7,7 @@ import placeholderImage from "../images/barn3crop.jpg";
 
 //------ Homepage component function with currently playing as central image and next show -----------
 function Home() {
-  let [rightNow, setRightNow] = useState(() => {
+  let [rightNow] = useState(() => {
     // todays date in db format set in state
     let today = new Date();
     let dd = String(today.getDate()).padStart(2, "0");
@@ -59,6 +59,7 @@ function Home() {
           .doc(showId)
           .update({ status: showStatus });
       }
+      return doc
     });
   }
 
@@ -87,6 +88,7 @@ function Home() {
   useEffect(() => {
     archiveShows();
     getNowPlaying();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // fires when AllShows changes and populates Splash and Next shows
