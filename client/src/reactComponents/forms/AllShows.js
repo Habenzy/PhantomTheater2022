@@ -35,7 +35,6 @@ function AllShows() {
    
   useEffect(() => {
     seeAllShows()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
   
    async function handleDelete(id, title) {

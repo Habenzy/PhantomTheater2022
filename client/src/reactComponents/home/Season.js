@@ -27,7 +27,6 @@ function Season() {
 
   useEffect(() => {
     seeAllShows()
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   
   if (allShows) { allShows.sort((a, b) => (a.dates[0] > b.dates[0]) ? 1 : -1)}

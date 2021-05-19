@@ -1,6 +1,6 @@
 //---------------------------------------------Imports---------------------------------------------------
 import React from "react";
-// import "./Footer.css";
+import "./Footer.css";
 import Facebook from "../images/facebook.png";
 import Instagram from "../images/instagram.png";
 import { Link } from "react-router-dom";
