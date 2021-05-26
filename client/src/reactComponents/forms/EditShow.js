@@ -159,7 +159,7 @@ export default function EditShow() {
 
     await firestore.collection("shows").doc(id).set(showUpdate);
     if (dates.length === 0) {
-      await firestore.collection("shows").doc(id).update({ status: "Archive" })
+      await firestore.collection("shows").doc(id).update({ status: "Proposal" })
     }
     // if (dates.length >= 1) {
     //   await firestore.collection("shows").doc(id).update({ status: "Booked" })
