@@ -1,7 +1,8 @@
 //-------------------------------------Imports--------------------------
 import React from "react";
-import Masks from "../images/barn4.jpg";
+import Barn from "../images/barn4.jpg";
 import Map from "../images/map.png";
+import Tracy from "../images/tracyMartin.jpg"
 import "./About.css";
 
 //------About Page component function containing Phantom Theater information
@@ -15,7 +16,7 @@ function About() {
 ALWAYS ENTERTAINING, NOT TO BE MISSED!</h3>
             <div className="aboutBox1">
                <div className="aboutImgDiv1">
-                  <img className="aboutImage1" src={Masks} alt="" />
+                  <img className="aboutImage1" src={Barn} alt="" />
                </div>
                <div className="text">
                   Phantom Theater was created in Warren, Vermont in 1985. Since its
@@ -39,6 +40,13 @@ ALWAYS ENTERTAINING, NOT TO BE MISSED!</h3>
             <h4>BOARD OF DIRECTORS</h4>
 
             <div className="board">Beth Binns Schoellkopf<br /> Laura Brines<br /> Dan Eckstein <br /> Janet Hubbard-Brown <br />Dana Jinkins <br />Sheryl Kurland-Platt<br />Lexi Leacock <br /> Tracy Martin<br />  Mary Moffroid<br />  Sucosh Norton<br />  Julia Purinton<br /> Jim Sanford<br />  Kate Youngdahl</div>
+            
+         <h4>ARTISTIC DIRECTOR: Tracy Martin</h4>
+
+         <figure>
+           <img src={Tracy} alt="Tracy Martin"></img>
+           <figcaption>Tracy Martin</figcaption>
+         </figure>
 
 
             <div className="line"></div>
