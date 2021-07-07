@@ -62,16 +62,15 @@ function SeasonEvent(props) {
       </p>
       <p className="blurb">{props.blurb}</p>
       <br />
-
       
       {numberOfShows >= 1 ? <p className="date">{changeDate(props.dates[0])}</p> : console.log()}
       {numberOfShows >= 2 ? <p className="date">{changeDate(props.dates[1])}</p> : console.log()}
       {numberOfShows >= 3 ? <p className="date">{changeDate(props.dates[2])}</p> : console.log()}
       {numberOfShows >= 4 ? <p className="date">{changeDate(props.dates[3])}</p> : console.log()}
+      {numberOfShows >= 5 ? <p className="date">{changeDate(props.dates[4])}</p> : console.log()}
+      {numberOfShows >= 6 ? <p className="date">{changeDate(props.dates[5])}</p> : console.log()}
 
-      <p className="date">{props.dates[4]}</p>
-   
-      <div className="line"></div>
+       <div className="line"></div>
     </div>
   );
 }
