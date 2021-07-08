@@ -20,7 +20,7 @@ function ArtistEvent(props) {
       </div>
 
       <div className="textContainer">
-        <p>{props.bio}</p>
+        <div id="bioFormat">{props.bio}</div>
         <h5> {props.email}</h5>
         <div className="artistContact">
           {props.website ? <a href={props.website } target="blank"><img src={websiteIcon} alt="" style={{ width: "50px" }} ></img></a> : ""}

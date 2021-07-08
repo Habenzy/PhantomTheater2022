@@ -36,6 +36,10 @@
   height: 100%
 }
 
+#bioFormat {
+  white-space: pre-line;
+}
+
 .currentPlayText {
   color: white;
   text-align: left;
