@@ -25,7 +25,9 @@ function Donate() {
           <br />
           American Flatbread
           <br />
-          Artisans Hand
+          Aonymous
+          <br />
+          Artisans' Gallery
           <br />
           Baked Beads
           <br />
@@ -34,8 +36,6 @@ function Donate() {
           Dana Barrows
           <br />
           Better Travel
-          <br />
-          Big Town Gallery
           <br />
           Broadleaf Landscape Architecture
           <br />
@@ -67,27 +67,19 @@ function Donate() {
           <br />
           Maclay Architects
           <br />
-          Mad River Massage
-          <br />
           Mad River Web
           <br />
           Mad River Hydro
           <br />
-          Mad River Massage
-          <br />
           Medusa Studio
           <br />
           Mehurons
-          <br />
-          Northern Reliability
           <br />
           The Pitcher Inn
           <br />
           R. H. Travers Company
           <br />
           Sanford Strauss Architects
-          <br />
-          Scout's Honor Creamery
           <br />
           Sellers & Company Architecture
           <br />
@@ -97,9 +89,7 @@ function Donate() {
           <br />
           The Tree House Guys
           <br />
-          Tonewood Maple
-          <br />
-          Verilux
+          Trish Hopkins
           <br />
           Vees Flowers
           <br />
