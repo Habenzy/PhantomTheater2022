@@ -21,6 +21,7 @@ import PrivateRoute from "./reactComponents/forms/PrivateRoute";
 import { AuthProvider } from "./reactComponents/forms/AuthContext";
 import Dashboard from "./reactComponents/forms/Dashboard";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Sponsors from "./reactComponents/forms/Sponsors";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
             <PrivateRoute path="/adminDash" component={Dashboard} />
             <PrivateRoute path="/editShow" component={EditShow} />
             <PrivateRoute path="/addShow" component={AddShow} />
+            <Route path='/sponsorEdit' component={Sponsors} />
             <Route path="/login" component={Login} />
             <Route path="/forgot-password" component={ForgotPassword} />
             <Route path="/proposalForm" component={ProposalForm} />
