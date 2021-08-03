@@ -26,7 +26,7 @@ function Donate() {
           <br />
           American Flatbread
           <br />
-          Aonymous
+          Anonymous
           <br />
           Artisans' Gallery
           <br />
