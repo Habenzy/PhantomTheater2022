@@ -24,7 +24,7 @@ function Sponsors() {
         className="d-flex align-items center justify-content-center mt-5"
         style={{ minHeight: "80vh", maxWidth: "420px" }}
       >
-        <Card>
+        <Card className="w-100">
           <Card.Body>
             <Form onSubmit={addSponsor}>
               <Form.Group id="sponsorAdd">
