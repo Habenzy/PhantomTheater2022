@@ -1,8 +1,27 @@
 //-------------------------------------Imports--------------------------
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Donate.css";
+import { firestore } from "../firebase/firebase";
 
 function Donate() {
+  let [sponsorList, setSponsorList] = useState([]);
+
+  // get sponsors from DB
+  async function getSponsors() {
+    const sponsorRef = firestore.collection("sponsors");
+    const sponsorSnapshot = await sponsorRef.get();
+    const sponsorArray = sponsorSnapshot.docs.map((doc) => {
+      return { id: doc.id, ...doc.data() };
+    });
+
+    setSponsorList(sponsorArray);
+  }
+
+  // get sponsors on page load
+  useEffect(() => {
+    getSponsors();
+  }, []);
+
   return (
     <div className="donate">
       <div className="donateWrapper">
@@ -22,7 +41,20 @@ function Donate() {
             THANK YOU TO ALL OUR SPONSORS!</p>
           <br />
           <div className="sponsorsList">
-            About Being
+            <ul>
+              {!sponsorList ? (
+                <h3 style={{ color: "white" }}>Loading Sponsors</h3>
+              ) : (
+                sponsorList.map((doc) => {
+                  return (
+                    <li key={doc.id} style={{ color: "white" }}>
+                      {doc.sponsor}
+                    </li>
+                  );
+                })
+              )}
+            </ul>
+            {/* About Being
           <br />
           American Flatbread
           <br />
@@ -96,7 +128,7 @@ function Donate() {
           <br />
           The Warren Store
           <br />
-            <br />
+            <br /> */}
           </div>
           <div className="line"></div>
           <div className="sponsorHowTo">
