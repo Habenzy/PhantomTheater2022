@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Card, Form, Button, Container } from "react-bootstrap";
 import { firestore } from "../firebase/firebase";
+
 // here we need way of handling user input
 // crud functions:
 // read all sponsors from db and map over them to display
@@ -9,13 +10,32 @@ import { firestore } from "../firebase/firebase";
 
 function Sponsors() {
   let [sponsor, setSponsor] = useState("");
+  let [sponsorList, setSponsorList] = useState([]);
 
+  // get sponsors from DB
+  async function getSponsors() {
+    const sponsorRef = firestore.collection("sponsors");
+    const sponsorSnapshot = await sponsorRef.get();
+    const sponsorArray = sponsorSnapshot.docs.map((doc) => {
+      return { id: doc.id, ...doc.data() };
+    });
+
+    setSponsorList(sponsorArray);
+  }
+
+  // get sponsors on page load
+  useEffect(() => {
+    getSponsors();
+  }, []);
+
+  // function for adding a sponsor
   async function addSponsor(e) {
     e.preventDefault();
     let sponsorAdded = {
       sponsor: sponsor,
     };
     firestore.collection("sponsors").doc().set(sponsorAdded);
+    alert("Sponsor has been added");
   }
 
   return (
@@ -38,6 +58,19 @@ function Sponsors() {
                 Submit
               </Button>
             </Form>
+            <ul>
+              {!sponsorList ? (
+                <h3 style={{ color: "white" }}>Loading Sponsors</h3>
+              ) : (
+                sponsorList.map((doc) => {
+                  return (
+                    <li key={doc.id} style={{ color: "white" }}>
+                      {doc.sponsor}
+                    </li>
+                  );
+                })
+              )}
+            </ul>
           </Card.Body>
         </Card>
       </Container>
