@@ -44,10 +44,11 @@ function Sponsors() {
   // function for deleting a sponsor
   async function deleteSponsor(id) {
     await firestore.doc(`sponsors/${id}`).delete();
-    console.log(id);
-    console.log("delete function fired");
     getSponsors();
   }
+
+  // const example = ['american flatbread', 'about being', 'landscaping']
+  // example.sort()
 
   return (
     <div>
