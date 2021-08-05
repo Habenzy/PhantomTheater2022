@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Card, Form, Button, Container } from "react-bootstrap";
 import { firestore } from "../firebase/firebase";
+import SingleSponsor from "./SingleSponsor";
 
 // here we need way of handling user input
 // crud functions:
@@ -35,14 +36,24 @@ function Sponsors() {
       sponsor: sponsor,
     };
     firestore.collection("sponsors").doc().set(sponsorAdded);
+    e.target.sponsorField.value = "";
     alert("Sponsor has been added");
+    getSponsors();
+  }
+
+  // function for deleting a sponsor
+  async function deleteSponsor(id) {
+    await firestore.doc(`sponsors/${id}`).delete();
+    console.log(id);
+    console.log("delete function fired");
+    getSponsors();
   }
 
   return (
     <div>
       <Container
         className="d-flex align-items center justify-content-center mt-5"
-        style={{ minHeight: "80vh", maxWidth: "420px" }}
+        style={{ minHeight: "80vh", maxWidth: "420px", minWidth: "75vw" }}
       >
         <Card className="w-100">
           <Card.Body>
@@ -50,11 +61,13 @@ function Sponsors() {
               <Form.Group id="sponsorAdd">
                 <Form.Label>Sponsor to add:</Form.Label>
                 <Form.Control
+                  name="sponsorField"
                   type="text"
-                  onChange={(e) => setSponsor(e.target.value)}
+                  onBlur={(e) => setSponsor(e.target.value)}
+                  // onChange={(e) => setSponsor(e.target.value)}
                 />
               </Form.Group>
-              <Button id="submit_button" className="w-100" type="submit">
+              <Button id="submit_button" className="w-100 mb-5" type="submit">
                 Submit
               </Button>
             </Form>
@@ -64,9 +77,12 @@ function Sponsors() {
               ) : (
                 sponsorList.map((doc) => {
                   return (
-                    <li key={doc.id} style={{ color: "white" }}>
-                      {doc.sponsor}
-                    </li>
+                    <SingleSponsor
+                      key={doc.id}
+                      deleteThisSponsor={deleteSponsor}
+                      id={doc.id}
+                      sponsor={doc.sponsor}
+                    />
                   );
                 })
               )}
