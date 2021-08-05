@@ -11,10 +11,11 @@
   background-color: #ffae57;
   border: none;
   color: #1d2433;
+  margin: 0
 }
 #submit_button:hover {
   transition: transform 0.3s ease-out;
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .proposal_container h2 {

@@ -8,6 +8,7 @@ import AllShows from "./AllShows";
 import AllProposals from "./AllProposals";
 import AddShow from "./AddShow";
 import ShowArchive from "./ShowArchive";
+import Sponsors from "./Sponsors";
 import "../formcss/dashBoard.css";
 
 function Dashboard() {
@@ -37,6 +38,10 @@ function Dashboard() {
 
   function archive() {
     setToggle("archive");
+  }
+
+  function editSponsors() {
+    setToggle("sponsors");
   }
   //----------------------------------//
 
@@ -89,18 +94,27 @@ function Dashboard() {
             >
               Show Archive
             </Button>
+            <Button
+              className="dash_button"
+              id="showSponsorsButton"
+              onClick={editSponsors}
+              type="submit"
+            >
+              Edit Sponsors
+            </Button>
           </div>
           <div className="line"></div>
           <div>
             {toggle === "add" ? (
               <AddShow editProposal={editProposal} />
             ) : toggle === "shows" ? (
-                <AllShows
-                  editShow={ editShow} />
+              <AllShows editShow={editShow} />
             ) : toggle === "proposals" ? (
               <AllProposals />
             ) : toggle === "archive" ? (
               <ShowArchive />
+            ) : toggle === "sponsors" ? (
+              <Sponsors />
             ) : (
               ""
             )}
