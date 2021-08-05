@@ -20,8 +20,11 @@ function Sponsors() {
     const sponsorArray = sponsorSnapshot.docs.map((doc) => {
       return { id: doc.id, ...doc.data() };
     });
-
-    setSponsorList(sponsorArray);
+    const sortedArray = sponsorArray.sort((a, b) => {
+      return a.sponsor.localeCompare(b.sponsor);
+    });
+    setSponsorList(sortedArray);
+    console.log(sortedArray)
   }
 
   // get sponsors on page load
@@ -37,9 +40,17 @@ function Sponsors() {
     };
     firestore.collection("sponsors").doc().set(sponsorAdded);
     e.target.sponsorField.value = "";
-    alert("Sponsor has been added");
+    // alert("Sponsor has been added");
     getSponsors();
   }
+
+  // function handleKeyPress(target) {
+  //   if (target.charCode == 13) {
+  //     console.log(target.value)
+  //     //   setSponsor(target.value)
+  //     // }
+  //   }
+  // }
 
   // function for deleting a sponsor
   async function deleteSponsor(id) {
@@ -64,7 +75,8 @@ function Sponsors() {
                   name="sponsorField"
                   type="text"
                   onBlur={(e) => setSponsor(e.target.value)}
-                  // onChange={(e) => setSponsor(e.target.value)}
+                  // onKeyPress={handleKeyPress()}
+                // onChange={(e) => setSponsor(e.target.value)}
                 />
               </Form.Group>
               <Button id="submit_button" className="w-100 mb-5" type="submit">

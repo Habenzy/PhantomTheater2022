@@ -13,8 +13,11 @@ function Donate() {
     const sponsorArray = sponsorSnapshot.docs.map((doc) => {
       return { id: doc.id, ...doc.data() };
     });
-
-    setSponsorList(sponsorArray);
+    const sortedArray = sponsorArray.sort((a, b) => {
+      return a.sponsor.localeCompare(b.sponsor);
+    });
+    setSponsorList(sortedArray);
+    console.log(sortedArray)
   }
 
   // get sponsors on page load
@@ -32,12 +35,12 @@ function Donate() {
             <br />
             Every donation counts!   And as a 501.c3 organization, every donation is also tax deductible.  Please consider adding your name to the list of donors today!  <br />Checks can be made out to:  <br />Phantom Theater <br />
             PO Box 373, Warren, VT 05674.
-</p>
+          </p>
         </div>
         <div className="sponsorsWrapper">
           <h1>Sponsors</h1>
           <p className="thankYou">PHANTOM THEATER IS PROUD TO COUNT MANY LOCAL BUSINESSES AND INDIVIDUALS AS FRIENDS
-          AND SUPPORTERS.
+            AND SUPPORTERS.
             THANK YOU TO ALL OUR SPONSORS!</p>
           <br />
           <div className="sponsorsList">
@@ -136,15 +139,15 @@ function Donate() {
               Our sponsors help keep ticket prices low, make special events
               possible, and spread the word about the varied events we present
               each summer.
-            <br />
               <br />
-            To become a sponsor or make a donation, please email us at
-            tracy@madriver.com or call (802) 496-5997.
-            <br />
+              <br />
+              To become a sponsor or make a donation, please email us at
+              tracy@madriver.com or call (802) 496-5997.
+              <br />
               <br />
               <p className="special">SPECIAL THANKS TO THE WARREN ARTS COMMITTEE AND THE ZOOT FUND OF
-              THE VERMONT COMMUNITY FOUNDATION FOR HELPING US PURCHASE ALL NEW
-            FLOORING FOR OUR STAGE IN 2013!</p>
+                THE VERMONT COMMUNITY FOUNDATION FOR HELPING US PURCHASE ALL NEW
+                FLOORING FOR OUR STAGE IN 2013!</p>
             </div>
           </div>
         </div>

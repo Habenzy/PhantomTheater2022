@@ -6,9 +6,8 @@ function SingleSponsor(props) {
     <div>
       <div>
         <h4 style={{ color: "white" }}>
-          {props.sponsor}
           <Button
-            className="ml-4"
+            className="mr-4"
             onClick={() => {
               props.deleteThisSponsor(props.id);
               console.log(props.id);
@@ -16,6 +15,7 @@ function SingleSponsor(props) {
           >
             Delete
           </Button>
+          {props.sponsor}
         </h4>
       </div>
     </div>
