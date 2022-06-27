@@ -35,7 +35,7 @@ function Season() {
   return (
     
     <div className="season_container">
-      <h1>Season 2021</h1>
+      <h1>Season 2022</h1>
       { allShows ?
         
         allShows.map(show => {
