@@ -18,7 +18,7 @@ function Season() {
   async function seeAllShows() {
 
     const showsRef = firestore.collection('shows')
-    const showSnapshot = await showsRef.where('status', '!=', 'Proposal').get()
+    const showSnapshot = await showsRef.where('status', '==', 'Booked').get()
     const allShowsArray = showSnapshot.docs.map(collectAllIdsAndDocs)
     if (!allShows) {
       setAllShows(allShowsArray)
