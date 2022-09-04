@@ -85,14 +85,14 @@ function Home() {
 
   // triggers at page load
   useEffect(() => {
-    archiveShows();
+    // archiveShows();
     getNowPlaying();
   }, []);
 
   // fires when AllShows changes and populates Splash and Next shows
   useEffect(() => {
     // do this if all shows.length >= 1
-    if (allShows.length >= 1) {
+    if (allShows.length >= 1 && allShows[0].dates[allShows[0].dates.length - 1] > Date.now()) {
       setSplashId(allShows[0].id);
       allShows[0].imageLg
         ? setSplashImage(allShows[0].imageLg)
@@ -102,7 +102,7 @@ function Home() {
       setSplashShowNum(allShows[0].dates.length);
     }
 
-    if (allShows.length >= 2) {
+    if (allShows.length >= 2 && allShows[0].dates[allShows[0].dates.length - 1] > Date.now()) {
       setNextId(allShows[1].id);
       setNextImage(allShows[1].imageLg);
       setNextTitle(allShows[1].title);

@@ -635,7 +635,6 @@ export default function ArtistForm() {
                       )}
                       <Form.File
                         className="img_submit mt-3"
-                        className="img_submit"
                         name="image3In"
                         onChange={handleImage3}
                         onClick={resetProgress3}
