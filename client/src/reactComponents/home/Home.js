@@ -226,7 +226,7 @@ function Home() {
             <h2>{`${nextTitle}`}</h2>
             {/* FUTURE UPDATE: change this to a .map function */}
             {nextShowNum === 0 ? (
-              <div>Showtimes coming soon.</div>
+              <div>See you next season!</div>
             ) : (
               console.log()
             )}
