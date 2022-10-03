@@ -39,7 +39,7 @@ ALWAYS ENTERTAINING, NOT TO BE MISSED!</h3>
 
             <h4>BOARD OF DIRECTORS</h4>
 
-            <div className="board">Beth Binns Schoellkopf<br /> Laura Brines<br /> Dan Eckstein <br /> Janet Hubbard-Brown <br />Dana Jinkins <br />Sheryl Kurland-Platt<br />Lexi Leacock <br /> Tracy Martin<br />  Mary Moffroid<br />  Sucosh Norton<br />  Julia Purinton<br /> Jim Sanford<br />  Kate Youngdahl <br /> Bob Stauss <br /> Lucas BATES</div>
+            <div className="board">Beth Binns Schoellkopf<br /> Laura Brines<br /> Dan Eckstein <br /> Janet Hubbard-Brown <br />Dana Jinkins <br />Sheryl Kurland-Platt<br />Lexi Leacock <br /> Tracy Martin<br />  Mary Moffroid<br />  Sucosh Norton<br />  Julia Purinton<br /> Jim Sanford<br />  Kate Youngdahl <br /> Bob Stauss <br /> Lucas Bates</div>
             
          <h4>ARTISTIC DIRECTOR: Tracy Martin</h4>
 
