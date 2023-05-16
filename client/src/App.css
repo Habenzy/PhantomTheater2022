@@ -37,6 +37,7 @@ a.buy-ticket {
   border-radius: 50%;
   background-color: rgb(195, 247, 9);
   color: black;
+  padding: 10px;
 }
 
 a.buy-ticket:hover {

@@ -54,18 +54,6 @@ function AdminForm(props) {
       //for testing
       console.log("show added: ", show);
 
-      //  form clearing functions need testing
-      //  clear form inputs
-      event.target.titleIn.value = "";
-      event.target.blurbIn.value = "";
-      event.target.typeIn.value = "";
-      event.target.showDescriptionInput.value = "";
-      event.target.artistInput.value = "";
-      event.target.contactNameInput.value = "";
-      event.target.phoneInput.value = "";
-      event.target.emailInput.value = "";
-      event.target.bioInput.value = "";
-
       //success message & reroute
       alert("Show has been added!");
 
