@@ -91,7 +91,7 @@ function SeasonEvent(props) {
 
       <br></br>
       <a
-        href="https://sevendaystickets.com/organizations/phantom-theater"
+        href={props.ticketUrl ? props.ticketUrl :"https://sevendaystickets.com/organizations/phantom-theater"}
         target="_blank"
         className="buy-ticket"
       >
