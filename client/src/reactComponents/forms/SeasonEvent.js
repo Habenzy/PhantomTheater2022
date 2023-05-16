@@ -71,6 +71,7 @@ function SeasonEvent(props) {
       {numberOfShows >= 6 ? <p className="date">{changeDate(props.dates[5])}</p> : console.log()}
 
        <div className="line"></div>
+       <a href="https://sevendaystickets.com/organizations/phantom-theater" target="_blank" className="buy-ticket">Buy Tickets</a>
     </div>
   );
 }

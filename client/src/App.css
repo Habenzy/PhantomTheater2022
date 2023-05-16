@@ -32,6 +32,18 @@ p {
   }
 }
 
+a.buy-tickets {
+  font-size: 25px;
+  border-radius: 50%;
+  background-color: rgb(195, 247, 9);
+  color: black;
+}
+
+a.buy-tickets:hover {
+  color: rgb(195, 247, 9);
+  background-color: black;
+}
+
 @media screen and (max-width: 600px) {
   .menuNavBar{
     display: none !important;
