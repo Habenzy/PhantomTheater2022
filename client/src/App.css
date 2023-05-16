@@ -32,14 +32,14 @@ p {
   }
 }
 
-a.buy-tickets {
+a.buy-ticket {
   font-size: 25px;
   border-radius: 50%;
   background-color: rgb(195, 247, 9);
   color: black;
 }
 
-a.buy-tickets:hover {
+a.buy-ticket:hover {
   color: rgb(195, 247, 9);
   background-color: black;
 }
