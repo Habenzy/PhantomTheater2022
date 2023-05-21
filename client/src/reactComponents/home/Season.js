@@ -36,7 +36,7 @@ function Season() {
     
     <div className="season_container">
       <h1>Season 2023</h1>
-      { allShows.length ?
+      { allShows ?
         
         allShows.map(show => {
         return <SeasonEvent
@@ -51,7 +51,7 @@ function Season() {
 
         ></SeasonEvent>
 
-      }) : <p>The 2023 season is under construction... Shows and show times will be posted soon</p>
+      }) : 'loading'
 
       }
 
