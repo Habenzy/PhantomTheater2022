@@ -1,5 +1,5 @@
 
-import { Route, Redirect } from "react-router-dom";
+import { Route, redirect } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 
 //all admin pages are guarded with this 'PrivateRoute' & wraps these components in App.js
@@ -11,7 +11,7 @@ export default function PrivateRoute({ component: Component, ...rest }) {
     <Route
       {...rest}
       render={(props) => {
-        return loggedUser ? <Component {...props} /> : <Redirect to="/login" />;
+        return loggedUser ? <Component {...props} /> : redirect("/");
       }}
     ></Route>
   );
