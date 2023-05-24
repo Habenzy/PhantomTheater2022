@@ -9,7 +9,7 @@ import Artist from "./reactComponents/home/Artist";
 import AllArtist from "./reactComponents/home/AllArtist";
 import Season from "./reactComponents/home/Season";
 import Donate from "./reactComponents/home/Donate";
-import Burger from "./reactComponents/home/Burger.js";
+import Burger from "./reactComponents/home/Burger";
 import AddShow from "./reactComponents/forms/AddShow";
 import AllShows from "./reactComponents/forms/AllShows";
 import Login from "./reactComponents/forms/Login";

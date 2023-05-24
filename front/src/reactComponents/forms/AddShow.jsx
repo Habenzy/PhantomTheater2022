@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { firestore } from "../firebase/firebase";
 import { Form, Button, Card, Container } from "react-bootstrap";
 import NumberFormat from "react-number-format";
 import "../formcss/addShow.css";
-import "./Dashboard.js"
+import "./Dashboard.jsx"
 import splashPlaceholder from "../images/testpattern.gif"
 
 function AdminForm(props) {

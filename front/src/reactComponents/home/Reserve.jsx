@@ -1,4 +1,3 @@
-import React from "react";
 import { Container, Card, Button, Form } from "react-bootstrap";
 import "./Reserve.css";
 import NumberFormat from "react-number-format";

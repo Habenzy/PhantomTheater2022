@@ -1,9 +1,8 @@
 // imports for the Nav Bar -----------------
-import React from "react";
-import Burger from './Burger.js'
+
 import "./BurgerNav.css";
 import { Link } from "react-router-dom";
-import { render } from "react-dom";
+
 
 
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Form, Button, Card, Container } from "react-bootstrap";
 import ProgressBar from "react-bootstrap/ProgressBar";
 // import Image from 'react-bootstrap/Image'

@@ -1,5 +1,5 @@
 // ----------------Imports -----------------------
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./Season.css";
 import { firestore } from "../firebase/firebase";
 import SeasonEvent from '../forms/SeasonEvent';

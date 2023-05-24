@@ -1,5 +1,5 @@
 //-----------------------Imports-----------------------------------
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./Home.css";
 import { firestore } from "../firebase/firebase";
 import { useHistory } from "react-router-dom";

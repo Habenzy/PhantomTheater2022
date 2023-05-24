@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { firestore } from '../firebase/firebase'
 
 import { useHistory } from 'react-router-dom'

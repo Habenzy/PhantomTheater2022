@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import app, { firestore } from "../firebase/firebase";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import { Form, Button, Card, Container, FormLabel } from "react-bootstrap";

@@ -1,5 +1,4 @@
 //---------------------------------------------Imports---------------------------------------------------
-import React from "react";
 import "./Footer.css";
 import Facebook from "../images/facebook.png";
 import Instagram from "../images/instagram.png";

@@ -1,5 +1,5 @@
 //-----------------------------imports for the Nav Bar----------------------------------------------
-import React from "react";
+
 import Logo from "../images/Logo.jpg";
 import "./Nav.css";
 import { Link } from "react-router-dom";

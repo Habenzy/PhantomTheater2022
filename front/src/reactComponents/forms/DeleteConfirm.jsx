@@ -1,4 +1,3 @@
-import React from 'react'
 import "../formcss/deleteConfirm.css"
 
 function DeleteConfirm(props) {
