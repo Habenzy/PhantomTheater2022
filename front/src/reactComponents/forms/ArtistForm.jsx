@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Form, Button, Card, Container } from "react-bootstrap";
 import ProgressBar from "react-bootstrap/ProgressBar";
 // import Image from 'react-bootstrap/Image'
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import app, { firestore } from "../firebase/firebase";
 import NumberFormat from "react-number-format";
 import "../formcss/artistForm.css";
@@ -35,7 +35,7 @@ let nullShow = {
 };
 
 export default function ArtistForm() {
-  const history = useHistory();
+  const history = useNavigate();
   // create state object to hold values from database
   let [thisShow, setThisShow] = useState(nullShow);
 
@@ -180,7 +180,7 @@ export default function ArtistForm() {
     console.log("second: ", showUpdate);
 
     await firestore.collection("shows").doc(id).set(showUpdate);
-    history.push("/");
+    history("/");
   }
 
   //---------------------------image handling-----------------------------------//

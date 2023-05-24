@@ -1,5 +1,4 @@
 //------- Imports -------
-import React from "react";
 import "../formcss/seasonEvent.css";
 
 // -------- Season event component functionality and export

@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { Form, Button, Card, Alert, Container } from "react-bootstrap";
 import { useAuth } from "./AuthContext";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../formcss/login.css";
 
 export default function Login() {
@@ -20,7 +20,7 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
 
   //for re-routing
-  const history = useHistory();
+  const history = useNavigate();
 
   async function handleSubmit(evt) {
     evt.preventDefault();
@@ -32,7 +32,7 @@ export default function Login() {
       console.log();
       //waits for login to happen, otherwise, catch block is run and error is printed
       await login(emailRef.current.value, passwordRef.current.value);
-      history.push("/adminDash");
+      history("/adminDash");
       console.log("Login successful");
     } catch {
       setError("Login Failed");

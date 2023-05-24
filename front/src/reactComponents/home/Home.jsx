@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import "./Home.css";
 import { firestore } from "../firebase/firebase";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import placeholderImage from "../images/barn3crop.jpg";
 
 //------ Homepage component function with currently playing as central image and next show -----------
@@ -155,10 +155,10 @@ function Home() {
   // go to single artist display page by id
   // fired by Artist Info button
   function showSplashArtist() {
-    history.push(`/Artist#${splashId}`);
+    history(`/Artist#${splashId}`);
   }
   function showNextArtist() {
-    history.push(`/Artist#${nextId}`);
+    history(`/Artist#${nextId}`);
   }
 
   return (

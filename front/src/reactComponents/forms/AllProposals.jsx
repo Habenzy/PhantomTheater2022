@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { firestore } from '../firebase/firebase'
 
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import SingleProposal from './SingleProposal'
 import DeleteConfirm from './DeleteConfirm'
 
@@ -16,7 +16,7 @@ export default function AllProposals() {
    const [modal, setModal] = useState("false")
    const [showTitle, setShowTitle] = useState("")
    const [showId, setShowId] = useState("")
-   const history = useHistory()
+   const history = useNavigate()
 
    async function seeAllProposals() {
       // get all data from shows collection
@@ -57,7 +57,7 @@ export default function AllProposals() {
 //edit function
    async function handleEdit(id) {
       console.log('Edit function fired', id)
-      history.push(`/EditShow#${id}`)
+      history(`/EditShow#${id}`)
    }
 
    

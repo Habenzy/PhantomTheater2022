@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { firestore } from '../firebase/firebase';
 
 import SingleShow from './SingleShow'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import DeleteConfirm from './DeleteConfirm'
 
 // repetitive code that gets all ids and documents in a collection for .map
@@ -17,7 +17,7 @@ function AllShows() {
    const [modal, setModal] = useState("false")
    const [showTitle, setShowTitle] = useState("")
    const [showId, setShowId] = useState("")
-   const history = useHistory()
+   const history = useNavigate()
 
    // print list of all shows
    async function seeAllShows() {
@@ -57,7 +57,7 @@ function AllShows() {
 
    async function handleEdit(id) {
       console.log('Edit function fired', id)
-      history.push(`/EditShow#${id}`)
+      history(`/EditShow#${id}`)
    }
 
    async function handleClose() {

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "react-bootstrap";
 import { useAuth } from "./AuthContext";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 // get the database
 
 import AllShows from "./AllShows";
@@ -14,12 +14,12 @@ function Dashboard() {
   const [toggle, setToggle] = useState("");
   //custom hook that has access to user (from AuthContext.js)
   const { loggedUser, logout } = useAuth();
-  const history = useHistory();
+  const history = useNavigate();
 
   //logout function
   function handleLogout() {
     logout();
-    history.push("/login");
+    history("/login");
   }
 
   //----------toggle options----------//

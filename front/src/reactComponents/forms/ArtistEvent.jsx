@@ -1,4 +1,3 @@
-import React from 'react'
 import '../home/Artist.css'
 import websiteIcon from "../images/internet.png";
 import facebookIcon from "../images/facebookb.png";

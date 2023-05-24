@@ -2,14 +2,14 @@ import { useState, useEffect } from "react";
 import app, { firestore } from "../firebase/firebase";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import { Form, Button, Card, Container, FormLabel } from "react-bootstrap";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../formcss/editShow.css";
 import NumberFormat from "react-number-format";
 
 
 export default function EditShow() {
   let [numberOfShows, setNumberOfShows] = useState(0);
-  const history = useHistory();
+  const history = useNavigate();
  
   // create state objects to hold values from input form
   let [title, setTitle] = useState("");
@@ -164,7 +164,7 @@ export default function EditShow() {
     // if (dates.length >= 1) {
     //   await firestore.collection("shows").doc(id).update({ status: "Booked" })
     // } 
-    history.push("/adminDash");
+    history("/adminDash");
   }
 
   //***********   show dates handling   ******************* */

@@ -3,13 +3,13 @@
 import React, { useState } from "react";
 import { Form, Button, Card, Container } from "react-bootstrap";
 import { firestore } from "../firebase/firebase";
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import "../formcss/proposal.css"
 import NumberFormat from 'react-number-format'
 
 function ProposalForm() {
   //hook set-up
-  const history = useHistory()
+  const history = useNavigate()
   let [artist, setArtist] = useState("");
   let [description, setDescription] = useState("");
   let [phone, setPhone] = useState("");
@@ -52,7 +52,7 @@ function ProposalForm() {
     event.target.phone.value = "";
     event.target.email.value = "";
     alert(`Thank you ${artist}, for submitting your proposal.`)
-    history.push('/')
+    history('/')
   }
 
   return (

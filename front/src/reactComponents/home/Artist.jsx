@@ -1,5 +1,5 @@
 // ---------------------Imports --------------------------
-import React, { useState } from "react";
+import { useState } from "react";
 import ArtistEvent from "../forms/ArtistEvent";
 import { firestore } from "../firebase/firebase";
 import "./Artist.css";

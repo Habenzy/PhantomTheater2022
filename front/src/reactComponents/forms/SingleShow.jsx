@@ -1,5 +1,4 @@
 // ------ Imports ---
-import React from "react";
 import "../formcss/singleShow.css";
 
 //  ---- Single show component functionality and export ----
