@@ -8,7 +8,7 @@ require("dotenv").config();
 
 //-------------------------------- middleware------------------------------//
 app.use(express.static(path.resolve("./client/build")));
-//for future self: body-parser is deprecated. 'body just looks like this now
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 

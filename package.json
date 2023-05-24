@@ -6,38 +6,30 @@
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build",
+    "preview": "cd client && npm start"
   },
   "keywords": [],
   "author": "DevTeamPhantom",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.19.0",
     "bootstrap": "^4.5.3",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "firebase": "^8.2.10",
     "firebase-tools": "^9.5.0",
-    "nodemailer": "^6.4.17",
-    "react-bootstrap": "^1.4.0",
-    "react-burger-menu": "^3.0.6",
-    "react-dom": "^17.0.1",
-    "react-phone-number-input": "^3.1.9",
-    "react-router": "^5.2.0"
+    "nodemailer": "^6.4.17"
   },
   "engines": {
-    "node": "12.15.0"
-  },
-  "devDependencies": {
-    "eslint-plugin-react-hooks": "^4.2.0"
+    "node": "^17.8.0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/phantomtheater/PhantomTheater2021.git"
+    "url": "git+https://github.com/habenzy/PhantomTheater2022.git"
   },
   "bugs": {
-    "url": "https://github.com/phantomtheater/PhantomTheater2021/issues"
+    "url": "https://github.com/habenzy/PhantomTheater2022/issues"
   },
-  "homepage": "https://github.com/phantomtheater/PhantomTheater2021#readme"
+  "homepage": "https://github.com/habenzy/PhantomTheater2022#readme"
 }
