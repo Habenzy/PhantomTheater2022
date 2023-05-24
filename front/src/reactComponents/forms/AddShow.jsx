@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { firestore } from "../firebase/firebase";
 import { Form, Button, Card, Container } from "react-bootstrap";
-import NumberFormat from "react-number-format";
+import {NumericFormat} from "react-number-format";
 import "../formcss/addShow.css";
 import "./Dashboard.jsx"
 import splashPlaceholder from "../images/testpattern.gif"
@@ -163,7 +163,7 @@ function AdminForm(props) {
                   {/* Phone Container */}
                   <Form.Group>
                     <Form.Label>Phone: </Form.Label>
-                    <NumberFormat
+                    <NumericFormat
                       type="text"
                       name="phoneInput"
                       placeholder="Enter Phone"

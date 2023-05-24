@@ -4,7 +4,7 @@ import ProgressBar from "react-bootstrap/ProgressBar";
 import { Form, Button, Card, Container, FormLabel } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import "../formcss/editShow.css";
-import NumberFormat from "react-number-format";
+import {NumericFormat} from "react-number-format";
 
 
 export default function EditShow() {
@@ -576,7 +576,7 @@ export default function EditShow() {
                   <Form.Group>
                     <Form.Label>Phone: </Form.Label>
                     <p>For internal use.</p>
-                    <NumberFormat
+                    <NumericFormat
                       className="form-control"
                       mask="_"
                       format="(###) ###-####"

@@ -1,11 +1,11 @@
 //----------------imports----------------//
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { Form, Button, Card, Container } from "react-bootstrap";
 import { firestore } from "../firebase/firebase";
 import { useNavigate } from 'react-router-dom'
 import "../formcss/proposal.css"
-import NumberFormat from 'react-number-format'
+  import {NumericFormat} from 'react-number-format'
 
 function ProposalForm() {
   //hook set-up
@@ -78,7 +78,7 @@ function ProposalForm() {
                 </Form.Group>
                 <Form.Group id="contactPhone">
                   <Form.Label>Contact Phone:</Form.Label>
-                  <NumberFormat
+                  <NumericFormat
                     format="(###) ###-####"
                     mask="_"
                     className="form-control"

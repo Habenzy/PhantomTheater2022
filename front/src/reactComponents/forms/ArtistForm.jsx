@@ -4,7 +4,7 @@ import ProgressBar from "react-bootstrap/ProgressBar";
 // import Image from 'react-bootstrap/Image'
 import { useNavigate } from "react-router-dom";
 import app, { firestore } from "../firebase/firebase";
-import NumberFormat from "react-number-format";
+import {NumericFormat} from "react-number-format";
 import "../formcss/artistForm.css";
 
 let nullShow = {
@@ -323,7 +323,7 @@ export default function ArtistForm() {
                   {/* Phone container */}
                   <Form.Group id="contactPhone">
                     <Form.Label>Contact Phone:</Form.Label>
-                    <NumberFormat
+                    <NumericFormat
                       className="form-control"
                       mask="_"
                       format="(###) ###-####"

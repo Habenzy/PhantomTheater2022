@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 // get the database
 import { firestore } from '../firebase/firebase';
 
