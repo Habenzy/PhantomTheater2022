@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import "./Home.css";
 import { firestore } from "../firebase/firebase";
-import { useHistory } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import placeholderImage from "../images/barn3crop.jpg";
 
 //------ Homepage component function with currently playing as central image and next show -----------
@@ -27,7 +27,7 @@ function Home() {
   let [nextTitle, setNextTitle] = useState("");
   let [nextDates, setNextDates] = useState([]);
   let [nextShowNum, setNextShowNum] = useState(0);
-  const history = useHistory();
+  const history = useNavigate();
 
   async function archiveShows() {
     // find shows that have gone by or shows that are booked with no dates and send them to archive

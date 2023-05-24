@@ -20,7 +20,7 @@ import EditShow from "./reactComponents/forms/EditShow";
 import PrivateRoute from "./reactComponents/forms/PrivateRoute";
 import { AuthProvider } from "./reactComponents/forms/AuthContext";
 import Dashboard from "./reactComponents/forms/Dashboard";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
@@ -29,7 +29,7 @@ function App() {
         <Burger />
         <Nav />
         <AuthProvider>
-          <Switch>
+          <Routes>
             <Route exact path="/" component={Home} />
             <PrivateRoute path="/adminDash" component={Dashboard} />
             <PrivateRoute path="/editShow" component={EditShow} />
@@ -44,7 +44,7 @@ function App() {
             <Route path="/Artist" component={Artist} />
             <Route path="/AllArtist" component={AllArtist} />
             <Route path="/Donate" component={Donate} />
-          </Switch>
+          </Routes>
         </AuthProvider>
         <Footer />
       </div>
