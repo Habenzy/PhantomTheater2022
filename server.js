@@ -7,14 +7,14 @@ const nodemailer = require("nodemailer");
 require("dotenv").config();
 
 //-------------------------------- middleware------------------------------//
-app.use(express.static(path.resolve("./client/build")));
+app.use(express.static(path.resolve("./front/dist")));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // path home
 app.get("*", (req, res) => {
-  res.sendFile(path.resolve("./client/build/index.html"));
+  res.sendFile(path.resolve("./front/dist/index.html"));
 });
 
 //--------------------email sending functionality---------------------//
