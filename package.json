@@ -6,9 +6,9 @@
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build",
-    "preview": "cd client && npm start",
-    "build": "cd client && npm run build"
+    "heroku-postbuild": "cd front && npm install --only=dev && npm install && npm run build",
+    "preview": "cd front && npm start",
+    "build": "cd front && npm run build"
   },
   "keywords": [],
   "author": "DevTeamPhantom",
