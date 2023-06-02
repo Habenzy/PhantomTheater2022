@@ -37,8 +37,6 @@
 .donate h1.donate-link:hover {
   color: #1d2433;
   background-color: rgb(195, 247, 9);
-  margin-bottom: 10px;
-  font-size: 38pt;
   cursor: pointer
 }
 
