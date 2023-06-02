@@ -31,6 +31,14 @@
   font-size: 38pt;
 }
 
+.donate h1:hover {
+  color: #1d2433;
+  background-color: rgb(195, 247, 9);
+  margin-bottom: 10px;
+  font-size: 38pt;
+  cursor: pointer
+}
+
 .donateWrapper {
   display: flex;
   flex-direction: column;
