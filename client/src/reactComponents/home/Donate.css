@@ -29,6 +29,8 @@
   color: rgb(195, 247, 9);
   margin-bottom: 10px;
   font-size: 38pt;
+  text-decoration: none;
+  border-radius: 50%;
 }
 
 .donate h1:hover {
