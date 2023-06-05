@@ -79,6 +79,8 @@ function Home() {
     currentShows.sort(function (a, b) {
       return new Date(a.dates[0]) - new Date(b.dates[0]);
     });
+    console.log("current shows")
+    console.log(currentShows)
     // set sorted shows array in state
     setAllShows(currentShows);
     // set default image if no shows
@@ -87,7 +89,7 @@ function Home() {
 
   // triggers at page load
   useEffect(() => {
-    // archiveShows();
+    archiveShows();
     getNowPlaying();
   }, []);
 
@@ -96,7 +98,7 @@ function Home() {
     // do this if all shows.length >= 1
     console.log("all shows updated")
     console.log(allShows)
-    if (allShows.length >= 1 && allShows[0].dates.length > Date.now()) {
+    if (allShows.length >= 1) {
       console.log("one show")
       setSplashId(allShows[0].id);
       allShows[0].imageLg
@@ -107,7 +109,7 @@ function Home() {
       setSplashShowNum(allShows[0].dates.length);
     }
 
-    if (allShows.length >= 2 && allShows[0].dates.length > Date.now()) {
+    if (allShows.length >= 2) {
       console.log("more than one show")
       setNextId(allShows[1].id);
       setNextImage(allShows[1].imageLg);
