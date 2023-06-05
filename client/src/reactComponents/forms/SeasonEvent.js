@@ -55,7 +55,7 @@ function SeasonEvent(props) {
       {showImage}
       <br />
       <p className="artist">{props.artist}</p>
-      <pre className="blurb">{props.blurb}</pre>
+      <p className="blurb">{props.blurb}</p>
       <br />
 
       {numberOfShows >= 1 ? (
