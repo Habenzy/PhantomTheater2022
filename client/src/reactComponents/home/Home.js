@@ -96,7 +96,7 @@ function Home() {
     // do this if all shows.length >= 1
     console.log("all shows updated")
     console.log(allShows)
-    if (allShows.length >= 1 && allShows[0].dates[allShows[0].dates.length - 1] > Date.now()) {
+    if (allShows.length >= 1 && allShows[0].dates.length > Date.now()) {
       console.log("one show")
       setSplashId(allShows[0].id);
       allShows[0].imageLg
@@ -107,7 +107,7 @@ function Home() {
       setSplashShowNum(allShows[0].dates.length);
     }
 
-    if (allShows.length >= 2 && allShows[0].dates[allShows[0].dates.length - 1] > Date.now()) {
+    if (allShows.length >= 2 && allShows[0].dates.length > Date.now()) {
       console.log("more than one show")
       setNextId(allShows[1].id);
       setNextImage(allShows[1].imageLg);
