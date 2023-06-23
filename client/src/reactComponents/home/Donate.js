@@ -107,7 +107,9 @@ function Donate() {
             <br />
             Please either use the donate button or send your donation to Phantom Theater by check, care of Mary Moffroid, PO Box 373, Warren VT 05674.  Thank you so very much for considering a contribution to Phantom Theater.  We look forward to seeing you in the Barn!
               <br />
+              <br></br>
               <p className="special">With gratitude,
+              <br></br>
  The Phantom Theater Board
  <br></br>
  Lucas Bates, Claudia Becker, Beth Binns Schoellkopf, Laura Brines, MC DeBelina, Dan Eckstein, Janet Hubbard-Brown, Sheryl Kurland-Platt, Lexi Leacock, Tracy Martin, Mary Moffroid, Sucosh Norton, Jim Sanford, Bob Stauss,  Kate Youngdahl</p>

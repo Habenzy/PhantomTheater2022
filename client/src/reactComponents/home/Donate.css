@@ -71,6 +71,10 @@
   column-gap: 50px;
 }
 
+.special {
+  text-align: left;
+}
+
 /* ------Sponsor list wrapper styling ---- */
 .sponsorsWrapper {
   display: flex;
