@@ -102,7 +102,7 @@ function Donate() {
             <div>
             <br />
               <br />
-              Will you join us this year as a Friend of the Artists and contribute what you can to this worthy cause? Your support will be acknowledged on our website and in our materials, and - more importantly - you will make a real difference to the people who enrich us all with their art.
+              Will you join us this year as a Friend of the Artists and contribute what you can to this worthy cause? You will make a real difference to the people who enrich us all with their art.
 
             <br />
             Please either use the donate button or send your donation to Phantom Theater by check, care of Mary Moffroid, PO Box 373, Warren VT 05674.  Thank you so very much for considering a contribution to Phantom Theater.  We look forward to seeing you in the Barn!
