@@ -90,8 +90,11 @@ function SeasonEvent(props) {
       )}
 
       <br></br>
+      {/* Use this as a basis to do more dynamic ticket links:
+      `https://sevendaystickets.com/organizations/phantom-theater?date_range=${props.dates[0]}+-+${props.dates[props.dates.length - 1]}&organization_id=3287`
+       */}
       <a
-        href={props.ticketUrl ? props.ticketUrl :"https://sevendaystickets.com/organizations/phantom-theater"}
+        href={props.ticketUrl ? props.ticketUrl :`https://sevendaystickets.com/organizations/phantom-theater`}
         target="_blank"
         className="buy-ticket"
       >
