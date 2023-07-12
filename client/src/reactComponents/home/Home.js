@@ -218,10 +218,9 @@ function Home(props) {
           {splashId ? (
             <div>
               <button onClick={showSplashArtist}>- Artist Info -</button>
-              <a
+              <a 
                 href='https://sevendaystickets.com/organizations/phantom-theater'
                 target="_blank"
-                className="buy-ticket"
               >
                 Buy Tickets
               </a>
@@ -265,7 +264,6 @@ function Home(props) {
               href='https://sevendaystickets.com/organizations/phantom-theater'
 
               target="_blank"
-              className="buy-ticket"
             >
               Buy Tickets
             </a>
