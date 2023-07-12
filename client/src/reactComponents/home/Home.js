@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 import placeholderImage from "../images/barn3crop.jpg";
 
 //------ Homepage component function with currently playing as central image and next show -----------
-function Home() {
+function Home(props) {
   let [rightNow, setRightNow] = useState(() => {
     // todays date in db format set in state
     let today = new Date();
@@ -219,11 +219,7 @@ function Home() {
             <div>
               <button onClick={showSplashArtist}>- Artist Info -</button>
               <a
-                href={
-                  props.ticketUrl
-                    ? props.ticketUrl
-                    : `https://sevendaystickets.com/organizations/phantom-theater`
-                }
+                href='https://sevendaystickets.com/organizations/phantom-theater'
                 target="_blank"
                 className="buy-ticket"
               >
@@ -266,11 +262,8 @@ function Home() {
             {/* Artist Info button */}
             <button onClick={showNextArtist}>- Artist Info -</button>
             <a
-              href={
-                props.ticketUrl
-                  ? props.ticketUrl
-                  : `https://sevendaystickets.com/organizations/phantom-theater`
-              }
+              href='https://sevendaystickets.com/organizations/phantom-theater'
+
               target="_blank"
               className="buy-ticket"
             >
