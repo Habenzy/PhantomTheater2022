@@ -47,7 +47,7 @@ function Home() {
       let lastShow = doc.dates[doc.dates.length - 1];
       // filter for 'all shows have happened' or 'show has no dates
       // if above conditions are true then archive the show
-      console.log(doc.title, ' ', lastShow, ' ', rightNow)
+      console.log(doc.title, " ", lastShow, " ", rightNow);
       if (lastShow < rightNow) {
         let statusUpdate = "Archive";
         updateDB(doc.id, statusUpdate);
@@ -72,15 +72,15 @@ function Home() {
     const allShowsArray = showSnapshot.docs.map((doc) => {
       return { id: doc.id, ...doc.data() };
     });
-    console.log("shows fetched:")
-    console.log(allShowsArray)
+    console.log("shows fetched:");
+    console.log(allShowsArray);
     const currentShows = allShowsArray;
     // Sort new array by date[0] soonest to latest
     currentShows.sort(function (a, b) {
       return new Date(a.dates[0]) - new Date(b.dates[0]);
     });
-    console.log("current shows")
-    console.log(currentShows)
+    console.log("current shows");
+    console.log(currentShows);
     // set sorted shows array in state
     setAllShows(currentShows);
     // set default image if no shows
@@ -96,10 +96,10 @@ function Home() {
   // fires when AllShows changes and populates Splash and Next shows
   useEffect(() => {
     // do this if all shows.length >= 1
-    console.log("all shows updated")
-    console.log(allShows)
+    console.log("all shows updated");
+    console.log(allShows);
     if (allShows.length >= 1) {
-      console.log("one show")
+      console.log("one show");
       setSplashId(allShows[0].id);
       allShows[0].imageLg
         ? setSplashImage(allShows[0].imageLg)
@@ -110,7 +110,7 @@ function Home() {
     }
 
     if (allShows.length >= 2) {
-      console.log("more than one show")
+      console.log("more than one show");
       setNextId(allShows[1].id);
       setNextImage(allShows[1].imageLg);
       setNextTitle(allShows[1].title);
@@ -197,7 +197,7 @@ function Home() {
         <div className="currentPlayText">
           <h2>{`${splashTitle}`}</h2>
           {/* FUTURE UPDATE: change this to a .map function */}
-          {(allShows.length >= 1 && splashShowNum === 0) ? (
+          {allShows.length >= 1 && splashShowNum === 0 ? (
             <div>Showtimes coming soon.</div>
           ) : (
             console.log("showtimes coming soon...")
@@ -216,14 +216,27 @@ function Home() {
           <br />
           {/* Artist Info button */}
           {splashId ? (
-            <button onClick={showSplashArtist}>- Artist Info -</button>
+            <div>
+              <button onClick={showSplashArtist}>- Artist Info -</button>
+              <a
+                href={
+                  props.ticketUrl
+                    ? props.ticketUrl
+                    : `https://sevendaystickets.com/organizations/phantom-theater`
+                }
+                target="_blank"
+                className="buy-ticket"
+              >
+                Buy Tickets
+              </a>
+            </div>
           ) : (
             console.log()
           )}
         </div>
       </div>
 
-      {/* This is a MONSTER Bob Stauss style ternary that fires only if there is a next show */}
+      {/* fires only if there is a next show */}
       {nextId ? (
         // Next show container
         <div className="whatNext">
@@ -252,6 +265,17 @@ function Home() {
             <br />
             {/* Artist Info button */}
             <button onClick={showNextArtist}>- Artist Info -</button>
+            <a
+              href={
+                props.ticketUrl
+                  ? props.ticketUrl
+                  : `https://sevendaystickets.com/organizations/phantom-theater`
+              }
+              target="_blank"
+              className="buy-ticket"
+            >
+              Buy Tickets
+            </a>
           </div>
         </div>
       ) : (
