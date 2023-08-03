@@ -46,63 +46,10 @@ function Donate() {
           </p>
           <br />
           <div className="sponsorsList">
-            BETTER TRAVEL
-            <br />
-            BILL AND ALEX MACLAY
-            <br />
-            BILL WADSWORTH
-            <br />
-            BOBBI AND MAC ROOD
-            <br />
-            BONNIE HONIG
-            <br />
-            BROADLEAF LANDSCAPE ACHITECTURE
-            <br />
-            CATHERINE ALSOP
-            <br />
-            CATHERINE BENHAM
-            <br />
-            DOROTHY TOD
-            <br />
-            EAST WARREN COMMUNITY MARKET
-            <br />
-            HANS AND LAURIE BOERMA
-            <br />
-            HIGH COUNTRY HAIR DESIGN
-            <br />
-            J.S. BARKHAUSEN COMPANY
-            <br />
-            JANE AND PETER SCHNEIDER
-            <br />
-            JEFF AND BETH SCHOELLKOPF
-            <br />
-            JILL BOBROW AND JOHN ANDERSON
-            <br />
-            JITO COLEMAN AND BONNIE ATWATER
-            <br />
-            JULIA AND TIM PURINTON
-            <br />
-            MACLAY ARCHITECTS
-            <br />
-            MARY AND PIERRE MOFFROID
-            <br />
-            MICHAEL LEVENGOOD
-            <br />
-            NANCY AND RIHARD BROWNE
-            <br />
-            NANCY MOBLEY
-            <br />
-            PEGGY AND SPARKY POTTER
-            <br />
-            SANFORD/STRAUSS ARCHITECTS
-            <br />
-            SUSAN BAUCHNER
-            <br />
-            THE WINTERS FAMILY
-            <br></br>
-            AIDAN SCHOELLKOPF ANNIE ELIAS AND DAVID SINAIKO
+            AIDAN SCHOELLKOPF
+            <br></br>ANNIE ELIAS AND DAVID SINAIKO
+            <br></br>APRIL SMITH AND JOHN CONNELL
             <br></br>ART SCHALLER
-            <br></br>ARTISANS GALLERY
             <br></br>BAKED BEADS
             <br></br>BETH AND JEFF SCHOELLKOPF
             <br></br>BETTER TRAVEL
@@ -116,7 +63,7 @@ function Donate() {
             <br></br>CATHERINE BENHAM
             <br></br>CONNIE COLMAN AND RICHARD TRAVERS
             <br></br>DANA BARROWS
-            <br></br>DARRAD
+            <br></br>DARRAD COMPUTERS
             <br></br>DEBBIE AND BOB FIRST
             <br></br>DEBBIE ND JOHN NEW
             <br></br>DOROTHY TOD
@@ -130,7 +77,7 @@ function Donate() {
             <br></br>JILL BOBROW AND JOHN ANDERSON
             <br></br>JITO COLEMAN AND BONNIE ATWATER
             <br></br>JULIA AND TIM PURINTON
-            <br></br>KATE AND ROGER YOUNGDAHL
+            <br></br>KATE YOUNGDAHL AND ROGER STAUSS
             <br></br>KINNY PEROT
             <br></br>LUCY O'BRIEN
             <br></br>MACLAY ARCHITECTS
@@ -143,19 +90,22 @@ function Donate() {
             <br></br>NICHOLAS AND ANNMARIE HARMON
             <br></br>PAT PINKSTON & MARTINE GUTIERREZ
             <br></br>PEGGY AND SPARKY POTTER
-            <br></br>RONI AND SUCOSH NORTON
+            <br></br>PETER AND PATRISHA HAYS
             <br></br>RIVERS EDGE INTEGRATIVE MEDICINE
             <br></br>SANFORD/STRAUSS ARCHITECTS
             <br></br>SHANNON GILLIGAN
+            <br></br>SUCOSH NORTON AND RONI DONNENFELD
             <br></br>SUSAN BAUCHNER
-            <br></br>TAPLIN FAMILY
+            <br></br>THE FEATHERBED INN
             <br></br>THE PARKER-REICHER FAMILY
+            <br></br>THE PITCHER INN
             <br></br>THE PLATT FAMILY
+            <br></br>THE TAPLIN FAMILY
             <br></br>THE WARREN ARTS COMMITTEE
+            <br></br>THE WARREN STORE
             <br></br>THE WINTERS FAMILY
             <br></br>TRISH HOPKINS
             <br></br>VEE'S FLOWERS
-            <br></br>WARREN ARTS COMMITTEE
           </div>
           <div className="line"></div>
           <div className="sponsorHowTo">
