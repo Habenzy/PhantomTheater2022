@@ -89,7 +89,7 @@ function Home(props) {
 
   // triggers at page load
   useEffect(() => {
-    archiveShows();
+    //archiveShows();
     getNowPlaying();
   }, []);
 
