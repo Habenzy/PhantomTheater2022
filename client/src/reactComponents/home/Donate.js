@@ -13,20 +13,31 @@ function Donate() {
           <h1 className="donate-link">Donate</h1>
         </a>
         <div className="copy">
+          <b>
+            An Invitation to become a Friend of the Artists of Phantom Theater
+          </b>
+          <br></br>
           <p>
-            Phantom Theater is for and by artists and the community. We are
-            committed to supporting both through the performing arts. While a
-            portion of admissions to our shows helps offset our operating costs
-            - including rent, utilities, and an honorarium for our artistic
-            director - we rely on donations and grants for both seasonal costs
-            and major upgrades. For instance, in 2021 we replaced our archaic
-            and faulty lighting system with a modern LED grid and board through
-            the generosity of our patrons, a benefit performance by{" "}
-            <a href="https://wesliband.com/">Wesli</a>, and the{" "}
-            <a href="https://www.vermonthumanities.org/">
-              Vermont Humanities Council
-            </a>
-            .
+            Historically, Phantom Theater has relied on local businesses and
+            ticket sales to help performers cover travel and lodging, as well as
+            a small honorarium for their creative work. Unfortunately, that
+            honorarium often fell short in reimbursing the tremendous effort
+            that goes into our artists’ innovative entertainment. Last year we
+            started the <i>Friend of the Artists</i> initiative to help us offer
+            more substantial support to our creative community who performs here
+            at Phantom Theater.
+          </p>
+          <p>
+            Will you join us this year as a <i>Friend of the Artists</i> and
+            contribute what you can to this worthy cause? Your support will be
+            acknowledged on our website and in our materials, and - more
+            importantly - you will make a real difference to the people who
+            enrich us all with their art.
+          </p>
+
+          <p>
+            Thank you so very much for considering a contribution to Phantom
+            Theater. .
             <br />
             <br />
             Every donation counts! And as a 501.c3 organization, every donation
