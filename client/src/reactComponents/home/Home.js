@@ -88,36 +88,36 @@ function Home(props) {
   }
 
   // triggers at page load
-  // useEffect(() => {
-  //   archiveShows();
-  //   getNowPlaying();
-  // }, []);
+  useEffect(() => {
+    //archiveShows();
+    getNowPlaying();
+  }, []);
 
   // fires when AllShows changes and populates Splash and Next shows
-  useEffect(() => {
-    // do this if all shows.length >= 1
-    console.log("all shows updated");
-    console.log(allShows);
-    if (allShows.length >= 1) {
-      console.log("one show");
-      setSplashId(allShows[0].id);
-      allShows[0].imageLg
-        ? setSplashImage(allShows[0].imageLg)
-        : setSplashImage(placeholderImage);
-      setSplashTitle(allShows[0].title);
-      setSplashDates(allShows[0].dates);
-      setSplashShowNum(allShows[0].dates.length);
-    }
+  // useEffect(() => {
+  //   // do this if all shows.length >= 1
+  //   console.log("all shows updated");
+  //   console.log(allShows);
+  //   if (allShows.length >= 1) {
+  //     console.log("one show");
+  //     setSplashId(allShows[0].id);
+  //     allShows[0].imageLg
+  //       ? setSplashImage(allShows[0].imageLg)
+  //       : setSplashImage(placeholderImage);
+  //     setSplashTitle(allShows[0].title);
+  //     setSplashDates(allShows[0].dates);
+  //     setSplashShowNum(allShows[0].dates.length);
+  //   }
 
-    if (allShows.length >= 2) {
-      console.log("more than one show");
-      setNextId(allShows[1].id);
-      setNextImage(allShows[1].imageLg);
-      setNextTitle(allShows[1].title);
-      setNextDates(allShows[1].dates);
-      setNextShowNum(allShows[1].dates.length);
-    }
-  }, [allShows]);
+  //   if (allShows.length >= 2) {
+  //     console.log("more than one show");
+  //     setNextId(allShows[1].id);
+  //     setNextImage(allShows[1].imageLg);
+  //     setNextTitle(allShows[1].title);
+  //     setNextDates(allShows[1].dates);
+  //     setNextShowNum(allShows[1].dates.length);
+  //   }
+  // }, [allShows]);
 
   // this function changes the date object into a readable string formatted for 12 hour display
   function changeDate(date) {
