@@ -197,7 +197,7 @@ function Home(props) {
         <div className="currentPlayText">
           <h2>{`${splashTitle}`}</h2>
           {/* FUTURE UPDATE: change this to a .map function */}
-          {allShows.length >= 1 && splashShowNum === 0 ? (
+          {/* {allShows.length >= 1 && splashShowNum === 0 ? (
             <div>Showtimes coming soon.</div>
           ) : (
             console.log("showtimes coming soon...")
@@ -215,7 +215,7 @@ function Home(props) {
           {splashShowNum >= 6 ? changeDate(splashDates[5]) : console.log()}
           <br />
           {/* Artist Info button */}
-          {splashId ? (
+          {/* {splashId ? (
             <div>
               <button onClick={showSplashArtist}>- Artist Info -</button>
               <a 
@@ -227,7 +227,7 @@ function Home(props) {
             </div>
           ) : (
             console.log()
-          )}
+          )} } */}
         </div>
       </div>
 
