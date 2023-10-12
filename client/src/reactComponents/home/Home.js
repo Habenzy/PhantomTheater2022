@@ -88,10 +88,10 @@ function Home(props) {
   }
 
   // triggers at page load
-  useEffect(() => {
-    //archiveShows();
-    getNowPlaying();
-  }, []);
+  // useEffect(() => {
+  //   archiveShows();
+  //   getNowPlaying();
+  // }, []);
 
   // fires when AllShows changes and populates Splash and Next shows
   useEffect(() => {
